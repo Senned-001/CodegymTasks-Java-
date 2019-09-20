@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task16.task1615"\n\nAirport
+
+
+1. Figure out what the program does.
+2. Correct the takeOff method. It currently takes a looooong time. A takeoff should take 100 milliseconds.
+3. Implement the waitForTakeoff method by analogy with the takeOff method. The wait time should not be longer than the takeoff time.
+
+
+Requirements:
+1.	The takeOff method should run for approximately 100 ms.
+2.	The waitForTakeoff method should run for approximately 100 ms.
+3.	The main method should create 3 planes.
+4.	The Solution class must have an inner class called Plane.
+5.	The Solution class must have an inner class called Runway.
+
+

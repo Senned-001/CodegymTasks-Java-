@@ -1,0 +1,24 @@
+taskKey="com.codegym.task.task16.task1633"\n\nDebug everything under the sun
+
+
+Figure out what the program does.
+Read about UncaughtExceptionHandler - it's important.
+Take another careful look at the program.
+Figure out why our OurUncaughtExceptionHandler doesn't work (use the debugger).
+Fix the bug, i.e. everything should work. :)
+
+Expected result in no particular order:
+Thread 1: My exception message
+Thread 2: My exception message
+
+
+Requirements:
+1.	The main method should create a thread with the following arguments: commonThread and &quot;Thread 1&quot;.
+2.	The main method should create a thread with the following arguments: commonThread and &quot;Thread 2&quot;.
+3.	The main method must start two threads (Thread objects).
+4.	The main method must interrupt two threads (Thread objects).
+5.	The program must use OurUncaughtExceptionHandler&#39;s uncaughtException method to display 2 messages.
+6.	Don&#39;t explicitly call OurUncaughtExceptionHandler&#39;s uncaughtException method.
+7.	The program&#39;s output should contain the following lines: &quot;Thread 1: My exception message&quot; and &quot;Thread 2: My exception message&quot;.
+
+

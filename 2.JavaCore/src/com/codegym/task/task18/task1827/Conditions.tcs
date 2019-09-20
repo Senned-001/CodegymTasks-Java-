@@ -1,0 +1,35 @@
+taskKey="com.codegym.task.task18.task1827"\n\nPrices
+
+
+CrUD for a table inside a file.
+Read a file name for CrUD operations from the console.
+The program is started with the following arguments:
+-c productName price quantity
+Argument values:
+where id is 8 characters.
+productName is 30 characters.
+price is 8 characters.
+quantity is 4 characters.
+-c adds the product with the specified parameters to the end of the file, and generates an id by incrementing the maximum id found in the file.
+
+The file data is stored in the following order (without separating spaces):
+id productName price quantity
+Each data field is padded with spaces up to its length.
+Before adding a new line, re-write all of its contents to the file.
+
+Example:
+19847   Swim trunks, blue             159.00  12
+198479  Swim trunks, black with printe173.00  17
+19847983Snowboard jacket with reflecti10173.991234
+
+
+Requirements:
+1.	The program should read a file name for CrUD operations from the console.
+2.	The Solution class should not use static variables.
+3.	When you run the program without arguments, the product list must remain unchanged.
+4.	When the program is run with the arguments &quot;-c productName price quantity&quot;, a new line with the corresponding product should be added to the end of the file.
+5.	The product must have the next id after the maximum id found in the file.
+6.	The format of the new product line must precisely match that format specified in the task.
+7.	The file streams must be closed.
+
+

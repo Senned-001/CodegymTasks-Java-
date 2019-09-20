@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task17.task1712"\n\nRestaurant
+
+
+1. Figure out what the program does. For some reason, the waiter isn't bringing the prepared dishes out to the tables :(
+2. Fix the bug.
+Hint: it's one line
+
+
+Requirements:
+1.	The Restaurant class should contain a list of cooks and waiters (public static List&lt;Thread&gt; threads).
+2.	The Manager class must contain an order queue (private final Queue&lt;Order&gt; orderQueue).
+3.	The Manager class must have a queue with the prepared dishes (private final Queue&lt;Dish&gt; dishQueue).
+4.	The Manager class must implement the singleton pattern.
+5.	The Waiter class must implement the Runnable interface.
+6.	The Cook class must implement the Runnable interface.
+7.	If there are no prepared dishes in the queue, the Waiter thread should take an order from a table and add it to the order queue.
+8.	If there are prepared meals in the queue, the Waiter thread should take the dish out of the queue and place the order on the table.
+9.	If there are no orders in the order queue, the Cook thread should rest (i.e. the cook should rest).
+10.	If there are orders in the order queue, the Cook thread should prepare the dish and add it to the queue of prepared dishes.
+
+

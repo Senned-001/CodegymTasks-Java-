@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task20.task2001"\n\nReading and writing to a file: Human
+
+
+Implement the logic for file IO for the Human class.
+The Human class's name field can't be empty.
+The main method exists just for you and is not involved in testing the solution.
+
+
+Requirements:
+1.	The read/write logic in the save/load methods must work correctly when the assets list is empty.
+2.	The read/write logic in the save/load methods must work correctly when the name field and assets list are not empty.
+3.	The Solution.Human class should not support the Serializable interface.
+4.	The Solution.Human class must be public.
+5.	The Solution.Human class should not support the Externalizable interface.
+
+

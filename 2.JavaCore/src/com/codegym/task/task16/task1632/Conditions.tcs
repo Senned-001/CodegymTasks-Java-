@@ -1,0 +1,24 @@
+taskKey="com.codegym.task.task16.task1632"\n\nClew
+
+
+1. Create 5 different threads that differ from Thread:
+1.1. Thread 1 must run indefinitely;
+1.2. Thread 2 should display "InterruptedException" when an InterruptedException occurs;
+1.3. Thread 3 should display "Hurray" every half second";
+1.4. Thread 4 must implement the Message interface. When the showWarning method is called, the thread should stop;
+1.5. Thread 5 should read numbers from the console until "N" is entered. Then it should display the sum of the entered numbers.
+2. In a static block, add your threads to List<Thread> threads in the specified order.
+3. The threads should not start automatically.
+Hint: Thread 4 can be checked using isAlive()
+
+
+Requirements:
+1.	The Solution class&#39;s static block must create 5 threads and add them to the threads list.
+2.	The threads in the threads list should not start automatically.
+3.	Thread 1 in the threads list must run infinitely.
+4.	Thread 2 in the threads list should display &quot;InterruptedException&quot; when an InterruptedException occurs.
+5.	Thread 3 in the threads list should display &quot;Hurray&quot; every half second.
+6.	Thread 4 in the threads list must implement the Message interface. When the showWarning method is called, the thread should stop.
+7.	Thread 5 in the threads list should read numbers from the console until &quot;N&quot; is entered. Then it should display the sum of the entered numbers.
+
+

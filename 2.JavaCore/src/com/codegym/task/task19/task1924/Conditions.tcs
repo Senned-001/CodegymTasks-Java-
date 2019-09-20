@@ -1,0 +1,31 @@
+taskKey="com.codegym.task.task19.task1924"\n\nReplacing numbers
+
+
+1. In a static block, initialize map with (number, word) pairs from 0 to 12 inclusive.
+For example, (0, "zero"), (1, "one"), (2, "two")
+2. Read the file name from the console, and then read the contents of the file.
+3. Use map to replace all of the numbers with words.
+4. Display the result.
+5. Close the streams.
+
+Example file data:
+This costs 1 dollar, but this is 12.
+The variable is called file1.
+110 is a number.
+
+Example console output:
+This costs one dollar, but this is twelve.
+The variable is called file1.
+110 is a number.
+
+
+Requirements:
+1.	The Solution class must have a public static Map&lt;Integer, String&gt; field called words that is initialized immediately.
+2.	The program must read the file name from the console (use BufferedReader).
+3.	The BufferedReader used for reading input from the console must be closed after use.
+4.	The program must read the file&#39;s contents (use FileReader).
+5.	The file input stream (FileReader) must be closed.
+6.	The program should write all of the lines from the file to the console, but any numbers must be replaced with the corresponding words in map.
+7.	The Solution class must have a static block that adds thirteen pairs to map.
+
+

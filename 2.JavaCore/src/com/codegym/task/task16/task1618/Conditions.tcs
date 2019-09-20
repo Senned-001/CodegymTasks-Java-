@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task16.task1618"\n\nAnother interruption
+
+
+Create a TestThread.
+In the main method, create a thread, run it, and then interrupt it using the interrupt() method.
+
+
+Requirements:
+1.	The TestThread class should inherit the Thread class.
+2.	The TestThread class must have a public void run method.
+3.	The main method must create a TestThread object.
+4.	The main method must call the start method on the TestThread object.
+5.	The main method must call the interrupt method on the TestThread object.
+
+

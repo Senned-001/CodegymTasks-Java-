@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task17.task1714"\n\nComparable
+
+
+Implement the Comparable<Beach> interface in the Beach class. Beaches will be used by threads, so you need to ensure that all the methods are synchronized.
+Implement the compareTo method so that when two beaches are compared the method returns a positive number if the first beach is better
+or a negative number if the second beach is better. The magnitude of the number indicates how much better the beach is.
+
+
+Requirements:
+1.	The Beach class must have three fields: String name, float distance, int quality.
+2.	The Beach class should implement the Comparable&lt;Beach&gt; interface.
+3.	The Beach class&#39;s compareTo method should at least account for beach quality and distance.
+4.	All of the Beach class&#39;s methods, except for the main method, must be synchronized.
+
+

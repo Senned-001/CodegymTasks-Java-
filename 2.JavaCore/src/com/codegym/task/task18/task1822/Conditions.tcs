@@ -1,0 +1,26 @@
+taskKey="com.codegym.task.task18.task1822"\n\nFinding data inside a file
+
+
+Read a file name from the console.
+Search the file for information related to the specified id. Display it in the format used in the file.
+The program is started with one argument: id (an int).
+Close the streams.
+
+The file data is separated by spaces and stored in the following order:
+id productName price quantity
+
+where id is an int
+productName is a String — it can contain spaces
+price is a double
+quantity is an int
+
+The information for each product is stored on a separate line.
+
+
+Requirements:
+1.	The program should read a file name from the console.
+2.	Create an input stream for the file.
+3.	The program should search the file and display information related to the specified id passed as the first argument.
+4.	The stream used to read the file must be closed.
+
+

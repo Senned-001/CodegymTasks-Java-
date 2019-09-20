@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task19.task1910"\n\nPunctuation
+
+
+Read 2 file names from the console.
+The first file contains text.
+Read the contents of the first file, and remove all punctuation marks, including newline characters. Then output the result to the second file.
+Close the streams.
+
+
+Requirements:
+1.	The program should read file names from the console (use BufferedReader).
+2.	The BufferedReader used for reading input from the console must be closed after use.
+3.	The program must read the first file&#39;s contents (use the BufferedReader constructor that takes a FileReader argument).
+4.	The file input stream (BufferedReader) must be closed.
+5.	The program must write the contents of the first file to the second file, removing all punctuation marks, including newline characters (use the BufferedWriter constructor that takes a FileWriter argument to write to the file).
+6.	The file output stream (BufferedWriter) must be closed.
+
+

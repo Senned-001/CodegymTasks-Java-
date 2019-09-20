@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task16.task1625"\n\nDeadlock
+
+
+1. Figure out how the program works.
+2. Without changing the T1 and T2 classes, make it so their threads finish (not necessarily successfully).
+3. Don't use the sleep method.
+
+
+Requirements:
+1.	The main method must start the t1 thread.
+2.	The main method must start the t2 thread.
+3.	Don&#39;t change the T1 class.
+4.	Don&#39;t change the T2 class.
+5.	Don&#39;t use the sleep method.
+6.	The program&#39;s output should consist of 2 lines indicating that the threads have finished. For example: &quot;T1 was interrupted&quot; and &quot;T2 finished&quot;.
+7.	The t1 and t2 threads must end (not necessarily successful).
+
+

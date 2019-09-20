@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task17.task1716"\n\nSynchronized methods
+
+
+Set the synchronized modifier only on the methods that need it.
+The Solution object will be used by threads.
+
+
+Requirements:
+1.	Use synchronized in method0, if necessary.
+2.	Use synchronized in method1, if necessary.
+3.	Use synchronized in method2, if necessary.
+4.	Use synchronized in method3, if necessary.
+5.	Use synchronized in method4, if necessary.
+6.	Use synchronized in method5, if necessary.
+7.	Use synchronized in method6, if necessary.
+8.	Use synchronized in method7, if necessary.
+
+

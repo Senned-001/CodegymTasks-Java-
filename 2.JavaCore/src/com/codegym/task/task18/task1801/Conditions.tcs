@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task18.task1801"\n\nMaximum byte
+
+
+Enter a file name from the console.
+Find the maximum byte in the file. Display it on the screen.
+Close the IO stream.
+
+
+Requirements:
+1.	The program should read a file name from the console.
+2.	Use a FileInputStream to read from the file.
+3.	The program should display the maximum byte read from the file.
+4.	The stream used to read the file must be closed.
+
+

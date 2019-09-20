@@ -1,0 +1,31 @@
+taskKey="com.codegym.task.task19.task1927"\n\nContextual advertising
+
+
+Replace the System.out object in the main method with your own reader wrapper.
+Your reader wrapper should display a contextual ad after every other call to println.
+Call testString's existing printSomething() method.
+Restore the System.out variable back to the original stream.
+
+Ad text: "CodeGym - online Java courses"
+
+Example output:
+first
+second
+CodeGym - online Java courses
+third
+fourth
+CodeGym - online Java courses
+fifth
+
+
+Requirements:
+1.	The Solution class must contain a TestString class.
+2.	The Solution class must have a public static TestString field called testString that is initialized immediately.
+3.	The TestString class must have a public void printSomething() method.
+4.	The TestString class&#39;s printSomething() method must display the following lines: &quot;first&quot;,&quot;second&quot;,&quot;third&quot;,&quot;fourth&quot;,&quot;fifth&quot;.
+5.	The Solution class&#39;s main(String[] args) method must create a PrintStream object (use the PrintStream constructor with a ByteArrayOutputStream parameter).
+6.	The Solution class&#39;s main(String[] args) method should replace and then restore the console output stream (System.out).
+7.	The Solution class&#39;s main(String[] args) method must call testString&#39;s printSomething() method.
+8.	The Solution class&#39;s main(String[] args) method must modify and display the lines output by the printSomething() method (by adding contextual ads), as per the task conditions.
+
+

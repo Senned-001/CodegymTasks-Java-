@@ -1,0 +1,47 @@
+taskKey="com.codegym.task.task19.task1916"\n\nTracking changes
+
+
+Read 2 file names from the console: file1 and file2.
+Both files contain text, but file2 is an updated version of file1. Some of the lines are still the same.
+You need to create a merged version of the lines by writing them to the lines list.
+The ADDED and REMOVED labels can't be used consecutively—they must always separated by the SAME label.
+The example includes empty lines for clarity.
+Neither the original file nor the updated file have empty lines!
+Example 1:
+original        updated             merged
+file1:          file2:              Result: (lines)
+
+line1           line1               SAME line1
+line2                               REMOVED line2
+line3           line3               SAME line3
+line4                               REMOVED line4
+line5           line5               SAME line5
+line0               ADDED line0
+line1           line1               SAME line1
+line2                               REMOVED line2
+line3           line3               SAME line3
+line4               ADDED line4
+line5           line5               SAME line5
+line0                               REMOVED line0
+
+Example 2:
+original        updated             merged
+file1:          file2:              Result: (lines)
+
+line1           line1               SAME line1
+line0               ADDED line0
+
+In the example, empty lines mean that the line is not in the specified file.
+
+
+Requirements:
+1.	The Solution class must contain a LineItem class.
+2.	The Solution class must have an enum called Type.
+3.	The Solution class must have a public static List&lt;LineItem&gt; field called lines that is initialized immediately.
+4.	In the main(String[] args) method, the program must read file names from the console (use BufferedReader).
+5.	In the main(String[] args) method, the BufferedReader used for reading input from the console must be closed after use.
+6.	The program must read the contents of the first and second file (use FileReader).
+7.	The file input streams (FileReader) must be closed.
+8.	The lines list should contain the merged version of the lines from the files. Each line should start with the label ADDED, REMOVED, or SAME, depending on the action taken.
+
+

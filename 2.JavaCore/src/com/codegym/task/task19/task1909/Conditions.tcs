@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task19.task1909"\n\nChanging punctuation marks
+
+
+Read 2 file names from the console.
+The first file contains text.
+Read the contents of the first file and change all the periods (".") to exclamation points ("!"). Then output the result to the second file.
+Close the streams.
+
+
+Requirements:
+1.	The program should read file names from the console (use BufferedReader).
+2.	The BufferedReader used for reading input from the console must be closed after use.
+3.	The program must read the first file&#39;s contents (use the BufferedReader constructor that takes a FileReader argument).
+4.	The file input stream (BufferedReader) must be closed.
+5.	The program must write the contents of the first file to the second file, replacing all the periods (&quot;.&quot;) with exclamation points (&quot;!&quot;) (use the BufferedWriter constructor that takes a FileWriter argument).
+6.	The file output stream (BufferedWriter) must be closed.
+
+

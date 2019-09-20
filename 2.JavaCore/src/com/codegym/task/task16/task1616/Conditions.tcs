@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task16.task1616"\n\nCounting seconds
+
+
+1. Write an implementation for the run method in the Stopwatch thread.
+2. The Stopwatch class must count the number of seconds that have passed from the creation of the thread until a string is entered.
+3. Display the number of seconds.
+
+
+Requirements:
+1.	The Stopwatch class&#39;s run method must have a loop.
+2.	The run method should call Thread.sleep(1000).
+3.	The run method should increment the field seconds every 1 second.
+4.	After the Stopwatch thread is interrupted, the run method must display the number of seconds.
+5.	There must be only one run method in the Stopwatch class.
+
+

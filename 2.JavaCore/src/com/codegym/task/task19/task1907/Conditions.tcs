@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task19.task1907"\n\nCounting words
+
+
+Read a file name from the console.
+The file contains words separated by punctuation marks.
+Output to the console the number of times the word "world" appears in the file.
+Close the streams.
+
+
+Requirements:
+1.	The program must read the file name from the console (use BufferedReader).
+2.	The BufferedReader used for reading input from the console must be closed after use.
+3.	The program must read the file&#39;s contents (use the FileReader constructor that takes a String argument).
+4.	The file input stream (FileReader) must be closed.
+5.	The program must output to the console the number of times the word &quot;world&quot; appears in the file.
+
+

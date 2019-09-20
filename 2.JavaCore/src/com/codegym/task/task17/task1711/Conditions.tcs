@@ -1,0 +1,42 @@
+taskKey="com.codegym.task.task17.task1711"\n\nCRUD 2
+
+
+Batch CrUD: multiple Creations, Updates, Deletions.
+
+The program runs with one of the following sets of arguments:
+-c name1 sex1 bd1 name2 sex2 bd2 ...
+-u id1 name1 sex1 bd1 id2 name2 sex2 bd2 ...
+-d id1 id2 id3 id4 ...
+-i id1 id2 id3 id4 ...
+Argument values:
+name (String)
+sex ("m" or "f")
+bd (birth date in the following format: 04 15 1990)
+-c (adds all people with the specified arguments to the end of allPeople; displays their ids in the appropriate order)
+-u (updates the corresponding data of people with the specified ids)
+-d (performs the logical deletion of the person with the specified id; replaces all of its data with null)
+-i (displays information about all people with the specified ids: name sex bd)
+
+The id corresponds to the index in the list.
+The birth date format is Apr 15 1990.
+All the people should be stored in allPeople.
+The order in which data is displayed corresponds to the order in which is input.
+Be sure the program is thread safe (works correctly with multiple threads without corrupting the data).
+Use Locale.ENGLISH as the second argument for SimpleDateFormat.
+
+Example output for the -i argument with two ids:
+Washington m Apr 15 1990
+Ross f Apr 25 1997
+
+
+Requirements:
+1.	The Solution class must contain a public volatile List&lt;Person&gt; field called allPeople.
+2.	The Solution class must have a static block where two people are added to the allPeople list.
+3.	With the -c argument, the program must add all people with the specified arguments to the end of the allPeople list, and display the id of each of them.
+4.	With the -u argument, the program must update the data of the people with the specified ids in the allPeople list.
+5.	With the -d argument, the program must perform the logical deletion of the people with the specified ids in the allPeople list.
+6.	With the -i argument, the program should display data about all the people with the specified ids according to the format specified in the task.
+7.	The Solution class&#39;s main method must contain a switch statement based on args[0].
+8.	Each case label in the switch statement must have a synchronization block for allPeople.
+
+

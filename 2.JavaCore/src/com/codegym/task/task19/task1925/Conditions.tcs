@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task19.task1925"\n\nLong words
+
+
+The main method's first parameter is file1 and the second is file2.
+file1 contains words separated by spaces.
+Write to file2 a comma-separated list of words longer than 6 characters.
+file2 should not end with a comma.
+Close the streams.
+
+Example output to file2:
+lengthy,shortened,abbreviation
+
+
+Requirements:
+1.	The program must NOT read data from the console.
+2.	The program must read the first file&#39;s contents (use the FileReader constructor with a String parameter).
+3.	The file input stream (FileReader) must be closed.
+4.	The program should write to the second file all the words from the first file longer than 6 characters, separated by commas (use FileWriter).
+5.	The file output stream (FileWriter) must be closed.
+
+

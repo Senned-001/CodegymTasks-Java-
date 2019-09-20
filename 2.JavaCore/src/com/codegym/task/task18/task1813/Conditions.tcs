@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task18.task1813"\n\nAmigoOutputStream
+
+
+1 Change the AmigoOutputStream class so that it wraps the FileOutputStream class. Use inheritance.
+2 When the close() method is called, perform the following sequence of actions:
+2.1 Call the flush() method.
+2.2 Append the following text "CodeGym © All rights reserved." Use the getBytes() method.
+2.3 Close the stream using the close() method.
+
+
+Requirements:
+1.	Don&#39;t change the main method.
+2.	The AmigoOutputStream class must inherit the FileOutputStream class.
+3.	The AmigoOutputStream class&#39;s constructor should accept a FileOutputStream object.
+4.	All write(), flush(), and close() methods in the AmigoOutputStream class must be delegated to the FileOutputStream object.
+5.	The close() method must first call the flush() method, append the additional text, and then close the stream.
+
+

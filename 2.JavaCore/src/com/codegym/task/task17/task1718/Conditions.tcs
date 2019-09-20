@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task17.task1718"\n\nIroning
+
+
+Back to the daily grind...
+Add one synchronized keyword to make diana and steve take turns ironing, since there's only one iron!
+Hint: Use class-level locking.
+
+
+Requirements:
+1.	The Solution class must contain the public static Clothes class.
+2.	The Solution class must contain the public static Iron class.
+3.	The Solution class must contain the public static Person class.
+4.	The Person class must be a thread.
+5.	The Person class&#39;s run() method must have a synchronized block.
+6.	The synchronized block must use a class-level lock.
+
+

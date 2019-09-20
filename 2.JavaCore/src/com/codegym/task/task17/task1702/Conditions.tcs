@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task17.task1702"\n\nFaster together? We'll see :)
+
+
+1. Understand what we're dealing with and how it works.
+2. Create a public static SortThread class, whose run method uses the sort method to sort the static array testArray.
+
+
+Requirements:
+1.	The Solution class must contain the public static SortThread class.
+2.	The SortThread class must be a thread.
+3.	The SortThread class&#39;s run method must call the sort() method, passing testArray as an argument.
+4.	The program should display text on the screen.
+
+

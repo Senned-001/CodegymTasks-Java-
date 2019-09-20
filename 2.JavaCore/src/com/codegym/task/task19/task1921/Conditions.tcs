@@ -1,0 +1,27 @@
+taskKey="com.codegym.task.task19.task1921"\n\nJohn Johnson
+
+
+The first parameter of the main method is a file name.
+Each line of the specified file has the following format:
+name month day year
+where [name] is a String that can contain several words separated by spaces.
+[month] is an int, [day] is an int, and [year] is an int.
+The data is separated by spaces.
+
+Fill the PEOPLE list using the file's data.
+Close the streams.
+
+Example input file:
+John Jack Johnson 12 31 1987
+Vincent 5 15 2013
+
+
+Requirements:
+1.	The Solution class must contain a public List&lt;Person&gt; constant called PEOPLE, which must be initialized immediately.
+2.	The program must NOT read data from the console.
+3.	The program must read the file&#39;s contents (use FileReader).
+4.	The file input stream (FileReader) must be closed.
+5.	The program must fill the PEOPLE list with data from the file.
+6.	The program should properly handle hyphenated names, such as Mary-Jo.
+
+

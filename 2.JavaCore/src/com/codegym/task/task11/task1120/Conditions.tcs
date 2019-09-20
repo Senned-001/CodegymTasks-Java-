@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task11.task1120"\n\nCorrect inheritance chain: part 5
+
+
+Create a proper "inheritance chain" for the following classes: House, Cat, Dog, Car, Animal, and Asset.
+
+
+Requirements:
+1.	Inherit the House class properly.
+2.	Inherit the Cat class properly.
+3.	Inherit the Dog class properly.
+4.	Inherit the Car class properly.
+5.	Inherit the Animal class properly.
+6.	Inherit the Asset class properly.
+
+

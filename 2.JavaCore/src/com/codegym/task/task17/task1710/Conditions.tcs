@@ -1,0 +1,38 @@
+taskKey="com.codegym.task.task17.task1710"\n\nCRUD
+
+
+CrUD: Create, Update, Delete.
+The program runs with one of the following sets of arguments:
+-c name sex bd
+-u id name sex bd
+-d id
+-i id
+Argument values:
+name (String)
+sex ("m" or "f")
+bd (birth date in the following format: "04 15 1990")
+-c (adds a person with the specified arguments to the end of allPeople; displays the id on the screen)
+-u (updates the data of the person with the specified id)
+-d (performs the logical deletion of the person with the specified id; replaces all of its data with null)
+-i (displays information about the person with the specified id: name sex (m/f) bd (format Apr 15 1990))
+
+The id corresponds to the index in the list.
+All the people should be stored in allPeople.
+Use Locale.ENGLISH as the second argument for SimpleDateFormat.
+
+Example arguments:
+-c Washington m "04 15 1990"
+
+Example output for the -i argument:
+Washington m Apr 15 1990
+
+
+Requirements:
+1.	The Solution class must contain a public static List&lt;Person&gt; field called allPeople.
+2.	The Solution class must have a static block where two people are added to the allPeople list.
+3.	When you start the program with the -c argument, the program should add the person with the specified arguments to the end of the allPeople list and display the id (index).
+4.	When you run the program with the -u argument, the program must update the data of the person with the specified id in the allPeople list.
+5.	When you run the program with the -d argument, the program must perform the logical deletion the person with the specified id in the allPeople list.
+6.	When you run the program with the -i argument, the program should display the data about the person with the specified id in accordance with the format given in the task.
+
+

@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task18.task1808"\n\nSplitting a file
+
+
+Read 3 file names from the console: file1, file2, file3.
+Split file1 as follows:
+Write the first half of its bytes to file2,and write the second half of its bytes to file3.
+If the number of bytes in file1 is odd, then file2 should contain the larger half.
+Close the streams.
+
+
+Requirements:
+1.	The program should read a file name three times from the console.
+2.	Use FileInputStream to read from a file, and use FileOutputStream to write to files.
+3.	The first half of the bytes in the first file must be written to the second file.
+4.	The second half of the bytes in the first file must be written to the third file.
+5.	The FileInputStream and FileOutputStream must be closed.
+
+

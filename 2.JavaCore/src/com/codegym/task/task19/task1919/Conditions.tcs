@@ -1,0 +1,31 @@
+taskKey="com.codegym.task.task19.task1919"\n\nCalculating salaries
+
+
+The first parameter of the main method is a file name.
+Each line of the specified file has the following format:
+name value
+where [name] is a String and [value] is a double. [name] and [value] are separated by a space.
+
+Find the sum of all the values for each name.
+Display all the data, sorted by name in ascending order.
+Close the streams.
+
+Example input file:
+Peterson 2
+Smith 6
+Baxter 1.35
+Peterson 3.1
+
+Example output:
+Baxter 1.35
+Peterson 5.1
+Smith 6.0
+
+
+Requirements:
+1.	The program must NOT read data from the console.
+2.	The program must read the file&#39;s contents (use FileReader).
+3.	The file input stream (FileReader) must be closed.
+4.	The program should write to the console each name, sorted in ascending order, and the sum of all its values.
+
+

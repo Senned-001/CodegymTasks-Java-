@@ -1,0 +1,20 @@
+taskKey="com.codegym.task.task16.task1620"\n\nOne for all, all for one
+
+
+1. Figure out how the program works.
+1.1. Note that the Water object is the same for all the threads.
+
+2. Implement the ourInterrupt() method so that it interrupts all threads in the threads list.
+3. Correct the values ​​of the variables in the run() method:
+3.1. isCurrentThreadInterrupted must be the same as the value of the isInterrupted() method for the current thread.
+3.2. threadName must be the same as the value of the getName() method (implemented in the Thread class) for the current thread.
+
+
+Requirements:
+1.	The ourInterrupt() method must interrupt all threads in the threads list.
+2.	The run() method must get the current thread using Thread.currentThread.
+3.	The run() method must call the isInterrupted() method on the current thread.
+4.	The run() method must call the getName() method on the current thread.
+5.	The main() method should run for about 3 seconds.
+
+

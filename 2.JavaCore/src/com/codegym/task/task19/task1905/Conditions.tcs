@@ -1,0 +1,23 @@
+taskKey="com.codegym.task.task19.task1905"\n\nReinforce the adapter
+
+
+Adapt Customer and Contact to RowItem.
+The adapter class is DataAdapter.
+Initialize countries before running the program. Mapping between country codes and country names:
+UA Ukraine
+US United States
+FR France
+
+
+Requirements:
+1.	The Solution class must have a public static Map&lt;String, String&gt; field called countries.
+2.	Initialize the countries field in a static block in the Solution class using the test data provided in the task.
+3.	The Solution class must have a RowItem interface.
+4.	The Solution class must have a Contact interface.
+5.	The Solution class must have a Customer interface.
+6.	The DataAdapter class must implement the RowItem interface.
+7.	The DataAdapter class must contain two private fields: Customer customer and Contact contact.
+8.	The DataAdapter class must have a constructor with (Customer customer, Contact contact) parameters. It must initialize the contact and customer fields.
+9.	Implement the RowItem interface methods in the DataAdapter class using the hints in the comments in the interfaces.
+
+

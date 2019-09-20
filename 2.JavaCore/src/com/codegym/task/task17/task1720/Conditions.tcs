@@ -1,0 +1,24 @@
+taskKey="com.codegym.task.task17.task1720"\n\nATM
+
+
+Figure out how the program works.
+During testing, the log was found to contain the following:
+.....
+Deposit 100, account balance 1100
+Deposit 100, account balance 1200
+Spend 1000, account balance 100
+Insufficient money
+.....
+
+There's a bug: Money is lost when debiting an account.
+Find and fix the bug.
+
+
+Requirements:
+1.	The BankAccount class must contain a private BigDecimal field called balance.
+2.	The BankAccount class&#39;s deposit(String money) method must delegate behavior to the deposit(BigDecimal money) method.
+3.	The BankAccount class&#39;s withdraw(String money) method must delegate behavior to the withdraw(BigDecimal money) method.
+4.	Use synchronized in the withdraw(BigDecimal money) method, if necessary.
+5.	Use synchronized in the deposit(BigDecimal money) method, if necessary.
+
+

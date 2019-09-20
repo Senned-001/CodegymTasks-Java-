@@ -1,0 +1,31 @@
+taskKey="com.codegym.task.task19.task1915"\n\nDuplicate text
+
+
+Read a file name from the console.
+Replace the main method's System.out object with your own reader wrapper similar to the one shown in the lesson.
+Your reader wrapper must output all text to both the console and a file whose name you have read.
+Call testString's existing printSomething() method.
+Restore the System.out variable back to the original stream.
+Close the file stream.
+
+Example of screen output:
+This is text for testing
+
+Example file content:
+This is text for testing
+
+
+Requirements:
+1.	The Solution class must contain a TestString class.
+2.	The Solution class must have a public static TestString field called testString that is initialized immediately.
+3.	The TestString class must have a public void printSomething() method.
+4.	The TestString class&#39;s printSomething() method must display &quot;This is text for testing&quot;.
+5.	In the main(String[] args) method, the program must read file names from the console (use BufferedReader).
+6.	In the main(String[] args) method, the BufferedReader used for reading input from the console must be closed after use.
+7.	The Solution class&#39;s main(String[] args) method must create a PrintStream object (use the PrintStream constructor with a ByteArrayOutputStream parameter).
+8.	The Solution class&#39;s main(String[] args) method should replace and then restore the console output stream (System.out).
+9.	The Solution class&#39;s main(String[] args) method must call testString&#39;s printSomething() method once.
+10.	The Solution class&#39;s main(String[] args) method must write the output of the printSomething() method to both the console and the file (use FileOutputStream).
+11.	The file output stream (FileOutputStream) must be closed.
+
+

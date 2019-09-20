@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task17.task1713"\n\nShared list
+
+
+1. Change the Solution class so that it becomes a list. (It must implement the java.util.List interface).
+2. The Solution list should only work with Longs.
+3. Use the original field.
+4. The list will be used by threads, so you need to ensure that all the methods are synchronized.
+
+
+Requirements:
+1.	The Solution class must implement the List&lt;Long&gt; interface.
+2.	The Solution class must have a private ArrayList&lt;Long&gt; field called original.
+3.	All of the List interface&#39;s overridden methods must delegate calls to the methods of the original object.
+4.	All of the Solution class&#39;s methods, except for the main method, must be synchronized
+
+

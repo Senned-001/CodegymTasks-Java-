@@ -1,0 +1,24 @@
+taskKey="com.codegym.task.task18.task1820"\n\nRounding numbers
+
+
+Read 2 file names from the console.
+The first file contains real (fractional) numbers, separated by spaces. For example, 3.1415.
+Round the numbers to integers and write them, separated by spaces, to the second file.
+Close the streams.
+The rounding should work like this:
+3.49 => 3
+3.50 => 4
+3.51 => 4
+-3.49 => -3
+-3.50 => -3
+-3.51 => -4
+
+
+Requirements:
+1.	The program should read a file name twice from the console.
+2.	Create an input stream for the first file. Create an output stream for the second file.
+3.	Read the numbers from the first file, round them, and write them to the second file, separated by spaces.
+4.	The rounding must be performed as indicated in the task.
+5.	The file streams must be closed.
+
+

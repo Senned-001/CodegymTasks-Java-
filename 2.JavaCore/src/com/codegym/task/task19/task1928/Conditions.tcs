@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task19.task1928"\n\nCorrect the bug. Classes and interfaces
+
+
+This program has just 1 logical error. Find and fix it.
+
+
+Requirements:
+1.	The Solution class must contain an Example interface.
+2.	The Solution class must contain an A class that implements the Example interface.
+3.	The Solution class must contain a B class that implements the Example interface.
+4.	The Solution class must contain a C class that inherits the A class.
+5.	Correct just one error in the logic.
+
+

@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task19.task1906"\n\nEven characters
+
+
+Read 2 file names from the console.
+Output to the second file all characters from the first file with an even ordinal number (ordinal numbers start with 1).
+Example first file: text in file
+Output in the second file: eti ie
+Close the IO streams.
+
+
+Requirements:
+1.	The program should read file names from the console (use BufferedReader).
+2.	The BufferedReader used for reading input from the console must be closed after use.
+3.	The program must read the first file&#39;s contents (use the FileReader constructor with a String parameter).
+4.	The file input stream (FileReader) must be closed.
+5.	The program must write to the second file all bytes from the first file with an even index (use FileWriter).
+6.	The file output stream (FileWriter) must be closed.
+
+

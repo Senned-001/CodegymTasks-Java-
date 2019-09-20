@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task17.task1709"\n\nProposals
+
+
+Without using synchronized, make the number of proposals made equal to the number of and proposals accepted.
+
+
+Requirements:
+1.	The Solution class must have a MakeProposal thread.
+2.	The Solution class must have an AcceptProposal thread.
+3.	The Solution class must have a public static int proposal.
+4.	The program should not have synchronized methods or synchronized blocks.
+5.	The int variable proposal should not be stored in the local cache.
+
+

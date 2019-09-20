@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task17.task1717"\n\nSuperfluous synchronization
+
+
+The synchronized keyword significantly slows a program, so remove unnecessary synchronized statements in methods.
+
+
+Requirements:
+1.	The Solution class&#39;s append(CharSequence s) method should not be synchronized.
+2.	The Solution class&#39;s appendThis(Solution s) method must be synchronized.
+3.	The Solution class&#39;s writeObject(java.io.ObjectOutputStream s) method must be synchronized.
+4.	The Solution class&#39;s readObject(java.io.ObjectInputStream s) method should not be synchronized.
+5.	The Solution class&#39;s main(String[] args) method should not be synchronized.
+6.	There should not be synchronized blocks in the Solution class.
+
+

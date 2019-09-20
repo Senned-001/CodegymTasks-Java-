@@ -1,0 +1,20 @@
+taskKey="com.codegym.task.task18.task1812"\n\nExtending AmigoOutputStream
+
+
+Using the wrapper (decorator) design pattern, extend the functionality of AmigoOutputStream.
+In the QuestionFileOutputStream class, the following functionality should be implemented for the close() method:
+1. Display "Do you really want to close the stream? Y/N".
+2. Read a line.
+3. If the read line is "Y", then close the stream.
+4. If the read line is not "Y", then don't close the stream.
+
+
+Requirements:
+1.	Don&#39;t change AmigoOutputStream.
+2.	The QuestionFileOutputStream class must implement the AmigoOutputStream interface.
+3.	The QuestionFileOutputStream class must initialize the AmigoOutputStream field in the constructor.
+4.	All of QuestionFileOutputStream&#39;s methods must be delegated to the AmigoOutputStream object.
+5.	The close() method should ask the user, &quot;Do you really want to close the stream? Y/N&quot;.
+6.	The close() method should close the stream only if it reads the answer &quot;Y&quot; from the console.
+
+

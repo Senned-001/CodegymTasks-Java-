@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task17.task1703"\n\nSynchronized notes
+
+
+1. The Note class will be used by threads. So be sure that attempts to access the notes list lock notes, not this
+2. Calls to System.out.println must not be synchronized, i.e. must not be in the synchronized block
+
+
+Requirements:
+1.	The addNote() method should add notes to the notes list.
+2.	The removeNote() method must delete a note from the notes list.
+3.	The addNote() method must have a synchronized block.
+4.	The removeNote() method must have a synchronized block.
+5.	The synchronized block in the addNote() method must lock notes.
+6.	The synchronized block in the removeNote() method must lock notes.
+7.	The addNote() method&#39;s synchronized block must call the add method on notes.
+8.	The removeNote() method&#39;s synchronized block must call the remove method on notes.
+9.	No screen output commands should be in the synchronized block.
+
+

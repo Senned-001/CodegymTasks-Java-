@@ -1,0 +1,27 @@
+taskKey="com.codegym.task.task17.task1721"\n\nTransactionality
+
+
+Make the joinData method transactional, i.e. if it fails, then the data must not be changed.
+1. Read 2 file names from the console.
+2. Read from the files line by line. Read from the first file into allLines, from the second file — into linesForRemoval.
+In the joinData method:
+3. If the allLines list contains all the lines from linesForRemoval, then remove from the allLines list all the lines that are in linesForRemoval.
+4. If the condition in Item 3 is not satisfied, then:
+4.1. clear the data in allLines
+4.2. throw a CorruptedDataException
+The joinData method should be called in main. Handle all exceptions in the main method.
+Don't forget to close the streams.
+
+
+Requirements:
+1.	The Solution class must contain a public static List&lt;String&gt; field called allLines.
+2.	The Solution class must contain a public static List&lt;String&gt; field called linesForRemoval.
+3.	The Solution class must have a public void joinData() method that can throw a CorruptedDataException.
+4.	The program should read the names of two files from the console.
+5.	The program must read line by line from the first file into the allLines list.
+6.	The program must read line by line from the second file into the linesForRemoval list.
+7.	The joinData method must remove from the allLines list all lines in the linesForRemoval list if allLines contains all the lines in the linesForRemoval list.
+8.	The joinData method must clear the allLines list and throw a CorruptedDataException, if allLines does not contain all the lines in the linesForRemoval list.
+9.	The joinData method should be called in main.
+
+

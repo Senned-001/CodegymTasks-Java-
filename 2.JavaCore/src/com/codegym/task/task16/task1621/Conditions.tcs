@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task16.task1621"\n\nThread.currentThread always returns the current thread
+
+
+1. In the printMsg method, assign the current thread to the variable t.
+2. In the printMsg method, add a delay of 1 millisecond after all the actions.
+
+
+Requirements:
+1.	The printMsg method must get the current thread using Thread.currentThread.
+2.	The printMsg method should put the thread to sleep for 1 millisecond.
+3.	The printMsg method should call the getName method on the current thread.
+4.	The main method should call the printMsg method on the ThreadNamePrinter object 5 times.
+5.	The run method must call the printMsg method 5 times.
+6.	The ThreadNamePrinter class&#39;s printMsg method must be called a total 10 times.
+
+

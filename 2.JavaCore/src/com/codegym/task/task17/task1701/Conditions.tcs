@@ -1,0 +1,23 @@
+taskKey="com.codegym.task.task17.task1701"\n\nNotes
+
+
+Asynchronous execution of threads.
+1. The Note class will be used by threads.
+2. Create a public static NoteThread thread (the Runnable interface does not make a class a thread),
+whose run method does the following 1000 times (index = 0-999):
+2.1. Using the addNote method, add a note named [getName() + "-Note" + index]. For example, for index = 4:
+"Thread-0-Note4"
+2.2. Sleep for 1 millisecond
+2.3. Using the removeNote method, delete the note
+2.4. Pass the thread name (getName()) as the argument to removeNote
+
+
+Requirements:
+1.	The Solution class must contain the public static NoteThread class.
+2.	The NoteThread class must be a thread.
+3.	There must be a loop in the NoteThread class&#39;s run method.
+4.	The NoteThread class&#39;s run method should call the addNote method 1000 times, passing [getName() + &quot;-Note&quot; + index] as an argument.
+5.	The NoteThread class&#39;s run method should call Thread.sleep(1) 1000 times.
+6.	The NoteThread class&#39;s run method should call the removeNote method 1000 times, passing getName() as an argument.
+
+

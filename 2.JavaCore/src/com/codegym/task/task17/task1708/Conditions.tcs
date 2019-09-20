@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task17.task1708"\n\nNotes for all
+
+
+The Note class will be used by threads.
+Consequently, you need to be sure that the notes list is in shared memory, i.e. that it will not be cached by threads in their local memory.
+
+
+Requirements:
+1.	The Note class must have an addNote(int index, String note) method.
+2.	The Note class must have a removeNote(int index) method.
+3.	The Note class must have a public List&lt;String&gt; notes.
+4.	The List&lt;String&gt; notes field should not be stored in the local cache.
+
+

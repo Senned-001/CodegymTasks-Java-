@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task19.task1903"\n\nAdapting multiple interfaces
+
+
+Adapt IncomeData to the Customer and Contact interfaces.
+The adapter class is IncomeDataAdapter.
+Initialize countries before running the program. Mapping between country codes and country names:
+UA Ukraine
+US United States
+FR France
+If necessary, pad phone numbers with zeros to get 10 digits long (see the examples).
+Pay attention to the format of people's first and last names.
+
+
+Requirements:
+1.	The Solution class must have a public static Map&lt;String, String&gt; field called countries.
+2.	Initialize the countries field in a static block in the Solution class using the test data provided in the task.
+3.	The IncomeDataAdapter class must implement the Customer and Contact interfaces.
+4.	The IncomeDataAdapter class must have a private IncomeData field called data.
+5.	The IncomeDataAdapter class must have a constructor with an IncomeData parameter.
+6.	Using the hints in the interfaces&#39; comments, implement the methods of the Customer and Contact interfaces in the IncomeDataAdapter class.
+
+

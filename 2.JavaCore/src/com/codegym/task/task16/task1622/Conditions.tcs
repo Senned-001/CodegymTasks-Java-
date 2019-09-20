@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task16.task1622"\n\nConsecutive threads
+
+
+1. In the run method, add a delay of 10 milliseconds after all the actions. Display "Thread interrupted" if the thread is interrupted.
+2. Make all the threads run sequentially: first, for thread 1, count down from COUNT to 1; then for thread 2 - from COUNT to 1, etc.
+Example:
+#1: 4
+#1: 3
+...
+#1: 1
+#2: 4
+...
+
+
+Requirements:
+1.	The program should create 4 SleepingThread objects.
+2.	The main method should call join on each created SleepingThread object.
+3.	The run method should use Thread.sleep(10).
+4.	The program&#39;s output must correspond to the task conditions.
+5.	If a SleepingThread thread is interrupted, it should display &quot;Thread interrupted&quot;.
+
+

@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task18.task1819"\n\nCombining files
+
+
+Read 2 file names from the console.
+Write the contents of the second file to the beginning of the first file so that the files are combined.
+Close the streams.
+
+
+Requirements:
+1.	The program should read a file name twice from the console.
+2.	Create an input stream for the first file and read its contents.
+3.	Then create an output stream for the first file. And an input stream for the second file.
+4.	The contents of the first and second files must be combined in the first file.
+5.	The contents of the second file should go first, then the contents of the first file.
+6.	The file streams must be closed.
+
+

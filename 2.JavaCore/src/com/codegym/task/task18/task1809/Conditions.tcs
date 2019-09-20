@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task18.task1809"\n\nReversing a file
+
+
+Read 2 file names from the console: file1, file2.
+Write all the bytes in file1 to file2, but in the reverse order.
+Close the streams.
+
+
+Requirements:
+1.	The program should read a file name twice from the console.
+2.	Use FileInputStream to read from a file, and use FileOutputStream to write to a file.
+3.	In the second file, you need to write all the bytes from the first file in the reverse order.
+4.	The FileInputStream and FileOutputStream must be closed.
+
+

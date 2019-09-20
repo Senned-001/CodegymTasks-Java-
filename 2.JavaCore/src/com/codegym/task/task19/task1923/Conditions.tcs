@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task19.task1923"\n\nWords with numbers
+
+
+The main method's first parameter is file1 and the second is file2.
+file1 contains lines with words separated by spaces.
+Write to file2 all the words that contain numbers, for example, a1 or abc3d. Separate the words with spaces.
+Close the streams.
+
+
+Requirements:
+1.	The program must NOT read data from the console.
+2.	The program must read the first file&#39;s contents (use the FileReader constructor with a String parameter).
+3.	The file input stream (FileReader) must be closed.
+4.	The program should write all the words containing numbers from the first file to the second file (use FileWriter).
+5.	The file output stream (FileWriter) must be closed.
+
+

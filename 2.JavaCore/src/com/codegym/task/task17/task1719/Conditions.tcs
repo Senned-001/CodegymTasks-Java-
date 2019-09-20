@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task17.task1719"\n\nApplicationContext
+
+
+The ApplicationContext class will be accessible by many threads.
+Be sure that no data is lost: think about which keyword to put and where.
+
+
+Requirements:
+1.	The ApplicationContext class must be abstract.
+2.	The ApplicationContext class must have a private Map&lt;String, GenericsBean&gt; field called container.
+3.	Use synchronized in the getByName(String name) method, if necessary.
+4.	Use synchronized in the removeByName(String name) method, if necessary.
+
+

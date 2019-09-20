@@ -1,0 +1,29 @@
+taskKey="com.codegym.task.task19.task1920"\n\nThe richest
+
+
+The first parameter of the main method is a file name.
+Each line of the specified file has the following format:
+name value
+where [name] is a String and [value] is a double. [name] and [value] are separated by a space.
+
+Find the sum of all the values for each name.
+Display in alphabetical order the names with the highest sum.
+Separate the names with a space or new line.
+Close the streams.
+
+Example input file:
+Peterson 0.501
+Smith 1.35
+Peterson 0.85
+
+Example output:
+Peterson
+
+
+Requirements:
+1.	The program must NOT read data from the console.
+2.	The program must read the file&#39;s contents (use FileReader).
+3.	The file input stream (FileReader) must be closed.
+4.	The program should output the names with the highest sum to the console.
+
+

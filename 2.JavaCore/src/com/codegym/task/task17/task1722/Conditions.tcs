@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task17.task1722"\n\nLet's count
+
+
+1. Make it so that the result is calculated for all the array elements, WITHOUT using Thread.sleep in the main(String[] args) method.
+2. Correct the synchronized block so that the values array is filled with 1s
+
+
+Requirements:
+1.	The Solution class must contain the Counter class.
+2.	The Counter class must be a thread.
+3.	The Counter class&#39;s run() method must have a synchronized block.
+4.	The run() method&#39;s synchronized block must not lock this.
+5.	The Solution class&#39;s main(String[] args) method should not use Thread.sleep().
+6.	For each thread, in the Solution class&#39;s main(String[] args) method, use a method that waits for the thread to end.
+
+
