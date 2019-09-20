@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task20.task2002"\n\nReading and writing to a file: CodeGym
+
+
+Implement the logic for file IO for the CodeGym class.
+The file your_file_name.tmp can contain several CodeGym objects.
+The main method exists just for you and is not involved in testing the solution.
+
+
+Requirements:
+1.	The read/write logic in the save/load methods must work correctly when the users list is empty.
+2.	The read/write logic in the save/load methods must work correctly when the users list is not empty.
+3.	The Solution.CodeGym class should not support the Serializable interface.
+4.	The Solution.CodeGym class must be public.
+5.	The Solution.CodeGym class should not support the Externalizable interface.
+
+
