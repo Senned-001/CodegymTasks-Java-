@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task20.task2003"\n\nIntroducing properties
+
+
+In the fillInPropertiesMap method, read a file name from the console and populate the properties map with data from the file.
+You can read about properties here: http://en.wikipedia.org/wiki/.properties
+Implement the logic for file IO for the properties map.
+
+
+Requirements:
+1.	The fillInPropertiesMap method must read data from the console.
+2.	The fillInPropertiesMap method must create a FileInputStream, passing the read string as an argument.
+3.	The fillInPropertiesMap method should call the load method, passing the newly created FileInputStream as an argument.
+4.	The save method must store the properties map in the OutputStream object passed as an argument.
+5.	The load method must restore the state of the properties map from the InputStream object passed as an argument.
+
+

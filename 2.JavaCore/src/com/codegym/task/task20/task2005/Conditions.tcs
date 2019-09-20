@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task20.task2005"\n\nStranger things
+
+
+Strange errors are occurring while reading/writing Human objects.
+Figure out what's wrong and fix it.
+
+
+Requirements:
+1.	The read/write logic in the save/load methods must work correctly when the assets list is null.
+2.	The read/write logic in the save/load methods must work correctly when the name field and assets list are not null.
+3.	The Solution.Human class should not support the Serializable interface.
+4.	The Solution.Human class must be public.
+5.	The Solution.Human class should not support the Externalizable interface.
+6.	The equals method must return true for two equal Human objects and false for different objects.
+7.	The hashCode method must always return the same value for the same Human object.
+
+

@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task20.task2004"\n\nReading and writing static fields to a file
+
+
+Implement the logic for file IO for the ClassWithStatic class.
+The load method must initialize the object, including the static fields with data from the file.
+The main method is not tested.
+
+
+Requirements:
+1.	It should be possible to save/load Solution.ClassWithStatic objects using the save/load methods.
+2.	The Solution class should not support the Serializable interface.
+3.	The Solution.ClassWithStatic class should not support the Serializable interface.
+4.	The Solution.ClassWithStatic class must be public.
+5.	The Solution.ClassWithStatic class should not support the Externalizable interface.
+
+
