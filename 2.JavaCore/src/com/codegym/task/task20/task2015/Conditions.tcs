@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task20.task2015"\n\nOverriding serialization
+
+
+Make it so that the runner thread continues to run after deserialization.
+Don't change the runner object's keywords.
+Hint:
+The constructor is not called during deserialization. Only all the fields are initialized.
+
+
+Requirements:
+1.	The Solution class should support the Serializable interface.
+2.	The Solution class should support the Runnable interface.
+3.	The Solution class&#39;s runner field must be declared with the transient modifier.
+4.	The readObject method must create a new Thread object with the current object as an argument.
+5.	The readObject method must call the start method on the new Thread object.
+
+

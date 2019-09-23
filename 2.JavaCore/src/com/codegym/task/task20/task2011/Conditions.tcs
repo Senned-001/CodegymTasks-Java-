@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task20.task2011"\n\nExternalizable for apartments
+
+
+Implement the Externalizable interface in the Apartment class.
+
+
+Requirements:
+1.	The Solution.Apartment class should support the Externalizable interface.
+2.	The Solution.Apartment class must implement a writeExternal method with one ObjectOutput parameter.
+3.	The Solution.Apartment class must implement a readExternal method with one ObjectInput parameter.
+4.	The writeExternal method must call the writeObject method with the address parameter on the ObjectOutput object passed as an argument.
+5.	The writeExternal method must call the writeInt method with the year parameter on the ObjectOutput object passed as an argument.
+6.	The readExternal method should correctly restore the value of the address field from the ObjectInput object.
+7.	The readExternal method should correctly restore the value of the year field from the ObjectInput object.
+
+

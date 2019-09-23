@@ -1,0 +1,13 @@
+taskKey="com.codegym.task.task20.task2006"\n\nHow do you serialize?
+
+
+Make it so that the Human class can be serialized.
+
+
+Requirements:
+1.	The Human class must be inside the Solution class.
+2.	The Human class must be static.
+3.	The Human class must be public.
+4.	The Human class should support the Serializable interface.
+
+

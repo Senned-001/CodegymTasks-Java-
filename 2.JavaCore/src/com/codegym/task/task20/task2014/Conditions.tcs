@@ -1,0 +1,25 @@
+taskKey="com.codegym.task.task20.task2014"\n\nSerializable Solution
+
+
+Serialize the Solution class.
+Think about which fields you don't need to serialize. Mark the unnecessary fields with the transient modifier.
+The object must always contain up-to-date summary data.
+The main method is not tested.
+
+Write the verification code yourself in the main method:
+1) create a file, open an input stream and an output stream;
+2) create an instance of the Solution class (savedObject);
+3) write savedObject to the output stream (make sure that they're really there);
+4) create another instance of the Solution class with a different argument;
+5) load an object from the input stream (loadedObject);
+6) verify that savedObject.string is equal to loadedObject.string;
+7) handle exceptions.
+
+
+Requirements:
+1.	The pattern field must be marked with the transient modifier.
+2.	The currentDate field must be marked with the transient modifier.
+3.	The temperature field must be marked with the transient modifier.
+4.	The string field must NOT be marked with the transient modifier.
+
+

@@ -1,0 +1,13 @@
+taskKey="com.codegym.task.task20.task2009"\n\nHow do you serialize static fields?
+
+
+Make it so that the ClassWithStatic class can be serialized.
+
+
+Requirements:
+1.	The ClassWithStatic class must be inside the Solution class.
+2.	The ClassWithStatic class must be static.
+3.	The ClassWithStatic class must be public.
+4.	The ClassWithStatic class should support the Serializable interface.
+
+

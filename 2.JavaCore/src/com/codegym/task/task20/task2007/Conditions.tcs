@@ -1,0 +1,13 @@
+taskKey="com.codegym.task.task20.task2007"\n\nHow do you serialize CodeGym?
+
+
+Make it so that the CodeGym class can be serialized.
+
+
+Requirements:
+1.	The CodeGym class must be inside the Solution class.
+2.	The CodeGym class must be static.
+3.	The CodeGym class must be public.
+4.	The CodeGym class should support the Serializable interface.
+
+

@@ -26,7 +26,7 @@ public class Solution {
             somePerson.load(inputStream);
             // Check that smith is equal to somePerson
 
-            somePerson=smith;
+
             System.out.println(smith.equals(somePerson));
 
 

@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task20.task2010"\n\nHow do you serialize something of your own?
+
+
+Make it so that the Object class can be serialized.
+
+
+Requirements:
+1.	The Object class must be inside the Solution class.
+2.	The Solution.Object class must be static.
+3.	The Solution.Object class be public.
+4.	The Solution.Object class should support the Serializable interface.
+5.	The Solution.String class should support the Serializable interface.
+
+

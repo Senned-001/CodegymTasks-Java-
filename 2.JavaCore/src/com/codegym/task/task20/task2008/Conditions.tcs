@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task20.task2008"\n\nHow do you serialize Singleton?
+
+
+Two deserialized objects (singleton1 and singleton2) have different memory references, but they should be the same.
+In the Singleton class, add a method so that after deserialization the object references are the same (Google it).
+The main method is not tested.
+
+
+Requirements:
+1.	The Solution.Singleton class should support the Serializable interface.
+2.	The Solution.Singleton class must implement a readResolve method without parameters.
+3.	The readResolve method should return a singleton (ourInstance).
+4.	The readResolve method must be private.
+5.	The Solution class must have a public static serializeSingletonInstance method.
+6.	After deserialization, the object references must be equal.
+
+

@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task20.task2012"\n\nOutputToConsole
+
+
+The OutputToConsole class must be serialized using the Externalizable interface.
+Find and fix the bug.
+
+
+Requirements:
+1.	The Solution.OutputToConsole class should support the Externalizable interface.
+2.	The OutputToConsole class must be inside the Solution class.
+3.	The OutputToConsole class must be public.
+4.	The OutputToConsole class must be static.
+
+

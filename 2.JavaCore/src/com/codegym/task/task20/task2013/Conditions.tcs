@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task20.task2013"\n\nExternalizable Person
+
+
+The Person class must be serialized using the Externalizable interface.
+Correct the serialization bug.
+Don't change the method signatures.
+
+
+Requirements:
+1.	The Solution.Person class should support the Externalizable interface.
+2.	The readExternal and writeExternal methods must make it possible to correctly serialize and deserialize Person objects.
+3.	The Solution.Person class must have a constructor with no parameters.
+4.	The Solution.Person class must have a constructor with three parameters (String firstName, String lastName, int age).
+
+
