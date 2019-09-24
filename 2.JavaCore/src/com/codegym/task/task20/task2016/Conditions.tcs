@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task20.task2016"\n\nMinimum changes
+
+
+With minimum code changes, make it possible to serialize the C class.
+
+
+Requirements:
+1.	The Solution class must contain the A class.
+2.	The Solution class must contain the B class.
+3.	The Solution class must contain the C class.
+4.	The B class must be a descendant of the A class.
+5.	The C class must be a descendant of the B class.
+6.	The A class should support the Serializable interface.
+7.	The B class should not explicitly support the Serializable interface.
+8.	The C class should not explicitly support the Serializable interface.
+
+

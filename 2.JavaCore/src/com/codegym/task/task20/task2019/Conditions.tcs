@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task20.task2019"\n\nCorrect the mistake. Serialization
+
+
+After deserializing a Solution object, map m was discovered to have no data :(
+Fix 1 bug.
+
+
+Requirements:
+1.	The Solution class should not have a void Solution method without parameters.
+2.	The Solution class should have a no-argument constructor.
+3.	The Solution class should have a size method without parameters.
+4.	The Solution class&#39;s size method must return an int.
+
+

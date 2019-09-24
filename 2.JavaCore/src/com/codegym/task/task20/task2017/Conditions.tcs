@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task20.task2017"\n\nDeserialization
+
+
+Serialized A or B objects are written to the stream that is passed in.
+Deserialize the object in the getOriginalObject method. If an exception occurs, display a message and return null.
+Implement the Serializable interface where necessary.
+
+
+Requirements:
+1.	The B class must be a descendant of the A class.
+2.	The A class should support the Serializable interface.
+3.	The B class should not explicitly support the Serializable interface.
+4.	The getOriginalObject method must return the A object received from the ObjectInputStream.
+5.	The getOriginalObject method must return null if an A object is not received during deserialization attempts.
+6.	The getOriginalObject method must return null if an exception is thrown when trying to deserialize.
+
+

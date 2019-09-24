@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task20.task2018"\n\nFind the bugs
+
+
+For some reason, errors are occurring when serializing/deserializing B objects.
+Find the problem and fix it.
+The A class should not implement the Serializable and Externalizable interfaces.
+There is no error in the B class's signature :).
+There are no errors in the main method.
+
+
+Requirements:
+1.	The B class must be a descendant of the A class.
+2.	The B class should support the Serializable interface.
+3.	The A class should not support the Serializable interface.
+4.	The A class should not support the Externalizable interface.
+5.	The program must execute without errors.
+6.	When deserializing, the value of the nameA and nameB fields should be correctly restored.
+
+

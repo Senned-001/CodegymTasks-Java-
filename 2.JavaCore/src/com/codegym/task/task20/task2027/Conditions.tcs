@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task20.task2027"\n\nWord search
+
+
+1. We have a two-dimensional array that contains lowercase letters.
+2. The detectAllWords method must find all the words in the wordSearch array.
+3. The element(startX, startY) must correspond to the first letter of the word, while the element(endX, endY) corresponds to the last letter.
+text is the word itself, located between the start and end elements
+4. All the words are in the array.
+5. The words can be arranged horizontally, vertically, and diagonally, both forward and backward.
+6. The main method is not tested.
+
+
+Requirements:
+1.	The Solution class must have a detectAllWords method.
+2.	The Solution class must contain a static Word class.
+3.	The Solution class must not have static fields.
+4.	The detectAllWords method must be static.
+5.	The detectAllWords method must be public.
+6.	The detectAllWords method should return the list of all words in the word search (according to the task conditions).
+
+
