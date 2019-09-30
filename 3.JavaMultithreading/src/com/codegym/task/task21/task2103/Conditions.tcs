@@ -1,0 +1,13 @@
+taskKey="com.codegym.task.task21.task2103"\n\nEverything ingenious is simple!
+
+
+Simplify. Don't rename variables. Don't leave comments.
+
+
+Requirements:
+1.	The calculate method must be static.
+2.	The calculate method should return a boolean.
+3.	The calculate method must have four boolean parameters.
+4.	The calculate method should be as simple as possible (without changing the behavior).
+
+
