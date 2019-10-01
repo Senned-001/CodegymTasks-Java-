@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task21.task2109"\n\nPrevent cloning
+
+
+Allow cloning of the A class
+Prevent cloning of the B class
+Allow cloning of the C class
+Don't forget about the equals and hashCode methods!
+
+
+Requirements:
+1.	The A class should support the Cloneable interface.
+2.	The B class must be a descendant of the A class.
+3.	The B class&#39;s declaration should not explicitly state &quot;implements Cloneable&quot;.
+4.	The B class&#39;s clone method must be overridden in such a way that an attempt to clone a B object will generate a CloneNotSupportedException.
+5.	The C class must be a descendant of the B class.
+6.	C objects must be cloned successfully.
+
+

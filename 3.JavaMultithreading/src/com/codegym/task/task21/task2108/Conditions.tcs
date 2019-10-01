@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task21.task2108"\n\nCloning plants
+
+
+The Plant class should not implement the Cloneable interface
+Implement deep cloning for Tree.
+
+
+Requirements:
+1.	The Plant class should not implement the Cloneable interface.
+2.	The Tree class should support the Cloneable interface.
+3.	The Tree class must be a descendant of the Plant class.
+4.	The Tree class must correctly implement the clone method.
+
+

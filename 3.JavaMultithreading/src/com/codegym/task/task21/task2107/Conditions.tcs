@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task21.task2107"\n\nDeep cloning of a map
+
+
+Provide the ability to create a deep clone of a Solution object.
+The data in the users map should also be cloned.
+Don't forget about the equals and hashCode methods needed to correctly add User elements to the HashMap.
+
+
+Requirements:
+1.	The Solution class should support the Cloneable interface.
+2.	The User class should support the Cloneable interface.
+3.	The User class must correctly implement the clone method.
+4.	The Solution class must correctly implement the clone method.
+
+

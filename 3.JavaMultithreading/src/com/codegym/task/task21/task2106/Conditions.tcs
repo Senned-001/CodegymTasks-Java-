@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task21.task2106"\n\nBug in equals/hashCode
+
+
+Correct the implementation errors in the Solution's classes equals and hashCode methods.
+
+
+Requirements:
+1.	The hashcodes of identical objects must be equal.
+2.	The equals method should check whether the passed object is equal to the current object (comparison using ==).
+3.	The equals method should check whether the passed object is a Solution object.
+4.	The equals method must check all of the fields of the passed object and the current object (note that some of them may be null).
+5.	You must ensure that the HashSet of Solution elements behaves correctly.
+6.	The Solution class must implement the hashCode method.
+
+
