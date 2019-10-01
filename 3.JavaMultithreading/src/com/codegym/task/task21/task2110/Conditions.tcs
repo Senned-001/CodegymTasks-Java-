@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task21.task2110"\n\nRefactoring methods
+
+
+Refactor the writeZipEntriesToFile method to use the Java 7 try-with-resources construct.
+
+The program should not have commented code.
+
+
+Requirements:
+1.	The writeZipEntriesToFile method must be declared with the public access modifier.
+2.	The writeZipEntriesToFile method must be static.
+3.	The writeZipEntriesToFile method must be void.
+4.	The writeZipEntriesToFile method must use try-with-resources correctly.
+
+

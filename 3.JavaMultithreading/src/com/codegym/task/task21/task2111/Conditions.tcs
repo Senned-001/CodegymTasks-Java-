@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task21.task2111"\n\nRelease resources
+
+
+Implement the finalize method after first thinking about what exactly it should contain.
+Refactor the getUsers method to use the Java 7 try-with-resources construct.
+
+
+Requirements:
+1.	The Solution class&#39;s finalize method must have a call to super.finalize().
+2.	The Solution class&#39;s finalize method should terminate correctly if the connection field is equal to null.
+3.	The Solution class&#39;s finalize method must close the current connection if the connection field is not equal to null.
+4.	The getUsers method must use try-with-resources correctly.
+
+

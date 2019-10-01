@@ -1,0 +1,25 @@
+taskKey="com.codegym.task.task21.task2112"\n\nAutoCloseable and try-with-resources
+
+
+In the FakeConnection class, implement the AutoCloseable interface so that FakeConnection objects can be used in try-with-resources blocks.
+The close() method should display the phrase "Closing database connection..."
+In the try block, call the usefulOperation() method and then the unsupportedOperation() method.
+
+The screen output should be as follows:
+Establishing database connection...
+Entering body of try block.
+Executing useful operation.
+Operation is not supported yet!
+Closing database connection...
+
+Note that the resources were released automatically, despite the fact that an exception was thrown by the unsupportedOperation method.
+
+
+Requirements:
+1.	The FakeConnection class must support the AutoCloseable interface.
+2.	The FakeConnection class&#39;s close method should display the phrase &quot;Closing database connection...&quot;.
+3.	The Solution class&#39;s main method should call the usefulOperation and unsupportedOperation methods on a FakeConnection object.
+4.	The screen output must match the task conditions.
+5.	The FakeConnection class&#39;s close method should not be called explicitly.
+
+
