@@ -16,3 +16,5 @@ target/
 /Instruction.png
 /out.log
 /out.log.*
+/output.file
+/.gitignore
