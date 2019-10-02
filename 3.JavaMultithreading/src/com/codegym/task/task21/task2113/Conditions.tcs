@@ -1,0 +1,90 @@
+taskKey="com.codegym.task.task21.task2113.big16"\n\nHippodrome (part 16)
+
+
+Now we're done for sure.
+Add a call to the printWinner method to the end of the main method.
+Launch and enjoy your first computer game. :)
+
+
+
+Requirements:
+1.	The printWinner method must be called in the main method after the run method.
+
+
+Hippodrome (part 15)
+
+
+Add code to announce the winner.
+We'll make two methods in the Hippodrome class:
+public Horse getWinner() and public void printWinner()
+
+The getWinner method must return the horse that has run the farthest.
+The printWinner method displays the winner's name as follows:
+The winner is <name>!
+Example:
+The winner is Lucky!
+
+
+
+Hippodrome (part 14)
+
+
+Time to enjoy our creation.
+A new snapshot of the racetrack is displayed every half second.
+Use the mouse to decrease the size of the console so that only one "snapshot" is visible at a time and remains in the same place.
+Then you can watch the race live and even commentate:
+- They're off!
+- Homer suddenly flies past Lucky.
+- Slevin rushes forward.
+- Lucky takes the lead!
+- 10 bucks on Slevin.
+- Looks like Lucky has thrown off his jockey and is cooling off.
+- Homer bursts head.
+- An entirely unexpected win for Homer! What a trick!
+
+
+
+Hippodrome (part 13)
+
+
+Now we'll return to the Horse class's print method.
+Because we're working with the console, then all the racing horses will look something like this:
+........Slevin
+....Lucky
+..........Homer
+
+In other words, the print method should display a string consisting of dots and the horse's name.
+The number of dots is equal to distance, rounded down to an integer.
+
+
+
+Hippodrome (part 12)
+
+
+There's just a little left to do: finish writing the Horse class.
+The move method is called each time a horse takes a step.
+When the move method is called on a horse, the horse must run a certain distance.
+The distance depends on the horse's speed. In its simplest form, this method would look something like this:
+distance += speed;
+
+But to make it more interesting, let's make the speed change a little bit all the time.
+To achieve this, multiply the speed by a random number.
+A random number can be obtained using the Math.random() method.
+
+
+
+Hippodrome (part 11)
+
+
+We're almost done with the Hippodrome class.
+Add a call to run() at the end of the main method.
+
+Hint:
+The run() method is not static, so you can only call it on an object.
+But where do you get the object?
+
+Hint 2:
+game.run();
+
+
+
