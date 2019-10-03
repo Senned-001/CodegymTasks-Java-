@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task22.task2203"\n\nBetween tabs
+
+
+The getPartOfString method must return the substring between the first and the second tab characters.
+If the input data is invalid, throw a StringTooShortException.
+Don't change the StringTooShortException class.
+
+
+Requirements:
+1.	The StringTooShortException class must be a child of the Exception class.
+2.	The getPartOfString method must have a String parameter.
+3.	If the string passed to the getPartOfString method contains less than 2 tab characters, then a StringTooShortException should be thrown.
+4.	The getPartOfString method must return the substring between the first and the second tab characters.
+
+

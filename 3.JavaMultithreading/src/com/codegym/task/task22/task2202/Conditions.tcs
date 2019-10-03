@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task22.task2202"\n\nFind a substring
+
+
+The getPartOfString method must return the substring that begins with the character after the first space and ends with the end of the word
+that follows the 4th space.
+Example: "CodeGym is the best place to learn Java."
+Result: "is the best place"
+Example: "Amigo and Diego are best friends!"
+Result: "and Diego are best"
+If the input data is invalid, throw a StringTooShortException (create an exception).
+
+
+Requirements:
+1.	The StringTooShortException class must be a child of the RuntimeException class.
+2.	The getPartOfString method must have a String parameter.
+3.	If invalid data is passed to the getPartOfString method, a StringTooShortException should be thrown.
+4.	The getPartOfString method must return the substring that begins with the character after the first space and ends with the word that follows the 4th space.
+
+
