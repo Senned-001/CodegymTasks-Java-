@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task22.task2206"\n\nDate formatting
+
+
+Correct the getFormattedString method so that it returns a string with format specifiers.
+The output should be something like this:
+04:05:18 09:09:09 (month:day:year hours:minutes:seconds)
+
+
+Requirements:
+1.	The getFormattedString method must be public.
+2.	The getFormattedString method must be static.
+3.	The screen output must match the task conditions.
+4.	The getFormattedString method must return a string with format specifiers in accordance with the task conditions.
+
+

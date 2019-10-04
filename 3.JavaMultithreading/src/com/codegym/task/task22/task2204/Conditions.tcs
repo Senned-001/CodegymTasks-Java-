@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task22.task2204"\n\nString formatting
+
+
+Correct the getFormattedString method so that it returns a string with format specifiers.
+Don't use \n to convert carriage returns.
+The output should be:
+20 / 7 = 2.86
+Exp = 3.33e+00
+
+
+Requirements:
+1.	The expression &#39;\n&#39; should not be used to convert the string.
+2.	The getFormattedString method must be static.
+3.	The screen output must match the task conditions.
+4.	The getFormattedString method must return a string with format specifiers in accordance with the task conditions.
+
+

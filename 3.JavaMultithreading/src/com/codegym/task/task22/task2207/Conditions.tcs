@@ -1,0 +1,24 @@
+taskKey="com.codegym.task.task22.task2207"\n\nInverted words
+
+
+In the main method, read the name of a file that contains words separated by spaces from the console.
+In the text of the file, find all pairs of words that are mirror images of each other. Add them to result.
+Use StringBuilder.
+The file encoding is UTF-8.
+Example of file contents
+rat tar tart a
+a tot tot tot
+Output:
+rat tar
+a a
+tot tot
+
+
+Requirements:
+1.	The main method must read the filename from the keyboard.
+2.	The main method must use StringBuilder.
+3.	The Solution class must contain a nested Pair class with equals, hashCode, and toString methods. Don&#39;t delete or change these methods.
+4.	The Pair class must declare a constructor without parameters, i.e. a default constructor.
+5.	The result list must be filled with correct pairs according to the task conditions.
+
+
