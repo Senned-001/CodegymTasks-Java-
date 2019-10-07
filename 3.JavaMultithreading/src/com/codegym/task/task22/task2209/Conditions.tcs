@@ -1,0 +1,28 @@
+taskKey="com.codegym.task.task22.task2209"\n\nMake a word chain
+
+
+In the main method, read the name of a file that contains words separated by spaces from the console.
+In the getLine method, use StringBuilder to order all the words as follows:
+the last letter of a word must match the first letter of the next word (ignore case).
+Each word should be used once.
+The getLine method can return any variant.
+Separate words with a space.
+Display the resulting string on the screen.
+
+Example input file:
+Okinawa Washington Auckland Kalamazoo Norfolk
+
+Result:
+Washington Norfolk Kalamazoo Okinawa Auckland
+
+
+Requirements:
+1.	The main method must read the filename from the keyboard.
+2.	There should not be static fields in the Solution class.
+3.	The getLine method must use StringBuilder.
+4.	The getLine method must return an empty string (an empty StringBuilder) if it is not passed arguments (words).
+5.	The getLine method must not change the arguments (words).
+6.	All words passed to the getLine method must be included in the resulting string, if possible.
+7.	The screen output must match the task conditions.
+
+
