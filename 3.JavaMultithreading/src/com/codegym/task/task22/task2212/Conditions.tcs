@@ -1,0 +1,33 @@
+taskKey="com.codegym.task.task22.task2212"\n\nPhone number verification
+
+
+The checkPhoneNumber method should check whether the phoneNumber argument is a valid phone number.
+Verification criteria:
+1) if the number starts with '+', then it must contain 12 digits
+2) if the number starts with a digit or opening paren, then it must contain 10 digits
+3) the number may contain 0-2 non-consecutive '-' characters
+4) the number may contain 1 pair of matching parentheses, which must be to the left of the '-' characters
+5) the parentheses must contain exactly 3 digits
+6) the number cannot contain letters
+7) the number must end with a digit
+
+Here are some examples:
++380501234567 - true
++38(050)1234567 - true
++38050123-45-67 - true
+050123-4567 - true
+
++38)050(1234567 - false
++38(050)1-23-45-6-7 - false
+050xxx4567 - false
+050123456 - false
+(0)501234567 - false
+
+
+Requirements:
+1.	The checkPhoneNumber method should return a boolean.
+2.	The checkPhoneNumber method must be public.
+3.	The checkPhoneNumber method must have one String parameter.
+4.	The checkPhoneNumber method must correctly check the validity of the phone number passed as an argument.
+
+
