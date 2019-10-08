@@ -1,0 +1,124 @@
+taskKey="com.codegym.task.task23.task2312.big11"\n\nSnake (part 11)
+
+
+Now the logic for controlling the mouse.
+Two things happen with the mouse.
+First, the snake eats the mouse.
+Second, a new mouse appears at a random place in the room.
+
+You must write and implement the createMouse() method in the Room class.
+This method should just create a new mouse with random coordinates in the room.
+How do you get random coordinates?
+You should already know. But just in case, I'll give you a clue:
+int x = (int) (Math.random() * width);
+
+We also need an eatMouse() method in the event that someone ends up eating the mouse. :)
+For now, this method won't have complex logic. We'll just call the createMouse method.
+
+
+Requirements:
+1.	The createMouse method must be created in the Room class.
+2.	In the createMouse method, a new mouse must be created according to the task conditions and stored in the mouse field.
+3.	The eatMouse method must be created in the Room class.
+4.	The eatMouse method should include a call to the createMouse method.
+
+
+Snake (part 10)
+
+
+Let's tackle the main method.
+
+First, you need to create a static Room game field in the Room class. The variable should be accessible from all classes.
+
+Now in the main method:
+a) Create the snake, a Snake object.
+b) Create the room, a Room object, and pass the width, height, and snake to it.
+c) Set the snake direction equal to SnakeDirection.DOWN
+
+What else is missing? Namely, the method that will contain all the game logic.
+And we also need a method that will draw all this on the screen:
+a) create a void run() method
+b) create a void print() method
+
+
+
+Snake (part 9)
+
+
+The most important class remains: Room.
+What do we need to describe it?
+One, the dimensions of the room (width and height).
+Two, a Snake
+Three, a Mouse.
+
+Here's what we need:
+a) create int width and height variables in the Room class.
+b) create a Snake snake variables in the Room class.
+c) create a Snake mouse variable in the Room class. Just kidding. I mean a Mouse, of course :).
+d) create getters and setters for all of them.
+e) create a constructor. The constructor must have three parameters: width, height, and... snake!
+
+
+
+Snake (part 8)
+
+
+It's the Snake class constructor's turn.
+
+Initially, the snake consists of one piece: the head.
+And what does it require?
+What needs to be passed to the constructor?
+The coordinates of the snake, of course.
+
+Here's what we need:
+a) Pass the coordinates of the snake's head (x and y) to the constructor.
+b) create the first "piece of the snake" (the head) in the constructor and add it to the sections collection (ArrayList).
+c) set isAlive to true.
+d) don't forget to initialize the sections variable in the constructor. You can't add much to a null object!
+e) create and implement the int getX() method. The method should return the x-coordinate of the snake's head.
+e) create and implement the int getY() method. The method should return the y-coordinate of the snake's head.
+g) also add a move() method to the class—it will come in handy later.
+h) the constructor must be public.
+
+
+
+Snake (part 7)
+
+
+We've described the "pieces of the snake". Now we'll deal with the snake itself.
+
+The snake must have a list of SnakeSections and a head.
+Let the head just be the very first piece (index 0).
+
+The snake also has a direction in which it moves by default.
+And there is also a condition: whether the snake is alive or dead.
+The game ends when the snake is dead.
+
+Here's what we need:
+a) Add a List<SnakeSection> sections field to the Snake class.
+b) Add a boolean isAlive field.
+c) Add a SnakeDirection direction field.
+d) Add getters for all the fields, and a setter for direction.
+
+Note:
+For boolean fields, the getter is usually named isValue(), not getValue(), to improve the readability of the code.
+But don't call it isIsAlive(). One "is" will be enough.
+Note 2:
+All fields created in this task should be private, while all of the methods should be public.
+
+
+
+Snake (part 6)
+
+
+Now let's tackle the SnakeSection class.
+It will describe one piece of the snake.
+
+And what does each piece have?
+Right! Coordinates.
+
+Add two fields to the SnakeSection class: int x and int y.
+Add getters for these fields and a constructor with two int parameters.
+
+
+
