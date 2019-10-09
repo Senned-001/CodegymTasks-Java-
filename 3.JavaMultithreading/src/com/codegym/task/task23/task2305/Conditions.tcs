@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task23.task2305"\n\nInner
+
+
+Implement the getTwoSolutions method, which should return an array of 2 instances of the Solution class.
+For each instance of the Solution class, initialize the innerClasses field with two values.
+All data must be initialized only in the getTwoSolutions method.
+
+
+Requirements:
+1.	The Solution class must implement the getTwoSolutions method.
+2.	The getTwoSolutions method must be static.
+3.	The getTwoSolutions method must be public.
+4.	The getTwoSolutions method must return a Solution array filled according to the task conditions.
+
+

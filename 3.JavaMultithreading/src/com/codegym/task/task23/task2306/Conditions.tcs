@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task23.task2306"\n\nInner 2
+
+
+The SuperUser class's getDescription method must take into account the city and country, i.e. return something like this:
+My name is George. I'm from Seattle in the United States.
+Use the inner class's capabilities.
+
+
+Requirements:
+1.	The SuperUser class must be private.
+2.	The SuperUser class must have a getDescription method.
+3.	The SuperUser&#39;s getDescription method must be public.
+4.	The getDescription method in the SuperUser class should return a string that accounts for the user&#39;s name, city, and country, formatted according to the task conditions.
+5.	The getTrickyUser method must return a SuperUser object.
+
+

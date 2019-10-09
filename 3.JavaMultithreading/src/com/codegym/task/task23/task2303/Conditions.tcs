@@ -1,0 +1,13 @@
+taskKey="com.codegym.task.task23.task2303"\n\nPrevent the creation of instances of a class
+
+
+Prevent the creation of instances of the Listener class.
+
+
+Requirements:
+1.	The Listener class must be inside the Solution class.
+2.	The Listener class must be public.
+3.	The Listener class must be static.
+4.	The ability to create instances of the Listener class should be blocked.
+
+
