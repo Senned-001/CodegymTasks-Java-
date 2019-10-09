@@ -1,124 +1,107 @@
-taskKey="com.codegym.task.task23.task2312.big11"\n\nSnake (part 11)
+taskKey="com.codegym.task.task23.task2312.big18"\n\nSnake (part 18)
 
 
-Now the logic for controlling the mouse.
-Two things happen with the mouse.
-First, the snake eats the mouse.
-Second, a new mouse appears at a random place in the room.
-
-You must write and implement the createMouse() method in the Room class.
-This method should just create a new mouse with random coordinates in the room.
-How do you get random coordinates?
-You should already know. But just in case, I'll give you a clue:
-int x = (int) (Math.random() * width);
-
-We also need an eatMouse() method in the event that someone ends up eating the mouse. :)
-For now, this method won't have complex logic. We'll just call the createMouse method.
+Great!
+Start up Snake and enjoy it.
 
 
 Requirements:
-1.	The createMouse method must be created in the Room class.
-2.	In the createMouse method, a new mouse must be created according to the task conditions and stored in the mouse field.
-3.	The eatMouse method must be created in the Room class.
-4.	The eatMouse method should include a call to the createMouse method.
+1.	Snake is ready!
 
 
-Snake (part 10)
+Snake (part 17)
 
 
-Let's tackle the main method.
+Now we'll finish the Snake class.
 
-First, you need to create a static Room game field in the Room class. The variable should be accessible from all classes.
+The snake consists of pieces. Each turn, let's just add one piece at the head,
+and delete the last one. This will make the snake appear to slither.
+You need to add the piece next to the current head (index 0).
+The side you add it to depends on the direction (UP, DOWN, LEFT, RIGHT).
+Hint:
+a) How do you add a piece of the snake to the top of the sections list?
+sections.add(0, new_section);
+b) And how do you delete the last one?
+sections.remove(sections.size()-1);
 
-Now in the main method:
-a) Create the snake, a Snake object.
-b) Create the room, a Room object, and pass the width, height, and snake to it.
-c) Set the snake direction equal to SnakeDirection.DOWN
-
-What else is missing? Namely, the method that will contain all the game logic.
-And we also need a method that will draw all this on the screen:
-a) create a void run() method
-b) create a void print() method
+We need to implement the move(int dx, int dy) method:
+a) check whether the snake slithered out of the room (if so, it dies)
+b) check whether the new section coincides with any of the existing pieces of snake (if so, the snake dies)
+c) add a new section to the snake (to the head) and remove the last piece from its tail.
+d) if the mouse's coordinates match the coordinates of the snake's head, call the eatMouse method on the Room class's static game object.
+e) if the snake catches the mouse (the coordinates of the snake's head match the coordinates of the mouse), then you don't need to remove a piece from the tail.
 
 
 
-Snake (part 9)
+Snake (part 16)
 
 
-The most important class remains: Room.
-What do we need to describe it?
-One, the dimensions of the room (width and height).
-Two, a Snake
-Three, a Mouse.
+Nothing is forever... That's why the snake must die if it hits a wall or itself.
+
+There's a very simple check to determine whether a snake intersects itself:
+does the sections list contain a "new snake's head"?
+This is what the code will look like:
+if (sections.contains(head))
+The head must not be added to the sections list, otherwise this condition will always be true.
+But for this code to work, you need to implement object comparison methods (equals and hashCode) in the SnakeSection class.
+
+Hint:
+Use Alt+Insert in IntelliJ IDEA to automatically generate equals and hashCode methods.
+
+Task:
+a) implement equals and hashCode methods in the SnakeSection class.
+b) implement the checkBorders(SnakeSection head) method: if the snake's head is outside the room, the snake dies (isAlive = false)
+c) implement the checkBody(SnakeSection head) method: if the snake's head intersects its body, the snake dies (isAlive = false)
+
+
+
+
+Snake (part 15)
+
+
+Now we need to finish the snake.
+
+Here's my suggestion regarding the snake's motion:
+The snake consists of pieces. Each turn, let's just add one piece at the head,
+and delete the last one. This will make the snake appear to slither.
+
+Let's add two move methods: one without parameters, and the other with two int parameters.
+
+In the move method without parameters, you must:
+a) stop moving if the snake died (isAlive == false)
+b) call move(0, -1) if the direction of movement is SnakeDirection.UP
+c) call move(1, 0) if the direction of movement is SnakeDirection.RIGHT
+d) call move(0, 1) if the direction of movement is SnakeDirection.DOWN
+e) call move(-1, 0) if the direction of movement is SnakeDirection.LEFT
+
+We'll leave the move method with (int, int) parameters empty for now.
+
+
+
+Snake (part 14)
+
+
+Now let's work on the print() method.
 
 Here's what we need:
-a) create int width and height variables in the Room class.
-b) create a Snake snake variables in the Room class.
-c) create a Snake mouse variable in the Room class. Just kidding. I mean a Mouse, of course :).
-d) create getters and setters for all of them.
-e) create a constructor. The constructor must have three parameters: width, height, and... snake!
+a) display a rectangle of dots, whose dimensions is width x height.
+b) represent the body of the snake with an "x"
+c) draw the snake's head with an "X".
+
+Hint:
+a) it will be helpful to start by creating an int[][] matrix whose dimensions are height x width
+b) then walk through all the objects and "draw them" onto the matrix.
+For example, you could use 1 for the body of the snake, 2 for the head of the snake, and 3 for the mouse.
 
 
 
-Snake (part 8)
+Snake (part 13)
 
 
-It's the Snake class constructor's turn.
-
-Initially, the snake consists of one piece: the head.
-And what does it require?
-What needs to be passed to the constructor?
-The coordinates of the snake, of course.
-
-Here's what we need:
-a) Pass the coordinates of the snake's head (x and y) to the constructor.
-b) create the first "piece of the snake" (the head) in the constructor and add it to the sections collection (ArrayList).
-c) set isAlive to true.
-d) don't forget to initialize the sections variable in the constructor. You can't add much to a null object!
-e) create and implement the int getX() method. The method should return the x-coordinate of the snake's head.
-e) create and implement the int getY() method. The method should return the y-coordinate of the snake's head.
-g) also add a move() method to the class—it will come in handy later.
-h) the constructor must be public.
-
-
-
-Snake (part 7)
-
-
-We've described the "pieces of the snake". Now we'll deal with the snake itself.
-
-The snake must have a list of SnakeSections and a head.
-Let the head just be the very first piece (index 0).
-
-The snake also has a direction in which it moves by default.
-And there is also a condition: whether the snake is alive or dead.
-The game ends when the snake is dead.
-
-Here's what we need:
-a) Add a List<SnakeSection> sections field to the Snake class.
-b) Add a boolean isAlive field.
-c) Add a SnakeDirection direction field.
-d) Add getters for all the fields, and a setter for direction.
-
-Note:
-For boolean fields, the getter is usually named isValue(), not getValue(), to improve the readability of the code.
-But don't call it isIsAlive(). One "is" will be enough.
-Note 2:
-All fields created in this task should be private, while all of the methods should be public.
-
-
-
-Snake (part 6)
-
-
-Now let's tackle the SnakeSection class.
-It will describe one piece of the snake.
-
-And what does each piece have?
-Right! Coordinates.
-
-Add two fields to the SnakeSection class: int x and int y.
-Add getters for these fields and a constructor with two int parameters.
+This time I'll invite you to write a special sleep() method that will pause
+depending on the length of the snake (the number of elements in sections).
+Think of some slick algorithm. Make the delay 500 milliseconds on the first level,
+and gradually drop it to 300 by Level 11. And to 200 by Level 15. And then have it stay constant.
 
 
 
