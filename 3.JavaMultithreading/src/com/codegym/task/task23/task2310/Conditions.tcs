@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task23.task2310"\n\nStrain your brain!
+
+
+The printName method must display its own name field, i.e. "sout"
+Make the fewest changes possible.
+
+
+Requirements:
+1.	The screen output must match the task conditions.
+2.	The Solution class should have a sout method without parameters.
+3.	The Solution class must have a name field.
+4.	The getName method&#39;s access modifier must be expanded.
+
+

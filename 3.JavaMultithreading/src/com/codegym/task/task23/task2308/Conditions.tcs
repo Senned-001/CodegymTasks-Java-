@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task23.task2308"\n\nRefactoring, nested classes
+
+
+Refactor the Solution class: put all the constants in the nested public Constants class.
+Prevent the Constants class from being inherited.
+
+
+Requirements:
+1.	In the Solution class, a Constants class containing string constants must be created.
+2.	The Constants class must be public.
+3.	The Constants class must be declared with a modifier that prevents class inheritance.
+4.	The Constants class should have a SERVER_IS_CURRENTLY_NOT_ACCESSIBLE constant equal to &quot;The server is currently not accessible.&quot;.
+5.	The Constants class should have a USER_IS_NOT_AUTHORIZED constant equal to &quot;The user is not authorized.&quot;.
+6.	The Constants class should have a USER_IS_BANNED constant equal to &quot;The user is banned.&quot;.
+7.	There should be an ACCESS_IS_DENIED constant equal to &quot;Access is denied.&quot;.
+
+

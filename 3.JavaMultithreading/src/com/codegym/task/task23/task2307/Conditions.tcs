@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task23.task2307"\n\nHow do I choose the right one?
+
+
+In the main method, assign an instance of the TEST class to the Object obj variable.
+Don't change anything except the main method.
+
+
+Requirements:
+1.	The Solution class must have a TEST field.
+2.	The Solution class must contain the TEST class.
+3.	The Solution class must have an obj field.
+4.	The main method must save a TEST object (instance of the TEST class) to the obj field.
+
+
