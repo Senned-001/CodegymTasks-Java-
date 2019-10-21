@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task24.task2406"\n\nInheriting an inner class
+
+
+Inside the Solution class, create 2 public inner classes: ThreeBedroomApt and BigHall.
+Make them inherit Apartment and Hall.
+
+
+Requirements:
+1.	The ThreeBedroomApt class must be inside the Solution class.
+2.	The BigHall class must be inside the Solution class.
+3.	The ThreeBedroomApt class must be public.
+4.	The BigHall class must be public.
+5.	The ThreeBedroomApt class must be a descendant of the Building.Apartment class.
+6.	The BigHall class must be a descendant of the Building.Hall class.
+
+

@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task24.task2408"\n\nHow to avoid Copy+Paste
+
+
+In the Dog class, implement the toCanSpeak method's logic, which is described in a Javadoc.
+
+
+Requirements:
+1.	The Dog class must implement a public toCanSpeak method with one int parameter.
+2.	The toCanSpeak method must return a CanSpeak object.
+3.	The object returned by the toCanSpeak method must be a descendant of the SuperDog class.
+4.	If the argument passed to the toCanSpeak method is less than 1, the speak method should return a string with the message that the dog is sleeping (formatted according to the Javadoc).
+5.	If the argument passed to the toCanSpeak method is greater than or equal 1, the speak method should return a string with the message that the dog is barking (formatted according to the Javadoc).
+6.	The program should display data on the screen.
+7.	The DogPet class&#39;s getName method must call the SuperDog class&#39;s getSuperQuotes method.
+
+

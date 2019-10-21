@@ -1,0 +1,26 @@
+taskKey="com.codegym.task.task24.task2409"\n\nOnline store for jeans
+
+
+1. Create 2 interfaces in separate files:
+1.1) Item with int getId(), double getPrice(), and String getTM() methods
+1.2) Jeans extends Item with the int getLength() and int getSize() methods
+
+2. In the Util class, add the missing Java code to the getAllJeans method:
+2.1) figure out what the Util class's getAllJeans method already has
+2.2) create an abstract AbstractJeans class using the Jeans interface with one abstract method, and implement the remaining methods
+2.3) create Levis and Armani classes using AbstractJeans, and implement the remaining method
+2.4) Implement the toString() method in the AbstractJeans class (you can use Alt+Insert -> toString())
+2.5) the output of the AbstractJeans class's toString method should start with the name of the subclass, for example, Levis{id=1, length=34, size=6, price=150.0}
+
+
+Requirements:
+1.	The Item interface must be in a separate file.
+2.	The Jeans interface must extend the Item interface and be created in a separate file.
+3.	The Item interface must include all the methods listed in the task conditions.
+4.	The Jeans class must include all the methods listed in the task conditions.
+5.	A local abstract AbstractJeans class that supports the Jeans interface must be created in the Util class&#39;s getAllJeans method.
+6.	A local Levis class that inherits the AbstractJeans class must be created in the Util class&#39;s getAllJeans method.
+7.	A local Armani class that inherits the AbstractJeans class must be created in the Util class&#39;s getAllJeans method.
+8.	The AbstractJeans class must implement a toString() method whose output starts with name of the subclass.
+
+

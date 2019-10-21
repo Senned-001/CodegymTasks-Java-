@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task24.task2402"\n\nCloneable
+
+
+Add Java code to make the main method run without exceptions.
+
+
+Requirements:
+1.	The Test4 class should support the Cloneable interface.
+2.	The Test4 class must implement a clone method with no parameters.
+3.	The main method must call the clone method on a Test1 object.
+4.	The main method must call the clone method on a Test2 object.
+5.	The main method must call the clone method on a Test4 object.
+6.	The main method must call the c1one method on a Test3 object.
+7.	The Test1 class should support the Cloneable interface.
+
+

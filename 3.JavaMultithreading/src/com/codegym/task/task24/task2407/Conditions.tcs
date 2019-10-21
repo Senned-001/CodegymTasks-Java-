@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task24.task2407"\n\nImplementing an interface using a local class
+
+
+In the Cat class, implement the toCanSpeak method's logic, which is described in a Javadoc.
+
+
+Requirements:
+1.	The Cat class must implement a public toCanSpeak method with one int parameter.
+2.	The toCanSpeak method must return a CanSpeak object.
+3.	If the passed argument is less than 1, the speak() method must return a string formatted as follows: &quot;&lt;name&gt; is sleeping.&quot;, where &lt;name&gt; is the name of the current cat.
+4.	If the passed argument is greater than or equal to 1, the speak() method must return a string formatted as follows: &quot;&lt;name&gt; says meooow!&quot;, where &lt;name&gt; is the name of the current cat, and the number of o&#39;s to use in &quot;meow&quot; is equal to the passed parameter.
+5.	The program should display data on the screen.
+
+

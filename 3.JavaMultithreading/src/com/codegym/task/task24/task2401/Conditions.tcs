@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task24.task2401"\n\nCreating your own marker interface
+
+
+1. Create the SelfMarkerInterface marker interface.
+2. Create a SelfMarkerInterfaceImpl class that implements SelfMarkerInterface.
+3. Add any 2 public methods to SelfMarkerInterfaceImpl.
+4. Create an UnsupportedMarkerInterfaceException that inherits Exception.
+5. In the Util class's testClass method: if the argument is null, then throw an UnsupportedMarkerInterfaceException.
+
+
+Requirements:
+1.	The SelfMarkerInterface marker interface must be in a separate file.
+2.	The SelfMarkerInterfaceImpl class must be created in a separate file and implement the SelfMarkerInterface interface.
+3.	The SelfMarkerInterfaceImpl class must have at least two public methods.
+4.	The UnsupportedMarkerInterfaceException should be created in a separate file.
+5.	The Util class&#39;s testClass method should throw an UnsupportedMarkerInterfaceException if the passed argument is null.
+6.	The SelfMarkerInterface interface should not declare methods or constants.
+
+

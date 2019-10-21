@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task24.task2403"\n\nSo, let's... compare
+
+
+Fix the bugs: Move the clone methods to the classes where they should be implemented.
+Delete any superfluous methods.
+Don't delete the main method.
+
+
+Requirements:
+1.	The C class must implement a clone method with no parameters.
+2.	The Solution class must have a main method.
+3.	The Solution class must have at 4 nested classes.
+4.	The Solution class must have 1 method.
+5.	The C class&#39;s clone method must return a C object.
+
+

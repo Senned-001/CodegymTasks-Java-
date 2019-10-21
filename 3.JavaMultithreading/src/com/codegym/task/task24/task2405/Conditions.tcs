@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task24.task2405"\n\nBlack box
+
+
+1. Repair the logic of the someAction method for the solutionAction field.
+2. See the comment on the main method for example output.
+3. Hint: if param > 0, then the someAction method of an anonymous class in the solutionAction field should call a method of the FirstClass subclass.
+Otherwise, call a method of the SecondClass subclass.
+
+Don't change the main method!
+
+
+Requirements:
+1.	The screen output must match the task conditions.
+2.	The string constants declared in the SecondClass class should be used for the output.
+3.	The someAction method of the Action anonymous class created in the Solution class must call the someAction method of the parent class (super.someAction()).
+4.	A FirstClass object must be created in the someAction method of the Action anonymous class created in the Solution class.
+5.	A SecondClass object must be created in the someAction method of the Action anonymous class created in the Solution class.
+
+
