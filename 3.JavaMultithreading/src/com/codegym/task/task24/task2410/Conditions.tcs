@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task24.task2410"\n\nRefactoring, anonymous classes
+
+
+Be sure that the getIterator method returns an anonymous class.
+Transfer the LocalIterator logic to an anonymous class.
+Only change the body of the getIterator method.
+
+
+Requirements:
+1.	The getIterator method must return an Iterator object.
+2.	The object returned by the getIterator method must be an instance of an anonymous class.
+3.	The program should display data on the screen.
+4.	The behavior of the program should remain the same.
+
+

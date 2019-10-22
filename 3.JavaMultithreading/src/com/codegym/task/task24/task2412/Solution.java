@@ -25,9 +25,11 @@ public class Solution {
         String[] filepart = {"closed {4}", "open {2} and last {3}"};
 
         ChoiceFormat fileform = new ChoiceFormat(filelimits, filepart);
-        Format[] testFormats = {null, dateFormat, fileform};
+        //Format[] testFormats = {null, dateFormat, fileform};      //wrong format for {1} element in pattform
+        Format[] testFormats = {null, null, dateFormat, fileform};
         MessageFormat pattform = new MessageFormat("{0}   {1} | {5} {6}");
         pattform.setFormats(testFormats);
+
 
         for (Stock stock : stocks) {
             String name = ((String) stock.get("name"));
