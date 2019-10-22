@@ -1,0 +1,115 @@
+taskKey="com.codegym.task.task24.task2413.big20"\n\nArkanoid (part 20)
+
+
+Good work! I added a couple of methods, as well a KeyboardObserver.
+
+Take a little rest before the next level and play.
+
+P.S. Just don't forget to adjust the height of the console.
+
+
+Requirements:
+1.	Relax and enjoy.
+
+
+Arkanoid (part 19)
+
+
+There's just a little bit left.
+
+Create a private boolean isGameOver field in the Arkanoid class.
+
+Implement the checkBrickCollision method.
+In this method, you need to check whether the ball has collided with any of the bricks.
+Use the intersects method to test for a collision.
+If the ball does hit a brick, then:
+a) the ball flies off in a random direction:
+double angle = Math.random() * 360;
+ball.setDirection(angle);
+b) the brick "dies" and must be removed from the list of bricks.
+
+Implement the checkPaddleCollision method.
+In this method, you need to check whether the ball has hit the paddle.
+Use the intersects method to test for a collision.
+If the ball does hit the paddle, then:
+the ball flies up in a random direction:
+double angle = 90 + 20 * (Math.random() - 0.5);
+ball.setDirection(angle);
+
+Implement the checkGameOver method.
+If the ball's y coordinate is greater than the height of the game field (height), then the ball has flown off the bottom of the screen.
+If this happens, set the isGameOver variable to true.
+
+
+
+Arkanoid (part 18)
+
+
+Now we'll return to the Arkanoid class.
+
+Implement the following methods:
+a) move()
+In this method, you need to move all movable objects (the paddle and ball).
+b) draw(Canvas canvas)
+In this method, you must call the draw method on all objects that have such a method.
+
+
+
+Arkanoid (part 17)
+
+
+The paddle also needs methods:
+a) move - see move in BaseObject
+The paddle moves horizontally, so we'll only change the x coordinate.
+Think about how the x coordinate depends on direction and speed. Implement that dependence.
+b) draw - see draw in BaseObject
+I'll handle the code myself.
+c) moveLeft() - sets the paddle's direction to left
+Just assign the correct value to the direction variable.
+d) moveRight () - sets the paddle's direction to right
+Just assign the correct value to the direction variable.
+
+
+
+Arkanoid (part 16)
+
+
+And finally, the paddle!
+It will need the following private fields:
+a) double speed (the paddle's speed);
+b) direction (direction of movement along the x axis: 1 - to the right, -1 - to the left, 0 (initial value) - hold still).
+
+Also, create getters for them.
+
+And you'll need to make a constructor, something like this:
+public Paddle(double x, double y) {
+super(x, y, 3);
+speed = 1;
+direction = 0;
+}
+
+
+
+Arkanoid (part 15)
+
+
+You won't believe it, but we're still not done.
+
+First, you need a setDirection method,
+which not only sets the value of the direction variable,
+but also computes the new values ​​of the dx and dy variables.
+
+The code should look something like this:
+this.direction = direction;
+double angle = Math.toRadians(direction);
+dx = Math.cos(angle) * speed;
+dy = -Math.sin(angle) * speed.
+
+Second, the ball can hit a wall.
+If it does, then it should bounce off.
+For this, we need one more method:
+void checkRebound(int minx, int maxx, int miny, int maxy)
+Declare it, and I'll handle the code myself.
+
+
+

@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task24.task2412"\n\nKnowledge is power!
+
+
+1. In the sort method, write a comparator for Stock:
+1.1. Sort first by name in alphabetical order
+1.2. Sort second by date without accounting for hours, minutes, and seconds (with the newest on top), and then by profit from positive to negative
+... open 125.64 and last 126.74. Here the gain is 126.74-125.64
+... open 125.64 and last 123.43. Here the gain is 123.43-125.64
+2. Take a look at the *Format classes and fix the IllegalArgumentException. Hint: it's one line.
+Example output:
+Fake Apple Inc.   AAPL | 16-03-2027 open 125.64 and last 123.43
+Fake Applied Materials, Inc.   AMAT | 15-01-1983 change 0.26
+
+
+Requirements:
+1.	No exceptions should occur while the program is running.
+2.	The program should display data on the screen.
+3.	The sort method must correctly sort the passed list according to the task conditions.
+4.	The Solution.Stock class must be public.
+
+

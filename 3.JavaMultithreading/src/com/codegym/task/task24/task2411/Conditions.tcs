@@ -1,0 +1,13 @@
+taskKey="com.codegym.task.task24.task2411"\n\nLet's recall inheritance
+
+
+Fix inheritance in all the classes so that the output of the main method is "CCBAYS".
+
+
+Requirements:
+1.	The screen output must match the task conditions.
+2.	The C class must support the JustAnInterface interface.
+3.	The B class must be a descendant of the C class.
+4.	The Solution class must be a child of the C class.
+
+
