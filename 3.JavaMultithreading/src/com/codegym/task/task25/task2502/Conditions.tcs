@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task25.task2502"\n\nDon't take the car to the shop!
+
+
+Initialize the wheels field using data from loadWheelNamesFromDB().
+Throw an exception if the data is invalid.
+Hint: if wheels aren't right, then it's not a car!
+Don't change the signatures.
+
+
+Requirements:
+1.	Don&#39;t change the Wheel enum in the Solution class.
+2.	Don&#39;t change signatures in the Car class.
+3.	When creating a car, you need to call the loadWheelNamesFromDB() method.
+4.	If incorrect wheel data is returned, then you need to throw an exception.
+5.	Initialize the wheels field with the returned data.
+
+

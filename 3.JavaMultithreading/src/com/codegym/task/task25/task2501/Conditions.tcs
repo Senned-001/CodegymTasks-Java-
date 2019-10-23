@@ -1,0 +1,13 @@
+taskKey="com.codegym.task.task25.task2501"\n\nNew functionality!
+
+
+Using an enum, implement the getLetterPosition() method, which must return a letter's position. The position of the letter A is 1.
+
+
+Requirements:
+1.	The Solution class must have an enum called Alphabet.
+2.	Alphabet must contain the 26 letters of the English alphabet, in alphabetical order.
+3.	The Alphabet class&#39;s getLetterPosition() method must return a letter&#39;s position in the alphabet.
+4.	The getLetterPosition() method must call the ordinal method.
+
+

@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task25.task2503"\n\nYour own enum
+
+
+Make Column implement the Columnable interface. See the Javadocs for a description of its methods.
+Implement the logic of the Column.getVisibleColumns() method.
+The Column.configureColumns() method is already implemented. Don't change it.
+Don't create additional fields.
+The main() method is not tested.
+
+
+Requirements:
+1.	Don&#39;t change the Columnable interface.
+2.	The Column class must implement the Columnable interface.
+3.	Don&#39;t create additional fields in the Column class.
+4.	The Column.configureColumns() method is already implemented. Don&#39;t change it.
+5.	The Column.getVisibleColumns() method must return a list of visible columns in the specified order.
+6.	The Column.getColumnName() method must return a column&#39;s full name.
+7.	The Column.isShown() method must return true if the column is visible. Otherwise, it must return false.
+8.	The Column.hide() method must hide the column and shift the indices of the other visible columns.
+
+
