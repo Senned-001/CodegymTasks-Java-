@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task25.task2506"\n\nMonitoring thread state
+
+
+Create a LoggingStateThread thread class,
+which will display all of the states (State) of the thread passed to the constructor.
+The LoggingStateThread thread must terminate itself after the thread passed to the constructor has stopped.
+The main() method is not tested.
+
+
+Requirements:
+1.	Create a LoggingStateThread class in a separate file. It must inherit the Thread class.
+2.	The LoggingStateThread class must have a field for the thread it will monitor. This field must be initialized through the constructor.
+3.	Override the LoggingStateThread class&#39;s run() method.
+4.	After it starts running, the LoggingStateThread class should display changes to the passed thread&#39;s state.
+5.	After the monitored thread stops, the LoggingStateThread thread must also stop running.
+
+

@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task25.task2508"\n\nNo goofing off
+
+
+Restore the logic of the TaskManipulator class.
+
+
+Requirements:
+1.	The TaskManipulator class must implement the Runnable and CustomThreadManipulator interfaces.
+2.	The run() method must display the name of the running thread every 100 milliseconds.
+3.	The TaskManipulator class must have an internal Thread field.
+4.	The start() method must create, internally store, and run a thread with the name passed to the method as an argument.
+5.	The stop() method must interrupt the last thread created by the TaskManipulator class.
+
+

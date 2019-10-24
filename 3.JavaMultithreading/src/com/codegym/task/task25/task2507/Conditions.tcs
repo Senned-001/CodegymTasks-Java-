@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task25.task2507"\n\nWork up a sweat!
+
+
+Implement the logic of the interrupt() method, which should interrupt the thread after first closing used resources.
+Use the superclass's method in a finally block.
+
+
+Requirements:
+1.	Don&#39;t change the interrupt() method&#39;s signature.
+2.	The interrupt() method must close the resources used by the Solution class.
+3.	Then the interrupt() method must interrupt the thread (call super.interrupt()).
+4.	The thread should be interrupted no matter what, even if an exception is thrown while closing resources.
+
+
