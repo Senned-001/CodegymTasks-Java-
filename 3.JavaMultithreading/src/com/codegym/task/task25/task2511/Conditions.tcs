@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task25.task2511"\n\nArming ourselves to the teeth!
+
+
+Create your own UncaughtExceptionHandler as a local class inside the constructor.
+The UncaughtExceptionHandler should hide the thread name with asterisks and display a description of the error that occurred.
+"Thread-0" must be replaced with "********".
+"Thread-4321" must be replaced with "***********".
+
+
+Requirements:
+1.	Don&#39;t change the Solution class&#39;s definition or fields.
+2.	The Solution constructor must create its own UncaughtExceptionHandler, and store it in the handler field.
+3.	The created UncaughtExceptionHandler should display a description of the error that occurred.
+4.	In the error description, the thread name should be hidden by &quot;*&quot; characters.
+
+

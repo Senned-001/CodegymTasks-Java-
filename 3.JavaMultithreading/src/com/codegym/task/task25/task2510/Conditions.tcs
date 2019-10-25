@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task25.task2510"\n\nWait and see
+
+
+All exceptions that occur while the Solution thread is running must be handled by one of these options:
+1. If it's an Error, then display "Can't keep running".
+2. If it's an Exception, then display "Needs handling".
+3. If it's a Throwable, then display "Wait and see".
+Implement this logic.
+
+
+Requirements:
+1.	The Solution constructor must set the thread&#39;s UncaughtExceptionHandler, which catches errors and outputs text to the console.
+2.	If the Solution thread stops running due to an Error, you need to display &quot;Can&#39;t keep running&quot;.
+3.	If the Solution thread stops running due to an Exception, you need display &quot;Needs handling&quot;.
+4.	If the Solution thread stops running due to a Throwable, you need to display &quot;Wait and see&quot;.
+
+
