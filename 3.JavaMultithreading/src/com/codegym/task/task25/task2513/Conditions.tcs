@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task25.task2513"\n\nEnsuring important operations aren't interrupted
+
+
+Take a look at the moveMoney() method.
+If RANDOM.nextInt(5000) is greater than THRESHOLD_VALUE,
+then ensure the time slice is surrendered (yield the right of way to the current thread).
+Add this code to the only acceptable place.
+
+
+Requirements:
+1.	The Solution class must have an Account class.
+2.	The moveMoney() method must transfer the value of the amount field from the &quot;from&quot; account to the &quot;to&quot; account.
+3.	In the moveMoney() method, call Thread.yield() if RANDOM.nextInt(5000) is greater than THRESHOLD_VALUE.
+4.	Thread.yield() must be called in the correct place.
+
+

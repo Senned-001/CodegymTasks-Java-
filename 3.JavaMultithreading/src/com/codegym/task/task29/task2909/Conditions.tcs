@@ -1,0 +1,106 @@
+taskKey="com.codegym.task.task29.task2909.big09"\n\nRefactoring (part 9)
+
+
+9.1.	Self-encapsulate a field. Rewrite the incAverageGrade() method, using a setter and getter to access averageGrade.
+9.2.	Replace an array field with an object. Replace the int[] size array with an instance of a new Size type,
+containing the following public fields: int height and int weight. Declare a public Size class
+inside the Human class.
+9.3.	Encapsulate a field. Hide the company field in the Worker class. Add a corresponding setter and getter.
+9.4.	Replace a type code with a class.
+9.4.1.	Declare a public BloodType class inside the human package.
+9.4.2.	Add the following to the BloodType class: a constant private int code field, a private constructor that
+has an int parameter and initializes the code field, and a corresponding getter.
+9.4.3.	Add static first(), second(), third() and fourth() methods to the BloodType class.
+They should create and return BloodType objects with the correct code inside (1, 2, 3, and 4 respectively).
+9.4.4.	Use the new BloodType class in the Human class.
+
+
+Requirements:
+1.	You need to change the Student class&#39;s incAverageGrade() method to use a setter and getter to access averageGrade.
+2.	You need to replace the Human class&#39;s int[] size array with an instance of the new Size type.
+3.	You need to change the access modifier of the Worker class&#39;s company field to private. You need to add a setter and getter for this field.
+4.	You need to create a public BloodType class inside the human package.
+5.	You need to add the following to the BloodType class: a constant int code field, a private constructor that has an int parameter and initializes the code field, and a corresponding getter.
+6.	You need to add static first(), second(), third(), and fourth() methods to the BloodType class. They should create and return BloodType objects with the correct code inside (1, 2, 3, and 4 respectively).
+7.	You need to change the type of the Human class&#39;s bloodType field to BloodType. Update the setter and getter.
+8.	You must remove the following constants from the Human class: FIRST, SECOND, THIRD, FOURTH.
+
+
+Refactoring (part 8)
+
+
+8.1.	Remove a setter. Remove the setId() method. The id field should be set only when
+the object is created.
+8.2.	Hide a method (field). Change the visibility of the nextId field to match
+the area where it is used.
+8.3.	Replace an exception with a check. Rewrite the removeStudent(int index) method so
+that it removes the student from the students list only if the list contains the student. The method should not throw
+an exception.
+8.4.	Remove a flag. Rewrite the findJohnOrAlex() method without changing its
+behavior. The method should not use flags like "found". Use a break
+statement.
+
+
+
+Refactoring (part 7)
+
+
+7.1.	Parameterize a method. Replace the incAverageGradeBy01() and incAverageGradeBy02() methods
+with an incAverageGrade(double delta) method.
+7.2.	Pass an entire object. Rewrite the addStudentInfo() method so that it
+takes a Student object as an argument.
+7.3.	Replace a parameter with a method call. Rewrite the printStudentInfo() method so that it does not
+take a student name as an argument, but rather gets it by calling the appropriate
+method on a passed object.
+7.4.	Replace parameters with an object. Rewrite the setBeginningOfSession() and setEndOfSession() methods
+so that they take one date object instead of several arguments.
+
+
+
+Refactoring (part 6)
+
+
+6.1.	Replace a parameter with a set of specialized methods. Replace the Student class's setValue() method
+with specialized setCourse() and setAverageGrade() methods.
+6.2.	Add a parameter. Add a double parameter to the
+getStudentWithAverageGrade() method so the average grade of the required student is clear.
+Implement the getStudentWithAverageGrade() method.
+6.3.	Remove a parameter. Remove the parameter from the getStudentWithHighestAverageGrade() method.
+Implement this method. It should return the student with the highest average grade.
+6.4.	Separate a query from a modification. Split the
+getStudentWithLowestAverageGradeAndExpel() method into Student getStudentWithLowestAverageGrade() and
+void expel(Student student). The first method should return the student with
+the lowest average score, and the second method should expel the passed student (remove it from
+the students list).
+
+
+
+Refactoring (part 5)
+
+
+5.1.	Create a template method.
+5.1.1.	Add a String getPosition() method to the Human class. It should return the string "Person".
+5.1.2.	Override this method in the Student and Teacher classes. The method should return "Student" and "Teacher", respectively.
+5.1.3.	Replace the printData() method in the subclasses with a template method that uses getPosition() in the base class.
+5.2.	Replace delegation with inheritance. The Worker class must inherit Human, not contain it.
+5.3.	Rename a method. Rename the setSlr() method to make it more clear what it is a setter for.
+
+
+
+Refactoring (part 4)
+
+
+4.1.	Replace inheritance with delegation.
+4.1.1.	The University class must not inherit Student.
+4.1.2.	The University class must have a students list. Don't forget to initialize it.
+4.1.3.	Add a setter and getter for students.
+4.1.4.	A university has a name and an age. Add the required fields, along with setters and getters for them.
+4.2.	Extract a superclass.
+4.2.1.	Create a UniversityPerson class in the human package.
+4.2.2.	Move the university field to it.
+4.2.3.	Move the setter and getter for the university field.
+4.2.4.	Make the required classes inherit UniversityPerson.
+4.3.	Replace a simple field with an object. Change the university field's type to University.
+
+
+
