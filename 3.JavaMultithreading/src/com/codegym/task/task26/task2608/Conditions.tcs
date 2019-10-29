@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task26.task2608"\n\nA wise man thinks once before speaking twice
+
+
+All of the Solution class's methods except the main method must be thread safe.
+Make it so both methods can be executed simultaneously by two different threads.
+"synchronized(this)" isn't suitable here. Use another object for the lock.
+
+
+Requirements:
+1.	The Solution class must have a getSumOfVar1AndVar2() method.
+2.	The Solution class must have a getSumOfVar3AndVar4() method.
+3.	The getSumOfVar1AndVar2() method must contain a synchronized block.
+4.	The getSumOfVar3AndVar4() method must contain a synchronized block.
+5.	The synchronized method in the getSumOfVar1AndVar2() and getSumOfVar3AndVar4() methods should use the mutexes of different objects.
+
+

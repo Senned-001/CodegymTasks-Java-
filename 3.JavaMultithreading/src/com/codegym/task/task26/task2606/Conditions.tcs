@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task26.task2606"\n\nThose who love work need no entertainment
+
+
+Put volatile modifiers where necessary.
+
+
+Requirements:
+1.	The Solution class must have a private final URL codegymUrl field.
+2.	The Solution class must have a private final URL codegymUrl1Child field.
+3.	The Solution class must have a private final URL codegymFbGroupUrl field.
+4.	The Solution class must have a private final URL codegymFbGroupUrl1Child field.
+5.	The Solution class must have a private final URL codegymFbGroupUrl2Child field.
+6.	The Solution class must have a private final URL codegymFbGroupUrl3Child field.
+7.	The Solution class must have a private ExecutorService executorService field.
+8.	The Solution class must have a private Set&lt;URL&gt; urlsForProcessing field.
+9.	The UrlTask class must have a private final URL url field.
+10.	Put volatile modifiers where necessary.
+
+

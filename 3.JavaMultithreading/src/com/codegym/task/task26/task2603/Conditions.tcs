@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task26.task2603"\n\nA convert can easily convert others
+
+
+A table has columns that can be sorted.
+The user can customize the list of columns that will be sorted.
+Write a public static Comparator CustomizedComparator that will:
+1. take an array of comparators via the constructor.
+2. sort data in the order that corresponds to the sequence of comparators.
+All the passed comparators sort the generic type T.
+At least one comparator is passed to the constructor.
+
+
+Requirements:
+1.	The Solution class must have a public static CustomizedComparator.
+2.	The CustomizedComparator class must have a private Comparator&lt;T&gt;[] comparators field.
+3.	The CustomizedComparator class must have a constructor with a varargs parameter for the comparators.
+4.	The CustomizedComparator class&#39;s compare() method must compare the objects according to the sequence of comparators in the comparators field.
+
+

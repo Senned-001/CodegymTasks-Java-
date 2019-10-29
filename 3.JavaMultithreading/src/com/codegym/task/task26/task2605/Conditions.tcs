@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task26.task2605"\n\nDiligence is the foundation of all work and the key to prosperity
+
+
+Put volatile modifiers where necessary.
+
+
+Requirements:
+1.	The Solution class must have a private static ScheduledExecutorService interruptScheduledExecutor field.
+2.	The Solution class must have a private static Thread taskThread field.
+3.	The Solution class must have a private static RethrowableTask task field.
+4.	The RethrowableTask class must have a private Throwable throwable field.
+5.	The RethrowableTask class must have a private Runnable runnable field.
+6.	Put volatile modifiers where necessary.
+
+

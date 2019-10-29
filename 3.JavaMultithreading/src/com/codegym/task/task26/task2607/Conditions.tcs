@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task26.task2607"\n\nPoliteness is an artificial good mood
+
+
+In the Solution class, create a public static IntegerHolder class.
+IntegerHolder must accommodate an int (the variable name must be value), be thread safe, and be mutable.
+This class must have two public methods: get and set.
+
+
+Requirements:
+1.	The Solution class must have a public static IntegerHolder class.
+2.	The IntegerHolder class must have a private int value field.
+3.	The IntegerHolder class must have a public get() method that returns value.
+4.	The IntegerHolder class must have a public set(int value) method that sets value to the passed argument.
+5.	The IntegerHolder class must be thread safe.
+
+

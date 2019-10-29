@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task26.task2604"\n\nImproving the mind requires more contemplation than memorization
+
+
+Put volatile modifiers where necessary.
+
+
+Requirements:
+1.	The Solution class must have a public static final String DEFAULT_CODEGYM_THREAD_NAME field.
+2.	The Solution class must have a private static final AtomicInteger createdThreadIndex field.
+3.	The Solution class must have a private static final AtomicInteger aliveThreadIndex field.
+4.	The Solution class must have a private static final Logger log field.
+5.	The Solution class must have a private static boolean debugSession field.
+6.	Put volatile modifiers where necessary.
+
+

@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task26.task2609"\n\nDistributing items into baskets with their own lock
+
+
+In the synchronized blocks, use the right lock.
+
+
+Requirements:
+1.	The Solution class must have a private static final int LOCK_COUNT field.
+2.	The Solution class must have a private final Node[] buckets field.
+3.	The Solution class must have a private final Object[] locks field.
+4.	All of the Solution class&#39;s methods must not be synchronized.
+5.	In the synchronized block of the Solution class&#39;s get() method, use a lock from the locks array, depending on the object hash and the number of lock objects.
+6.	In the synchronized block of the Solution class&#39;s clear() method, use a lock from the locks array, depending on the element&#39;s index and the number of lock objects.
+
+

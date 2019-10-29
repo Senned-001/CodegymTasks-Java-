@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task26.task2602"\n\nThink and you will succeed
+
+
+Soldiers have always assembled, do assemble, and will assemble by descending height.
+After thinking about whether it would be better to use Comparable or Comparator for this task, sort the soldiers.
+
+
+Requirements:
+1.	The Soldier class must have private String name and int height fields.
+2.	The Soldier class must have a constructor with two parameters: String name and int height.
+3.	Think about which is best to use, and then implement Comparable or Comparator.
+4.	The Soldier class must contain a compareTo(Soldier solder) method.
+5.	The compareTo(Soldier solder) method should compare two soldiers, considering only their height. You need to compare the objects according to the soldiers&#39; decreasing height.
+
+
