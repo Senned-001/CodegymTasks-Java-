@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task26.task2611"\n\nThe world doesn't change, we change
+
+
+Analyze ConcurrentHashMap.
+In a separate file, create a Producer class that will:
+1. every half second, add a key and value to a ConcurrentHashMap, where the key is the counter starting from 1, and the value is a phrase like "Some text for i", e.g. "Some text for 1".
+2. when an exception occurs, display the following: "[THREAD_NAME] thread was terminated", e.g. "[thread-1] thread was terminated".
+
+
+Requirements:
+1.	The Producer class must be in a separate file.
+2.	The Producer class must implement the Runnable interface.
+3.	The Producer class must contain a private ConcurrentHashMap&lt;String, String&gt; map field.
+4.	The Producer class must have a constructor with one parameter that initializes the map field.
+5.	The Producer class&#39;s run() method must add a key and a value to the ConcurrentHashMap every half second according to the task conditions.
+6.	When an exception occurs, the Producer class&#39;s run() method should display &quot;[THREAD_NAME] thread was terminated&quot;.
+
+

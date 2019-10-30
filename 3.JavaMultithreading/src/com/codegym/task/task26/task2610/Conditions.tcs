@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task26.task2610"\n\nThe world is boring for boring people
+
+
+Analyze BlockingQueue.
+In the image and likeness of the Producer class, create a Consumer class that will output data from a BlockingQueue to the console.
+
+
+Requirements:
+1.	The Consumer class must be in a separate file.
+2.	The Consumer class must implement the Runnable interface.
+3.	The Consumer class must contain a private BlockingQueue queue field.
+4.	The Consumer class must have a constructor with one parameter that initializes the queue field.
+5.	The Consumer class&#39;s run() method must constantly display the values from the queue.
+
+
