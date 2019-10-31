@@ -1,4 +1,65 @@
-taskKey="com.codegym.task.task30.task3008.big11"\n\nChat (part 11)
+taskKey="com.codegym.task.task30.task3008.big13"\n\nChat (part 13)
+
+
+Let's continue to implement helper methods in the Client class.
+
+Add the followings methods, which will be available to subclasses,
+but not to other classes outside the package:
+1) String getServerAddress() - It should ask the user to enter the server address,
+and return the entered value. The address can be a string containing
+an IP address if the client and server are running on different machines or 'localhost' if the client and
+server are running on the same machine.
+2) int getServerPort() - It should ask the user to enter the server port, and then return it.
+3) String getUserName() - It should ask for and return the username.
+4) boolean shouldSendTextFromConsole() - In this implementation of the client, it
+should always return true (we always send the text entered from the console). This
+method can be overridden if we write another
+client that inherits ours and shouldn't send the text entered
+from the console.
+5) SocketThread getSocketThread() - It should create and return a new
+SocketThread object.
+6) void sendTextMessage(String text) - It creates a new text message,
+using the connection field to send the passed text to the server.
+If an IOException occurs while the text is sent, you need to display
+information about this user and assign false to the clientConnected field.
+
+
+Requirements:
+1.	The getServerAddress() method should return a string (server address) read from the console.
+2.	The getServerPort() method should return a number (server port) read from the console.
+3.	The getUserName() method should return a string (username) read from the console.
+4.	The shouldSendTextFromConsole() method should return true.
+5.	The sendTextMessage() method should create and send a new text message using the connection field, and set the clientConnected flag to false if an IOException occurs while sending or creating the message.
+6.	The getSocketThread() method should return a new SocketThread object.
+
+
+Chat (part 12)
+
+
+Let's start writing the client. When the client starts running, it should request the server address and server port,
+connect to the specified address, receive a name request from the server, ask the user for his or her name,
+send the username to the server, and wait for the server to accept the name.
+After that, the client can exchange text messages with the server.
+Messages will be exchanged on two threads running in parallel.
+One will read from the console and send what is read to the server, and the second thread will receive data
+from the server and display it on the console.
+
+Let's start the client implementation:
+1) Create a client package. From now on, create all classes responsible for the client implementation in this package.
+2) Create a Client class.
+3) In the Client class, create a nested SocketThread class that inherits the Thread
+class. It will be responsible for the thread that establishes the socket connection and
+reads server messages. The class must have a public access modifier.
+4) Create a Connection connection field in the Client class. Use an access modifier that will allow access
+to this field from subclasses, but will prevent calls from classes outside the package.
+5) Add a private boolean clientConnected field to the Client class. Initialize it to false.
+It will subsequently be set to true if the client connected to the server, or false otherwise.
+When declaring this field, use a keyword that will ensure that every thread using the clientConnected field
+will be working with the current value, not a cached value.
+
+
+
+Chat (part 11)
 
 
 It's time to write the main method of the Handler class, which will call all
@@ -23,16 +84,6 @@ indicating that the connection with the remote address is closed.
 
 Our server is completely ready. Try running it.
 
-
-Requirements:
-1.	The run() method should display a message indicating that a connection has been established with the remote address (use the getRemoteSocketAddress() method).
-2.	The run() method should create a new connection using the socket field as an argument.
-3.	The run() method should call the serverHandshake() method using the newly created connection as an argument; the return value will be the username (userName).
-4.	The run() method should call the sendBroadcastMessage() method using a new message as an argument (MessageType.USER_ADDED, userName).
-5.	The run() method should call the notifyUsers() method using connection and userName as arguments.
-6.	The run() method should call the serverMainLoop() method using connection and userName as arguments.
-7.	Before completing, the run() method must remove from connectionMap the entry that corresponds to userName, and send a message to all chat participants that the current user has been removed.
-8.	The run() method should correctly handle IOExceptions and ClassNotFoundExceptions.
 
 
 Chat (part 10)
@@ -89,50 +140,6 @@ The implementation should:
 6) Send an informational message to the client, informing it that the name was accepted
 7) If any verification step fails, request the client's name again
 8) Return the accepted name as the return value
-
-
-
-Chat (part 7)
-
-
-Because the server can work with multiple clients simultaneously, we're going to need
-a method to send a message to everyone all at once.
-
-Add the following to the Server class:
-1) A static Map<String, Connection> connectionMap field, where the key is the client name,
-and the value is the connection with the client.
-2) Initialization of the field from step 7.1 using the appropriate Map from the java.util.concurrent library,
-since this field will be accessed from different threads and we need to ensure thread safety.
-3) A static void sendBroadcastMessage(Message message) method, which should send the message argument
-to all connections in connectionMap. If an IOException occurs while the message is being sent,
-you need to catch it and inform the user that the message couldn't be sent.
-
-
-
-Chat (part 6)
-
-
-Let's move on to the most important part: writing the Server class.
-The server must support multiple simultaneous connections with different clients.
-This can be done using the following algorithm:
-- The server creates a server socket connection.
-- In a loop, the server waits for some client to connect to the socket.
-- It creates a new Handler thread on which messages will be exchanged with the client.
-- It waits for another connection.
-
-Add the following:
-1) To the Server class, a nested private static Handler class that inherits Thread.
-2) To the Handler class, a Socket socket field.
-3) To the Handler class, a constructor that has a Socket parameter and uses it to initialize the appropriate field.
-4) The Server's main method should:
-a) Request a server port using ConsoleHelper.
-b) Create a java.net.ServerSocket object using the port from the previous step.
-c) Display a message indicating that the server is running.
-d) In an infinite loop, listen for and accept incoming socket connections with the newly created server socket.
-e) Create and start a new Handler thread, passing the socket from the previous step to the constructor.
-e) Once the Handler thread is created, proceed to the next iteration of the loop.
-g) Be sure that the server socket is closed if there is an exception.
-h) If an Exception occurs, catch it and display an error message.
 
 
 
