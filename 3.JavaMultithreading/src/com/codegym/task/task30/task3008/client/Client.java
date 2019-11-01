@@ -21,11 +21,11 @@ public class Client {
         }
 
         protected void informAboutAddingNewUser(String userName){
-            ConsoleHelper.writeMessage(userName+"has joined the chat");
+            ConsoleHelper.writeMessage(userName+" has joined the chat");
         }
 
         protected void informAboutDeletingNewUser(String userName){
-            ConsoleHelper.writeMessage(userName+"has left the chat");
+            ConsoleHelper.writeMessage(userName+" has left the chat");
         }
 
         protected void notifyConnectionStatusChanged(boolean clientConnected){
