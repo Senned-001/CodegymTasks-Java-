@@ -72,6 +72,7 @@ public class Server {
 
 
     public static void main(String[] args) {
+        System.out.println("Enter nuber of port for server: ");
         int port=ConsoleHelper.readInt();
         ServerSocket serverSocket= null;
         try {

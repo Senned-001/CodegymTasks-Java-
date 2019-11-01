@@ -1,4 +1,146 @@
-taskKey="com.codegym.task.task30.task3008.big17"\n\nChat (part 17)
+taskKey="com.codegym.task.task30.task3008.big22"\n\nChat (part 22)
+
+
+So let's recap:
+•	You wrote a text messaging server.
+•	You wrote a console-based client that can connect to the server and exchange messages with other chat participants.
+•	You wrote a bot client that can receive requests and send information about the current date and time.
+•	You wrote a chat client with a graphical interface.
+
+Here are some things you might add or improve:
+•	You could add support for private messages (when a message is sent to a specific participant instead of everyone).
+•	You could extend the bot's capabilities. Try to teach it to respond to super simple questions or to make jokes from time to time.
+•	Add the ability to transfer files between users.
+•	Add a context menu to the GUI-based client, for example, to send a private message to someone from a list of participants.
+•	Color the messages in the GUI-based client, depending on the sender.
+•	Add the ability for the server to block participants, for example, for offensive language in messages.
+•	Add another million features and abilities!
+
+You learned how to:
+•	Work with sockets.
+•	Use serialization and deserialization.
+•	Create and synchronize multi-threaded applications, use the volatile modifier, and use classes from the java.util.concurrent library.
+•	Apply the MVC pattern.
+•	Use inner and nested classes.
+•	Work with the Swing library.
+•	Use the Calendar and SimpleDateFormat classes.
+
+Keep it up!
+
+
+Requirements:
+1.	Congratulations, the chat system is ready!
+
+
+Chat (part 21)
+
+
+I have great news for you. The view component is already done. I've added a ClientGuiView class.
+It uses the javax.swing library. You should really study every line of this class.
+If everything is clear, that's wonderful. If not, be sure to find answers to your questions using the debugger,
+documentation, or an Internet search.
+
+We just need to write the controller component:
+1) Create a ClientGuiController class that inherits Client.
+2) Create and initialize a ClientGuiModel model field, which is responsible for the model.
+3) Create and initialize a ClientGuiView view field, which is responsible for the view.
+Think about what you need to pass to the constructor when the object is initialized.
+4) Add a GuiSocketThread inner class that inherits SocketThread. The GuiSocketThread class must be public.
+It overrides the following methods:
+a) void processIncomingMessage(String message) - It should set a new message
+on the model and trigger an update on the view of the message.
+b) void informAboutAddingNewUser(String userName) - It should add a new user
+to the model and trigger an update of the view of the users.
+c) void informAboutDeletingNewUser(String userName) - It should remove a user
+from the model and trigger an update on the view of the users.
+d) void notifyConnectionStatusChanged(boolean clientConnected) - It should call a similar method on the view.
+5) Override the following methods in the ClientGuiController class:
+a) SocketThread getSocketThread() - It should create and return a GuiSocketThread object.
+b) void run() - It should get a SocketThread object via the getSocketThread() method and call its run() method.
+Figure out we don't need to call the run() method on a separate thread, like we did for the console-based client.
+c) getServerAddress(), getServerPort(), getUserName(). They should call the identically-named methods on the view.
+6) Implement the ClientGuiModel getModel() method, which should return the model.
+7) Implement the main() method, which should create a new ClientGuiController object and call its run() method.
+
+Start a GUI-based client and several console-based clients, and make sure that everything works correctly.
+
+
+
+Chat (part 20)
+
+
+We've already implemented a console-based client and a chat bot. Why not a client with a GUI?
+It will also work with our server, but it will have a graphic window, buttons, etc.
+Well, let's get started. The Model-View-Controller (MVC) pattern is well suited for  a GUI-based client.
+You should have become acquainted with this pattern already.
+If necessary, use the Internet to refresh your knowledge of MVC.
+In our task, the class responsible for the model will have the simplest implementation.
+
+Let's write it:
+1) Create a new ClientGuiModel class in the client package. All client-related classes should be created in this package.
+2) Add a set of strings as a final allUserNames field. It will store a list of all the chat participants. Initialize it.
+3) Add a String newMessage field, which will store the new message received by the client.
+4) Add an allUserNames getter that prevents modification of the returned Set.
+Figure out how this can be done using a method of the Collections class.
+5) Add a setter and a getter for the newMessage field.
+6) Add a void addUser(String newUserName) method that adds the participant's name to a set containing all the participants.
+7) Add a void deleteUser(String userName) method that removes the participant's name from the set.
+
+
+
+Chat (part 19)
+
+
+Now we'll implement the BotSocketThread class, or rather we'll override some
+methods. All of its main functionality is inherited from SocketThread.
+
+1) Override the clientMainLoop() method:
+a) Use the sendTextMessage() method to send this message:
+"Hello, there. I'm a bot. I understand the following commands: date, day, month, year, time, hour, minutes, seconds."
+b) Call the parent class's clientMainLoop() method.
+2) Override the processIncomingMessage(String message) method. It should process incoming messages as follows:
+a) Display the text of the received message on the console.
+b) Get the sender's name and the message text from the message. They are separated by ": ".
+c) Send a reply based on the text of the received message. If the text of the message is:
+"date" - send a message containing the current date in the format "d.MM.YYYY";
+"day" - in the format "d";
+"month" - "MMMM";
+"year" - "YYYY";
+"time" - "H:mm:ss";
+"hour" - "H";
+"minutes" - "m";
+"seconds" - "s".
+Use the format above to create a SimpleDateFormat object.
+To get the current date, you must use the Calendar class and getTime() method.
+The response must include the name of the client who sent the request and is waiting for a response,
+e.g. if Bob sent the "time" request, we should send the following response:
+"Information for Bob: 12:30:47".
+
+Our bot is ready. Start the server, start the bot and a regular client, and be sure that everything works correctly.
+Remember that there are different types of messages and they don't always contain ":"
+
+
+
+Chat (part 18)
+
+
+Sometimes you can't find someone worth talking to. Don't start talking to yourself :).
+Let's write a bot that will be a client that automatically respond to certain commands.
+The easiest version would be a bot that sends the current time or date when someone asks for it.
+
+Let's start with that:
+1) Create a new BotClient class in the client package. It must inherit Client.
+2) In the BotClient class, create a BotSocketThread inner class that inherits SocketThread. The BotSocketThread class must be public.
+3) Override the following methods:
+a) getSocketThread(). It should create and return a BotSocketThread object.
+b) shouldSendTextFromConsole(). It should always return false. We don't want the bot to send text entered from the console.
+c) getUserName(). This method should generate a new bot name, for example, date_bot_X, where X is any number from 0 to 99.
+Use the Math.random() method to generate X.
+4) Add the main() method. It should create a new BotClient object and call its run() method.
+
+
+
+Chat (part 17)
 
 
 The last, but most important, method of the SocketThread class is the void run() method. Add it.
@@ -14,151 +156,6 @@ Let's do it:
 using notifyConnectionStatusChanged() and false as the argument.
 
 The client is ready. You can start the server and several clients, and check how everything works.
-
-
-Requirements:
-1.	The run() method should establish the server connection and save it in the connection field (use the getServerAddress() and getServerPort() methods to get the server address and server port).
-2.	The run() method must call the clientHandshake() method.
-3.	The run() method must call the clientMainLoop() method.
-4.	If an IOException or ClassNotFoundException occurs in the run() method, the notifyConnectionStatusChanged() method must be called with false as the argument.
-5.	The run() method&#39;s signature must match the task conditions.
-
-
-Chat (part 16)
-
-
-Now everything is ready for us to add the necessary methods to the SocketThread class.
-
-1) Add a protected clientHandshake() throws IOException, ClassNotFoundException method.
-This method will represent the client to the server. It must:
-a) In a loop, use the connection field to receive messages.
-b) If a received message is a NAME_REQUEST (the server has requested a name),
-use the getUserName method to ask the user to enter a username, create a new message
-that is a MessageType.USER_NAME and contains the entered name, and send the message to the server.
-c) If a received message is a MessageType.NAME_ACCEPTED (the server has accepted the name), it means
-the server has accepted the client name, and you need to inform the main thread, which is eagerly waiting for this news.
-Do this by passing true to the notifyConnectionStatusChanged() method. Then exit the method.
-d) If there is a message of any other type, throw an IOException("Unexpected MessageType").
-
-2) Add a protected void clientMainLoop() throws IOException, ClassNotFoundException method.
-This method will implement the server's main message-processing loop.
-Inside the method:
-a) Use the connection field to receive a message from the server.
-b) If it is a text message (MessageType.TEXT), process it using the processIncomingMessage() method.
-c) If the message is a MessageType.USER_ADDED, process it using the informAboutAddingNewUser() method.
-d) If the message is a MessageType.USER_REMOVED, process it using the informAboutDeletingNewUser() method.
-e) If the client receives a message of some other type, throw an IOException("Unexpected MessageType").
-f) Put the code from the previous steps in an infinite loop. The loop will terminate automatically
-if an error (exception) occurs or the thread on which the loop is running is interrupted.
-
-
-
-Chat (part 15)
-
-
-Let's write the implementation of the SocketThread class. We'll start with simple helper methods.
-
-Add methods that will be available to subclasses but not accessible to other
-classes outside the package:
-1) void processIncomingMessage(String message) - It should display the message on the console.
-2) void informAboutAddingNewUser(String userName) - It should display a message
-indicating that a participant named userName has joined the chat.
-3) void informAboutDeletingNewUser(String userName) - It should display a message
-indicating that the participant named userName has left the chat.
-4) void notifyConnectionStatusChanged(boolean clientConnected) - This method
-must:
-a) Set the external Client object's clientConnected field equal to the passed argument.
-b) Notify (wake) the Client class's waiting main stream. Hint:
-use synchronization at the level of the current instance of the outer class and use the notify() method.
-The SocketThread class's outer class is the Client class.
-
-
-
-Chat (part 14)
-
-
-Let's start writing the main functionality of the Client class.
-
-1) Add a public void run() method. It should create a helper
-SocketThread, wait until it establishes a connection with the server, and then
-in a loop, read messages from the console and send them to the server. The loop will terminate
-either when the client shuts down or the user enters the 'exit' command'.
-To inform the main thread that the connection is established on the
-helper thread, use the Client object's wait() and notify() methods.
-
-The implementation should:
-a) Create a new socket thread using the getSocketThread() method.
-b) Mark the created thread as a daemon. This is necessary so that the
-helper thread is automatically interrupted when the program exits.
-c) Start the helper thread.
-d) Make the current thread wait until it receives a notification from another
-thread. Hint: use wait() and object level synchronization. If an
-exception occurs while waiting, notify the user and exit
-the program.
-d) Once the thread receives a notification, check the value of
-clientConnected. If it is true, display "Connection established. To exit,
-enter 'exit'.". If it is false, display "An error occurred while
-working with the client.".
-e) Read messages from the console until the client is connected. If 'exit' is entered,
-then exit the loop.
-g) After each string is read, if the shouldSendTextFromConsole() method
-returns true, send the text using the sendTextMessage() method.
-
-2) Add the public static void main(String[] args) method. It must create a new Client object and
-call its run() method.
-
-
-
-Chat (part 13)
-
-
-Let's continue to implement helper methods in the Client class.
-
-Add the followings methods, which will be available to subclasses,
-but not to other classes outside the package:
-1) String getServerAddress() - It should ask the user to enter the server address,
-and return the entered value. The address can be a string containing
-an IP address if the client and server are running on different machines or 'localhost' if the client and
-server are running on the same machine.
-2) int getServerPort() - It should ask the user to enter the server port, and then return it.
-3) String getUserName() - It should ask for and return the username.
-4) boolean shouldSendTextFromConsole() - In this implementation of the client, it
-should always return true (we always send the text entered from the console). This
-method can be overridden if we write another
-client that inherits ours and shouldn't send the text entered
-from the console.
-5) SocketThread getSocketThread() - It should create and return a new
-SocketThread object.
-6) void sendTextMessage(String text) - It creates a new text message,
-using the connection field to send the passed text to the server.
-If an IOException occurs while the text is sent, you need to display
-information about this user and assign false to the clientConnected field.
-
-
-
-Chat (part 12)
-
-
-Let's start writing the client. When the client starts running, it should request the server address and server port,
-connect to the specified address, receive a name request from the server, ask the user for his or her name,
-send the username to the server, and wait for the server to accept the name.
-After that, the client can exchange text messages with the server.
-Messages will be exchanged on two threads running in parallel.
-One will read from the console and send what is read to the server, and the second thread will receive data
-from the server and display it on the console.
-
-Let's start the client implementation:
-1) Create a client package. From now on, create all classes responsible for the client implementation in this package.
-2) Create a Client class.
-3) In the Client class, create a nested SocketThread class that inherits the Thread
-class. It will be responsible for the thread that establishes the socket connection and
-reads server messages. The class must have a public access modifier.
-4) Create a Connection connection field in the Client class. Use an access modifier that will allow access
-to this field from subclasses, but will prevent calls from classes outside the package.
-5) Add a private boolean clientConnected field to the Client class. Initialize it to false.
-It will subsequently be set to true if the client connected to the server, or false otherwise.
-When declaring this field, use a keyword that will ensure that every thread using the clientConnected field
-will be working with the current value, not a cached value.
 
 
 
