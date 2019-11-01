@@ -1,4 +1,115 @@
-taskKey="com.codegym.task.task30.task3008.big13"\n\nChat (part 13)
+taskKey="com.codegym.task.task30.task3008.big17"\n\nChat (part 17)
+
+
+The last, but most important, method of the SocketThread class is the void run() method. Add it.
+Given the methods we've already created, implementing this method looks very simple.
+
+Let's do it:
+1) Request the server address and server port using the getServerAddress() and getServerPort() methods.
+2) Create a new java.net.Socket object using the data obtained in previous step.
+3) Create a Connection object using the socket from step 17.2.
+4) Call the method that implements the client-server "handshake" (clientHandshake()).
+5) Call the method that implements the main loop for processing server messages.
+6) If an IOException or ClassNotFoundException is thrown, notify the main thread
+using notifyConnectionStatusChanged() and false as the argument.
+
+The client is ready. You can start the server and several clients, and check how everything works.
+
+
+Requirements:
+1.	The run() method should establish the server connection and save it in the connection field (use the getServerAddress() and getServerPort() methods to get the server address and server port).
+2.	The run() method must call the clientHandshake() method.
+3.	The run() method must call the clientMainLoop() method.
+4.	If an IOException or ClassNotFoundException occurs in the run() method, the notifyConnectionStatusChanged() method must be called with false as the argument.
+5.	The run() method&#39;s signature must match the task conditions.
+
+
+Chat (part 16)
+
+
+Now everything is ready for us to add the necessary methods to the SocketThread class.
+
+1) Add a protected clientHandshake() throws IOException, ClassNotFoundException method.
+This method will represent the client to the server. It must:
+a) In a loop, use the connection field to receive messages.
+b) If a received message is a NAME_REQUEST (the server has requested a name),
+use the getUserName method to ask the user to enter a username, create a new message
+that is a MessageType.USER_NAME and contains the entered name, and send the message to the server.
+c) If a received message is a MessageType.NAME_ACCEPTED (the server has accepted the name), it means
+the server has accepted the client name, and you need to inform the main thread, which is eagerly waiting for this news.
+Do this by passing true to the notifyConnectionStatusChanged() method. Then exit the method.
+d) If there is a message of any other type, throw an IOException("Unexpected MessageType").
+
+2) Add a protected void clientMainLoop() throws IOException, ClassNotFoundException method.
+This method will implement the server's main message-processing loop.
+Inside the method:
+a) Use the connection field to receive a message from the server.
+b) If it is a text message (MessageType.TEXT), process it using the processIncomingMessage() method.
+c) If the message is a MessageType.USER_ADDED, process it using the informAboutAddingNewUser() method.
+d) If the message is a MessageType.USER_REMOVED, process it using the informAboutDeletingNewUser() method.
+e) If the client receives a message of some other type, throw an IOException("Unexpected MessageType").
+f) Put the code from the previous steps in an infinite loop. The loop will terminate automatically
+if an error (exception) occurs or the thread on which the loop is running is interrupted.
+
+
+
+Chat (part 15)
+
+
+Let's write the implementation of the SocketThread class. We'll start with simple helper methods.
+
+Add methods that will be available to subclasses but not accessible to other
+classes outside the package:
+1) void processIncomingMessage(String message) - It should display the message on the console.
+2) void informAboutAddingNewUser(String userName) - It should display a message
+indicating that a participant named userName has joined the chat.
+3) void informAboutDeletingNewUser(String userName) - It should display a message
+indicating that the participant named userName has left the chat.
+4) void notifyConnectionStatusChanged(boolean clientConnected) - This method
+must:
+a) Set the external Client object's clientConnected field equal to the passed argument.
+b) Notify (wake) the Client class's waiting main stream. Hint:
+use synchronization at the level of the current instance of the outer class and use the notify() method.
+The SocketThread class's outer class is the Client class.
+
+
+
+Chat (part 14)
+
+
+Let's start writing the main functionality of the Client class.
+
+1) Add a public void run() method. It should create a helper
+SocketThread, wait until it establishes a connection with the server, and then
+in a loop, read messages from the console and send them to the server. The loop will terminate
+either when the client shuts down or the user enters the 'exit' command'.
+To inform the main thread that the connection is established on the
+helper thread, use the Client object's wait() and notify() methods.
+
+The implementation should:
+a) Create a new socket thread using the getSocketThread() method.
+b) Mark the created thread as a daemon. This is necessary so that the
+helper thread is automatically interrupted when the program exits.
+c) Start the helper thread.
+d) Make the current thread wait until it receives a notification from another
+thread. Hint: use wait() and object level synchronization. If an
+exception occurs while waiting, notify the user and exit
+the program.
+d) Once the thread receives a notification, check the value of
+clientConnected. If it is true, display "Connection established. To exit,
+enter 'exit'.". If it is false, display "An error occurred while
+working with the client.".
+e) Read messages from the console until the client is connected. If 'exit' is entered,
+then exit the loop.
+g) After each string is read, if the shouldSendTextFromConsole() method
+returns true, send the text using the sendTextMessage() method.
+
+2) Add the public static void main(String[] args) method. It must create a new Client object and
+call its run() method.
+
+
+
+Chat (part 13)
 
 
 Let's continue to implement helper methods in the Client class.
@@ -24,14 +135,6 @@ If an IOException occurs while the text is sent, you need to display
 information about this user and assign false to the clientConnected field.
 
 
-Requirements:
-1.	The getServerAddress() method should return a string (server address) read from the console.
-2.	The getServerPort() method should return a number (server port) read from the console.
-3.	The getUserName() method should return a string (username) read from the console.
-4.	The shouldSendTextFromConsole() method should return true.
-5.	The sendTextMessage() method should create and send a new text message using the connection field, and set the clientConnected flag to false if an IOException occurs while sending or creating the message.
-6.	The getSocketThread() method should return a new SocketThread object.
-
 
 Chat (part 12)
 
@@ -56,90 +159,6 @@ to this field from subclasses, but will prevent calls from classes outside the p
 It will subsequently be set to true if the client connected to the server, or false otherwise.
 When declaring this field, use a keyword that will ensure that every thread using the clientConnected field
 will be working with the current value, not a cached value.
-
-
-
-Chat (part 11)
-
-
-It's time to write the main method of the Handler class, which will call all
-the helper methods we wrote earlier. Implement the void run() method in the Handler class.
-
-It must:
-1) Display a message indicating that a new connection was established with a remote
-address that can be obtained using the getRemoteSocketAddress() method.
-2) Create a Connection object using the socket field.
-3) Call the method that implements the handshake with the client, and store the name of the new client.
-4) Send the name of the new participant (USER_ADDED message) to all chat participants.
-Think about which method is most suitable for this.
-5) Inform the new participant about the existing participants.
-6) Start the server's main message-processing loop.
-7) Be sure that the connection is closed if an exception occurs.
-8) If any IOExceptions or ClassNotFoundExceptions occur, catch them and display a message indicating
-that an error occurred while communicating with the remote address.
-9) After handling any exceptions, if step 11.3 has finished and returned a name, we need to remove
-from connectionMap the entry for that name and send a USER_REMOVED message containing the name to all other participants.
-10) The last thing we need to do in the run() method is display a message
-indicating that the connection with the remote address is closed.
-
-Our server is completely ready. Try running it.
-
-
-
-Chat (part 10)
-
-
-The third stage is the server's main message-processing loop.
-Add a private void serverMainLoop(Connection connection, String userName) throws IOException, ClassNotFoundException
-method, where the meaning of the parameters is the same as in the notifyUsers() method.
-
-It must:
-1) Receive client messages
-2) If a received message is text (TEXT), then generate a new text message by concatenating the client name,
-a colon, a space, and the text message. For example, if we received a message with the text
-"Hi, everyone" from the user "Bob", then you would need to generate this message: "Bob: Hi, everyone".
-3) Send the generated message to all clients using the sendBroadcastMessage() method.
-4) If the received message is not text, display an error message
-5) Create an infinite loop and move the functionality of steps 10.1-10.4 into the loop.
-
-
-
-Chat (part 9)
-
-
-The second stage, which is no less important, is sending information to the client (new participant) about the
-other clients (chat participants).
-
-To do this:
-1) Add a private void notifyUsers(Connection connection, String userName) throws IOException method,
-where connection is the connection with the participant we are sending information to,
-and userName is that participant's name. The method should:
-2) Iterate over connectionMap.
-3) For each element in step 2, get the client name, generate a USER_ADDED message that includes the passed name.
-4) Use the connection field to send the generated message.
-5) Don't send a USER_ADDED message to the user whose name is equal to userName.
-The user already knows about himself or herself.
-
-
-
-Chat (part 8)
-
-
-The Handler class must implement the client communication protocol.
-Let's identify independent stages of the protocol and implement them in separate methods:
-The first stage is the handshake (in which the server meets the client).
-We'll implement it in the private String method serverHandshake(Connection connection) throws IOException,
-ClassNotFoundException method. The method takes a connection as an argument, and returns the name of the new client.
-
-The implementation should:
-1) Generate and send a username request
-2) Get the client's response
-3) Verify that the response has a username
-4) Extract the name from the response, and verify that it is not empty and is not already being used (use connectionMap)
-5) Add the new user and connection to connectionMap
-6) Send an informational message to the client, informing it that the name was accepted
-7) If any verification step fails, request the client's name again
-8) Return the accepted name as the return value
 
 
 
