@@ -1,13 +1,9 @@
 package com.codegym.task.task30.task3008.client;
 
 import com.codegym.task.task30.task3008.ConsoleHelper;
-import com.codegym.task.task30.task3008.Message;
-import com.codegym.task.task30.task3008.MessageType;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class BotClient extends Client{

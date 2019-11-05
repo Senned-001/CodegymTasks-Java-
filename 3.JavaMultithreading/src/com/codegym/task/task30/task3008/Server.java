@@ -5,7 +5,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Handler;
 
 public class Server {
     private static Map<String, Connection> connectionMap=new ConcurrentHashMap<>();

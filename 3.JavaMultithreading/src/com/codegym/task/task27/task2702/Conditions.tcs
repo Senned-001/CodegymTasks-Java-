@@ -1,0 +1,13 @@
+taskKey="com.codegym.task.task27.task2702"\n\nThe required statement
+
+
+Insert a single statement (not a break statement) to the code in order to display a triangle of S's.
+
+
+Requirements:
+1.	The program should display a triangle of S&#39;s.
+2.	The program must use a continue statement.
+3.	The program must not use a break statement.
+4.	The program must not read data from the keyboard.
+
+

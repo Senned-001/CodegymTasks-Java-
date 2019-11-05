@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task27.task2701"\n\nGetting rid of labels
+
+
+Get rid of the labels in the isSubstringPresent method, but preserve its logic.
+The method returns true if substring is a substring of string, otherwise false.
+The code should not have break and continue statements.
+
+
+Requirements:
+1.	The isSubstringPresent method must return true if substring is a substring of string.
+2.	The isSubstringPresent method must return true if substring is NOT a substring of string.
+3.	The isSubstringPresent method should not have break statements.
+4.	The isSubstringPresent method should not have continue statements.
+
+
