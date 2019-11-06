@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task27.task2704"\n\nModifiers and deadlock
+
+
+Arrange modifiers so that this code causes deadlock.
+The main method causes deadlock, so it isn't tested.
+
+
+Requirements:
+1.	The field field must be private.
+2.	The getField method should not be private.
+3.	The sout method must be declared with the synchronized modifier.
+4.	The sout2 method must be declared with the synchronized modifier.
+
+

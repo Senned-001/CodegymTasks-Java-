@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task27.task2706"\n\nEliminating deadlock
+
+
+Use a deadlock-avoidance strategy to avoid deadlock.
+The main method is not tested.
+Follow the example in the lessons.
+Only make changes in safeMethod.
+
+
+Requirements:
+1.	The safeMethod method should not cause deadlock when called from different threads.
+2.	The safeMethod method must call the unsafeMethod method with the same arguments.
+3.	The safeMethod method should include a call to the longTimeMethod method.
+4.	The safeMethod method must contain two synchronized blocks.
+
+

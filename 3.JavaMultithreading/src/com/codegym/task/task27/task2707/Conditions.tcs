@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task27.task2707"\n\nDetermining locking order
+
+
+Implement the logic of the isLockOrderNormal method, which should determine:
+whether the order of the synchronized blocks in the someMethodWithSynchronizedBlocks method matches
+the order of the arguments passed to it.
+If o1 is synchronized first and then o2, the method should return true.
+Otherwise, false.
+
+
+Requirements:
+1.	The isLockOrderNormal method must return true if the someMethodWithSynchronizedBlocks method synchronizes first using the o1 object and then o2.
+2.	The isLockOrderNormal method must return false if the someMethodWithSynchronizedBlocks method synchronizes first using the o1 object and then o2.
+3.	The isLockOrderNormal method should NOT be private.
+4.	The Solution class must NOT be declared with the final modifier.
+
+

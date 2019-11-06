@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task27.task2708"\n\nEliminating deadlock using open calls
+
+
+Synchronized methods that internally invoke the synchronized methods of other classes cause deadlock.
+1. Move the synchronization from the method to the synchronized block, where you'll place only the necessary parts of the code.
+2. Eliminate unnecessary method synchronization.
+3. The callstack should not have cross-synchronization,
+i.e. something like synchronizedMethodOfClassA().synchronizedMethodOfClassB().synchronizedMethodOfClassA()
+
+This deadlock elimination technique is called "open calls". You can read about it in the additional materials for the lesson.
+The main method is not tested.
+
+
+Requirements:
+1.	It should be possible for Apartment and RealEstate objects to interact correctly without any circular waiting.
+2.	The RealEstate class&#39;s up method must be declared without the synchronized modifier.
+3.	The RealEstate class&#39;s revalidate method must be declared without the synchronized modifier.
+4.	The Apartment class&#39;s revalidate method must be declared without the synchronized modifier.
+5.	The RealEstate class&#39;s revalidate method must contain one synchronized block.
+6.	The synchronized block of the RealEstate class&#39;s revalidate method should call the revalidate method with the randomValue parameter on the apartment object.
+
+

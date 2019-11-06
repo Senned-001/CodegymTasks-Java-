@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task27.task2705"\n\nAnother kind of deadlock
+
+
+In the secondMethod method, arrange the synchronized blocks
+so that threads create deadlock when using the Solution class.
+
+
+Requirements:
+1.	The secondMethod method must have a synchronized block for the lock object.
+2.	The secondMethod method must have a nested synchronized block for the this object.
+3.	The lock field must be private.
+4.	The secondMethod method must not be declared with the synchronized modifier.
+
+

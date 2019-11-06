@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task27.task2703"\n\nCausing deadlock
+
+
+Arrange modifiers so that this code causes deadlock.
+The main method causes deadlock, so it isn't tested.
+
+
+Requirements:
+1.	The Solution.Friend class should NOT be private.
+2.	The Solution.Friend class must be static.
+3.	The bow method must be declared with the synchronized modifier.
+4.	The bowBack method must be declared with the synchronized modifier.
+
+
