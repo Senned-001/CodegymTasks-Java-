@@ -1,0 +1,31 @@
+taskKey="com.codegym.task.task27.task2709"\n\nProducer–consumer
+
+
+In the TransferObject class, arrange calls to the wait/notify/notifyAll methods
+to ensure the sequential production and consumption of objects.
+In the run methods of the ConsumerTask and ProducerTask classes, create the necessary synchronized blocks.
+Expected output:
+...
+Put: M
+Got: M
+Put: N
+Got: N
+Put: K
+Got: K
+...
+where M, N, and K are numbers
+The main method is not tested
+
+P.S. Always try to use a concurrent collection rather than using the wait/notify/notifyAll methods manually.
+Tasks like this help you better understand the basics of how multithreaded applications work.
+
+
+Requirements:
+1.	The ConsumerTask class&#39;s run method must contain a synchronized block that locks transferObject.
+2.	The ProducerTask class&#39;s run method must contain a synchronized block that locks transferObject.
+3.	The TransferObject class&#39;s get method must wait for a value to appear, and then return it once it does.
+4.	The TransferObject class&#39;s put method must wait until value is consumed, and then update its value once it is gone.
+5.	Before returning the value field, the TransferObject class&#39;s get method should set the isValuePresent flag to false and notify other threads waiting for the monitor to be released.
+6.	After updating the value field, the TransferObject class&#39;s put method should set the isValuePresent flag to true and notify other threads waiting for the monitor to be released.
+
+

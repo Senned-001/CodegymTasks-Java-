@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task27.task2710"\n\nArrange wait and notify methods
+
+
+Arrange wait and notify methods.
+Example output:
+Thread-0 MailServer received: [Person [Thread-1] wrote an email 'AAA'] in 1001 ms after start
+
+
+Requirements:
+1.	MailServer objects should work correctly in a multithreaded environment.
+2.	Person objects should work correctly in a multithreaded environment.
+3.	The MailServer class&#39;s run method should have a synchronized block that locks mail.
+4.	The Person class&#39;s run method should have a synchronized block that locks mail.
+
+
