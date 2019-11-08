@@ -1,0 +1,31 @@
+taskKey="com.codegym.task.task31.task3111"\n\nAdvanced file search
+
+
+Let's implement a configurable file search within a directory.
+Look over the java.nio.file.FileVisitor interface and its superclass's implementation java.nio.file.SimpleFileVisitor.
+When searching a file tree using the Files.walkFileTree(Path start, FileVisitor<? super Path> visitor) method,
+we use the FileVisitor object to perform the required operations on the found Path objects.
+
+Our search class will be called SearchFileVisitor and will extend SimpleFileVisitor.
+
+You can search using the following criteria:
+- a term found in the file name (String);
+- a term found in the file's contents (String);
+- a maximum or minimum file size (int).
+You can specify several criteria at the same time.
+
+I wrote code in main that uses the ready-to-use SearchFileVisitor to search for files. All you have to do is implement it. Simple!
+Hint 1: The get... and set... methods are getters and setters. The search class's main logic is performed in the visitFile(Path file, BasicFileAttributes attrs) method.
+Hint 2: Only use classes from the java.nio package to work with files.
+
+
+Requirements:
+1.	In the SearchFileVisitor class, you need to create partOfName, partOfContent, minSize, and maxSize fields, as well as the corresponding setters.
+2.	In the SearchFileVisitor class, you need to create a foundFiles field and a corresponding getter. The field must be initialized immediately.
+3.	If a partOfName search criterion is passed to SearchFileVisitor, the visitFile method must add the file to foundFiles if the name contains the value of partOfName.
+4.	If a partOfContent search criterion is passed to SearchFileVisitor, the visitFile method must add the file to foundFiles if the file&#39;s contents contain the value of partOfContent.
+5.	If a maxSize search criterion is passed to SearchFileVisitor, the visitFile method must add the file to foundFiles if the file size is less than maxSize.
+6.	If a minSize search criterion is passed to SearchFileVisitor, the visitFile method must add the file to foundFiles if the file size is greater than minSize.
+7.	The visitFile method&#39;s implementation must allow for several search criteria to be passed at the same time.
+
+
