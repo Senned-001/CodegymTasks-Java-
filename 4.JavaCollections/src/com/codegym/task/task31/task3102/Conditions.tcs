@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task31.task3102"\n\nFind all the files
+
+
+Implement the getFileTree method, which must create a list of all of the files, including nested files.
+Use a queue. Don't use recursion.
+Return a list of the paths to all the found files. Don't return paths to directories.
+The path must be absolute.
+
+
+Requirements:
+1.	The getFileTree method must accept a String root as an argument. It indicates the folder where you need to find all nested files.
+2.	The getFileTree method must return a list of Strings.
+3.	You need to implement the getFileTree method: find all the files in the specified path and add them to the list.
+4.	The getFileTree method must only be called once (don&#39;t use recursion).
+
+

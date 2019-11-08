@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task31.task3101"\n\nIterating through a file tree
+
+
+1. The main method is passed two arguments as inputs.
+The first argument is path, which is the path to the directory; the second is resultFileAbsolutePath, which is the name (full path) of an existing file that will store the result.
+2. For each file in the path directory and in all of its subdirectories, do the following:
+For each file whose size in bytes is NOT greater than 50, do the following:
+2.1. Sort them by file name in ascending order. Don't include the path when sorting.
+2.2. Rename resultFileAbsolutePath to "allFilesContent.txt" (use the FileUtils.renameFile method and FileUtils.isExist if necessary).
+2.3. Sequentially write the contents of each file from step 2.1 to allFilesContent.txt. After the body of each file, write "\n".
+All files have the TXT extension.
+Use "/" as the path separator.
+
+
+Requirements:
+1.	The file passed as the second argument to main must be renamed to allFilesContent.txt.
+2.	You need to create a stream to write to the renamed file.
+3.	The contents of every file that is 50 bytes or smaller must be sorted by file name and written to the allFilesContent.txt file.
+4.	The output stream to the file must be closed.
+5.	Don&#39;t use static variables.
+
+
