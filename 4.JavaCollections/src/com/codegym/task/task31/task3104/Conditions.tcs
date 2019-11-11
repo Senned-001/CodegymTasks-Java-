@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task31.task3104"\n\nSearch for hidden files
+
+
+In the Solution class, override the logic of the following two methods:
+visitFile - in addition to the existing logic, add all paths to ZIP and RAR files to the archived field
+visitFileFailed - add all paths to inaccessible files to the failed field and return SKIP_SUBTREE
+Example output:
+D:/mydir/BCD.zip
+The main method is not tested
+
+
+Requirements:
+1.	You need to override the visitFile method in the Solution class.
+2.	In addition to its logic, the visitFile method must add to the archived field all of the paths to ZIP and RAR files.
+3.	You need to override the visitFileFailed method in the Solution class.
+4.	The visitFileFailed method must add all paths to inaccessible files to the failed field and return SKIP_SUBTREE.
+
+
