@@ -1,0 +1,35 @@
+taskKey="com.codegym.task.task31.task3105"\n\nAdding a file to an archive
+
+
+The main method accepts a list of arguments.
+The first argument is the full path to the fileName file.
+The second argument is the path to a ZIP file.
+Add the fileName file to the archive inside the "new" directory.
+If the archive already has a file with the same name in the "new" directory, then replace it.
+
+Example input:
+C:/result.mp3
+C:/pathToTest/test.zip
+
+Files inside test.zip:
+a.txt
+b.txt
+
+After running Solution.main, the test.zip archive must contain the following:
+new/result.mp3
+a.txt
+b.txt
+
+Hint: you need to first save the contents of all of the zip entries somewhere,
+and then write all the entities together with the added file to the archive.
+Don't use the file system.
+
+
+Requirements:
+1.	In the main method, create a ZipInputStream for the archive (main&#39;s second argument). You need to read all of its contents.
+2.	In the main method, create a ZipOutputStream for the archive (main&#39;s second argument).
+3.	You need to write the contents of the file passed to main as the first argument to the ZipOutputStream.
+4.	You need to write all of the other content read from the ZipInputStream to the ZipOutputStream.
+5.	The archive streams must be closed.
+
+
