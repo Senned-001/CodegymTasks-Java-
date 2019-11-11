@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task31.task3103"\n\nYour own implementation
+
+
+Implement the following methods:
+1. readBytes - must return all of the bytes in the fileName file.
+2. readLines - must return all of the lines in the fileName file. Use the default encoding.
+3. writeBytes - must write a byte array to the fileName file.
+4. copy - must copy the resourceFileName file to the destinationFileName file.
+
+HERE'S THE MOST IMPORTANT CONDITION:
+You can't add any other imports!
+
+
+Requirements:
+1.	The Solution class&#39;s imports can&#39;t be changed.
+2.	The readBytes method must return all the bytes in the fileName file.
+3.	The readLines method must return all the lines in the fileName file using the default encoding.
+4.	The writeBytes method must write a byte array to the fileName file.
+5.	The copy method must copy the resourceFileName file to the destinationFileName file.
+
+

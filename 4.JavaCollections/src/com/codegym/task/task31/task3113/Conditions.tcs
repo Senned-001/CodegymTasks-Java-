@@ -1,0 +1,26 @@
+taskKey="com.codegym.task.task31.task3113"\n\nWhat's in the folder?
+
+
+Write a program that will read detailed information about a folder and display it on the console.
+
+First of all, read the folder path from the console.
+If the entered path is not a directory, display "[full path] is not a folder" and exit the program.
+Then calculate and display the following information:
+
+Total folders: [the number of folders in the directory and subdirectories]
+Total files: [the number of files in the directory and subdirectories]
+Total size: [the total number of bytes stored in the directory]
+
+Only use classes and methods from the java.nio package.
+Don't display the square brackets ("[]").
+
+
+Requirements:
+1.	The main method must read the folder path from the console.
+2.	If the entered path isn&#39;t a directory, you need to display &quot;[full path] is not a folder&quot; and exit the program.
+3.	Only use classes and methods from the java.nio package.
+4.	The following information must be displayed on the console: &quot;Total folders: [the number of folders in the directory and subdirectories]&quot;.
+5.	The following information must be displayed on the console: &quot;Total files: [the number of files in the directory and subdirectories]&quot;.
+6.	The following information must be displayed on the console: &quot;Total size: [the total number of bytes stored in the directory]&quot;.
+
+
