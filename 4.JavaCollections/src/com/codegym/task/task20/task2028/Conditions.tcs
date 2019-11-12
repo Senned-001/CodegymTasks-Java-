@@ -1,0 +1,99 @@
+taskKey="com.codegym.task.task20.task2028.big05"\n\nBuild a tree (part 5)
+
+
+We can add elements to the tree. Now let's work on deleting them:
+Implement the remove(Object o) method, which will remove the tree node whose name was passed as an argument.
+
+The method must throw an UnsupportedOperationException if the argument is not a String.
+If there are multiple tree nodes with the passed name, delete only the first node found.
+
+Don't forget to compare your tree's behavior with the following picture:
+http://info.javarush.ru/uploads/images/00/04/89/2014/03/21/ee9a9b.jpg
+
+What happens if you remove nodes 3, 4, 5, and 6 from the tree, and then try to add a new node?
+In this case, nodes 1 and 2 should regain the ability to have descendants (you might have to make changes to the add() method).
+
+
+Requirements:
+1.	After using the remove method to remove the last added node from the tree, the size method should return N-1.
+2.	After removing the second node added to the tree, the size method should return N/2 + 1 (if N&gt;2 and a power of two), where N is the size of the tree before removal.
+3.	The remove() method must throw an UnsupportedOperationException if the argument is not a String.
+4.	If no nodes can have descendants, you must restore their ability to do so.
+
+
+Build a tree (part 4)
+
+
+Every tree starts with a root, so don't forget to add an Entry<String> field called root with the default access modifier to the CustomTree class.
+Initialize it in the CustomTree constructor. It's name (elementName) isn't important.
+
+Now that we've built the tree's foundation, it's time for you to do a little work on your own.
+Recall what our tree should look like.
+
+The nodes of the tree should be like those in the picture:
+http://info.javarush.ru/uploads/images/00/04/89/2014/03/21/ee9a9b.jpg
+
+Now we need to write methods that will allow us to create and perform operations on that tree structure.
+You need to:
+1) override the add(String s) method, which adds tree nodes; it takes a node name as an argument (elementName) and searches left to right for a place to insert it.
+2) override the size() method so it returns the current number of nodes in the tree.
+3) implement the getParent(String s) method so it returns the name of the parent of the tree node passed as an argument.
+
+You can create methods and fields not listed in the task, if necessary.
+
+
+
+Build a tree (part 3)
+
+
+We've created a class that defines a tree. Now we need a class that defines the nodes of a tree:
+1) In the CustomTree class, create a static inner generic class Entry<T> with the default access modifier.
+2) Make this class support the Serializable interface.
+3) Declare the following fields (with the default access modifier):
+- String elementName;
+- boolean availableToAddLeftChildren, availableToAddRightChildren;
+- Entry<T> parent, leftChild, rightChild;
+- you can declare other fields, if necessary;
+4) Implement a public constructor with one String parameter:
+- set the field elementName equal to the passed argument;
+- set the availableToAddLeftChildren field equal to true;
+- set the availableToAddRightChildren field equal to true;
+5) Implement the public boolean isAvailableToAddChildren method, which returns the logical disjunction (boolean OR) of the availableToAddLeftChildren and availableToAddRightChildren fields.
+
+
+
+Build a tree (part 2)
+
+
+Despite the fact that our tree descends from the AbstractList class, it is not a list in the traditional sense.
+In particular, we don't have access to methods that take an element's index as an argument.
+You need to override such methods and throw a new type of exception: UnsupportedOperationException.
+
+Here's a list of them:
+public String get(int index)
+public String set(int index, String element)
+public void add(int index, String element)
+public String remove(int index)
+public List<String> subList(int fromIndex, int toIndex)
+protected void removeRange(int fromIndex, int toIndex)
+public boolean addAll(int index, Collection<? extends String> c)
+
+
+
+Build a tree (part 1)
+
+
+Amigo, it seems you may now have an adequate foundation. It's time to test your skills by doing a big task!
+Today, we'll implement our own tree in a slightly non-standard way (based on AbstractList).
+To get background information, use your favorite search engine and the text below.
+
+The nodes of the tree should be like those in the picture:
+http://info.javarush.ru/uploads/images/00/04/89/2014/03/21/ee9a9b.jpg
+
+First, let's make our tree a descendant of the AbstractList class with a String parameter, and
+we'll implement the Cloneable and Serializable interfaces.
+
+For now, leave the standard implementations of the get(int index) and size() methods.
+
+
+
