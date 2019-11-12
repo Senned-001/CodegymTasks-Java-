@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task31.task3107"\n\nNull object pattern
+
+
+Read about the null-object pattern on Wikipedia.
+Use Files to correctly initialize the fileData field with a ConcreteFileData object in the Solution class's constructor.
+If you have any problems reading the file in the pathToFile path, then initialize the field with a NullFileData object.
+
+
+Requirements:
+1.	The Solution constructor must initialize the fileData field with a ConcreteFileData object.
+2.	If an error occurs in the Solution constructor, you need to initialize the fileData field with a NullFileData object.
+3.	The Solution constructor must correctly set the value of the ConcreteFileData object&#39;s hidden field.
+4.	The Solution constructor must correctly set the value of the ConcreteFileData object&#39;s executable field.
+5.	The Solution constructor must correctly set the value of the ConcreteFileData object&#39;s directory field.
+6.	The Solution constructor must correctly set the value of the ConcreteFileData object&#39;s writable field.
+
+

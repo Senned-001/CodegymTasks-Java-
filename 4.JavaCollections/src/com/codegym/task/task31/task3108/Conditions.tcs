@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task31.task3108"\n\nPath 101
+
+
+Read about all of the Path class's methods.
+Find one that creates a relative path between the current path and a passed path.
+Implement the getDiffBetweenTwoPaths method. It must return a relative path.
+The main method is not tested.
+
+
+Requirements:
+1.	The Solution class must have a Path getDiffBetweenTwoPaths(Path path1, Path path2) method.
+2.	The Path getDiffBetweenTwoPaths(Path path1, Path path2) method must be static.
+3.	The getDiffBetweenTwoPaths method must return the relative path from the first parameter to the second.
+4.	To implement the getDiffBetweenTwoPaths method, use the correct Path method.
+
+

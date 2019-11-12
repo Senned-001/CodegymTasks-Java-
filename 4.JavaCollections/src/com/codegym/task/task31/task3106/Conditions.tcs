@@ -1,0 +1,25 @@
+taskKey="com.codegym.task.task31.task3106"\n\nUnzipping a file
+
+
+The main method accepts a list of arguments.
+The first argument, resultFileName, is the name of the resulting file. The remaining arguments are the names of files for fileNamePart.
+Each fileNamePart file is a part of a zip file. You need to unzip the entire file by assembling it from its parts.
+Write the unzipped file to resultFileName.
+Files inside the archive can be large, e.g. 50MB.
+Files inside the archive can have any name.
+
+Example input. The archive has one file named abc.mp3:
+C:/result.mp3
+C:/pathToTest/test.zip.003
+C:/pathToTest/test.zip.001
+C:/pathToTest/test.zip.004
+C:/pathToTest/test.zip.002
+
+
+Requirements:
+1.	In the main method, you need to create a ZipInputStream for the archive assembled from the file parts. The files are passed as arguments to main, starting with the second argument.
+2.	Create a output stream to the file passed as main&#39;s first argument. Write the file contents from the archive to the output stream.
+3.	The stream used to read from the archive must be closed.
+4.	The stream used to write to the file must be closed.
+
+

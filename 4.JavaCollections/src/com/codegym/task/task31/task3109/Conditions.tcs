@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task31.task3109"\n\nReading config files
+
+
+Implement the getProperties method, which must read the properties from the passed fileName file.
+fileName can have any extension, e.g. XML, any other extension, or none at all.
+You need to ensure the properties are read properly.
+If errors occur, a null object must be returned.
+The main method is not tested.
+Hint: you may need File.separator.
+
+
+Requirements:
+1.	The Solution class must have a Properties getProperties(String fileName) method.
+2.	The getProperties method must correctly read the properties of an XML file.
+3.	The getProperties method must correctly read the properties from a file with any other extension.
+4.	The getProperties method must correctly return a null object if an error occurs while reading the properties.
+
+
