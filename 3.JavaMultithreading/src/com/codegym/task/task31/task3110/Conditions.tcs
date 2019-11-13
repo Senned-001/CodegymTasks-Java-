@@ -1,4 +1,57 @@
-taskKey="com.codegym.task.task31.task3110.big03"\n\nArchiver (part 3)
+taskKey="com.codegym.task.task31.task3110.big05"\n\nArchiver (part 5)
+
+
+Let's divide the commands into two types: those that work directly with the archive, and helpers
+(for example, EXIT). All the commands of the first type will have shared functionality. It's convenient to pull this functionality
+into a common base class. Let's call this class ZipCommand. Like all command classes, it must
+implement the Command interface. All commands that work with an archive must
+inherit the ZipCommand class. We won't create any ZipCommand objects, so
+let's make it abstract.
+1.	Create an abstract ZipCommand class that implements the Command interface
+2.	Create a class for each command. All of the listed commands must
+inherit ZipCommand and have an empty execute() method. We'll write
+the implementation for each command separately as we implement our archiver.
+2.1. ZipCreateCommand is the command for creating an archive (zipping files into an archive)
+2.2. ZipContentCommand is the command for viewing an archive's contents
+2.3. ZipExtractCommand is the command for extracting an archive
+2.4. ZipAddCommand is the command for adding a file to an archive
+2.5. ZipRemoveCommand is the command for removing a file from an archive
+
+
+Requirements:
+1.	The command package must have an abstract ZipCommand class that implements the Command interface.
+2.	The command package must have a ZipCreateCommand class that inherits ZipCommand.
+3.	The command package must have a ZipContentCommand class that inherits ZipCommand.
+4.	The command package must have a ZipExtractCommand class that inherits ZipCommand.
+5.	The command package must have a ZipAddCommand class that inherits ZipCommand.
+6.	The command package must have a ZipRemoveCommand class that inherits ZipCommand.
+
+
+Archiver (part 4)
+
+
+Each command implies the execution of some action. Create a Command interface with
+an execute() method.  We'll create a separate class
+for each command. All of the command classes must implement (inherit) the Command interface.
+Since there will be a lot of commands, we'll create a separate command package for them. We'll store all of the command-related
+interfaces and implementations in it.
+The simplest command is EXIT, so let's start with that.
+1.	Create the command package
+2.	Declare the Command interface in it
+3.	Add a void execute() throws Exception method to the Command interface
+4.	Declare an ExitCommand class that implements the Command interface
+5.	Implement the execute() method in the ExitCommand class. It should use the ConsoleHelper class to display
+"Bye!"
+6.	At the very end of the Archiver class's main method, add code that creates an
+ExitCommand object and calls its execute() method
+7.	Check that it all works
+Note that all the project files must be encoded in UTF-8. You can set the encoding in IntelliJ IDEA
+under Settings -> Editor -> File Encodings. Be sure that all three fields responsible for encoding
+are set to UTF-8.
+
+
+
+Archiver (part 3)
 
 
 As you can see, zipping isn't that bad. But our archiver is somehow
@@ -24,13 +77,6 @@ should happen through ConsoleHelper.
 Methods that read from the console can throw an IOException if an input error occurs. Account for
 this in their declarations.
 
-
-Requirements:
-1.	Create an Operation enum. It must contain the following values: CREATE, ADD, REMOVE, EXTRACT, CONTENT, and EXIT.
-2.	Create the ConsoleHelper class.
-3.	In the ConsoleHelper class, you need to implement a static void writeMessage(String message) method that displays messages on the console.
-4.	In the ConsoleHelper class, you need to implement a static String readString() method that reads a String from the console.
-5.	In the ConsoleHelper class, you need to implement a static int readInt() method that reads a number from the console.
 
 
 Archiver (part 2)

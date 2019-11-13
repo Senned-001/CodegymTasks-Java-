@@ -1,5 +1,7 @@
 package com.codegym.task.task31.task3110;
 
+import com.codegym.task.task31.task3110.command.ExitCommand;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,6 +34,11 @@ public class Archiver {
             e.printStackTrace();
         }
 
+        try {
+            new ExitCommand().execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
