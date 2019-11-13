@@ -1,0 +1,101 @@
+taskKey="com.codegym.task.task31.task3110.big03"\n\nArchiver (part 3)
+
+
+As you can see, zipping isn't that bad. But our archiver is somehow
+too primitive. A real archiver should be able to do much more: extract an archive,
+add a new file to an existing archive, remove a file from an archive, and view the contents
+of an archive. Now let's improve our archiver. To do that, we have to write a few new
+classes. First, let's create an Operation enum, which will contain all the commands that
+our archiver supports.
+It would also be convenient to use ConsoleHelper to work with the console so that everything console-related
+is gathered into the same class. Going forward, unless indicated otherwise, all input and output
+should happen through ConsoleHelper.
+1.	Declare the Operation enum, and add the following commands to it:
+1.1. CREATE - Create an archive
+1.2. ADD - Add a file to an archive
+1.3. REMOVE - Remove a file from an archive
+1.4. EXTRACT - Extract an archive's contents
+1.5. CONTENT - View an archive's contents
+1.6. EXIT - Exit the program
+2.	Create a ConsoleHelper class and implement the following static public methods in it:
+2.1. void writeMessage(String message) - Display a message on the console
+2.2. String readString() - Read a String from the console
+2.3. int readInt() - Read a number from the console
+Methods that read from the console can throw an IOException if an input error occurs. Account for
+this in their declarations.
+
+
+Requirements:
+1.	Create an Operation enum. It must contain the following values: CREATE, ADD, REMOVE, EXTRACT, CONTENT, and EXIT.
+2.	Create the ConsoleHelper class.
+3.	In the ConsoleHelper class, you need to implement a static void writeMessage(String message) method that displays messages on the console.
+4.	In the ConsoleHelper class, you need to implement a static String readString() method that reads a String from the console.
+5.	In the ConsoleHelper class, you need to implement a static int readInt() method that reads a number from the console.
+
+
+Archiver (part 2)
+
+
+Now let's implement the createZip(Path source) method, which will zip the file
+specified by the source argument.
+Java has a special ZipOutputStream class in the java.util.zip package. It compresses (zips) the
+data passed to it. To keep multiple files from blending together when they are compressed into one archive,
+we create a special entity called a ZipEntry for each of them. In other words, we
+first put a ZipEntry in the ZipOutputStream, and then we write the file's contents. When the file is written, it is automatically
+compressed, and when it is read, it is automatically decompressed. A ZipEntry doesn't have to be a file; it can also be a
+folder.
+To zip a file (create a new archive and add the file to it):
+1.	Create a new ZipOutputStream using the zipFile variable and the
+Files class's newOutputStream method.
+2.	Create a new ZipEntry. Pass a String containing the new entry's name to the ZipEntry constructor.
+You need to get the name from the full path source. Get only the file name and convert it to a String.
+3.	Add the created zip entry to the zip stream.
+4.	Copy the data from the file we are zipping to the zip stream. To do this:
+4.1. Create an InputStream for the source file using the Files class's newInputStream method.
+4.2. Make a loop that will read data from the InputStream (created in 4.1) as long as it has data and write
+that data to the ZipOutputStream (created in step 1)
+4.3. Close the InputStream using a try-with-resources
+5.	Close the zip stream's zip entry
+6.	Close the zip stream using a try-with-resources
+7.	Run the program and verify that a file can be zipped
+
+
+
+Archiver (part 1)
+
+
+Let's write an archiver. At a minimum, an archiver should be able to zip and unzip
+files. Let's start with the first one.
+We need an archive manager. It will perform operations on the archive file (a file that
+will be stored on disk and have the zip extension). The class that will handle this will be called
+ZipFileManager. But the most important class will be called Archiver.
+Programming and other fields have a concept called full (absolute) and relative paths. First off,
+let's wrap our heads around what a path is, in general. A path is a set of symbols that indicates where in
+the operating system a file or folder is located.
+A full or absolute path is a path that starts with the root directory. In Windows,
+a disk is generally considered the root directory. An example of a full path in Windows is:
+C:\user\zips\Test1.zip.
+A relative path is a path relative to a directory. For example, zips\Test1.zip
+is the relative path of the file Test1.zip in relation to the C:\user directory (folder). The path
+relative to the C:\user\zips directory would just be Test1.zip, and would match the file name.
+Note that, by default, both the full and relative path to a file include the name
+of the file.
+1.	Create a ZipFileManager class
+2.	Add a private Path zipFile variable to the class. We will use it to store the full path to the archive
+that we will be working with.
+3.	Add a ZipFileManager(Path zipFile) constructor. Initialize the class's zipFile field.
+4.	Declare a public createZip(Path source) throws Exception method with, for now, an empty implementation.
+The Path source parameter is a path to something that we will zip.
+5.	Create an Archiver class and add a main method to it.
+6.	In the main method:
+6.1 Ask the user to enter the full path to the archive from the keyboard. Don't forget that the file name is also
+part of the full path.
+6.2 Create a ZipFileManager object, passing in the archive's file name. Figure out how to get
+a Path from a String. Hint: look into the Paths class's get() method.
+6.3 Ask the user to enter the path to the file to be zipped. Don't confuse this with
+the archive file, which we already entered. This time, we need the file that we'll
+compress, not the one we're going to store the compressed data in.
+6.4 Call the ZipFileManager object's createZip method, passing the path to be zipped.
+
+
+

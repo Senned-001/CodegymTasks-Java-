@@ -68,13 +68,14 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
             tree.get(2).availableToAddLeftChildren=true;
             tree.get(2).availableToAddRightChildren=true;
         }
-*/      boolean avalibleToDe=false;
+*/      boolean avalibleToDe=false;     //field for control oportunity of element have a child
 
 
         for(int i=0;i<tree.size();i++){
             if(tree.get(i).isAvailableToAddChildren()){
                 avalibleToDe=true;
                 if(tree.get(i).availableToAddLeftChildren) {
+                    //System.out.println("adding in left side to "+tree.get(i).elementName);
                     tree.get(i).availableToAddLeftChildren=false;
                     Entry node=new Entry(s);
                     node.parent=tree.get(i);
@@ -82,6 +83,7 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
                     tree.add(node);
                     break;
                 }else {
+                    //System.out.println("adding in right side to "+tree.get(i).elementName);
                     tree.get(i).availableToAddRightChildren=false;
                     Entry node=new Entry(s);
                     node.parent=tree.get(i);
@@ -91,12 +93,13 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
                 }
             }
         }
-        if(!avalibleToDe){
+
+        if(avalibleToDe==false){            //if noone in list can't have a child we must correct that
+            //System.out.println("avalibleToDe is false");
             for(int i=0;i<tree.size();i++){
-                if(tree.get(i).leftChild==null&&tree.get(i).rightChild==null) {
+
+                if(tree.get(i).leftChild==null&&tree.get(i).rightChild==null) {     //finding element without childs
                    // tree.get(i).availableToAddLeftChildren = true;
-
-
                     tree.get(i).availableToAddRightChildren = true;
                     Entry node=new Entry(s);
                     tree.get(i).leftChild=node;
@@ -105,7 +108,6 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
                     break;
                 }
             }
-            //this.add(s);
         }
 
         return true;
@@ -122,30 +124,43 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
     public boolean remove(Object o) {
         String s=null;
         try {
-            s=(String) o;
+            s=(String) o;               //check o is string
         } catch (Exception e) {
             throw new UnsupportedOperationException();
         }
+
+
         for(int i=0;i<tree.size();i++) {
-            if (tree.get(i).elementName.equals(s)){
-               /* if(tree.get(i).parent.leftChild.equals(tree.get(i))){
-                    tree.get(i).parent.availableToAddLeftChildren=true;
-                    tree.get(i).parent.leftChild=null;
-                }else{
-                    tree.get(i).parent.availableToAddRightChildren=true;
-                    tree.get(i).parent.rightChild=null;
-                }*/
+
+            if (tree.get(i).elementName.equals(s)){     //finding element in list
+
                 Entry NodeforDel1=null;
                 Entry NodeforDel2=null;
-                if(tree.get(i).leftChild!=null) {
+                if(tree.get(i).leftChild!=null) {       //detecting is element have the childs
                     NodeforDel1=tree.get(i).leftChild;
                 }
                 if(tree.get(i).rightChild!=null){
                     NodeforDel2=tree.get(i).rightChild;
                 }
-                tree.remove(i);
-                if(NodeforDel1!=null) this.remove(NodeforDel1.elementName);
+                if(NodeforDel1!=null) this.remove(NodeforDel1.elementName);     //if element have child first call remove metode on him
                 if(NodeforDel2!=null) this.remove(NodeforDel2.elementName);
+
+                if(tree.get(i).parent.leftChild!=null) {        //for escape nullpointerexeption
+                    if (tree.get(i).parent.leftChild.equals(tree.get(i))) {     //set parents link on this child to null
+                        //tree.get(i).parent.availableToAddLeftChildren=true;
+                        tree.get(i).parent.leftChild = null;
+                    }else{
+                        //tree.get(i).parent.availableToAddRightChildren=true;
+                        tree.get(i).parent.rightChild=null;
+                    }
+                }else{
+                    //tree.get(i).parent.availableToAddRightChildren=true;
+                    tree.get(i).parent.rightChild=null;
+                }
+
+                //System.out.println(tree.get(i).elementName+" was deleted");
+                tree.remove(i);         //after all cleaning operations delete element
+
                 return true;
             }
         }
