@@ -1,4 +1,117 @@
-taskKey="com.codegym.task.task31.task3110.big12"\n\nArchiver (part 12)
+taskKey="com.codegym.task.task31.task3110.big16"\n\nArchiver (part 16)
+
+
+It's time to remove something from an archive. An archive is a tricky thing—you can't just go and
+remove an element.
+Why? Imagine we decided to invent our own text compression algorithm. After examining the source
+text, we see that the phrase "being a programmer is cool" occurs often. In the second and subsequent
+instances of our phrase, we can replace the phrase with a note that this location represents the same phrase that was used in line S,
+starting from character K and N characters long. As we replace a lot of repeated
+phrases, the text shrink noticeably, but becomes unreadable to those not familiar with our compression algorithm.
+Of course, we can recover the text (extract it). Now imagine what we need to remove
+the part of the text that is referenced by the compressed fragments. If we did this, our entire archive would
+become meaningless. That's why you can't simply remove part of an archive. This is a highly simplified description
+of a compression technique; in reality, everything is far more complicated.
+As a result, to remove something from an archive, you need to create a new archive, and copy over everything except
+the removed file. Then you replace the old archive with the newly created one.
+1.	Add a public void removeFiles(List<Path> pathList)
+throws Exception method to the ZipFileManager class. It will remove files from an archive. A list of the relative paths to
+the files inside the archive will be passed in pathList. It must:
+1.1. Throw a NoSuchZipFileException if the archive file doesn't exist.
+1.2. Create a temporary archive file in the default directory using the Files class's createTempFile() method.
+1.3. Go through all the files of the original archive, and check whether the current file is in the list
+for removal.
+- If the file is in the list, display a message indicating that we have removed the corresponding file and
+move on to the next file.
+- If the file is not in the removal list, copy it to the new archive
+1.4. Replace the original archive file with the temporary file we wrote all of the required files to.
+You need to do this using the Files class's move() method
+2.	Add a public void removeFile(Path path) throws Exception method to the ZipFileManager class.
+It should call the removeFiles method, creating a list out of a single element. This can be done using
+the Collections class's singletonList() method. Look up how it works.
+3.	Implement the ZipRemoveCommand class's execute() method: create a ZipFileManager object,
+ask the user which file to remove from which archive, and call the removeFile() method.
+Do everything else as we did in the other commands. You don't have to catch the PathNotFoundException, since  the
+removeFile() method shouldn't throw it.
+4.	Run the program and verify that removing a file from an archive works.
+
+
+Requirements:
+1.	You need to create a public void removeFiles(List&lt;Path&gt; pathList) throws Exception method in the ZipFileManager class.
+2.	The removeFiles method must throw a NoSuchZipFileException if the archive file doesn&#39;t exist.
+3.	The removeFiles method must create a temporary archive file using the Files.createTempFile method.
+4.	The removeFiles method should write all of the files from the old archive to the new archive, except those in the list for removal.
+5.	In the ZipFileManager class, you need to create a public void removeFile(Path path) throws Exception method that delegates the call to the removeFiles(List&lt;Path&gt; pathList) method.
+6.	The ZipRemoveCommand class&#39;s execute() method should get the ZipFileManager object and remove from the archive the file read from the console.
+
+
+Archiver (part 15)
+
+
+It's time to try to extract something. To do this, add a public void extractAll(Path
+outputFolder) throws Exception method to the ZipFileManager class. The Path outputFolder parameter is the path to which we will
+extract our archive. You already have extensive experience working with zip entries and streams, so I'll
+only give you some hints on how to implement this method. You'll have to think carefully about how
+to do the following:
+1.	Check whether the zip file exists
+2.	If the outputFolder directory does not exist, then it needs to be created, along with all the folders that
+contain it.
+3.	Inside the archive, some files may be inside folders. In this case, the ZipEntry.getName() method
+doesn't exactly return the file name, as might be expected from the method name. Instead, it returns the file's relative path
+inside the archive. This relative path should be retained after the extraction process is complete, but
+it will become relative to the directory where we have extracted the archive
+4.	Implement the ZipExtractCommand class's execute() method by analogy with our implementation of
+ZipCreateCommand. Make a similar try-catch block, and simply change the displayed messages
+so that the user knows we are currently extracting an archive, and that we need the archive's
+full name and the directory to which we will extract the archive. Don't forget to call the
+ZipFileManager class's extractAll method, and not createZip like we did in the ZipCreateCommand
+5.	Run the program and enjoy the extracted results
+
+Note:
+Use Files.newInputStream(Path path) and Files.newOutputStream(Path path) to get read and write streams.
+
+
+
+Archiver (part 14)
+
+
+Everything is ready to implement the ZipContentCommand class's execute() method:
+1.	Display "Viewing contents of the archive."
+2.	Create a ZipFileManager object using the getZipFileManager() method
+3.	Display "Archive contents:"
+4.	Get a list of the archive's files using the getFileList() method
+5.	Display the properties of each file. The previously implemented
+FileProperties.toString() method will come in handy
+6.	Display "Archive contents viewed."
+7.	Run the program and verify that the "View the contents of an archive" command works
+
+
+
+Archiver (part 13)
+
+
+Let's continue to move toward getting the contents of an archive. Let's write a getFileList() method inside the
+ZipFileManager class. It will return a list of the files in the archive, or rather a list of the properties of these files (
+we already implemented the FileProperties class). Let's begin:
+1.	Add a List<FileProperties> getFileList() throws Exception method to the ZipFileManager class.
+2.	Inside that method, check whether zipFile is a regular file using
+a suitable method from the Files class. If it is not a file, throw a NoSuchZipFileException.
+3.	Create a list of FileProperties objects. We'll add the file properties to it.
+4.	Create a ZipInputStream for the file represented by the zipFile variable. As we've done before, wrap the creation of this object
+in a try-with-resources.
+5.	Go through all of the ZipEntries in the ZipInputStream
+6.	For each ZipEntry, read its contents (otherwise, we won't have information about its
+size). You can't find the size of a file in an archive without reading it. This is super easy to do
+using the copyData method and a temporary ByteArrayOutputStream buffer.
+7.	Get the name, size, compressed size, and compression method of the zip entry. Take a look at what else you can
+learn about the entry.
+8.	Create a FileProperties object using the obtained file data.
+9.	Add the object created in step 8 to the list from step 3.
+10.	Return the gathered information to the method that called the getFileList method.
+
+
+
+Archiver (part 12)
 
 
 Today we'll prepare to implement ZipContentCommand. It will be responsible for getting
@@ -25,14 +138,6 @@ to convert bytes to kilobytes. Note that the number of bytes in a kilobyte isn't
 chips in that bag... Hmm, maybe it's time for me to grab a snack…
 
 
-Requirements:
-1.	You need to create a FileProperties class in the root of the task.
-2.	The FileProperties class must have String name, long size, long compressedSize, and int compressionMethod fields.
-3.	The FileProperties class must have the a FileProperties(String name, long size, long compressedSize, int compressionMethod) constructor.
-4.	Getters must be created for all of the fields in FileProperties.
-5.	The FileProperties class must contain a public long getCompressionRatio() method that calculates the file&#39;s compression ratio.
-6.	The FileProperties class&#39;s toString method must be implemented according to the task conditions.
-
 
 Archiver (part 11)
 
@@ -57,141 +162,6 @@ Exception method in the ZipCommand class. This method should:
 PathNotFoundException exceptions. If one occurs, display the message: "You
 didn't correctly enter a file name or directory."
 8.	Run the program and verify that the "Zip files into an archive" command works
-
-
-
-Archiver (part 10)
-
-
-It's time to refactor the ZipFileManager class. The createZip method has code that we're also
-going to need in the methods that will add files to or remove them from an archive, extract files, etc. We'll
-implement those methods later, but we can move the common code to separate
-methods now.
-Additionally, the createZip method can only create an archive from a single file, but we would like to be able to
-zip an entire folder. We won't create a separate method for this, since you can pass
-both a directory and a regular file to the createZip(Path source) method.
-Today's tasks:
-1.	Implement a private void addNewZipEntry(ZipOutputStream zipOutputStream, Path filePath,
-Path fileName) throws Exception method in the ZipFileManager class. It must:
-1.1. Create an InputStream for the file named fileName located in
-the filePath directory
-1.2. Create a new ZipEntry, using fileName as the name
-after converting it to a String
-1.3. Copy the data from the InputStream (from step 1.1) to the zipOutputStream parameter
-1.4. Close the zip entry
-1.5. Close the InputStream using try-with-resources
-2.	Replace part of the createZip method's code with a call to the addNewZipEntry method. Pass source.getParent()
-as the filePath parameter, and source.getFileName() as the filename.
-3.	Implement a private void copyData(InputStream in, OutputStream out) throws Exception method. It
-must read data from "in" and write to "out", until it reads through everything.
-4.	Replace part of the addNewZipEntry method's code with a call to the copyData method.
-5.	Let's return to createZip:
-5.1. At the beginning of the method, check to see if the directory (zipFile.getParent()) where we
-will create zipFile exists; if not, then create it.
-5.2. If source is a regular file (use Files.isRegularFile to check), then simply call
-addNewZipEntry.
-5.3. If source is a directory (use Files.isDirectory to check), then:
-5.3.1.	Create a FileManager object, passing
-source to the constructor
-5.3.2.	Get a list of files from the file manager, and save them to the
-fileNames variable
-5.3.3.	Call addNewZipEntry(zipOutputStream,
-source, fileName) for each element of fileNames.
-5.4. If source isn't a folder or a file, throw a
-PathNotFoundException.
-
-
-
-Archiver (part 9)
-
-
-Now let's take care of another part of our archiver that is no less important. Frequently, users want to
-create an archive from not just one file, but from an entire folder. In this case, zipping amounts to
-successively adding a ZipEntry for each file to the archive.
-We need to write a FileManager class to get a list of all of the files in some folder. It must
-have a constructor that has a Path rootPath parameter that indicates the root (the folder containing the files
-we are interested in), and a List<Path> getFileList() method that should return a list
-of relative paths for all of the files in rootPath (including files in subfolders).
-The directory we will search can only be set once in the constructor. So, we can generate
-the list of files (relative paths) right in the constructor and save it in
-the class's List<Path> fileList variable.
-We just have to decide how to gather up all of the files, even those that might be inside a folder, inside a folder,
-inside a folder, inside the folder we're looking at. Whoa, we almost entered a recursive loop. But maybe recursion can
-help us! Let's make a collectFileList(Path path) method that adds all the files inside the path parameter to the class's fileList variable,
-and calls itself recursively on
-subfolders.
-1.	Create a FileManager class with a FileManager(Path rootPath) throws IOException constructor
-2.	Declare and initialize the following private instance variables:
-2.1. Path rootPath - The root path of the directory whose files we are interested in
-2.2. List<Path> fileList - The  list of relative paths of files inside rootPath
-3.	Create a getter for fileList
-4.	Implement a void collectFileList(Path path) throws IOException method that must:
-4.1. Check to see if the path parameter is a regular file (use the
-Files.isRegularFile method), then get its path relative to rootPath
-and add it to fileList.
-4.2. If the path parameter is a directory (determine this using the
-Files.isDirectory method), then go through all of the directory's contents and call
-collectFileList(Path path), passing in the discovered elements.
-You can go through the all of the directory's contents by first getting a DirectoryStream using the
-Files class's newDirectoryStream method. Don't forget to close the DirectoryStream.
-5.	Call the collectFileList(rootPath) method inside the FileManager constructor.
-6.	Apply everything you've learned about encapsulation to this class.
-In completing this task, you wrote an algorithm that traverses a file tree. But Java has a special
-FileVisitor interface for this. I highly recommend you learn how to use it.
-
-
-
-Archiver (part 8)
-
-
-To find out which command the user currently wants to execute, let's add an Operation
-askOperation() method to the Archiver class. This method should display a list of available commands and
-ask the user to choose one of them. For convenience, we will ask the user to enter the command's number, which is its
-ordinal number in the Operation enum. You can get an enum field's ordinal number
-using the ordinal() method.
-Now everything is ready to rewrite the main method using our latest scientific advancements, specifically
-the CommandExecutor class and the askOperation() method.
-1.	Add a public static Operation askOperation() throws IOException method to the Archiver class.
-It must:
-1.1. Use the ConsoleHelper class's methods
-1.2. Ask the user for the number of the desired operation. Hint:
-To display the number of the "Create archive" operation, use: Operation.CREATE.ordinal()
-1.3. Return the selected operation.
-Example output of the askOperation() method:
-Select an operation:
-0 - Zip files into an archive
-1 - Add a file to an archive
-2 - Remove a file from an archive
-3 - Extract an archive
-4 - View the contents of an archive
-5 - Exit
-2.	Rewrite the main() method:
-2.1. Declare a local Operation variable
-2.2. In a loop, use the askOperation() method to ask for a new value for the variable in step 2.1, and
-use CommandExecutor.execute() to perform the operation.
-2.3. Allow the user to exit the loop by selecting the Operation.EXIT operation
-2.4. Wrap the askOperation() and execute(operation) calls in a try-catch block. If a
-NoSuchZipFileException occurs, use ConsoleHelper to display "You didn't select an archive or
-you selected an invalid file." If any other exceptions occur,
-display "An error occurred. Please check the entered data."
-2.5. Be sure that the program continues running (continues to a new iteration of the loop)
-after handling exceptions.
-3.	Run the program and verify that the "exit" command works.
-
-
-
-Archiver (part 7)
-
-
-We've done a lot and can take a quick break.
-Let's create an exception package and add two classes to it: PathNotFoundException and NoSuchZipFileException.
-We'll throw a PathNotFoundException exception if we can't find the path needed
-to extract the archive, or the path to the file you want to zip, or any other path. A NoSuchZipFileException
-will be thrown if there is an attempt to do something with an archive that doesn't
-exist.
-1.	Create the exception package
-2.	Add to it a PathNotFoundException class that inherits Exception
-3.	Add a NoSuchZipFileException class that also inherits Exception
 
 
 
