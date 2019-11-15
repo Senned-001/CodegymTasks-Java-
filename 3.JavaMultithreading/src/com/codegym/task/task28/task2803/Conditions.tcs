@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task28.task2803"\n\nThreadLocalRandom
+
+
+The Solution class will be used by threads.
+Implement all of the methods using the ThreadLocalRandom class.
+getRandomIntegerBetweenNumbers must return a random int between "from" and "to".
+getRandomDouble must return a random double.
+getRandomLongBetween0AndN must return a random long between 0 and n.
+
+
+Requirements:
+1.	The Solution class must have only static methods.
+2.	The getRandomIntegerBetweenNumbers method must return a random int in the range [from..to] using ThreadLocalRandom.
+3.	The getRandomDouble method must return a random double in the range [0..1) using ThreadLocalRandom.
+4.	The method getRandomLongBetween0AndN must return a random long in the range [0..n] using ThreadLocalRandom.
+
+

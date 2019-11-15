@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task28.task2805"\n\nThread priorities
+
+
+In a separate file, create a class called MyThread that inherits Thread. MyThread must:
+1. Be able to be created using any of the superclass's constructors (Alt+Insert).
+2. Thread priorities must be set using a loop—from the minimum to the maximum value.
+3. If the thread has a thread group (ThreadGroup), then the thread's priority can't be greater than its thread group's maximum priority.
+
+
+Requirements:
+1.	Create a MyThread class in a separate file. Make it inherit Thread.
+2.	The MyThread class must have constructors similar to the superclass&#39;s constructors.
+3.	The priority of the MyThread objects should be set using a loop, from MIN_PRIORITY to MAX_PRIORITY.
+4.	If a MyThread object has a ThreadGroup, then the MyThread&#39;s priority must not be greater than the ThreadGroup&#39;s maximum priority.
+
+

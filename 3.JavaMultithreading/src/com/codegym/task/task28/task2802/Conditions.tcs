@@ -1,0 +1,30 @@
+taskKey="com.codegym.task.task28.task2802"\n\nWriting our own ThreadFactory
+
+
+In the Solution class, create a public static AmigoThreadFactory class that implements the ThreadFactory interface.
+1. The implementation of the interface's method must create and return a thread that:
+1.1. is not a daemon,
+1.2. has a normal priority level,
+1.3. The thread's name must follow the pattern "GN-pool-A-thread-B" where:
+GN is the group name,
+A is the factory number, which is incremented inside the class, starting from 1 (use AtomicInteger),
+B is the thread number, which is incremented inside a specific factory, starting from 1 (use AtomicInteger).
+2. Each factory must contain the thread group (ThreadGroup) it was created in.
+3. The main and emulateThreadFactory methods are not tested.
+Example output:
+secondGroup-pool-2-thread-1
+firstGroup-pool-1-thread-1
+firstGroup-pool-1-thread-3
+secondGroup-pool-2-thread-3
+firstGroup-pool-1-thread-2
+secondGroup-pool-2-thread-2
+
+
+Requirements:
+1.	In the Solution class, you need to create a public static AmigoThreadFactory class that implements the ThreadFactory interface.
+2.	The AmigoThreadFactory factory must create threads that are not daemons.
+3.	The AmigoThreadFactory factory must create threads with a normal priority level.
+4.	The AmigoThreadFactory factory must create thread names according to the pattern &quot;GN-pool-A-thread-B&quot;.
+5.	Each factory must generate threads with the group (ThreadGroup) it was created in.
+
+

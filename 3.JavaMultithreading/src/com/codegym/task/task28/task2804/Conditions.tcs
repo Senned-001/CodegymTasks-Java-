@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task28.task2804"\n\nMagic class
+
+
+In the java.util.concurrent package, find a List implementation that has the following characteristics:
+1. The iterator doesn't contain any data added to the list after the iterator's creation;
+2. Data is stored internally as an array;
+3. The iterator is guaranteed to not throw a ConcurrentModificationException;
+4. All elements are allowed, including null;
+5. In the main method, fix the line "List<String> list = null...".
+
+
+Requirements:
+1.	Don&#39;t change the Solution class.
+2.	Don&#39;t change the implementations of the startUpdatingThread and stopUpdatingThread methods.
+3.	Don&#39;t change the copyOnWriteSolution method.
+4.	Add code to the main method that will create a List object that matches the task conditions.
+
+

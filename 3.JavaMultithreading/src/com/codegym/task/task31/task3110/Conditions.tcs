@@ -1,4 +1,50 @@
-taskKey="com.codegym.task.task31.task3110.big16"\n\nArchiver (part 16)
+taskKey="com.codegym.task.task31.task3110.big18"\n\nArchiver (part 18)
+
+
+You're an excellent student! I've slightly tweaked your code. You can use this archiver for zipping files
+in everyday life. If you have the time and desire, try adding an operation that varies the
+zip compression level!
+
+
+Requirements:
+1.	The archiver is ready.
+
+
+Archiver (part 17)
+
+
+There's just one small trifle left: adding a file to an archive. It sounds shady, but that's exactly what we're going
+to do. Adding files is similar to removing them: we create a temporary archive file, copy over
+all of the old archive's contents, and then add the new files. Then we replace the old archive file
+with the new one.
+1.	Add a public void addFiles(List<Path> absolutePathList) throws Exception method to the
+ZipFileManager class, where absolutePathList is a list of absolute paths to the files to be added. This method
+must:
+1.1. As usual, throw a NoSuchZipFileException if the archive file doesn't exist
+1.2. Create a temporary archive file
+1.3. Go through all the files in the original archive. Copy each file to the new archive,
+and add its name to a local list.
+1.4. Go through the list of files to add.
+1.5. Check whether each file exists and whether it is a regular file.
+If something isn't right, then throw a PathNotFoundException.
+1.6. Check whether the file to be added is already in the archive (use the list in step 1.3). This is
+possible if the user has already added it.
+- If the file isn't in the list, add it to the new archive and display a message indicating that the file
+was added to the archive
+- If the file is in the list, just tell the user that the file already exists in the archive
+1.7. Replace the original archive file with the temporary file, which already has all of the added
+files.
+2.	Add a public void addFile(Path absolutePath) throws Exception method to the ZipFileManager class,
+and implement it by calling the addFiles() method—by analogy with what we did for
+removing a file.
+3.	Implement the ZipAddCommand class's execute() method. It's business as usual here, but don't forget to ask
+the user which file to add to which archive, and handle the
+PathNotFoundException that might be thrown by the addFile() method.
+4.	Run the program and verify that adding a file now works.
+
+
+
+Archiver (part 16)
 
 
 It's time to remove something from an archive. An archive is a tricky thing—you can't just go and
@@ -35,14 +81,6 @@ Do everything else as we did in the other commands. You don't have to catch the 
 removeFile() method shouldn't throw it.
 4.	Run the program and verify that removing a file from an archive works.
 
-
-Requirements:
-1.	You need to create a public void removeFiles(List&lt;Path&gt; pathList) throws Exception method in the ZipFileManager class.
-2.	The removeFiles method must throw a NoSuchZipFileException if the archive file doesn&#39;t exist.
-3.	The removeFiles method must create a temporary archive file using the Files.createTempFile method.
-4.	The removeFiles method should write all of the files from the old archive to the new archive, except those in the list for removal.
-5.	In the ZipFileManager class, you need to create a public void removeFile(Path path) throws Exception method that delegates the call to the removeFiles(List&lt;Path&gt; pathList) method.
-6.	The ZipRemoveCommand class&#39;s execute() method should get the ZipFileManager object and remove from the archive the file read from the console.
 
 
 Archiver (part 15)
@@ -108,60 +146,6 @@ learn about the entry.
 8.	Create a FileProperties object using the obtained file data.
 9.	Add the object created in step 8 to the list from step 3.
 10.	Return the gathered information to the method that called the getFileList method.
-
-
-
-Archiver (part 12)
-
-
-Today we'll prepare to implement ZipContentCommand. It will be responsible for getting
-an archive's contents. The archive's contents are compressed files and folders, but we're interested
-in knowing not only the names of the archive's objects, but also their size before and after compression,  their compression ratio, and
-the compression method used.
-We'll create a FileProperties class that will be responsible for the properties of each file in the archive. Out set of properties
-consists of the following: file name, file size before and after compression, and compression method.
-1.	Create the FileProperties class
-2.	Add the following private instance variables to it:
-2.1. String name - The file name
-2.2. long size - The size in bytes
-2.3. long compressedSize - The size after compression in bytes
-2.4. int compressionMethod - The compression method
-3.	Add getters for them
-4.	Add a FileProperties(String name, long size, long compressedSize, int
-compressionMethod) constructor
-5.	Add a long getCompressionRatio() method that will calculate the compression ratio as:
-100 - ((compressedSize * 100) / size)
-6.	Override the String toString() method so that it returns a String formatted as follows:
-"name size KB (compressedSize KB) compression: compressionRatio%" if the file size is greater than 0. Otherwise, it should
-only return the file name. For example, a directory might have a size of 0. Don't forget
-to convert bytes to kilobytes. Note that the number of bytes in a kilobyte isn't the same as the number of grams in a kilogram. Nor is it the same as the number of
-chips in that bag... Hmm, maybe it's time for me to grab a snack…
-
-
-
-Archiver (part 11)
-
-
-Finally, we'll try to provide a decent implementation for the ZipCreateCommand class's execute() method that
-we added previously. To do this, we need to:
-1.	Display "Creating an archive." at the beginning of the method. Don't forget that we are using
-the ConsoleHelper class to work with the console.
-2.	Create a new ZipFileManager object. Since we will also need to create this object
-in other commands, move the creation logic to a separate ZipFileManager getZipFileManager() throws
-Exception method in the ZipCommand class. This method should:
-2.1. Ask the user to enter the full path to the archive
-2.2. Read the path into a String variable
-2.3. Use the entered String to create a Path variable
-2.4. Create a ZipFileManager object, passing the obtained path to the constructor
-2.5. Return the created object
-3.	Ask the user to enter the full path to the file or directory to be zipped
-4.	Create a Path using the entered String
-5.	Call the ZipFileManager object's createZip() method, passing the path from step 4 to it
-6.	Display "Archive created."
-7.	Wrap the contents of the ZipCreateCommand's execute() method in a try-catch block and catch
-PathNotFoundException exceptions. If one occurs, display the message: "You
-didn't correctly enter a file name or directory."
-8.	Run the program and verify that the "Zip files into an archive" command works
 
 
 
