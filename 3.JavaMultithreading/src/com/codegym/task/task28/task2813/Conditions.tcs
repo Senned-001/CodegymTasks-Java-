@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task28.task2813"\n\nFutureTask
+
+
+The FactorialCalculator class is designed to calculate the factorial of a number passed to its constructor as an
+argument. Unfortunately, it is not implemented correctly and you need to fix it.
+
+Carefully analyze the Solution class's main method.
+
+
+Requirements:
+1.	The FactorialCalculator class must support the Callable interface.
+2.	The FactorialCalculator class&#39;s call method must return the result of the factorial method.
+3.	The FactorialCalculator class&#39;s call method must be public.
+4.	The FactorialCalculator class&#39;s number field must be private.
+
+

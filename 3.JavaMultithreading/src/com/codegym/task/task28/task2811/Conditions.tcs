@@ -1,0 +1,20 @@
+taskKey="com.codegym.task.task28.task2811"\n\nReentrantReadWriteLock
+
+
+The ReadWriteMap class must correctly provide access to a Map object across multiple threads, but mistakes
+were made during implementation. Find them and fix them.
+
+P.S. For Map to operate properly in a multithreaded environment, it's preferable to use a standard implementation, such as
+ConcurrentHashMap from the java.util.concurrent package. But sometimes you need to work with another type of Map, for example,
+a LinkedHashMap, and then the proposed solution would be perfect.
+
+
+Requirements:
+1.	The readLock field must be initialized using the lock object&#39;s readLock method.
+2.	The writeLock field must be initialized using the lock object&#39;s writeLock method.
+3.	The writeLock object&#39;s lock method must be called in the put method.
+4.	The readLock object&#39;s lock method must be called in the get method.
+5.	The writeLock object&#39;s unlock method must be called in the finally block in the put method.
+6.	The readLock object&#39;s unlock method must be called in the finally block in the get method.
+
+

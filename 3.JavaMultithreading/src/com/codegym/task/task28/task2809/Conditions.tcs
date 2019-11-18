@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task28.task2809"\n\nPlants vs Zombies
+
+
+1. Read about java.util.concurrent.Phaser.
+2. Put the methods in the right places:
+- arriveAndDeregister(): starts calling the tasks' run methods,
+- arriveAndAwaitAdvance(): waits for all threads to be created.
+
+See output.txt for example output.
+Logic:
+First, all the characters join the game.
+After all the characters have joined the game and are ready to play, the phrase "The game has begun!" is displayed.
+After that, the characters enter the game and then die.
+
+
+Requirements:
+1.	Don&#39;t change the Character class.
+2.	Don&#39;t change the Plant and Zombie classes.
+3.	In the Solution class, call phaser.arriveAndDeregister in the correct place.
+4.	In the Solution class, call phaser.arriveAndAwaitAdvance in the correct place.
+
+
