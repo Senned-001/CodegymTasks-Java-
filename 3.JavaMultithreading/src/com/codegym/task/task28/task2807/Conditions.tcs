@@ -1,0 +1,27 @@
+taskKey="com.codegym.task.task28.task2807"\n\nIntroducing ThreadPoolExecutor
+
+
+1. In the main method, create a LinkedBlockingQueue<Runnable> object.
+2. Use a loop to add 10 Runnable tasks to the queue.
+3. In each task's run method, call the doExpensiveOperation method using the task's sequence number, starting from 1 (see the sample output).
+4. Create a ThreadPoolExecutor object with the following arguments:
+- 3 = the number of threads in the core pool,
+- 5 = the maximum number of threads,
+- 1000 = the time that additional threads should be kept alive after they finish running,
+- milliseconds = the time unit,
+- the task queue created in step one.
+5. Use the prestartAllCoreThreads method to start all the threads in the core thread pool.
+6. Prevent new tasks from being added to the pool (shutdown method).
+7. Give the ThreadPoolExecutor object 5 seconds to complete all of the tasks (use the awaitTermination method with TimeUnit.SECONDS as an argument).
+
+
+Requirements:
+1.	In the main method, you need to create a LinkedBlockingQueue&lt;Runnable&gt; object.
+2.	Use a loop to add 10 Runnable tasks to the queue.
+3.	You need to create a ThreadPoolExecutor object using the arguments specified in the task conditions.
+4.	Use the prestartAllCoreThreads method to start the core threads.
+5.	Each task should call the doExpensiveOperation method using the task&#39;s sequence number, starting from 1.
+6.	Prevent new tasks from being added to the pool.
+7.	Allow 5 seconds for all of the tasks in the pool to be completed.
+
+

@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task28.task2806"\n\nIntroducing Executors
+
+
+1. In the main method, create a fixed pool of 5 threads using the Executors class.
+2. Use a loop to send 10 Runnable tasks to the pool.
+3. In each task's run method, call the doExpensiveOperation method using the task's sequence number, starting from 1 (see the sample output).
+4. Prevent new tasks from being added to the pool (shutdown method).
+5. Give the pool 5 seconds to complete all of the tasks (use the awaitTermination method with TimeUnit.SECONDS as an argument).
+
+
+Requirements:
+1.	Use the Executors class to create a fixed pool of 5 threads in the main method.
+2.	The pool must receive 10 Runnable tasks for execution.
+3.	Each task should call the doExpensiveOperation method using the task&#39;s sequence number, starting from 1.
+4.	Prevent new tasks from being added to the pool.
+5.	Allow 5 seconds for all of the tasks in the pool to be completed.
+
+

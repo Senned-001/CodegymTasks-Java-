@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task28.task2808"\n\nMastering Callable
+
+
+Implement the getTask method. It should return a Callable object.
+The Callable object must calculate the sum of the numbers from 1 to the passed number (i), inclusive, and return it as a String.
+The main method is not tested.
+
+
+Requirements:
+1.	The Solution class must have a static getTask(int) method.
+2.	The getTask method must return a Callable&lt;String&gt; object.
+3.	The Callable object must return the sum of the numbers from 1 to the passed number (i), inclusive, as a String.
+4.	The sum should be calculated correctly for arbitrarily long numbers.
+
+

@@ -1,0 +1,25 @@
+taskKey="com.codegym.task.task28.task2812"\n\nshutdownNow!
+
+
+Understand the difference between the shutdown and shutdownNow methods. Display a list of all the incomplete tasks on the screen.
+
+It should look something like:
+pool-1-thread-1, localId=1
+pool-1-thread-2, localId=2
+pool-1-thread-3, localId=3
+pool-1-thread-4, localId=4
+pool-1-thread-5, localId=5
+java.util.concurrent.FutureTask@7e6cbb7a was not completed
+java.util.concurrent.FutureTask@7c3df479 was not completed
+java.util.concurrent.FutureTask@7106e68e was not completed
+java.util.concurrent.FutureTask@7eda2dbb was not completed
+java.util.concurrent.FutureTask@6576fe71 was not completed
+
+
+Requirements:
+1.	The executor object&#39;s shutdownNow method must be called in the Solution class&#39;s main method.
+2.	The Solution class&#39;s main method must display all of the tasks that the executor didn&#39;t have time to execute.
+3.	The main method must be public.
+4.	The main method must be static.
+
+
