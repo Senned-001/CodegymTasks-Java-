@@ -1,0 +1,140 @@
+taskKey="com.codegym.task.task32.task3209.big06"\n\nHTML Editor (part 6)
+
+
+Implement the initEditor() method, which initializes the editor panes. It must:
+6.1.	Set "text/html" as the content type for the htmlTextPane component.
+Find and use the appropriate method.
+6.2.	Create a new local JScrollPane component based on htmlTextPane.
+6.3.	Add a tab named "HTML" and the component from the previous step
+to tabbedPane.
+6.4.	Create a new local JScrollPane component based on plainTextPane.
+6.5.	Add another tab named "Text" and the component from the previous step
+to tabbedPane.
+6.6.	Set the preferred pane size on tabbedPane.
+6.7.	Create a TabbedPaneChangeListener object and set it as
+a change listener on tabbedPane.
+6.8.	Add our tabbed pane to the center of the content pane of the current frame.
+You can get the current frame's content pane using the getContentPane()
+method, which is inherited from JFrame.
+Think about which method you need to call and with which arguments for the tabbed pane to be displayed
+in the center of the current frame's content pane.
+After starting the application, you can see the latest results: two independent
+tabs (HTML and Text), and each of them lets you enter your own text.
+
+
+Requirements:
+1.	1. In the initEditor() method, the htmlTextPane component&#39;s content type must be set to &quot;text/html&quot; through the setContentType setter.
+2.	The initEditor() method should create a new local JScrollPane component using a constructor that takes htmlTextPane.
+3.	In the initEditor() method, a tab named &quot;HTML&quot; and a JScrollPane component created based on htmlTextPane must be added to the tabbedPane component.
+4.	The initEditor() method should create a new local JScrollPane component using a constructor that takes plainTextPane.
+5.	In the initEditor() method, a tab named &quot;Text&quot; and a JScrollPane component created based on plainTextPane must be added to the tabbedPane component.
+6.	In the initEditor() method, the preferred pane size must be set for the tabbedPane component using the setPreferredSize setter.
+7.	The initEditor() method must add a TabbedPaneChangeListener to the tabbedPane component using the addChangeListener method.
+8.	The initEditor() method must add the tabbed pane to the center of the current frame&#39;s content pane using the getContentPane().add() method.
+
+
+HTML Editor (part 5)
+
+
+5.1.	In the listeners package, declare a TabbedPaneChangeListener class that implements the ChangeListener
+interface. This class will listen for and handle changes to the state of the tabbed pane.
+In this class, implement the following:
+5.1.1.	A constructor that has a view parameter and saves
+it in the view field.
+5.1.2.	Override the method in the ChangeListener interface. It should call the
+selectedTabChanged() method on the view. We don't have that last method yet. Make a
+stub for it.
+5.2.	Declare an ExceptionHandler class. This will be our exception handler,
+which you can override in the future. For now, add a static log(Exception e)
+method to it. This method will display a short description of the problem on the console
+(use the toString method of the passed exception).
+
+
+
+HTML Editor (part 4)
+
+
+4.1.	Declare initMenuBar() and initEditor() methods in the View class. They will be responsible for
+initializing the menus and editor panes.
+4.2.	Declare an initGui() method in the view. It will initialize the graphical
+interface. From this method, call initMenuBar() to initialize the menu, initEditor() to initialize the
+editor, and the pack() method, which we inherit from the JFrame class.
+Figure out what the pack() method does.
+4.3.	Implement the view's init() method. It must:
+4.3.1.	Call initGui() to initialize the GUI.
+4.3.2.	Add an event listener to our window. Create and use
+a FrameListener object as the listener. To add the listener, use the
+appropriate method from the Window class, inherited by our class through the
+JFrame and Frame classes.
+4.3.3.	Show our window. Use the setVisible method with the correct argument.
+At this point, when launched, the application should show a window that can be resized,
+maximized, closed, etc.
+
+
+
+HTML Editor (part 3)
+
+
+The graphical interface will be a window with a menu and a pane with
+two tabs.
+The first tab will be a text pane that will render an HTML
+page. Here it will be possible to format and edit the text of the page.
+The second tab will have an editor that will display the page's HTML code. It will show
+all of the HTML tags being used. It will also be possible to change the page's text here,
+and add and remove various tags.
+3.1.	Add and initialize fields in the view class:
+3.1.1.	JTabbedPane tabbedPane - This will be a pane with two tabs.
+3.1.2.	JTextPane htmlTextPane - This will be a component for editing the HTML visually.
+It will be placed on the first tab.
+3.1.3.	JEditorPane plainTextPane - This will be a component for editing HTML as
+text. It will display the HTML code (HTML tags and their contents).
+3.2.	Add a FrameListener class to the listeners package. It must:
+3.2.1.	Inherit WindowAdapter.
+3.2.2.	Have a View view field.
+3.2.3.	In its constructor, take a View and initialize a field.
+3.2.4.	Override the windowClosing(WindowEvent windowEvent) method, which
+should call exit() on the view.
+
+
+
+HTML Editor (part 2)
+
+
+2.1.	Add init() methods, empty for now, to the controller and view. They will
+be responsible for initializing the controller and view.
+2.2.	Now we will write a main method in the Controller class. It must:
+2.2.1.	Create a view object.
+2.2.2.	Use the view to create a controller.
+2.2.3.	Set the view's controller.
+2.2.4.	Initialize the view.
+2.2.5.	Initialize controller. The controller should be initialized after the view.
+2.3.	Add an exit() method to the controller. It should call the static exit method on the System
+class.
+2.3.1.  The exit method in the Controller class should not be static.
+2.4.	Add an exit() method to the view. It should call exit() on the controller.
+
+
+
+HTML Editor (part 1)
+
+
+Today we'll write an HTML editor with a graphical user interface. We'll use Swing to
+create the GUI. And we'll use the MVC pattern as the
+architectural framework for our application.
+1.1.	Declare a Controller class and a View class. The View class must inherit JFrame and
+implement the ActionListener interface.
+1.2.	Add to the Controller class a View view field, responsible for the view, and an
+HTMLDocument document field, responsible for the model. From here on, any classes we use but haven't declared
+in the code are most likely in the swing library. For example, the
+HTMLDocument class is implemented in the javax.swing.text.html package.
+1.3.	Add to the Controller class a File currentFile field that will be responsible for the file that is currently
+open in our editor.
+1.4.	Add a Controller class constructor. It should have a
+view parameter and initialize the corresponding field.
+1.5.    Add an empty main method to Controller.
+1.6.	Add a Controller controller field to the View class.
+1.7.	Add a setter and getter for the controller field to the View class.
+1.8.	Add an empty implementation of the method declared in the ActionListener interface.
+
+
+
