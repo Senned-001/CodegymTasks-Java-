@@ -1,140 +1,138 @@
-taskKey="com.codegym.task.task32.task3209.big06"\n\nHTML Editor (part 6)
+taskKey="com.codegym.task.task32.task3209.big14"\n\nHTML Editor (part 14)
 
 
-Implement the initEditor() method, which initializes the editor panes. It must:
-6.1.	Set "text/html" as the content type for the htmlTextPane component.
-Find and use the appropriate method.
-6.2.	Create a new local JScrollPane component based on htmlTextPane.
-6.3.	Add a tab named "HTML" and the component from the previous step
-to tabbedPane.
-6.4.	Create a new local JScrollPane component based on plainTextPane.
-6.5.	Add another tab named "Text" and the component from the previous step
-to tabbedPane.
-6.6.	Set the preferred pane size on tabbedPane.
-6.7.	Create a TabbedPaneChangeListener object and set it as
-a change listener on tabbedPane.
-6.8.	Add our tabbed pane to the center of the content pane of the current frame.
-You can get the current frame's content pane using the getContentPane()
-method, which is inherited from JFrame.
-Think about which method you need to call and with which arguments for the tabbed pane to be displayed
-in the center of the current frame's content pane.
-After starting the application, you can see the latest results: two independent
-tabs (HTML and Text), and each of them lets you enter your own text.
+14.1.	Add a selectHtmlTab() method to the view class. It must:
+14.1.1.	Select the HTML tab (switch to it).
+14.1.2.	Reset all edits using the method you previously implemented.
+14.2.	Add a getter for the model to the controller class. In our case, this is the document field.
+14.3.	Add an update() method to the view. It should get the document from
+the controller and set it on htmlTextPane.
+14.4.	Add a showAbout() method to the view. It should show a dialog
+box with information about the program. Think up the information on your own, but message type
+must be JOptionPane.INFORMATION_MESSAGE.
 
 
 Requirements:
-1.	1. In the initEditor() method, the htmlTextPane component&#39;s content type must be set to &quot;text/html&quot; through the setContentType setter.
-2.	The initEditor() method should create a new local JScrollPane component using a constructor that takes htmlTextPane.
-3.	In the initEditor() method, a tab named &quot;HTML&quot; and a JScrollPane component created based on htmlTextPane must be added to the tabbedPane component.
-4.	The initEditor() method should create a new local JScrollPane component using a constructor that takes plainTextPane.
-5.	In the initEditor() method, a tab named &quot;Text&quot; and a JScrollPane component created based on plainTextPane must be added to the tabbedPane component.
-6.	In the initEditor() method, the preferred pane size must be set for the tabbedPane component using the setPreferredSize setter.
-7.	The initEditor() method must add a TabbedPaneChangeListener to the tabbedPane component using the addChangeListener method.
-8.	The initEditor() method must add the tabbed pane to the center of the current frame&#39;s content pane using the getContentPane().add() method.
+1.	The View class should have a public selectHtmlTab() method that selects a tab and resets all the edits.
+2.	The Controller class must have a getter for the document field.
+3.	The View class should have a public update() method that sets the document on the editing pane.
+4.	The View class should have a public showAbout() method that displays a dialog box with information about the program.
 
 
-HTML Editor (part 5)
+HTML Editor (part 13)
 
 
-5.1.	In the listeners package, declare a TabbedPaneChangeListener class that implements the ChangeListener
-interface. This class will listen for and handle changes to the state of the tabbed pane.
-In this class, implement the following:
-5.1.1.	A constructor that has a view parameter and saves
-it in the view field.
-5.1.2.	Override the method in the ChangeListener interface. It should call the
-selectedTabChanged() method on the view. We don't have that last method yet. Make a
-stub for it.
-5.2.	Declare an ExceptionHandler class. This will be our exception handler,
-which you can override in the future. For now, add a static log(Exception e)
-method to it. This method will display a short description of the problem on the console
-(use the toString method of the passed exception).
-
-
-
-HTML Editor (part 4)
-
-
-4.1.	Declare initMenuBar() and initEditor() methods in the View class. They will be responsible for
-initializing the menus and editor panes.
-4.2.	Declare an initGui() method in the view. It will initialize the graphical
-interface. From this method, call initMenuBar() to initialize the menu, initEditor() to initialize the
-editor, and the pack() method, which we inherit from the JFrame class.
-Figure out what the pack() method does.
-4.3.	Implement the view's init() method. It must:
-4.3.1.	Call initGui() to initialize the GUI.
-4.3.2.	Add an event listener to our window. Create and use
-a FrameListener object as the listener. To add the listener, use the
-appropriate method from the Window class, inherited by our class through the
-JFrame and Frame classes.
-4.3.3.	Show our window. Use the setVisible method with the correct argument.
-At this point, when launched, the application should show a window that can be resized,
-maximized, closed, etc.
+Let's implement the TextEditMenuListener class in the listeners package. This class will work like
+the UndoMenuListener class, but for other menu items. The menu items responsible for
+style, font, color, etc. should only be available when the first tab is selected
+in our editor.
+13.1.	Add a boolean isHtmlTabSelected() method to the view. It must return
+true if the tab that displays HTML is selected in the tabbed pane (hint: its index is 0).
+13.2.	Add a View field to the TextEditMenuListener class. Initialize it in the class
+constructor.
+13.3.	In the TextEditMenuListener class, override the menuSelected(MenuEvent
+menuEvent) method. It must:
+13.3.1.	Use the parameter to get the object that the action was performed on. In
+our case, this will be a JMenu object.
+13.3.2.	Get a list of components (menu items) from this menu.
+13.3.3.	For each menu item, call the setEnabled method, passing the return value of
+the view's isHtmlTabSelected() method as an argument.
+Run the application and be sure that the style, align, color and font menu items are available
+only when the HTML tab is active, not when the Text tab is active.
 
 
 
-HTML Editor (part 3)
+HTML Editor (part 12)
 
 
-The graphical interface will be a window with a menu and a pane with
-two tabs.
-The first tab will be a text pane that will render an HTML
-page. Here it will be possible to format and edit the text of the page.
-The second tab will have an editor that will display the page's HTML code. It will show
-all of the HTML tags being used. It will also be possible to change the page's text here,
-and add and remove various tags.
-3.1.	Add and initialize fields in the view class:
-3.1.1.	JTabbedPane tabbedPane - This will be a pane with two tabs.
-3.1.2.	JTextPane htmlTextPane - This will be a component for editing the HTML visually.
-It will be placed on the first tab.
-3.1.3.	JEditorPane plainTextPane - This will be a component for editing HTML as
-text. It will display the HTML code (HTML tags and their contents).
-3.2.	Add a FrameListener class to the listeners package. It must:
-3.2.1.	Inherit WindowAdapter.
-3.2.2.	Have a View view field.
-3.2.3.	In its constructor, take a View and initialize a field.
-3.2.4.	Override the windowClosing(WindowEvent windowEvent) method, which
-should call exit() on the view.
+12.1.	Implement the RedoAction class:
+12.1.1.	Add a View field to the class. Add its initialization in the constructor.
+12.1.2.	Implement the actionPerformed(ActionEvent actionEvent) method. It should call the
+redo() method on the view.
+12.2.	Implement the UndoAction class by analogy with RedoAction.
+12.3.	Study the implementation of the StrikethroughAction class that you received along with the task, and
+implement the following classes in the same way:
+12.3.1.	SubscriptAction
+12.3.2.	SuperscriptAction
+Run the program and be sure that the Subscript, Superscript, and Strikethrough
+menu items work. The menu items responsible for undo and redo aren't yet connected
+to the controller and we can't check them.
 
 
 
-HTML Editor (part 2)
+HTML Editor (part 11)
 
 
-2.1.	Add init() methods, empty for now, to the controller and view. They will
-be responsible for initializing the controller and view.
-2.2.	Now we will write a main method in the Controller class. It must:
-2.2.1.	Create a view object.
-2.2.2.	Use the view to create a controller.
-2.2.3.	Set the view's controller.
-2.2.4.	Initialize the view.
-2.2.5.	Initialize controller. The controller should be initialized after the view.
-2.3.	Add an exit() method to the controller. It should call the static exit method on the System
-class.
-2.3.1.  The exit method in the Controller class should not be static.
-2.4.	Add an exit() method to the view. It should call exit() on the controller.
+11.1.	Add an UndoManager undoManager field to the view. Figure out what
+this class is used for. Initialize the field with a new object.
+11.2.	In the listeners package, add an UndoListener class that implements the
+UndoableEditListener interface. This class will listen for edits that can undone or redone.
+11.3.	Add the following to the UndoListener class:
+11.3.1.	An UndoManager undoManager field.
+11.3.2.	A constructor that takes an UndoManager and initializes the corresponding field.
+11.3.3.	An undoableEditHappened(undoableEditEvent e) method. It should get the edit from
+the passed event and add it to undoManager.
+11.4.	Add an UndoListener undoListener field to the view, and initialize it
+using undoManager.
+11.5.	Add the following methods to the view:
+11.5.1. void undo() - This method undoes the last action. Implement it using undoManager.
+The method must not throw exceptions. It should only log them.
+11.5.2. void redo() - This method returns the previously undone action. Implement it by analogy with
+the previous step.
+11.5.3.	Implement boolean canUndo() and boolean canRedo() methods using undoManager.
+11.5.4.	Implement a getter for undoListener.
+11.5.5.	Add and implement a void resetUndo() method that clears all edits in
+undoManager.
 
 
 
-HTML Editor (part 1)
+HTML Editor (part 10)
 
 
-Today we'll write an HTML editor with a graphical user interface. We'll use Swing to
-create the GUI. And we'll use the MVC pattern as the
-architectural framework for our application.
-1.1.	Declare a Controller class and a View class. The View class must inherit JFrame and
-implement the ActionListener interface.
-1.2.	Add to the Controller class a View view field, responsible for the view, and an
-HTMLDocument document field, responsible for the model. From here on, any classes we use but haven't declared
-in the code are most likely in the swing library. For example, the
-HTMLDocument class is implemented in the javax.swing.text.html package.
-1.3.	Add to the Controller class a File currentFile field that will be responsible for the file that is currently
-open in our editor.
-1.4.	Add a Controller class constructor. It should have a
-view parameter and initialize the corresponding field.
-1.5.    Add an empty main method to Controller.
-1.6.	Add a Controller controller field to the View class.
-1.7.	Add a setter and getter for the controller field to the View class.
-1.8.	Add an empty implementation of the method declared in the ActionListener interface.
+Our editor will support undo/redo of actions
+performed in the editor.
+Implement the UndoMenuListener class. This listener will listen to the menu, or more accurately,
+it will listen for the moment when the edit menu is selected by the user. At that moment, it
+will ask the view if we can currently undo or redo an
+action. The answer determines whether we should make the "Undo" and "Redo" menu items
+available.
+10.1.	Add the following fields to the UndoMenuListener class:
+10.1.1.	View view.
+10.1.2.	JMenuItem undoMenuItem.
+10.1.3.	JMenuItem redoMenuItem.
+10.2.	Implement an UndoMenuListener(View view, JMenuItem undoMenuItem,
+JMenuItem redoMenuItem) constructor. It should initialize the fields of the class.
+10.3.	Implement a menuSelected(MenuEvent menuEvent) method. It will be called before
+the menu is shown. It must:
+10.3.1.	Ask the view whether we can undo an action using the
+boolean canUndo() method. The view doesn't have such a method yet, so add a stub
+that always returns false.
+10.3.2.	Make the undoMenuItem available depending on what the view returns to us.
+Hint: use the setEnabled() method.
+10.3.3.	Take similar actions for redoMenuItem, adding a
+canRedo() stub method to the view.
+Run the program and make sure that the Undo and Redo menu items are not available.
+
+
+
+HTML Editor (part 9)
+
+
+9.1.	Implement the initMenuBar() method. It must:
+9.1.1.	Create a new JMenuBar object. This will be our menu bar.
+9.1.2.	Use MenuHelper to initialize the menu in the following order: File,
+Edit, Style, Align, Color, Font, and Help.
+9.1.3.	Add our menu bar to the top of the current frame's content pane,
+similar to the way we did this with the tabbed pane.
+9.2.	Add a View class constructor. It should give our application the same look and feel
+that are defined in the system.
+The constructor must not throw exceptions. It should just log them using
+ExceptionHandler. Hint: To implement this task, use the UIManager class.
+
+Run the application. Now you should see a menu bar at the top of the window. Some of
+the menu items (for example: Cut, Copy, Paste, Style (partially), Align,
+Color, Font) should already work. Be sure everything works and then continue
+developing the program.
 
 
 
