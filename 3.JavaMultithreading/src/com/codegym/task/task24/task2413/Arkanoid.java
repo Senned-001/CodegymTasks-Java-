@@ -144,7 +144,7 @@ public class Arkanoid {
 
     /**
      * Check for collision with bricks.
-     * If there was a collision, the ball flies off in a random direction (0..360 degrees)
+     * If there was a collision, the ball flies off in a RANDOM direction (0..360 degrees)
      */
     void checkBrickCollision() {
         for (Brick brick : new ArrayList<Brick>(bricks)) {
@@ -159,7 +159,7 @@ public class Arkanoid {
 
     /**
      * Check for collision with the paddle.
-     * If there was a collision, the ball flies up in a random direction (80..100 degrees).
+     * If there was a collision, the ball flies up in a RANDOM direction (80..100 degrees).
      */
     void checkPaddleCollision() {
         if (ball.intersects(paddle)) {

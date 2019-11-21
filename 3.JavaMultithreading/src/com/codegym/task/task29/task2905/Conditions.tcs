@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task29.task2905"\n\nWeird bugs O_o
+
+
+Fix 2 bugs:
+1) an exception occurs
+2) the program becomes unresponsive
+Make minimal changes.
+
+
+Requirements:
+1.	The startCreatingMessages() method must add 100000 elements to messageQueue without hanging.
+2.	Fix the bug in the line &quot;messageQueue.drainTo(messageQueue, MAX_BATCH_SIZE);&quot;.
+3.	The main() method should not hang.
+4.	The program&#39;s output should show that all messages have been transferred from messageQueue to fakeDatabase.
+
+

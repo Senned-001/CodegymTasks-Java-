@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task29.task2906"\n\nAutoboxing features (part 2)
+
+
+Fix the bug causing a NullPointerException in the getValue() method.
+Read the supplementary article about the special features of autoboxing.
+
+
+Requirements:
+1.	The implementation of the getValue() method should use a ternary operator.
+2.	The getValue() method should not throw exceptions, regardless of the values of the first and second parameters.
+3.	The getValue() method should return 100 if you pass it Boolean.TRUE and Boolean.TRUE.
+4.	The getValue() method should return 200 if you pass it Boolean.FALSE and Boolean.TRUE.
+5.	The getValue() method should return null if you pass it Boolean.FALSE and Boolean.FALSE.
+
+

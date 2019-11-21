@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task29.task2901"\n\nRefactoring for the naming and code convention
+
+
+Make the code follow the naming and code convention (Shift+F6 for refactoring).
+
+
+Requirements:
+1.	Rename the defaultFileName constant to follow the naming and code convention.
+2.	Rename the getFileLoaded() method to follow the naming and code convention.
+3.	Rename the DownloadFileContent() method to follow the naming and code convention.
+4.	Rename the isexpectedline() method to follow the naming and code convention.
+5.	Rename the expectedline parameter of the method that takes a String to follow the naming and code convention.
+
+

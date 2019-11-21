@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task29.task2904"\n\nAutoboxing features
+
+
+Fix the bug in the getValueByIndex() method.
+Read the supplementary article about the special features of autoboxing.
+
+
+Requirements:
+1.	The getValueByIndex() method should return an Integer from the intArray array if the array has an element with index i.
+2.	The getValueByIndex() method should return a Double equal to -1 if the intArray array does not contain an element with index i.
+3.	Don&#39;t change the main() method.
+4.	The program should display two lines: &quot;-1.0, class java.lang.Double&quot; and &quot;3, class java.lang.Integer&quot;.
+
+

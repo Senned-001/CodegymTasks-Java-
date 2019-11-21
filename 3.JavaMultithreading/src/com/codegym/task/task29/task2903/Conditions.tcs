@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task29.task2903"\n\nAnd more refactoring
+
+
+1. Make the code follow the naming and code convention (Shift+F6 for refactoring)
+2. Take a look at the methods of the ConcurrentMap class.
+3. In the "String previousEntry = null;" line, call a method on concurrentMap
+that inserts a pair (randomInt, text) only for a key that is not in concurrentMap.
+(The invoked method must return the previous value or null for a new pair.)
+
+
+Requirements:
+1.	Rename the random constant to follow the naming and code convention.
+2.	The object returned by the getRunnable() method must be an instance of an anonymous class.
+3.	The run() method inside the getRunnable() method should call a method on concurrentMap that inserts a pair (randomInt, text) if concurrentMap does not yet have a pair with the key randomInt.
+4.	The run() method of the class returned by the getRunnable() method should display text on the screen.
+
+

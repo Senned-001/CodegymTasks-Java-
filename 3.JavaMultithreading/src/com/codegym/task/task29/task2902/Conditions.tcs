@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task29.task2902"\n\nRefactoring for the naming and code convention
+
+
+Make the code follow the naming and code convention (Shift+F6 for refactoring).
+
+
+Requirements:
+1.	Rename the Solution Solution variable to follow the naming and code convention.
+2.	Rename the String name_of_file_to_be_opened_by_notepad variable to follow the naming and code convention.
+3.	Rename the Process NOTEPAD variable to follow the naming and code convention.
+4.	Rename the getstartnotepadprocess() method to follow the naming and code convention.
+5.	Rename the FILE_NAME parameter of the method that takes a String to follow the naming and code convention.
+6.	Rename the String[] cmd_array variable to follow the naming and code convention.
+7.	Rename the Getabsolutepathtodefaulttxtfile() method to follow the naming and code convention.
+8.	Rename the URI uRi variable to follow the naming and code convention.
+
+
