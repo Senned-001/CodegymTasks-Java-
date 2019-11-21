@@ -1,138 +1,119 @@
-taskKey="com.codegym.task.task32.task3209.big14"\n\nHTML Editor (part 14)
+taskKey="com.codegym.task.task32.task3209.big24"\n\nHTML Editor (part 24)
 
 
-14.1.	Add a selectHtmlTab() method to the view class. It must:
-14.1.1.	Select the HTML tab (switch to it).
-14.1.2.	Reset all edits using the method you previously implemented.
-14.2.	Add a getter for the model to the controller class. In our case, this is the document field.
-14.3.	Add an update() method to the view. It should get the document from
-the controller and set it on htmlTextPane.
-14.4.	Add a showAbout() method to the view. It should show a dialog
-box with information about the program. Think up the information on your own, but message type
-must be JOptionPane.INFORMATION_MESSAGE.
+Your HTML editor is ready!
+You learned how to:
+- Create applications with a graphical interface.
+- Work with dialog boxes.
+- Use classes from the Swing library.
+- Implement interaction between program components with the help of events, listeners,
+and actions.
+- You strengthened your knowledge of the MVC pattern.
+
+Here are some things you might improve in the editor:
+- Add a toolbar that replicates the functionality of the menu.
+- Add highlighting of HTML tags on the second tab.
+- Add the ability to load a document from the Internet.
+- Expand the editor's capabilities (insert images, links, etc.)
+
+Congratulations! Keep it up!
 
 
 Requirements:
-1.	The View class should have a public selectHtmlTab() method that selects a tab and resets all the edits.
-2.	The Controller class must have a getter for the document field.
-3.	The View class should have a public update() method that sets the document on the editing pane.
-4.	The View class should have a public showAbout() method that displays a dialog box with information about the program.
+1.	The HTML editor is ready!
 
 
-HTML Editor (part 13)
+HTML Editor (part 23)
 
 
-Let's implement the TextEditMenuListener class in the listeners package. This class will work like
-the UndoMenuListener class, but for other menu items. The menu items responsible for
-style, font, color, etc. should only be available when the first tab is selected
-in our editor.
-13.1.	Add a boolean isHtmlTabSelected() method to the view. It must return
-true if the tab that displays HTML is selected in the tabbed pane (hint: its index is 0).
-13.2.	Add a View field to the TextEditMenuListener class. Initialize it in the class
-constructor.
-13.3.	In the TextEditMenuListener class, override the menuSelected(MenuEvent
-menuEvent) method. It must:
-13.3.1.	Use the parameter to get the object that the action was performed on. In
-our case, this will be a JMenu object.
-13.3.2.	Get a list of components (menu items) from this menu.
-13.3.3.	For each menu item, call the setEnabled method, passing the return value of
-the view's isHtmlTabSelected() method as an argument.
-Run the application and be sure that the style, align, color and font menu items are available
-only when the HTML tab is active, not when the Text tab is active.
+23.1.	Let's write the saveDocument() method for saving the current file. The method should
+work the same as saveDocumentAs(), but not ask the user for a file. Instead, it should use
+currentFile. If currentFile is null, then call the saveDocumentAs() method.
+23.2.	It's time to implement the openDocument() method. The method should work
+like the part of the saveDocumentAs() method that is responsible for file selection.
+Hint: Pay attention to the name of the method used to display the dialog.
+When a file is selected, you must:
+23.2.1.	Set the new value of currentFile.
+23.2.2.	Reset the document.
+23.2.3.	Set the file name as the title on the view.
+23.2.4.	Use currentFile to create a FileReader.
+23.2.5.	Use an HTMLEditorKit object to read data from the FileReader into the document
+field.
+23.2.6.	Reset the edits (call the view's resetUndo method).
+23.2.7.	If exceptions occur, log them but don't throw them upward.
+Check that the Save and Open menu items work.
 
 
 
-HTML Editor (part 12)
+HTML Editor (part 22)
 
 
-12.1.	Implement the RedoAction class:
-12.1.1.	Add a View field to the class. Add its initialization in the constructor.
-12.1.2.	Implement the actionPerformed(ActionEvent actionEvent) method. It should call the
-redo() method on the view.
-12.2.	Implement the UndoAction class by analogy with RedoAction.
-12.3.	Study the implementation of the StrikethroughAction class that you received along with the task, and
-implement the following classes in the same way:
-12.3.1.	SubscriptAction
-12.3.2.	SuperscriptAction
-Run the program and be sure that the Subscript, Superscript, and Strikethrough
-menu items work. The menu items responsible for undo and redo aren't yet connected
-to the controller and we can't check them.
-
-
-
-HTML Editor (part 11)
-
-
-11.1.	Add an UndoManager undoManager field to the view. Figure out what
-this class is used for. Initialize the field with a new object.
-11.2.	In the listeners package, add an UndoListener class that implements the
-UndoableEditListener interface. This class will listen for edits that can undone or redone.
-11.3.	Add the following to the UndoListener class:
-11.3.1.	An UndoManager undoManager field.
-11.3.2.	A constructor that takes an UndoManager and initializes the corresponding field.
-11.3.3.	An undoableEditHappened(undoableEditEvent e) method. It should get the edit from
-the passed event and add it to undoManager.
-11.4.	Add an UndoListener undoListener field to the view, and initialize it
-using undoManager.
-11.5.	Add the following methods to the view:
-11.5.1. void undo() - This method undoes the last action. Implement it using undoManager.
-The method must not throw exceptions. It should only log them.
-11.5.2. void redo() - This method returns the previously undone action. Implement it by analogy with
-the previous step.
-11.5.3.	Implement boolean canUndo() and boolean canRedo() methods using undoManager.
-11.5.4.	Implement a getter for undoListener.
-11.5.5.	Add and implement a void resetUndo() method that clears all edits in
-undoManager.
+In the controller, let's implement the saveDocumentAs() method for saving the file under a new name.
+The implementation should:
+22.1.	Switch the view to the HTML tab.
+22.2.	Create a new JFileChooser object.
+22.3.	Set an HTMLFileFilter object as its filter.
+22.4.	Show the "Save File" file chooser dialog.
+22.5.	If the user confirms the file selection:
+22.5.1.	Save the selected file in the currentFile field.
+22.5.2.	Set the file name as the window title on the view.
+22.5.3.	Create a FileWriter based on currentFile.
+22.5.4.	Copy the data from document to the FileWriter object by analogy with what
+we did in the getPlainText() method.
+22.6.	The method must not throw exceptions.
+Check the Save as... menu item.
 
 
 
-HTML Editor (part 10)
+HTML Editor (part 21)
 
 
-Our editor will support undo/redo of actions
-performed in the editor.
-Implement the UndoMenuListener class. This listener will listen to the menu, or more accurately,
-it will listen for the moment when the edit menu is selected by the user. At that moment, it
-will ask the view if we can currently undo or redo an
-action. The answer determines whether we should make the "Undo" and "Redo" menu items
-available.
-10.1.	Add the following fields to the UndoMenuListener class:
-10.1.1.	View view.
-10.1.2.	JMenuItem undoMenuItem.
-10.1.3.	JMenuItem redoMenuItem.
-10.2.	Implement an UndoMenuListener(View view, JMenuItem undoMenuItem,
-JMenuItem redoMenuItem) constructor. It should initialize the fields of the class.
-10.3.	Implement a menuSelected(MenuEvent menuEvent) method. It will be called before
-the menu is shown. It must:
-10.3.1.	Ask the view whether we can undo an action using the
-boolean canUndo() method. The view doesn't have such a method yet, so add a stub
-that always returns false.
-10.3.2.	Make the undoMenuItem available depending on what the view returns to us.
-Hint: use the setEnabled() method.
-10.3.3.	Take similar actions for redoMenuItem, adding a
-canRedo() stub method to the view.
-Run the program and make sure that the Undo and Redo menu items are not available.
+To open and save the file, we'll use JFileChooser from the swing library.
+Objects of this type support filters that inherit FileFilter. Now we'll write
+our own filter:
+21.1.	Create a public HTMLFileFilter class that inherits FileFilter.
+21.2.	We want the file selection window to display only folders and HTML/HTM files.
+Override the accept(File f) method so that it returns true if the passed file is a
+directory or its name ends with ".html" or ".htm" (case insensitive).
+21.3.	To make the description of available file types in the file selection window
+"HTML and HTM files", override the getDescription() method accordingly.
 
 
 
-HTML Editor (part 9)
+HTML Editor (part 20)
 
 
-9.1.	Implement the initMenuBar() method. It must:
-9.1.1.	Create a new JMenuBar object. This will be our menu bar.
-9.1.2.	Use MenuHelper to initialize the menu in the following order: File,
-Edit, Style, Align, Color, Font, and Help.
-9.1.3.	Add our menu bar to the top of the current frame's content pane,
-similar to the way we did this with the tabbed pane.
-9.2.	Add a View class constructor. It should give our application the same look and feel
-that are defined in the system.
-The constructor must not throw exceptions. It should just log them using
-ExceptionHandler. Hint: To implement this task, use the UIManager class.
+20.1.	Implement the createNewDocument() method in the controller. It
+must:
+20.1.1.	Select the HTML tab on the view.
+20.1.2.	Reset the current document.
+20.1.3.	Set a new window title, e.g. "HTML editor". Use the
+setTitle() method, which is inherited by our view.
+20.1.4.	Reset the edits in the undo manager. Use the view's resetUndo method.
+20.1.5. Set currentFile to null.
+20.2.	Implement the controller's init() method. It should just call the method
+that creates a new document.
+Check that the New menu item works.
 
-Run the application. Now you should see a menu bar at the top of the window. Some of
-the menu items (for example: Cut, Copy, Paste, Style (partially), Align,
-Color, Font) should already work. Be sure everything works and then continue
-developing the program.
+
+
+HTML Editor (part 19)
+
+
+Implement the actionPerformed(ActionEvent actionEvent) method on the view. This method is
+inherited from the ActionListener interface and will be called upon selection of menu items
+that our view has been added to as an event listener.
+19.1.	Get a command from the event using the getActionCommand() method(). It will
+be an ordinary string. You can use this string to understand which menu item created this
+event.
+19.2.	If it is the "New" command, call the controller's createNewDocument() method. From here on,
+if the controller doesn't have the required method yet, create a stub.
+19.3.	If it is the "Open" command, call the openDocument() method.
+19.4.	If "Save", then call saveDocument().
+19.5.	If "Save as...", saveDocumentAs().
+19.6.	If "Exit", exit().
+19.7.	If "About", then call the showAbout() method on the view.
+Check that the Exit and About menu items now work.
 
 
 

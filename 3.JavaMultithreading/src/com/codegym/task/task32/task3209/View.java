@@ -137,11 +137,29 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void selectedTabChanged(){
-
+        if(tabbedPane.getSelectedIndex()==0){
+            controller.setPlainText(plainTextPane.getText());   //If the tab with index 0 is selected (HTML tab), then we need to get the text from plainTextPane
+        }else{
+            plainTextPane.setText(controller.getPlainText());   //If the tab with index 1 is selected (the tab with HTML code), then you need to get the text from the controller
+        }
+        resetUndo();
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {        //will be called upon selection of menu items that our view has been added to as an event listener.
+        switch (e.getActionCommand()){
+            case "New": controller.createNewDocument();
+
+            case "Open": controller.openDocument();
+
+            case "Save": controller.saveDocument();
+
+            case "Save as...": controller.saveDocumentAs();
+
+            case "Exit": controller.exit();
+
+            case "About": showAbout();
+        }
 
     }
 }
