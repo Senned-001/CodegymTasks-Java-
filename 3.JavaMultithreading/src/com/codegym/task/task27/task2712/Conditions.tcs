@@ -1,0 +1,137 @@
+taskKey="com.codegym.task.task27.task2712.big03"\n\nRestaurant (part 3)
+
+
+Now we can create orders. Let's make it so they are automatically sent to the cook.
+There are many different ways to implement this functionality.
+Read about the Observer pattern at http://en.wikipedia.org/wiki/Observer_pattern
+It's already implemented in Java, and we're going to use it.
+
+1. Create a Cook class in the kitchen package. It's going to handle the cooking. The constructor will take the cook's name, which will be output by the toString method.
+
+2. Tablet creates orders, and Cook prepares them. Properly assign Observer and Observable to Tablet and Cook.
+
+3. The void update(Observable observable, Object arg) method, which must be implemented, has two parameters.
+- observable is the object that sent us the value
+- arg is the value itself—in our case, an Order object
+At this stage, we'll only simulate preparing the orders by displaying "Start cooking - " + order
+
+3. Let's write the main method.
+For the Observable object, add our own Observer object. See item 2 and the description of the pattern in Wikipedia
+We give the cook a name. The name doesn't affect the tests. In my version, the cook's name is Amigo. :)
+
+Let's check the console output. Example of my output:
+Your order: [Soup] from Tablet{number=5}
+Start cooking - Your order: [Soup] from Tablet{number=5}
+
+4. Don't forget to do the following immediately after creating the order and displaying it on the console (find this place in the code):
+4.1. Set the flag using setChanged()
+4.2. Send the order to the observer using notifyObservers(order);
+
+5. We'll also make a small change. Make it so that the createOrder method returns the current order, or null if the order couldn't be created.
+
+
+Requirements:
+1.	The Cook class constructor must take a string as an argument and initialize the cook&#39;s name (name field).
+2.	The Cook class&#39;s toString method must return the name field.
+3.	The Cook class must implement the Observer interface.
+4.	The Tablet class must be a descendant of the Observable class.
+5.	The Tablet class&#39;s createOrder method must call the setChanged method.
+6.	The Tablet class&#39;s createOrder method must call the notifyObservers method with the current order as the argument.
+7.	The Cook class&#39;s update method should display a string formatted according to the task conditions.
+8.	The Restaurant class&#39;s main method should create a new cook and use the addObserver method to add it the tablet as an observer.
+
+
+Restaurant (part 2)
+
+
+1. We work with the console a lot. It's time to create a single point of interaction.
+Create a ConsoleHelper class with a single BufferedReader, through which we will work with the console.
+Remember, this class does not store any data or state, so all its methods will be static.
+Create three methods in it:
+- writeMessage(String message) - for displaying message on the console
+- String readString() - for reading strings from the console
+- List<Dish> getAllDishesForOrder() - asks the customer to select a dish and adds it to the list.
+Display a list of all the dishes and ask the customer to enter a string (the name of a dish).
+The customer enters 'exit' to indicate the order is complete.
+If the entered dish is not on the menu, display a message stating that there is no such dish and continue taking the order.
+Rethrow IO exceptions. It isn't clear what to do with them at this level.
+
+2. Refactor the code so that we work with the console only through the ConsoleHelper class.
+
+3. Let's return to the Order class: it has a reference to the tablet, as well as a list of chosen dishes.
+Initialize the dishes list in the constructor by calling the getAllDishesForOrder method from the ConsoleHelper.
+
+4. Rewrite the toString method in the Order class. Let it return an empty string if there are no dishes in the order. Otherwise,
+the output should be similar to the example, in the order in which the dishes were added. Use ConsoleHelper.
+Also, change the Tablet class's toString method (inside the Tablet class, press Alt+Insert -> toString()).
+Example:
+Your order: [Juice, Fish] from Tablet{number=5}
+
+5. We have everything tied to the console. But, if there are exceptions, our application will die.
+To learn the cause, we'll add to the Tablet class a static java.util.logging.Logger logger field, initialized with the class name (Logger.getLogger(Tablet.class.getName())).
+
+6. We handle IO exceptions in the Tablet class's createOrder method.
+Let's write "The console is unavailable." The log level is SEVERE, which is the most serious level (the application cannot continue).
+Also, a new order must be created in the Tablet class's createOrder method.
+
+7. We need to start testing our application.
+In the main method, create a tablet and create four orders.
+
+
+
+Restaurant (part 1)
+
+
+Let's write a program to automate what happens in a restaurant.
+
+We'll state the task like this: the restaurant manager wants the following:
+1) each table has a tablet that can be used to place orders;
+2) while an order is being prepared, the tablet shows ads;
+3) at the end of the business day, various statistics can be reviewed:
+a) cook utilization;
+b) total revenue from orders;
+c) total revenue from ad impressions.
+
+We'll develop the kernel (without a GUI). You can add a GUI later yourself. For now, we'll limit ourselves to a console interface.
+We'll also hardcode some of the data. Later, you can connect a DB to work with.
+
+Let's point out several features that we're going to implement:
+
+First:
+- Customer orders will be sent to the cook automatically;
+- The cook will prepare an order for a while and then mark it as prepared;
+- Then the waiter will carry it away.
+
+Second:
+- Select the desired commercials from a list of paid ads;
+- Display commercials while the order is being prepared;
+- Maximize the ad revenue.
+
+Third:
+- Calculate the statistics;
+- Display the statistics to the manager.
+
+We'll start with the first feature: automated order processing:
+
+Let's begin...
+1. Create a Restaurant class with the main method.
+
+2. Let's start with the tablet: create a Tablet class, where we'll create a final int number field. This is the tablet number,
+which will let us unambiguously determine where each order came from. The tablet number must be initialized in the constructor using a passed argument.
+
+3. In the Tablet class, create a public void createOrder() method that creates an order consisting of the dishes chosen by the customer.
+To do this, create an Order class, which we will place in the kitchen package.
+
+4. The Order class should have information about the list of dishes chosen by the customer.
+In other words, somewhere there should be a list of all dishes, and the Order class should have  a list of chosen dishes.
+The Order class needs private final Tablet tablet and protected List<Dish> dishes fields.
+The constructor must have one Tablet parameter and initialize the tablet field.
+
+5. We need a Dish class. Create it in the kitchen package. Let it be an enum with the following list of dishes: Fish, Steak, Soup, Juice, Water.
+
+6. To allow the customer to choose which dishes he or she wants, you need to display them all. To do this, in the Dish class, create a
+public static String allDishesToString() method that creates a string containing all the dishes.
+For example, "Fish, Steak, Soup, Juice, Water". Generate the string dynamically.
+
+
+
