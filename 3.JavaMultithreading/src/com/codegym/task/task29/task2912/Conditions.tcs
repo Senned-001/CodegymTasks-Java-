@@ -1,0 +1,28 @@
+taskKey="com.codegym.task.task29.task2912"\n\nRefactoring the Chain of Responsibility pattern
+
+
+We have a program that has a logging system that works as follows:
+- if the event's log level is FATAL, the manager is called, the CEO receives an SMS,
+a message is displayed on the console, and an entry is made in the log file;
+- if the event's log level is ERROR, the CEO receives an SMS, a message is displayed on the console,
+and an entry is made in the log file;
+- if the event's log level is WARN, a message is displayed on the console and an entry is made in the log file;
+- if the event's log level is INFO, a log entry is made in the log file.
+
+The program implements the "chain of responsibility" pattern. Study it carefully.
+The FileLogger, ConsoleLogger, SmsLogger, and PhoneLogger classes have a lot of duplicate code.
+Pull all the duplicate code up to an AbstractLogger abstract class.
+In refactoring, pulling up means to move fields, methods, constructors from all child classes into one common
+parent class. In doing so, the code that is moved to the parent class is removed from the child classes.
+
+The program's behavior should not change.
+
+
+Requirements:
+1.	The AbstractLogger class must be abstract.
+2.	The AbstractLogger class must support the Logger interface.
+3.	You must pull the level and next fields up to the AbstractLogger class.
+4.	You need to pull the setNext(Logger) and inform(String, int) methods up to the AbstractLogger class.
+5.	The program&#39;s output should remain unchanged.
+
+

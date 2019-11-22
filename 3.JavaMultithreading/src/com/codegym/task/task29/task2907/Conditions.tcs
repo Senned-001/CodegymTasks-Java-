@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task29.task2907"\n\nThis weird BigDecimal
+
+
+Fix the bug causing a calculation error in the getValue() method.
+Don't change method signature. Don't use rounding.
+Read the supplementary article about the special features of autoboxing.
+
+
+Requirements:
+1.	The getValue() method should create two BigDecimal objects.
+2.	The getValue() method should call the add() method on the created BigDecimal object.
+3.	The getValue() method should NOT use the round() method.
+4.	The getValue() method should return a result without any error.
+
+

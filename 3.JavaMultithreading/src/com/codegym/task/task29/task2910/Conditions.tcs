@@ -1,0 +1,37 @@
+taskKey="com.codegym.task.task29.task2910"\n\nThe archaic word "biathlon"
+
+
+Amigo, can you believe it? In the 21st century, there was a sport called biathlon. It involved people skiing and shooting targets at
+special ranges. They had to hit 5 targets in one round of shooting. Participants shot
+while standing and in a prone position, but we won't go into the details. The best humans
+achieved an average shooting accuracy of 90%, with strong unremarkable competitors hitting 81.5%.
+I wrote a program that creates a competition and adds 30 biathletes to it. Each of
+them is assigned random accuracy (in the range of 0.815 to 0.900). The penalty for each miss is
+an additional 20 seconds added to the result. The competition also has several shooting lanes (4) and a distance that
+the biathletes must cover (20 km).
+I also created a control athlete whose performance metrics are hardcoded:
+Speed: 20 km/h;
+Chance of a hit: 0.900 (90%);
+Number of misses: 2 (Participants are to get 20 hits. With an accuracy of 90 percent, 2 misses are expected);
+The control athlete needs to cover 20 km at a speed of 20 km/h. The required time is 1 hour, i.e. 3600 seconds.
+Race time (including penalty seconds): 3600 + 2 * 20 = 3640 seconds.
+I want to determine how fast each athlete needs to go given a random number of misses
+so that the result in seconds is the same as the control athlete. I'll first display the result
+of the control athlete, and then all the results. Finally, I'll display all the athletes who have the same time
+as the control athlete. Due to rounding, some athletes' total time will differ by a fraction
+of a second. We don't need them. For the others, their race time is exactly 3640 seconds, like the control athlete, but
+they are not displayed in the "ATHLETES WITH THE SAME TOTAL TIME AS THE CONTROL ATHLETE:" section.
+
+Here's your task: make one code change (add, delete, or change one character) to fix a bug.
+Note: All the rounding is correct—don't add any new rounding!
+
+
+Requirements:
+1.	Don&#39;t change the data types of the constants.
+2.	The &quot;ATHLETES WITH THE SAME TOTAL TIME AS THE CONTROL ATHLETE:&quot; section must include all the athletes who have the same time as the control athlete.
+3.	Make one change to the Competition class.
+4.	Don&#39;t change the Constants class.
+5.	Don&#39;t change the Solution class.
+6.	Don&#39;t change the Athlete class.
+
+

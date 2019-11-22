@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task29.task2911"\n\nAnd more refactoring
+
+
+An integer from 0 to 999, inclusive, is randomly chosen. The user enters a number from the keyboard.
+The program responds, telling the user whether the entered number is more or less than the secret number. If the user guesses the number
+in 10 attempts, then the program displays:
+"You guessed it!"
+"The secret number is <number>".
+Otherwise, it displays "You lose!".
+Fix one bug so that the code performs the specified actions.
+
+
+Requirements:
+1.	If the correct number is not entered in 10 attempts, the program should display &quot;You lose!&quot;.
+2.	If an incorrect number is entered, the boolean playerWon flag should not be true.
+3.	Don&#39;t change the method signatures.
+4.	You need to make one change in the right place in the program.
+
+

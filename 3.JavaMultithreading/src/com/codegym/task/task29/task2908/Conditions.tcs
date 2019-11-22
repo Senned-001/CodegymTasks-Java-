@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task29.task2908"\n\nCaching
+
+
+In CacheComputeManager, implement the logic of the empty method.
+Guess what it should do based on the method name and the class's logic.
+
+
+Requirements:
+1.	The createFutureTaskForNewArgumentThatHasToComputeValue() method should create and return a FutureTask object.
+2.	The createFutureTaskForNewArgumentThatHasToComputeValue() method must create an instance of an anonymous class that implements the Callable interface.
+3.	The createFutureTaskForNewArgumentThatHasToComputeValue() method should include the line &quot;return computable.compute(arg);&quot;should appear.
+4.	The program should display the text indicated in the comments in the Solution class.
+
+
