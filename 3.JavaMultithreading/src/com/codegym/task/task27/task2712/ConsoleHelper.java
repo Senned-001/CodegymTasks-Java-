@@ -7,32 +7,32 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ConsoleHelper {
-    private static BufferedReader bufferedReader;
+    private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void writeMessage(String message){
+    public static void writeMessage(String message) {
         System.out.println(message);
     }
 
-    public static String readString()throws IOException{
-        bufferedReader=new BufferedReader(new InputStreamReader(System.in));
-        String s=bufferedReader.readLine();
-        bufferedReader.close();
-        return s;
+    public static String readString() throws IOException {
+        return bufferedReader.readLine();
     }
 
-    public static List<Dish> getAllDishesForOrder()throws IOException{        // asks the customer to select a dish and adds it to the list.
-        writeMessage(Dish.allDishesToString());
-        writeMessage("Choose yours dishes:");
-        String s=null;
-        List<Dish> listOfDishes = new ArrayList<>();
-        while(!(s=readString()).equalsIgnoreCase("exit")){
-            if(Dish.allDishesToString().contains(s)){
-            listOfDishes.add(Dish.valueOf(s));
+    public static List<Dish> getAllDishesForOrder() throws IOException {
+        List<Dish> selectedDishes = new ArrayList<>();
+        writeMessage("We have these dishes: " + Dish.allDishesToString());
+        writeMessage("Please, select which of these you want to order:");
+        String command;
+        while (!(command = readString()).equals("exit")) {
+            final String searchString = command;
+            if (Stream.of(Dish.values()).anyMatch(x -> x.toString().equals(searchString))) {
+                selectedDishes.add(Dish.valueOf(command));
+            } else {
+                writeMessage(command + " is not on menu, please, choose another dish:");
             }
-            else writeMessage("There is no such dish. Choose yours dishes:");
         }
-        return listOfDishes;
+        return selectedDishes;
     }
 }
