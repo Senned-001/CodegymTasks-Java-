@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task30.task3009"\n\nPalindrome?
+
+
+Declare and implement the private static Set<Integer> getRadix(String number), getRadix(String number) method,
+which needs to determine the number systems (from 2 to 36 inclusive) in which the representation of number
+(passed in the decimal representation) is a palindrome and add the indices of these systems to the return value.
+If the passed number is invalid, return an empty HashSet.
+Number systems whose base is greater than 10 use Latin letters as numerals. For example, the number
+35 in the decimal system corresponds to the number "Z" in the system with a base of 36.
+
+The main method is not tested.
+P.S.: Catch a NumberFormatException in the getRadix method. Don't display the stack trace.
+
+
+Requirements:
+1.	You need to declare a private static Set&lt;Integer&gt;getRadix(String number) method.
+2.	If the input data is invalid, the getRadix method should return an empty HashSet.
+3.	The getRadix method should not throw a NumberFormatException.
+4.	The getRadix method should not display anything on the console.
+5.	The getRadix method should return a set according to the task conditions.
+
+

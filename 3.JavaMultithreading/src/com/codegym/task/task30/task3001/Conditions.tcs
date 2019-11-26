@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task30.task3001"\n\nNumeral system converter
+
+
+Implement the convertNumberToOtherNumberSystem method, which should convert number.getDigit()
+from one number system (numberSystem) to another (expectedNumberSystem).
+Throw a NumberFormatException if the passed number is invalid, e.g. the number "120" passed with the binary number system.
+Check that number.getDigit() is not negative.
+The main method is not tested.
+
+
+Requirements:
+1.	There must be a convertNumberToOtherNumberSystem(Number, NumberSystem) method that returns a Number.
+2.	A NumberFormatException should be thrown if the number passed is invalid for the specified number system.
+3.	You need to correctly implement the convertNumberToOtherNumberSystem method: convert the number to the specified number system.
+4.	The NumberSystemType enum must support the NumberSystem interface.
+5.	The NumberSystemType enum must have 11 values representing number system bases. Here are the bases: 2, 3, 4, 5, 6, 7, 8, 9, 10, 12 and 16.
+
+

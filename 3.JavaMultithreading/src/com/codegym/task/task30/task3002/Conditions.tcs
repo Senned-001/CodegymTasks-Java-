@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task30.task3002"\n\nMastering the methods of the Integer class
+
+
+Use the Integer.parseInt(String, int) method to implement the convertToDecimalSystem method,
+which should convert the passed string into a decimal number and return it as a string.
+
+
+Requirements:
+1.	The Solution class must have a convertToDecimalSystem(String) method that returns a String.
+2.	The convertToDecimalSystem(String) method must have the following access modifiers: public, static.
+3.	The convertToDecimalSystem(String) method should call the Integer.parseInt(String, int) method.
+4.	The convertToDecimalSystem(String) method should convert the passed string into a decimal number and return it as a string.
+
+
