@@ -1,0 +1,23 @@
+'SharedItem-1' added
+'SharedItem-2' added
+'SharedItem-3' added
+'SharedItem-4' added
+'SharedItem-5' added
+Processing SharedItem{description='SharedItem-1', itemId=1}
+Processing SharedItem{description='SharedItem-2', itemId=2}
+Processing SharedItem{description='SharedItem-3', itemId=3}
+Processing SharedItem{description='SharedItem-4', itemId=4}
+Processing SharedItem{description='SharedItem-5', itemId=5}
+Consumer is waiting!
+'SharedItem-6' added
+Processing SharedItem{description='SharedItem-6', itemId=6}
+Consumer is waiting!
+'SharedItem-7' added
+Processing SharedItem{description='SharedItem-7', itemId=7}
+Consumer is waiting!
+'SharedItem-8' added
+Processing SharedItem{description='SharedItem-8', itemId=8}
+Consumer is waiting!
+'SharedItem-9' added
+Processing SharedItem{description='SharedItem-9', itemId=9}
+Consumer is waiting!

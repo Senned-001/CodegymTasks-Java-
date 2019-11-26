@@ -1,0 +1,35 @@
+taskKey="com.codegym.task.task30.task3003"\n\nSaving time
+
+
+1. Create a Producer and Consumer (See the comments on the main method).
+2. Create toString, equals, and hashCode methods in the SharedItem class. To do this in IntelliJ IDEA, do the following in the body of the SharedItem class:
+2.1. Alt+Insert -> toString() -> Enter.
+2.2. Alt+Insert -> equals() and hashCode() -> click 'Next' every time.
+2.3. Leave IntelliJ IDEA's implementation of the toString(), equals (), and hashCode() methods as it is.
+3. In Producer and Consumer, implement the run method so that calling the interrupt method interrupts the consumer and producer threads.
+
+4. Implement the Producer's run method:
+4.1. Using the offer method, add 9 SharedItems to the queue, with the following arguments: ("SharedItem-N", N), where N is a item number from 1 to 9.
+4.2. Before each addition, display the phrase "'SharedItem-N' added". Use System.out.format.
+4.3. Put the thread to sleep for 0.1 seconds.
+4.4. If the queue has a Consumer that is not busy working, then display the phrase "Consumer is waiting!".
+Take a look at the methods of the TransferQueue interface. You'll find the method you need.
+
+5. Implement the Consumer's run method:
+5.1. Put the thread to sleep for 0.45 seconds.
+5.2. In an infinite loop, use the take method to get an item from the queue and display "Processing item.toString()".
+
+6. Check the output against the output.txt file.
+7. Don't display the stack trace on the console.
+8. Use System.out.format to display any information on the screen.
+
+
+Requirements:
+1.	Create a Producer class.
+2.	Create a Consumer class.
+3.	The following methods must be created in the SharedItem class: toString(), equals(Object), and hashCode().
+4.	The Producer class&#39;s run() method must be implemented according to the task conditions.
+5.	The Consumer class&#39;s run() method must be implemented according to the task conditions.
+6.	The output should match the output.txt file.
+
+
