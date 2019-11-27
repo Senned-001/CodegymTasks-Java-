@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task30.task3006"\n\nA new way to swap
+
+
+In the Pair class, implement the swap method, which should swap the values of x and y.
+You can only use the following operations:
+1) Exclusive or.
+2) Assignment.
+3) Exclusive-or assignment.
+Don't leave any comments. Don't change the rest of the code.
+
+
+Requirements:
+1.	The Pair class must have a swap() method.
+2.	In the Pair class&#39;s swap() method, only use the allowed operations.
+3.	The swap() method should change the values ​​of the x and y fields.
+4.	Don&#39;t change any code except the swap() method.
+
+

@@ -1,0 +1,46 @@
+taskKey="com.codegym.task.task30.task3013"\n\nBit operations
+
+
+You must implement a public int resetLowerBits(int number) method. It should clear all the bits in the number argument,
+except the highest bit set to one, and then return this number.
+An int is 4 bytes = 32 bits. If the number 3456 is passed to the method, its bit representation
+would be 00000000 00000000 00001101 10000000. The method needs to clear all the lower bits, i.e. the bit representation
+of the expected return value is: 00000000 00000000 00001000 00000000.
+This number is 2048.
+Some more examples:
+Example 1:
+Input:   1
+Output:  1
+
+Example 2:
+Input:   4
+Output:  4
+
+Example 3:
+Input:   255
+Output:  128
+
+The resetLowerBits method parameter can be from 1 to Integer.MAX_VALUE, inclusive.
+Use only the following operations:
+1) =
+2) |
+3) &
+4) >>
+5) <<
+6) ~
+7) digits from 0 to 9 inclusive
+8) Curly braces
+9) a return statement to send back the return value.
+
+You CAN'T create variables, use loops, conditional statements, and so on.
+Don't change the name of the resetLowerBits method's parameter (it must be "number").
+The main method is not tested.
+
+
+Requirements:
+1.	The class Solution should have a public int resetLowerBits(int) method.
+2.	The resetLowerBits(int) method&#39;s parameter should be called number.
+3.	In the Solution class&#39;s resetLowerBits(int) method, use only the allowed operations.
+4.	The resetLowerBits method should work according to the task conditions.
+
+

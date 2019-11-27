@@ -1,0 +1,24 @@
+taskKey="com.codegym.task.task30.task3007"\n\nLet's find the highest power of 2
+
+
+Implement the maxPowerOf2 method, which should return the highest power of 2 that fits into the passed number.
+The maxPowerOf2 argument can only be a positive integer.
+Use only the following operations:
+1) Bitwise shifts.
+2) Bitwise OR.
+3) Bitwise AND.
+4) Bitwise unary NOT.
+5) Assignment (you can combine the allowed operations with assignment, e.g. &=).
+6) Curly braces.
+Don't leave any comments.
+Don't declare any variables. Only use x, which is passed as an argument to the maxPowerOf2 method.
+The main method is not tested.
+
+
+Requirements:
+1.	The Solution class must have a maxPowerOf2(int) method.
+2.	In the Solution class&#39;s maxPowerOf2(int) method, use only the allowed operations.
+3.	In the Solution class&#39;s maxPowerOf2(int) method, don&#39;t use operations that aren&#39;t allowed.
+4.	Implement the maxPowerOf2(int) method, which should return the highest power of 2 that fits into the passed number.
+
+

@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task30.task3005"\n\nSuch tricky exceptions!
+
+
+Fix the implementation of the checkAFlag method so that it never throws exceptions.
+Preserve the screen output logic.
+The main method is not tested.
+
+
+Requirements:
+1.	The checkAFlag method must check that d, which is passed as an argument, is not null. Otherwise, display &quot;Oops!&quot;.
+2.	The checkAFlag method must check that d.cs is not null. Otherwise, display &quot;Oops!&quot;.
+3.	The checkAFlag method must check that d.cs contains at least one element. Otherwise, display &quot;Oops!&quot;.
+4.	The checkAFlag method must check that d.cs.get(0).bs is not null. Otherwise, display &quot;Oops!&quot;.
+5.	The checkAFlag method must check that d.cs.get(0).bs contains at least one element. Otherwise, display &quot;Oops!&quot;.
+6.	The checkAFlag method must check that d.cs.get(0).bs.get(0).as is not null. Otherwise, display &quot;Oops!&quot;.
+7.	The checkAFlag method must check that d.cs.get(0).bs.get(0).as contains at least one element. Otherwise, display &quot;Oops!&quot;.
+8.	The checkAFlag method must check that d.cs.get(0).bs.get(0).as.get(0).flag is true. Otherwise, display &quot;Oops!&quot;.
+
+

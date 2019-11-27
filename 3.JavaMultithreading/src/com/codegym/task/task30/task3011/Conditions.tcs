@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task30.task3011"\n\nMake one code change
+
+
+Make one change to the program so that the output is always "ABC", even if null values are passed
+to the doSomething method.
+Don't change or add string literals. Don't change the lines that display data on the screen.
+Don't add setters.
+
+
+Requirements:
+1.	The doSomething method should display &quot;ABC&quot; if you pass A, B and C objects to it.
+2.	The doSomething method should display &quot;ABC&quot; if you pass null, null, and null to it.
+3.	You can&#39;t change or add string literals. You can&#39;t add setters.
+4.	You can&#39;t change the lines that display data on the screen.
+5.	You need to make one change to the code.
+
+

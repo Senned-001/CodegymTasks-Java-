@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task30.task3004"\n\nFork/Join
+
+
+1. Create a BinaryRepresentationTask class. To do this, click Alt+Enter -> Create Class... on the red class name in IntelliJ IDEA.
+(The class must inherit RecursiveTask<String>). The constructor's parameter is int x.
+2. Implement the compute method: the number should be converted to binary.
+3. Use the fork and join methods.
+4. An example implementation is the convertToBinaryRepresentation method.
+
+
+Requirements:
+1.	Create a BinaryRepresentationTask class.
+2.	The BinaryRepresentationTask class&#39;s compute() method must be overridden.
+3.	Use the fork() and join() methods in the compute() method of the BinaryRepresentationTask class.
+4.	The compute() method must correctly convert the number to binary.
+
+

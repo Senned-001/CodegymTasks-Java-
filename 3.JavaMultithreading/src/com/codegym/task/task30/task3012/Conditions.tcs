@@ -1,0 +1,36 @@
+taskKey="com.codegym.task.task30.task3012"\n\nDerive a specific number
+
+
+Implement the createExpression(int number) method.
+The createExpression method has one parameter called number. This parameter is a number from 1 to 3000 inclusive.
+You need to display an arithmetic expression whose result is number.
+You can use the numbers 1, 3, 9, 27, 81, 243, 729, and 2187 no more than once.
+You can use "+" and "-" signs any number of times.
+Please note that a plus or minus sign must precede each number in the resulting string.
+Before the expression, display "<passed number> =". (See the examples of output below).
+
+Example 1:
+Passed number: 74
+Expected output: 74 = - 1 + 3 - 9 + 81
+
+Example 2:
+Passed number: 1234
+Expected output: 1234 = + 1 - 9 + 27 - 243 - 729 + 2187
+
+When displaying the expression, use the numbers ONLY in INCREASING order!
+Passed number: 2
+Expected output: 2 = - 1 + 3        // Correct
+Expected output: 2 = + 3 - 1        // NOT correct
+The main method is not tested.
+
+Hint:
+Read online about the balanced ternary number system.
+
+
+Requirements:
+1.	An output line should begin with the number passed to the createExpression method, followed by the &quot;=&quot; sign.
+2.	The expression can only use the numbers 1, 3, 9, 27, 81, 243, 729, and 2187, and no more than once.
+3.	The expression can use only the &quot;+&quot; and &quot;-&quot; signs an arbitrary number of times.
+4.	The createExpression method must be implemented according to the task condition.
+
+
