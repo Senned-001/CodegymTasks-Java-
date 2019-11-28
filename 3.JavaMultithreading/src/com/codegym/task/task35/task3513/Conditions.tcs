@@ -1,0 +1,160 @@
+taskKey="com.codegym.task.task35.task3513.big12"\n\n2048 (part 12)
+
+
+Well, shall we try our algorithm in action? We still need to add logic to save the game state at the beginning of each
+movement method, as well as another key processing case for undoing the last move.
+
+When saving the current state to the stack, be sure that the current state is always saved
+and only once. If you listened to my advice and used rotations and a call to the left method
+to implement the right, up, and down method, you can use the following approach:
+1) At the very beginning of the right, up, and down methods, call the saveState method with gameTiles as the argument.
+2) In the left method, check whether the saveState method has already been called. We have the isSaveNeeded flag
+for this. If it is true, we save the state. After performing
+a left shift, we set the isSaveNeeded flag to true.
+
+Also, make the Controller class's keyPressed method call the rollback method when the Z key (code KeyEvent.VK_Z) is pressed.
+
+
+Requirements:
+1.	The Controller class&#39;s keyPressed method should call the rollback method on the model if the key with the code KeyEvent.VK_Z is pressed.
+2.	The left method must save the current game state and score in the appropriate stacks once.
+3.	The right method must save the current game state and score in the appropriate stacks once.
+4.	The up method must save the current game state and score in the appropriate stacks once.
+5.	The down method must save the current game state and score in the appropriate stacks once.
+
+
+2048 (part 11)
+
+
+Good work! At this stage, we already have a full-featured application, but there’s no limit to perfection.
+Let's do some more work.
+
+If you've managed to play 2048 a little, you've noticed that sometimes you really want to be able to undo
+your last move.
+
+Let's create two stacks in the Model class: one to store the previous states of the game board, and the other
+to store previous scores. Let's call them previousStates and previousScores. You can initialize them immediately when they are declared
+or in the constructor. Use the standard stack implementation (java.util.Stack).
+
+Add a boolean isSaveNeeded field and set it to true. We'll need it in the future.
+
+We have places to store state. Now we'll implement two methods to work with them.
+1. The private saveState method with one Tile[][] parameter will use the push method to save the current
+game board and score in stacks and set the isSaveNeeded flag to false.
+2. The public rollback method will use the pop method to set the current game state to the last state
+added to the stacks.
+
+Note that when you save the gameTiles array, you need to create a new array and populate it
+with new Tile objects before saving it to the stack.
+
+In the rollback method, perform a simple assignment (gameTiles = previousStates.pop()) and do the same for the score.
+There's no need for a deep copy.
+
+Before restoring the game state using the rollback method, don't forget to check whether the stacks are empty
+to avoid throwing an EmptyStackException.
+
+
+
+2048 (part 10)
+
+
+It's time to start implementing the main method in the Main class—to finally be able to launch the game and relax!
+
+We only need the main method to run the application. We've already implemented all the guts.
+To do this, in the main method, we'll create a model and controller, as well as a JFrame object. I'll call it game,
+but you can choose any name you want.
+
+We will need to call some methods on our game (JFrame object) in order for everything to be displayed correctly
+on the screen:
+
+game.setTitle("2048");
+game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+game.setSize(450, 500);
+game.setResizable(false);
+
+game.add(controller.getView());
+
+game.setLocationRelativeTo(null);
+game.setVisible(true);
+
+Pay attention to the add method to which we pass the view from the controller. We don't yet have a getter for the view field
+in the Controller class. Don't forget to add it.
+
+P.S. Finishing this task will result in a working version of the game 2048. If something doesn't work,
+or doesn't work as expected, be sure to figure it out and fix it before moving on to the subsequent tasks.
+
+
+
+2048 (part 9)
+
+
+You're doing really well! It's so good that I decided to help you a little and have already implemented the View class.
+It's quite simple. It inherits the JPanel class, overrides the paint method, and displays
+the current state of the model obtained using the controller.
+
+But you have to finish implementing the Controller class.
+
+To start, we're going to need a constructor. It will have one Model parameter, initialize the model
+field, and also save a new View object in the view field, passing the current controller (this) to the
+constructor.
+
+Next, we need a resetGame method that can return the game board to its initial state.
+You need to reset the score, set the isGameWon and isGameLost flags on the view to false, and call the
+resetGameTiles method on the model. Note: set the field values directly, without using setters.
+
+Add a private constant int WINNING_TILE = 2048. It will determine the tile weight that, when achieved,
+constitutes a win.
+
+And now, the most important thing! To be able to process user input, you need to
+override the keyPressed method with a single KeyEvent parameter.
+The logic of the method should be as follows:
+1) If the ESC key was pressed, call the resetGame method.
+2) If the model's canMove method returns false, set the isGameLost flag to true.
+3) If both the isGameLost and isGameWon flags are false, process the movement events:
+a) for KeyEvent.VK_LEFT, call the left method on the model;
+b) for KeyEvent.VK_RIGHT, call the right method on the model;
+c) for KeyEvent.VK_UP key, call the up method on the model;
+d) for KeyEvent.VK_DOWN key, call the down method on the model.
+4) If the model's maxTile field becomes equal to WINNING_TILE, set the isGameWon flag to true.
+5) Finally, call the repaint method on the view.
+
+P.S. To get the key code, use the KeyEvent class's getKeyCode method.
+
+
+
+2048 (part 8)
+
+
+The model is almost ready! Let's add a couple more simple methods and start implementing the controller.
+
+Our model lacks a way to get the game board in order to pass it to the view for rendering,
+as well as a method that can determine whether a move is possible in the current position.
+
+
+For its part, the controller will be mainly used to handle user input from the keyboard,
+so we'll make it a child of the KeyAdapter class.
+
+We're going to need private model and view fields of the appropriate types, as well as getGameTiles and getScore methods
+that return the corresponding properties of the model.
+
+Breaking it into simple steps:
+1. Add a getter for the gameTiles field to the Model class.
+2. Add to the Model class a canMove method that returns true if a move that changes
+the state of the game board is possible given the current position. Otherwise, it should return false.
+3. Make the Controller class a child of the KeyAdapter class.
+4. Add to the Controller class a getGameTiles method that calls the same method on the model.
+5. Add to the Controller class a getScore method that returns the current score (model.score).
+
+
+
+2048 (part 7)
+
+
+We've implemented movement to the left. Now we need to implement the right, up, and down methods. I'm sure you can handle it
+without my help, so I'll give you just one hint.
+
+What happens if you rotate a two-dimensional array clockwise by 90 degrees, shift it to the left, and then
+rotate three times?
+
+
+
