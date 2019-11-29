@@ -1,9 +1,6 @@
 package com.codegym.task.task35.task3513;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Model {
     private static final int FIELD_WIDTH = 4;
@@ -169,5 +166,42 @@ public class Model {
             this.gameTiles = previousStates.pop();
         }
 
+    }
+
+    public void randomMove(){
+        int n = ((int) (Math.random () * 100)) % 4;
+        switch (n){
+            case 0: left();
+            case 1: up();
+            case 2: right();
+            case 3: down();
+        }
+    }
+
+    public boolean hasBoardChanged(){
+        Tile[][]temp=previousStates.peek();
+        for (int i = 0; i < gameTiles.length; i++) {
+            for (int j = 0; j < gameTiles[0].length; j++) {
+                if(gameTiles[i][j].value!=temp[i][j].value) return true;
+            }
+        }
+        return false;
+    }
+
+    public MoveFitness getMoveFitness(Move move){
+        move.move();
+        MoveFitness a=new MoveFitness(getEmptyTiles().size(),this.score,move);
+        if(!hasBoardChanged()) a=new MoveFitness(-1,0,move);
+        rollback();
+        return a;
+    }
+
+    public void autoMove(){
+        PriorityQueue<MoveFitness> priorityQueue=new PriorityQueue(4,Collections.reverseOrder());
+        priorityQueue.add(getMoveFitness(this::left));          //@Owervrite move function in FunctionalInterface
+        priorityQueue.add(getMoveFitness(this::up));
+        priorityQueue.add(getMoveFitness(this::right));
+        priorityQueue.add(getMoveFitness(this::down));
+        priorityQueue.peek().getMove().move();
     }
 }

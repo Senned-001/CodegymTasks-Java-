@@ -37,7 +37,7 @@ public class Controller extends KeyAdapter {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyPressed(KeyEvent e) {            //controller of keyboard
         if(e.getKeyCode()==VK_ESCAPE) resetGame();
         if(!model.canMove()) view.isGameLost=true;
         if(!view.isGameLost&&!view.isGameWon){
@@ -47,6 +47,8 @@ public class Controller extends KeyAdapter {
                 case VK_UP: model.up();
                 case VK_DOWN: model.down();
                 case VK_Z: model.rollback();
+                case VK_R: model.randomMove();
+                case VK_A: model.autoMove();
             }
         }
         if(model.maxTile==WINNING_TILE) view.isGameWon=true;
