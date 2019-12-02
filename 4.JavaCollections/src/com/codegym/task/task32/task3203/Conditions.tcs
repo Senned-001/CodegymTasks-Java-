@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task32.task3203"\n\nWriting a stack trace
+
+
+Implement the getStackTrace() method, which must return the passed exception's entire stack trace as one string (a single String object).
+Use an appropriate method from the Throwable class. It will help you write the stack trace to a StringWriter.
+The main() method is not tested.
+
+
+Requirements:
+1.	There must be a public static String getStackTrace(Throwable) method.
+2.	You must create a StringWriter object in the getStackTrace(Throwable) method.
+3.	In the getStackTrace(Throwable) method, you must use a method from the Throwable class that accepts a PrintWriter object.
+4.	The getStackTrace(Throwable) method must return the passed exception&#39;s entire stack trace.
+
+

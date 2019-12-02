@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task32.task3202"\n\nReading from a stream
+
+
+Implement the getAllDataFromInputStream() method. It must return a StringWriter containing all of the data from the passed stream.
+Under no circumstances should null be returned.
+The main() method is not tested.
+
+
+Requirements:
+1.	There must be a public static getAllDataFromInputStream(InputStream) method.
+2.	The getAllDataFromInputStream(InputStream) method must return a StringWriter.
+3.	The getAllDataFromInputStream(InputStream) method must return a StringWriter containing all of the data from the passed stream.
+4.	Under no circumstances should null be returned.
+
+

@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task32.task3201"\n\nWriting to an existing file
+
+
+The main() method accepts three arguments:
+1) fileName - the path to a file;
+2) number - a position in the file;
+3) text - the text.
+Write text to the fileName file starting at the position indicated by number. The write operation must overwrite the old data in the file.
+If the file is too short, then begin writing at the end of the file.
+Use RandomAccessFile and its seek() and write() methods.
+
+
+Requirements:
+1.	You must use RandomAccessFile in the Solution class&#39;s main() method.
+2.	In the Solution class&#39;s main() method, the program must write data to the file using the RandomAccessFile class&#39;s write() method.
+3.	The write operation must start at the specified position and replace the contents.
+4.	If the file is too short, then you must write text at the end of the file.
+
+

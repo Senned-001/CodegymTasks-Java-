@@ -1,0 +1,23 @@
+taskKey="com.codegym.task.task32.task3210"\n\nUsing RandomAccessFile
+
+
+The main() method accepts three arguments:
+1) fileName - the path to a file;
+2) number - a position in the file;
+3) text - the text.
+
+Read text from the file, starting from the position indicated by number. The length is the same as the length of the text passed as the third argument.
+If the read text is the same as the passed text, then write "true" at the end of the file, otherwise write "false".
+Use RandomAccessFile and its seek(long pos), read(byte[] b, int off, int len), and write(byte[] b) methods.
+Use one of the String class's constructors to convert the read string into text.
+
+
+Requirements:
+1.	In the Solution class&#39;s main() method, you must use RandomAccessFile, which must use the file passed as the first argument.
+2.	In the Solution class&#39;s main() method, the program must set the file position passed as the second argument.
+3.	In the Solution class&#39;s main() method, the program must read data from a file using the read(byte[] b, int off, int len) method.
+4.	The write operation must take place at the end of the file.
+5.	If the read text is the same as the passed text, the program must write &quot;true&quot; at the end of the passed file.
+6.	If the read text is NOT the same as the passed text, the program must write &quot;false&quot; at the end of the passed file.
+
+
