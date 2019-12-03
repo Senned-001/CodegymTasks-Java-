@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task32.task3205"\n\nCreating a proxy object
+
+
+1) In a separate file, create a public CustomInvocationHandler class that will be the invocation handler when creating a proxy object.
+2) CustomInvocationHandler must support the InvocationHandler interface.
+3) CustomInvocationHandler must have one public constructor with a single SomeInterfaceWithMethods parameter.
+4) Before calling any of the original object's methods, the phrase "<methodName> in" must be displayed.
+5) After calling one of the original object's methods, the phrase "<methodName> out" must be displayed.
+6) Implement the getProxy() method, which must create a proxy (Proxy.newProxyInstance(...)).
+See the example output in the main() method.
+The main() method is not tested.
+
+
+Requirements:
+1.	There must be a CustomInvocationHandler class.
+2.	The CustomInvocationHandler class must support the InvocationHandler interface.
+3.	The CustomInvocationHandler class must have one public constructor with a single SomeInterfaceWithMethods parameter.
+4.	Before calling any of the original object&#39;s methods, the phrase &quot;&lt;methodName&gt; in&quot; must be displayed.
+5.	After calling one of the original object&#39;s methods, the phrase &quot;&lt;methodName&gt; out&quot; must be displayed.
+6.	The getProxy() method must create a proxy for the SomeInterfaceWithMethods interface.
+
+

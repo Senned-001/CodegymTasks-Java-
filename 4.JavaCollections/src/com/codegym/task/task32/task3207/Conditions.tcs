@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task32.task3207"\n\nToward an RMI server
+
+
+Implement the run() method on CLIENT_THREAD. It will simulate a client that will connect to a server.
+1) Get the service named UNIC_BINDING_NAME from the registry.
+2) Call the returned service's method. Pass any non-empty argument.
+3) Display the result of calling the method.
+4) Handle specific exceptions.
+The main() method is not tested.
+
+
+Requirements:
+1.	In the run() method, you need to get the UNIC_BINDING_NAME service from the registry.
+2.	In the run() method, you need to call the doubleString(String) method on the returned service.
+3.	In the run() method, you need to display the result of calling the doubleString(String) method.
+4.	The run() method must catch RemoteExceptions.
+5.	The run() method must catch NotBoundExceptions.
+
+

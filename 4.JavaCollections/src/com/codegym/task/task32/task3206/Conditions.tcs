@@ -1,0 +1,20 @@
+taskKey="com.codegym.task.task32.task3206"\n\nGenerics for creating a proxy object
+
+
+Create a public getProxy() method in the Solution class:
+1) The getProxy() method must return a proxy for any interface that inherits Item.
+2) The getProxy() method must have two parameters. The first is the class of the return value, and the second is additional interface classes (use a variable-length argument ...).
+3) Use ItemInvocationHandler to create a proxy.
+The main() method is not tested.
+
+
+Requirements:
+1.	The Solution class must have a getProxy() method.
+2.	The getProxy() method must have two parameters. The first is the class of the return value, and the second is additional interface classes.
+3.	The getProxy() method must return a proxy for any interface that inherits Item.
+4.	When calling Proxy.newProxyInstance() in the getProxy() method, pass this.getClass().GetClassLoader() as the first argument.
+5.	When calling Proxy.newProxyInstance() in the getProxy() method, pass as the second argument all of the interfaces that the proxy should implement.
+6.	When calling Proxy.newProxyInstance() in the getProxy() method, pass new ItemInvocationHandler() as the third argument.
+7.	The getProxy() method must function as outlined in the task conditions.
+
+

@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task32.task3211"\n\nData integrity
+
+
+Imagine this situation: you're downloading a zip file from the Internet and in the middle of the download you lose your connection for a few seconds.
+You need to be sure that the downloaded zip file is valid. To do this, check its MD5 hash.
+Read about MD5 on Wikipedia.
+Read about MessageDigest.
+
+Implement the compareMD5() method, which should get an MD5 hash from the passed ByteArrayOutputStream and compare it against the reference MD5 passed as the second argument.
+The main() method is not tested.
+
+
+Requirements:
+1.	The Solution class must have a compareMD5(ByteArrayOutputStream byteArrayOutputStream, String md5) method.
+2.	The compareMD5(ByteArrayOutputStream byteArrayOutputStream, String md5) method must use MessageDigest.
+3.	The compareMD5(ByteArrayOutputStream byteArrayOutputStream, String md5) method must return the result of comparing the byteArrayOutputStream&#39;s calculated MD5 hash against the md5 parameter.
+4.	The Solution class must have a main() method.
+
+

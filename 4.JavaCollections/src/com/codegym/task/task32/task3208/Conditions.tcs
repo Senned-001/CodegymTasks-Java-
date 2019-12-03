@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task32.task3208"\n\nRMI (part 2)
+
+
+Implement the run() method on SERVER_THREAD. It will simulate the server:
+1) Initialize the registry field. It will accept and process requests on port 2099.
+2) Create two objects: a Cat and a Dog.
+3) Use the UnicastRemoteObject class to create Remote objects for the Cat and Dog objects you've created.
+The Remote objects will be able to receive method calls using the chosen port (2099).
+4) For Cat and Dog, add to the registry a mapping between a unique text key and the Remote object. Make up your own text key.
+5) If an exception occurs, output its stack trace to the System.err stream.
+The main() method is not tested.
+
+
+Requirements:
+1.	You must initialize the registry field in the run() method. Use LocateRegistry.createRegistry(2099) to do this.
+2.	In the run() method, you need to create two objects: a Cat and a Dog.
+3.	In the run() method, you need to use UnicastRemoteObject.exportObject(Remote, int) to create Remote objects for the Cat and Dog objects that you&#39;ve created.
+4.	You need to use registry.bind(String, Remote) to add a unique text key and Remote object to the registry for the Cat and Dog objects.
+5.	If an exception occurs, you need to output its stack trace to the System.err stream using printStackTrace().
+
+
