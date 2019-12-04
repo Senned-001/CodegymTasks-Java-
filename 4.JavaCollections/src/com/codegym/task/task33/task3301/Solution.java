@@ -39,23 +39,23 @@ public class Solution {
     }
     @JsonAutoDetect
     public static class Pet {
-        String name;
+        public String name;
         Pet(){
 
         }
     }
     @JsonAutoDetect
     public static class Cat extends Pet {
-        int age;
-        int weight;
+        public int age;
+        public int weight;
         Cat(){
 
         }
     }
     @JsonAutoDetect
     public static class Dog extends Pet {
-        int age;
-        String owner;
+        public int age;
+        public String owner;
         Dog(){
 
         }

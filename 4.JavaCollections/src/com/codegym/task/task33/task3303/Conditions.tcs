@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task33.task3303"\n\nDeserializing a JSON object
+
+
+REQUIRED CONNECTED LIBRARIES: Jackson Core, Bind and Annotation 2.6.1
+
+In the convertFromJsonToNormal method, the first parameter is the name of a file that contains one JSON object.
+The second parameter is the name of the class of the object serialized in the file.
+The convertFromJsonToNormal method should extract the object from the file, convert it from JSON, and return it.
+
+Use the readValue method with (File, Class) or (Reader, Class) parameters.
+
+
+Requirements:
+1.	In the convertFromJsonToNormal method, an ObjectMapper object must be created using the no-argument constructor.
+2.	The object returned by the convertFromJsonToNormal method must be obtained using the ObjectMapper class&#39;s readValue method.
+3.	The convertFromJsonToNormal method must be static.
+4.	The convertFromJsonToNormal method must be public.
+
+

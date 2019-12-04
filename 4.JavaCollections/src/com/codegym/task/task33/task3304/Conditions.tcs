@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task33.task3304"\n\nUsing JSON to convert from one class to another
+
+
+REQUIRED CONNECTED LIBRARIES: Jackson Core, Bind and Annotation 2.6.1
+
+Two classes have the same fields, but they don't have a common superclass. Example, First and Second classes.
+Implement the convertOneToAnother method, which should return an instance of the resultClassObject class,
+whose fields are equal to the fields in the one object.
+Use an ObjectMapper object.
+Everybody knows that classes have a JSON annotation where the property equals the class's name in lowercase letters.
+For example, for the First class, its className="first"
+The First and Second classes themselves are not tested — they are provided as test data.
+
+
+Requirements:
+1.	The convertOneToAnother method should return an instance of the resultClassObject class, whose fields are equal to the fields of the one object.
+2.	An ObjectMapper object must be created in the convertOneToAnother method.
+3.	The convertOneToAnother method must be static.
+4.	The convertOneToAnother method must be public.
+
+
