@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task33.task3301"\n\nMy first serialization into JSON
+
+
+REQUIRED CONNECTED LIBRARIES: Jackson Core, Bind and Annotation 2.6.1
+
+1) The program does not fulfill the main requirement for serialization into JSON.
+Find the bug and fix it.
+2) Correctly arrange the JSON annotations on the classes.
+All the data must be serialized.
+
+
+Requirements:
+1.	The Pet class must be marked as serializable into JSON.
+2.	The Cat class must be marked as serializable into JSON.
+3.	The Dog class must be marked as serializable into JSON.
+4.	All the data in the Pet, Cat, and Dog classes must be serialized.
+
+
