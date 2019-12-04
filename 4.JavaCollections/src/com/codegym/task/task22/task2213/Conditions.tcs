@@ -1,0 +1,105 @@
+taskKey="com.codegym.task.task22.task2213.big17"\n\nTetris (part 17)
+
+
+I've corrected the code a little bit.
+But overall, well done.
+Enjoy playing Tetris!
+P.S.
+Just don't forget to adjust the height of the console.
+
+
+Requirements:
+1.	Your big task for Level 32 is done!
+
+
+Tetris (part 16)
+
+
+Write your own implementation of the left(), right(), up(), and down() methods in the GamePiece class.
+What do you think these methods should do?
+
+
+
+Tetris (part 15)
+
+
+Implement the step() method in the Tetris class.
+This method should drop the game piece down by one step.
+
+If the game piece cannot be placed in the new location, then:
+a) put it back (bring it back up)
+b) land it (the game piece "lands")
+c) delete all full lines in the field object
+d) create a new game piece to replace the previous one.
+
+
+
+Tetris (part 14)
+
+
+Implement the removeFullLines() method in the Field class.
+Here's what we need to do:
+a) delete all lines from the matrix that are completely full (consist of only ones);
+b) move the remaining lines down;
+c) create new lines to replace missing ones.
+
+IMPORTANT!
+matrix[y][x] contains the element with coordinates (x, y).
+matrix[i] contains the i-th line.
+We can:
+a) remove a line:
+matrix[i] = null;
+
+b) copy a reference to a line:
+matrix[i+1] = matrix[i];
+
+c) create a new line:
+matrix[i] = new int[width];
+
+
+
+Tetris (part 13)
+
+
+Now we'll start to implement the methods we've created.
+Implement the print() method in the Field class
+a) The method should display a rectangle of '.' characters and 'X' characters.
+b) The rectangle's height is equal to height, and its width is equal to width
+c) If a cell is empty, display a period. If it is not empty, display the English letter 'X'.
+
+Hint:
+if (matrix[y][x]==0) ...
+
+
+
+Tetris (part 12)
+
+
+In Tetris, we control the movement of the game piece using the keyboard.
+
+There are 4 actions:
+move left (left arrow key),
+move right (right arrow key),
+rotate the game piece (number 5 on the numeric keypad),
+drop the game piece (space).
+
+We'll handle keyboard input in the Tetris class's run() method.
+
+And now I have two pieces of news for you: good and bad.
+The bad news is that Java doesn't let you read keys
+until the user presses enter.
+Not very convenient, right?
+
+The good news is that I've written a special class (KeyboardObserver) that let's you get around this limitation.
+So you can use it.
+
+There's also some wonderful news.
+You've done a great job so far, so I'll help you a little.
+I've written the following methods for you:
+a) createRandomGamePiece() in GamePieceFactory
+b) run() in Tetris
+
+Study them carefully and then proceed.
+
+
+
