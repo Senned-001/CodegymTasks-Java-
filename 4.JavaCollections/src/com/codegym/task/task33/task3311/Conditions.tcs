@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task33.task3311"\n\nStrange mistake
+
+
+REQUIRED CONNECTED LIBRARIES: Jackson Core, Bind and Annotation 2.6.1
+
+Running the code in the Solution class's main method results in a strange error
+during JSON serialization/deserialization. The sampleJsonString string should be displayed,
+but that's not exactly what happens.
+
+Figure out the problem and fix it. Pay attention to the RealBean class.
+
+
+Requirements:
+1.	The getAdditionalMap method must be marked with one suitable Jackson annotation.
+2.	The elements of additionalMap should be serialized into JSON just like ordinary class fields.
+3.	The elements of additionalMap should be deserialized from JSON just like ordinary class fields.
+4.	The main method must display data on the screen.
+
+

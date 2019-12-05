@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task33.task3313"\n\nSerializing a date into JSON
+
+
+Using the JsonFormat annotation, make it so the Event class's field containing a date is serialized
+in the format (dd-MM-yyyy hh:mm:ss).
+
+
+Requirements:
+1.	The eventDate field in the Event class must be annotated with @JsonFormat.
+2.	Event objects must be correctly serialized into JSON according to the task conditions.
+3.	In the Event class constructor, a new Date object must be created with no arguments.
+4.	The eventDate field must be public.
+
+
