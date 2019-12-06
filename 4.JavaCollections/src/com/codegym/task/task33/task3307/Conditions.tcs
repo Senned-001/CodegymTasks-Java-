@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task33.task3307"\n\nDeserializing an XML object
+
+
+In the convertFromXmlToNormal method, the first parameter is a String containing an XML object.
+The second parameter is the class of the object that must be returned.
+The convertFromXmlToNormal method must create an object from the XML string and return it.
+
+
+Requirements:
+1.	In the convertFromXmlToNormal method, a new JAXBContext object must be created using the static JAXBContext.newInstance method, using the target class as an argument.
+2.	In the convertFromXmlToNormal method, a new Unmarshaller object must be created using the createUnmarshaller method called on a JAXBContext object.
+3.	The convertFromXmlToNormal method must correctly convert the incoming XML string to an object of the required class.
+4.	The convertFromXmlToNormal method must be static.
+
+

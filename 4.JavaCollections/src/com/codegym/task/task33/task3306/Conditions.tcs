@@ -1,0 +1,13 @@
+taskKey="com.codegym.task.task33.task3306"\n\nMy first serialization into XML
+
+
+Correctly arrange JAXB annotations on the static classes.
+
+
+Requirements:
+1.	The Cat class must be annotated with @XmlRootElement.
+2.	The Cat class must be annotated with @XmlType with name = &quot;cat&quot;.
+3.	The Dog class must be annotated with @XmlRootElement.
+4.	The Dog class must be annotated with @XmlType with name = &quot;dog&quot;.
+
+
