@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task33.task3308"\n\nCreating a class from an XML string
+
+
+Restore a class from a passed XML string.
+The class must be in a separate file.
+The getClassName method must return the restored class.
+The main method is not tested.
+
+
+Requirements:
+1.	The Shop class must be in a separate file.
+2.	The Shop class must have a Goods goods field.
+3.	The Shop class must have an int count field.
+4.	The Shop class must have an double profit field.
+5.	The Shop class must have a String[] secretData field.
+6.	The Shop class must have a static nested Goods class.
+7.	The Shop.Goods class must have a List&lt;String&gt; names field.
+8.	All of the Shop class&#39;s fields must be public.
+9.	The Solution class&#39;s getClassName method must return the Shop class.
+
+
