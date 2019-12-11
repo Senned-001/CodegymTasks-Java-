@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task34.task3403"\n\nFactorization using recursion
+
+
+Separate the whole number n, where n > 1, into its prime factors.
+Display all of its factors in ascending order, separated by spaces.
+Write a recursive method to calculate the prime factors.
+Don't create additional fields in the Solution class.
+
+Example:
+132
+Console output:
+2 2 3 11
+
+
+Requirements:
+1.	Additional fields must not be created in the Solution class.
+2.	The recurse method must display all of the prime factors of the number passed as an argument (see the example in the task conditions).
+3.	The recurse method must not be static.
+4.	The recurse method must be recursive.
+
+

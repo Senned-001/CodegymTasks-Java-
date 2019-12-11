@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task34.task3402"\n\nFactorials using recursion
+
+
+Read about how to calculate factorials.
+Implement a recursive factorial method, where n is the number whose factorial needs to be calculated.
+Don't create additional fields in the Solution class.
+
+
+Requirements:
+1.	Additional fields must not be created in the Solution class.
+2.	The factorial method must return the factorial of the number passed as an argument.
+3.	The factorial method must not be static.
+4.	The factorial method must not be static.
+
+

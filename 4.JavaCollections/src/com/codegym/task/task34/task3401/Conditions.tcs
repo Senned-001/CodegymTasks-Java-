@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task34.task3401"\n\nFibonacci numbers using recursion
+
+
+Read about Fibonacci numbers.
+Implement a recursive fibonacci method, where n is the number of an element in the Fibonacci sequence.
+Don't create additional fields in the Solution class.
+
+
+Requirements:
+1.	Additional fields must not be created in the Solution class.
+2.	The fibonacci method must accept the ordinal number of the desired number in the Fibonacci sequence and return its value.
+3.	The fibonacci method must not be static.
+4.	The fibonacci method must be recursive.
+
+
