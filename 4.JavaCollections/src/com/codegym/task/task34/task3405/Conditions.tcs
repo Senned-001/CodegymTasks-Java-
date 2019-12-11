@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task34.task3405"\n\nSoft references
+
+
+Analyze the example.
+Inside the main method, create a Monkey object and then create a soft reference (SoftReference) to it.
+
+
+Requirements:
+1.	A Monkey object named &quot;George&quot; must be created in the main method.
+2.	A SoftReference to the monkey object must be created in the main method.
+3.	The Monkey class must be public.
+4.	The Monkey class must be static.
+
+

@@ -1,0 +1,28 @@
+taskKey="com.codegym.task.task34.task3413"\n\nCache based on SoftReference
+
+
+Implement the SoftCache class's get, put, and remove methods:
+
+The AnyObject get(Long key) method must return an AnyObject from cacheMap using key. If
+key isn't in cacheMap, then return null.
+
+The AnyObject put(Long key, AnyObject value) method must add a key-value pair to the map. The method must
+return null if cacheMap isn't already storing a value using key. Otherwise, it must return the value already
+stored using key. Don't forget to call the clear() method on the SoftReference<AnyObject> object.
+
+The AnyObject class's remove(Long key) method must remove from cacheMap the key-value pair that matches key. The method must
+return null if cacheMap isn't already storing a value using key. Otherwise, it must return the value already
+stored using key. Don't forget to call the clear() method on the SoftReference<AnyObject> object.
+
+Don't change the AnyObject class.
+The main method is not tested.
+
+
+Requirements:
+1.	The AnyObject class must not be modified.
+2.	There must be a private Map&lt;Long, SoftReference&lt;AnyObject&gt;&gt; cacheMap field in the SoftCache class.
+3.	Implement the get method as outlined in the task conditions.
+4.	Implement the put method as outlined in the task conditions.
+5.	Implement the remove method as outlined in the task conditions.
+
+
