@@ -1,0 +1,107 @@
+taskKey="com.codegym.task.task25.task2515.big18"\n\nSpace (part 18)
+
+
+Make width and height bigger and you can play!
+Enjoy the game :)
+
+
+Requirements:
+1.	Relax and enjoy.
+
+
+Space (part 17)
+
+
+We need to finish the draw() method.
+We'll do something similar with the move method. I'll write it myself today.
+
+
+
+Space (part 16)
+
+
+And a little bit more:
+
+Implement the createUfo() method:
+If the list of UFOs is empty, create a ship in the center at the top of the screen.
+
+Implement the checkBombs() method:
+You need to check whether a bomb collided with the ship.
+If there was a collision, then the ship and the bomb die: call the die() method.
+A bomb also dies if it moves beyond the limits of the screen (y > height).
+
+Implement the checkRockets() method:
+You need to check whether a rocket collided with a UFO.
+If there was a collision, then the rocket and the UFO die: call the die() method.
+A rocket also dies if it moves beyond the limits of the screen (y < 0).
+
+Implement the removeDead() method:
+This method should remove all dead objects (isAlive() == false) from the ufos, rockets, and bombs lists.
+
+
+
+Space (part 15)
+
+
+We still have to finish the Space class.
+
+Implement the getAllItems method:
+The method should return one common list of all BaseObject objects.
+
+Implement the moveAllItems method:
+The method should move all the objects all at the same time.
+Here's what we need:
+a) get a list of all BaseObjects;
+b) call the move() method on each of them.
+
+
+
+Space (part 14)
+
+
+Now write the Ufo class.
+It's a bit more complicated than the Bomb class and simpler than Spaceship.
+You will need draw(), move(), and fire() methods.
+Also, don't forget about the constructor. The parameters are doubles, and UFO's radius will be equal to 3.
+
+We'll implement the draw() method by analogy with Spaceship. We'll use 'U' to draw UFOs.
+Add a matrix by analogy with Spaceship.
+
+You need to implement the move() method as follows:
+a) the UFO moves randomly;
+Hint:
+double dx = Math.random() * 2 - 1;  // -1..1
+double dy = Math.random() * 2 - 1;  // -1..1
+b) the UFO does not move into the bottom half of the screen;
+y <= height/2
+c) the UFO has a 10% chance of shooting (calling the fire method).
+
+The fire() method:
+The UFO drops the bomb from its center.
+Implement it by analogy with the Spaceship class.
+
+
+
+Space (part 13)
+
+
+We now turn to the draw and move methods.
+In the move() method, you need to:
+a) increase x by dx;
+b) check to see whether the ship has moved beyond the boundaries of outer space [0, Space.game.getWidth()]. Use the checkBorders method.
+Bear in mind that the ship's width is equal to twice its radius.
+
+I'll implement the draw method myself: just declare an empty method.
+
+We also need a fire() method, since our ship can shoot.
+This method is called when we need to fire a shot.
+In this method, you need to:
+a) create two rockets;
+b) set their coordinates equal to the left and right edges of the ship (the guns are located a distance of 2 from the center of the ship);
+c) add these rockets to the list of rockets in the game object.
+
+You can get it as follows:
+Space.game.getRockets()
+
+
+
