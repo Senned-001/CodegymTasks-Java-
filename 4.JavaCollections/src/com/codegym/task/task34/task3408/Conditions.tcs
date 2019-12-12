@@ -1,0 +1,30 @@
+taskKey="com.codegym.task.task34.task3408"\n\nCaching
+
+
+The Cache class is a generic class for caching objects.
+It works with generic classes that have:
+a) a public constructor with one K type parameter;
+b) a K getKey() method with any access modifier.
+
+Task:
+1. Choose the correct type for the cache field. The Map<K, V> cache field must store keys for which there are active references.
+Keys with no active references must be automatically removed from the cache along with their values.
+2. Implement the getByKey method:
+2.1. Return an object from the cache that matches key.
+2.2. If an object doesn't exist in the cache, then use reflection to add a new instance to the cache. See item a).
+3. Implement the put method:
+3.1. Using reflection, get a reference to the method described in item b).
+3.2. Use reflection to allow access to it.
+3.3. Using reflection, call the getKey method on obj to get key.
+3.4. Add the <key, obj> pair to the cache.
+3.5. Return true if the method finishes correctly, otherwise return false. Ignore exceptions.
+
+
+Requirements:
+1.	The cache field must be initialized with a WeakHashMap object.
+2.	The getByKey method must return an object from the cache.
+3.	The getByKey method must add an object to the cache if it is not already there.
+4.	The put method must retrieve the key from the passed object and add a &lt;key, obj&gt; pair to the cache.
+5.	The put method must return true if it finishes correctly. Otherwise, it must return false.
+
+

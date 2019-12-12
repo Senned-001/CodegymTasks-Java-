@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task34.task3407"\n\nPhantom references
+
+
+Analyze the example.
+Implement the Helper class's getPopulatedList method:
+1) create a list that can store phantom references to Monkey objects
+2) add 200 references to the list using the queue returned by helper.getQueue()
+3) return the populated list
+
+
+Requirements:
+1.	The getPopulatedList method must return a list populated with phantom references to Monkey objects.
+2.	The getPopulatedList method must return a list with 200 elements.
+3.	The Helper class must not be private.
+4.	The getPopulatedList method must not be private.
+
+
