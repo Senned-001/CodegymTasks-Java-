@@ -1,0 +1,26 @@
+taskKey="com.codegym.task.task34.task3412"\n\nAdding logging to a class
+
+
+In Intellij IDEA, press Alt+Ctrl+Shift+S -> Global Libraries -> New Global Library -> From Maven...
+In the window that opens, enter the following in the search bar: org.slf4j:slf4j-api:1.7.23 -> Search (Shift+Enter)
+Choose where to download the logging library.
+Choose the project module you want to connect the slf4j-api library to: you need to select 4.JavaCollections -> OK
+Apply -> OK.
+
+Look in the Solution class. Where would you apply logging and at what level?
+
+In the Solution class, you need to add method calls at the following log levels:
+error - 1 time;
+debug - 6 times (use when changing the value of a field);
+trace - 4 times (use to trace the execution of a program);
+Try to make the log messages informative.
+Don't change the rest of the code.
+
+
+Requirements:
+1.	There must be a private static final logger field in the Solution class.
+2.	Add the error log level once.
+3.	Add the debug log level six times.
+4.	Add the trace log level four times.
+
+
