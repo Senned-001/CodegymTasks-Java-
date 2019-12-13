@@ -1,0 +1,110 @@
+taskKey="com.codegym.task.task37.task3707.big06"\n\nAmigoSet (part 6)
+
+
+Open the HashSet's source (if you don't have the Java source, download it, and connect it), and compare it to your code.
+You can do this quickly by comparing with the clipboard. Copy the HashSet class's source code to the clipboard.
+Go to the AmigoSet class, and then right-click -> Compare with Clipboard.
+
+You've just implemented a set similar to HashSet. Now you understand how HashSet is built.
+Well done! Now collections don't scare you!
+
+
+Requirements:
+1.	Congratulations! You&#39;ve written your own set implementation and dived deep into HashSet!
+
+
+AmigoSet (part 5)
+
+
+Your AmigoSet set implements the Serializable interface. However, it doesn't serialize properly.
+
+1. Implement your own logic for serializing and deserializing.
+Remember which private methods you need to add in order to serialize correctly.
+To serialize:
+* serialize the set
+* serialize the map object's capacity and loadFactor. You'll need them for deserialization.
+Since this data is package-private, use the HashMapReflectionHelper utility class to get it.
+
+To deserialize:
+* read all of the data
+* create a map using the constructor with capacity and loadFactor parameters
+
+2. Remember what transient means?
+
+
+
+AmigoSet (part 4)
+
+
+Your AmigoSet set implements the Cloneable interface. However, it doesn't clone properly.
+Write your own implementation of the Object clone() method, so that it creates a shallow clone.
+
+* Clone the set, and clone map.
+* Throw an InternalError if an exception occurs.
+* Eliminate the throwing of other exceptions.
+
+Expand the access modifier to public.
+
+
+
+AmigoSet (part 3)
+
+
+Write your own implementation of the following methods that allow you to work with the keys in map:
+* Iterator<E> iterator () - Obviously, this is a key iterator. Get the set of keys in map, and return its iterator
+* int size() - This is the number of keys in map. It is equal to the number of elements in map.
+* boolean isEmpty()
+* boolean contains(Object o)
+* void clear()
+* boolean remove(Object o)
+
+Don't write anything of your own. Just use what has already been implemented for a set of keys in map.
+Use Alt+Insert => Override methods
+
+
+
+AmigoSet (part 2)
+
+
+We won't re-invent the mechanism for working with hashes — It has already been implemented in lots of collections.
+We'll grab HashMap and use it.
+
+1. Create a private Object PRESENT constant and initialize it with an Object. This will be our stub.
+
+2. Create a private transient HashMap<E, Object> map field. A list of keys will be our set. And instead of values, we'll shove the PRESENT stub into the map.
+Remember, we only need keys, and for each key we'll insert PRESENT instead of values. We've got to have something there :)
+Let's see what we end up with :)
+
+Collections usually have several constructors, so:
+
+3. Create a no-argument constructor that initializes the map field.
+
+4. Create a constructor with one Collection<? extends E> collection parameter.
+To initialize the map field, use a constructor that lets you pass the initial capacity.
+Calculate your capacity using the following formula: the maximum of 16 and the rounded-up value of (collection.size()/.75f)
+Add all of the elements from the passed collection to our collection.
+We have the method needed to add all the elements thanks to the fact that AbstractSet inherits AbstractCollection.
+
+5. Write your own implementation of the add(E e) method: add element e to map as a key with PRESENT as the value.
+Return true if the new element was added, otherwise return false.
+
+
+
+AmigoSet (part 1)
+
+
+Let's write some sort of collection. Let it be your very own Set.
+Let this class allow null values to be added.
+
+1. Create an AmigoSet class. Let this class inherit AbstractSet.
+The set must support the Serializable and Cloneable interfaces (how could it not??).
+It's also obvious that it must implement the Set interface.
+
+2. The class must work with any type, so make it a generic class: add a type parameter, for example, E.
+The standard letters used for generics are E (element), T (type), K (key), and V (value).
+These names aren't essential, but they make the code easier to read.
+
+3. Use IDEA's hotkeys to implement the necessary methods. Keep the default implementation.
+
+
+
