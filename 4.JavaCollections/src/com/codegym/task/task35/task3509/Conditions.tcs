@@ -1,0 +1,20 @@
+taskKey="com.codegym.task.task35.task3509"\n\nCollections & Generics
+
+
+Implement helper methods in the Solution class that create an appropriate collection and add the passed objects to it.
+The newArrayList and newHashSet methods have the T type parameter.
+The newHashMap method has K (key) and V (value) type parameters. The newHashMap method must accept lists that contain descendants of K and V.
+The returned collections must be of the same type as the objects passed to the method.
+
+Hint: In the newHashMap method, you need to check to make sure that the lists of keys and values are the same size. If they aren't, then throw an IllegalArgumentException.
+
+Requirements:
+1.	The newArrayList method must have a T type parameter.
+2.	The newArrayList method must return an ArrayList that contains the objects passed to the method.
+3.	The newHashSet method must have a T type parameter.
+4.	The newHashSet method must return a HashSet that contains the objects passed to the method.
+5.	The newHashMap method must have K and V type parameters.
+6.	The newHashMap method must return a HashMap that contains the keys and values passed to the method.
+7.	The newHashMap method must throw an IllegalArgumentException if the lists of keys and values aren&#39;t the same size.
+
+

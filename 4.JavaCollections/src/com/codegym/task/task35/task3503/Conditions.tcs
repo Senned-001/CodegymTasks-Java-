@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task35.task3503"\n\nSeveral superclasses for generics
+
+
+You're given a Solution class with a T type parameter.
+Place bounds on the T type parameter.
+T must simultaneously inherit the ClassForGenerics class and implement InterfaceForGenerics interface.
+You can only change the Solution class.
+
+
+Requirements:
+1.	The Solution class must have a type parameter that simultaneously inherits the ClassForGenerics class and implements the InterfaceForGenerics interface.
+2.	The InterfaceForGenerics interface must not extend other interfaces.
+3.	The ClassForGenerics class must not support the InterfaceForGenerics interface.
+4.	The Solution class must not inherit the ClassForGenerics class.
+
+

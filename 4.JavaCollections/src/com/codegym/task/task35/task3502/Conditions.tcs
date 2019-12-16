@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task35.task3502"\n\nIntroducing generics
+
+
+Parameterize the SomeClass and Solution classes as follows:
+1. SomeClass must work with types that inherit Number;
+2. Solution must work with types that inherit List, which in turn have SomeClass as a type argument.
+
+
+Requirements:
+1.	The SomeClass class must work with types that inherit Number.
+2.	The Solution class must work with types that inherit List, which in turn have SomeClass as a type argument.
+3.	The Someclass class must be public.
+4.	The Someclass class must be static.
+5.	The SomeClass class must be in the Solution class..
+
+

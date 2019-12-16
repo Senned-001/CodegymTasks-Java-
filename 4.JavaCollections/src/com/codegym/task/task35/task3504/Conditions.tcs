@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task35.task3504"\n\nSimple generics
+
+
+Parameterize the Solution class so that it can work with all classes that inherit HashMap.
+The getMap method must return an object of the map field's type.
+
+
+Requirements:
+1.	 The Solution class must have a type parameter that inherits HashMap.
+2.	The Solution class must have a map field.
+3.	The Solution class must have a getMap method.
+4.	The main method must display data on the screen.
+
+
