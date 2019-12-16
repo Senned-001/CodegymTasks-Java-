@@ -1,0 +1,24 @@
+taskKey="com.codegym.task.task35.task3505"\n\nList to Map
+
+
+Implement the ConvertibleUtil class's convert method. It must return a map
+whose values are the elements of the passed list,
+and whose keys are objects obtained by calling the getKey interface method.
+
+The elements of the list must inherit Convertible, which in turn has some type parameter for a key.
+For example, ConvertibleBook has a String type parameter. In other words, the resulting map's key must be a String
+ConvertibleUser has an Integer type parameter. In other words, the resulting map's key must be an Integer
+
+The values in the map must match the elements of the list.
+See the main method for an example.
+
+Arrange type parameters in the ConvertibleUtil.convert method.
+
+
+Requirements:
+1.	The map values ​returned by the ConvertibleUtil class&#39;s convert method must include all of the elements of the list being converted.
+2.	The size of the map returned by the ConvertibleUtil class&#39;s convert method must be equal to the size of the list being converted.
+3.	The map keys returned by the ConvertibleUtil class&#39;s convert method must include the converted list&#39;s keys obtained by calling the getKey method on each element of the list.
+4.	The conversion must occur as outlined in the task conditions, the keys must be obtained using the getKey method, and the values ​​themselves must be the list&#39;s objects.
+
+

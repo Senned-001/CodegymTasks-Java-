@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task35.task3506"\n\nWildcards
+
+
+Rewrite the generic types in the add method using wildcards.
+Don't change the logic.
+Don't leave commented code.
+
+
+Requirements:
+1.	The screen output must match the task conditions.
+2.	The add method&#39;s logic must be preserved.
+3.	The add method must use wildcards.
+4.	The add method must be static.
+
+
