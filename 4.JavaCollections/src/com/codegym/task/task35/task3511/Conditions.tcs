@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task35.task3511"\n\nWildcards for collections
+
+
+The Solution class has 4 methods for working with lists:
+sum - Sums up all numeric elements of the list,
+multiply - Multiplies all numeric elements of the list,
+concat - Concatenates all elements of the list into a single String,
+combine - Takes a list of collections and returns a list with all the elements of the lists.
+
+For each incoming List, add a suitable wildcard so that the method can only accept the elements that it can process.
+
+
+Requirements:
+1.	You need to add a suitable wildcard to the sum(List list) method.
+2.	You need to add a suitable wildcard to the multiply(List list) method.
+3.	You need to add a suitable wildcard to the concat(List list) method.
+4.	You need to add a suitable wildcard to the combine(List list) method.
+
+

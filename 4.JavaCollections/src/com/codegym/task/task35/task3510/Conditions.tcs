@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task35.task3510"\n\nEntry prohibited!
+
+
+Analyze the classes in the task.
+Two houses are created in the main method: one for cats and one for dogs.
+However, currently, when a dog enters the cats' house, a conflict occurs and all of the cats are forced to leave the house (checkConflicts method).
+
+Help the cats protect their home from strangers, and also prevent them from accidentally entering the dogs' house.
+To do this, give House a T type parameter and make the appropriate changes to the class's implementation.
+
+The main method is not tested.
+
+
+Requirements:
+1.	The House class must have a T type parameter.
+2.	The House class&#39;s residents field must have a T type parameter.
+3.	The House class&#39;s admit method must accept a T object.
+4.	The House class&#39;s expel method must accept a T object.
+5.	he House class&#39;s checkConflicts method isn&#39;t needed anymore and must be removed.
+
+

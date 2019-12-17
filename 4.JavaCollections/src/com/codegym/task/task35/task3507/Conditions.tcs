@@ -1,0 +1,20 @@
+taskKey="com.codegym.task.task35.task3507"\n\nWhat is ClassLoader?
+
+
+Implement the getAllAnimals method.
+The method's pathToAnimals parameter is the absolute path to the directory where the compiled classes are saved.
+The path doesn't necessarily have a "/" at the end.
+Not all classes inherit the Animal interface.
+Not all classes have a public no-argument constructor.
+Only for classes that both inherit Animal and have a public no-argument constructor, create one object each.
+Add the created objects to the resulting set and return it.
+The main method is not tested.
+
+
+Requirements:
+1.	The size of the set returned by the getAllAnimals method must be equal to the number of classes that both support the Animal interface and have a public no-argument constructor (from among the classes found in the directory passed as an argument).
+2.	The set returned by the getAllAnimals method must include all of the classes that both support the Animal interface and have a public no-argument constructor (from among the classes found in the directory passed as an argument).
+3.	The set returned by the getAllAnimals method must NOT contain any classes that don&#39;t both support the Animal interface and have a public no-argument constructor (from among the classes found in the directory passed as an argument).
+4.	The getAllAnimals method must be static.
+
+

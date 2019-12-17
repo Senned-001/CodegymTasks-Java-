@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task35.task3508"\n\nextends vs super
+
+
+All of the methods add the source to the destination.
+Add ?, extends, and super where needed:
+1) methodOne must work with the same type;
+2) methodTwo must add any descendants of T to a list that can only store T objects;
+3) methodThree must add T objects to any list parameterized by any parent class;
+4) methodFour must add any descendants of T to a list parameterized by any parent class.
+Don't leave commented code.
+
+
+Requirements:
+1.	The methodOne method must be changed in accordance with the task conditions.
+2.	The methodTwo method must be changed in accordance with the task conditions.
+3.	The methodThree method must be changed in accordance with the task conditions.
+4.	The methodFour method must be changed in accordance with the task conditions.
+
+

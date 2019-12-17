@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task35.task3512"\n\nObject generator
+
+
+Analyze the classes at hand.
+The Generator class's newInstance method must create an Event for each new call, but the compiler currently complains about the syntax.
+Redo the Generator class to make the object creation work.
+
+Hint: To create an object, you will need to use the Class<T>.newInstance() method.
+
+
+Requirements:
+1.	The Generator class must have a T type parameter.
+2.	The Generator class must have a Class field whose type parameter is T.
+3.	The Generator class must have a constructor that initializes a Class field.
+4.	The Generator class&#39;s newInstance method must create and return a T object.
+
+
