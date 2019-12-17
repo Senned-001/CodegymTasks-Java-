@@ -1,0 +1,85 @@
+taskKey="com.codegym.task.task37.task3702.big04"\n\nFactories (part 4)
+
+
+1. At the root of the task, create an AbstractFactory interface and move the factories' common method into it.
+
+2. Implement the AbstractFactory interface in both factories.
+
+3. At the root of the task, create a FactoryProducer class and create a public static HumanFactoryType enum in it
+with the values MALE and FEMALE.
+
+4. In FactoryProducer, create a public static getFactory method with a HumanFactoryType parameter.
+This method must return a factory: MaleFactory for MALE; FemaleFactory for FEMALE.
+
+Well done! The factory producer is complete! This is the Abstract Factory pattern.
+It doesn't matter to you which factory is used in the code.
+
+Here's what you've achieved:
+1. You've mastered the Factory Method pattern.
+2. You've mastered the Abstract Factory pattern.
+3. +2 patterns for passing interviews.
+You've gotten even closer to working as a Java programmer. You'll reach your goal soon!
+
+
+Requirements:
+1.	The MaleFactory class must support the AbstractFactory interface.
+2.	The FemaleFactory class must support the AbstractFactory interface.
+3.	A HumanFactoryType enum with MALE and FEMALE values must be created in the FactoryProducer class.
+4.	The FactoryProducer class&#39;s getFactory method must accept a single HumanFactoryType argument.
+5.	The FactoryProducer class&#39;s getFactory method must return one of the factories depending on the passed argument.
+
+
+Factories (part 3)
+
+
+1. Create a female package and create KidGirl, TeenGirl, and Woman classes in it by analogy with the classes in the male package.
+
+2. Create a FemaleFactory in the female package by analogy with MaleFactory and using the same principle for getting objects.
+
+3.  Think about what these two factories have in common. What could you do to easily switch between them?
+The answer is in the next task.
+
+
+
+Factories (part 2)
+
+
+1. Create a public MaleFactory class in the male package with a public getPerson method that accepts one int age argument and
+returns an appropriate object of a class implementing the Human interface.
+
+2. Here's the logic of the getPerson method: use the MAX_AGE constant to determine which class corresponds to the passed age.
+For example, age=4 corresponds to a boy (KidBoy), age=15 corresponds to a teenager (TeenBoy), and the other age corresponds to a man.
+
+3. In the Solution class's main method, create a factory and call its getPerson method three times with the following arguments: 99, 4, 15.
+Display the result on the console.
+The output should be as follows:
+Man{}
+KidBoy{}
+TeenBoy{}
+
+Well done! The factory is complete! This is the Factory Method pattern.
+
+
+
+Factories (part 1)
+
+
+Hi!
+Now you're going to dig into the Factory Method pattern. Let's take people as an example.
+We'll determine what type of person someone is depending on his or her age.
+
+In this task, we'll prepare the data that we'll use in the factory.
+
+1. Create a shared Human interface for all types of people.
+
+2. Let's make a factory for men. To do this, create a male package and create KidBoy, TeenBoy, and Man classes in it.
+Implement the Human interface in each of these classes.
+
+3. Create public MAX_AGE constants in the KidBoy and TeenBoy classes with the values 12 and 19, respectively.
+
+4. Automatically generate toString methods for the KidBoy, TeenBoy, and Man classes. The result must be "KidBoy{}", etc.
+
+5. Create a Solution class with a main method.
+
+
+
