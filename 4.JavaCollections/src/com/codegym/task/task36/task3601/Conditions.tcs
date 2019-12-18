@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task36.task3601"\n\nMVC - a simplified version
+
+
+Create the Service, Model, View, and Controller classes in separate files.
+Move the Solution class's methods to the created classes in accordance with how MVC should work.
+Create the required fields in the classes as needed.
+Don't add any other methods of your own.
+Leave the main method in the Solution class.
+
+
+Requirements:
+1.	Create a Service class in a separate file.
+2.	Create a Model class in a separate file.
+3.	Create a View class in a separate file.
+4.	Create a Controller class in a separate file.
+5.	Move the getData method to the appropriate class.
+6.	Move the getStringDataList method to the appropriate class. Note that the getData method shouldn&#39;t be in the Solution class.
+7.	Move the onShowDataList method to the appropriate class. Note that the getStringDataList shouldn&#39;t be in the Solution class.
+8.	Move the fireShowDataEvent method to the appropriate class. Note that the onShowDataList method shouldn&#39;t be in the Solution class.
+9.	The main method must create a View object and call the appropriate method on it. The program&#39;s behavior must not change.
+
+

@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task36.task3609"\n\nRefactoring MVC
+
+
+Move a few methods into the required classes to get the MVC pattern. If necessary, make changes in the main method
+that reflect the changes you've made. The program's behavior must not change.
+Do NOT change class, method, or field names.
+
+
+Requirements:
+1.	The program&#39;s output must remain unchanged.
+2.	You must move the increaseSpeed(int) method from the CarModel class to the CarController class.
+3.	You must move the decreaseSpeed(int) method from the CarModel class to the CarController class.
+4.	The Solution class&#39;s main method must call the increaseSpeed method on the controller, not on the model.
+5.	The Solution class&#39;s main method must call the decreaseSpeed method on the controller, not on the model.
+
+

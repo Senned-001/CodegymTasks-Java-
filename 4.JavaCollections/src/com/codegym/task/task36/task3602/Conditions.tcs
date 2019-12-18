@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task36.task3602"\n\nFind the class by its description
+
+
+Class description:
+1. It implements the List interface;
+2. It is a private static class inside a popular utility class;
+3. Accessing the list by index is not allowed. It throws an IndexOutOfBoundsException.
+Using reflection (getDeclaredClasses method), return the appropriate type in the getExpectedClass method.
+
+
+Requirements:
+1.	The getExpectedClass method must use the appropriate utility class&#39;s getDeclaredClasses method.
+2.	The getExpectedClass method must return the correct type.
+3.	The main method must call the getExpectedClass method.
+4.	The main method must display the returned class on the screen.
+
+
