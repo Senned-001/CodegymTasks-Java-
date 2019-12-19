@@ -1,0 +1,31 @@
+taskKey="com.codegym.task.task36.task3611"\n\nHow many potential friends does a person have?
+
+
+Today we'll analyze some functionality of social networks. How do social networks know who to suggest as
+friends you might know? This task is easily solved using graphs.
+
+Your task is to implement the Set<Integer> getAllFriendsAndPotentialFriends(int index, int deep)  method,
+which returns the indices of people you are already friends with and of people you might know. After that,
+the removeFriendsFromSet method will run and produce the set of all potential friends of the person with
+the passed index, given a search depth specified by the deep parameter.
+For simplicity, we will view everyone's relationships as a two-dimensional array called humanRelationships (see an example
+array in the generateRelationships method). Along the main diagonal, all elements are true because everybody knows
+himself or herself. The intersection of rows and columns indicates whether people have friended each other (if true, then
+the people have friended each other). If a person with index k has been friended by a person with index p, then that
+means that the person with index k is among the friends of the person with index p.
+Two arguments are passed to the method:
+int index - the index of a person in the array (starting from zero);
+int deep - how deep to search for friends. If Mary is Natalie's friend and Julia is Mary's friend and the search
+depth = 1, then you need to add Mary, along with Julia as a potential friend, to the set returned for Natalie. If the
+search depth = 2, then you also need to add all of Julia's friends to the same set.
+See the example in the main method.
+The set returned by the getAllFriendsAndPotentialFriends method must not include index.
+
+
+Requirements:
+1.	The Solution class must have a public Set&lt;Integer&gt; getAllFriendsAndPotentialFriends(int index, int deep) method.
+2.	The Solution class must have a boolean[][] humanRelationships class.
+3.	The set returned by the getAllFriendsAndPotentialFriends method must not include index.
+4.	The getAllFriendsAndPotentialFriends method must be implemented as outlined in the task conditions.
+
+

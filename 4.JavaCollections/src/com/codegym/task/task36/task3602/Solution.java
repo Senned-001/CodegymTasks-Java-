@@ -22,20 +22,20 @@ public class Solution {
         Class<?>[] clazz = Collections.class.getDeclaredClasses();
         for(Class<?> c :clazz){
 
-            Class<?>[] interfaces = c.getInterfaces();
-            for(Class<?> i :interfaces) {
-                if (i==List.class) {
+           // Class<?>[] interfaces = c.getInterfaces();
+            //for(Class<?> i :interfaces) {
+                //if (i==List.class) {
+            if(List.class.isAssignableFrom(c)&&Modifier.isPrivate(c.getModifiers()) && Modifier.isStatic(c.getModifiers())){
 
-                    if (Modifier.isPrivate(c.getModifiers()) && Modifier.isStatic(c.getModifiers())) {
                         Method method = null;
                         Constructor constructor = null;
                         try {
-                            method = c.getDeclaredMethod("get", c);
+                            method = c.getDeclaredMethod("get", int.class);
                             method.setAccessible(true);
                             constructor = c.getDeclaredConstructor();
                             constructor.setAccessible(true);
                         } catch (NoSuchMethodException e) {
-                            e.printStackTrace();
+                            continue;
                         }
 
                         try {
@@ -43,12 +43,12 @@ public class Solution {
                         } catch (IllegalAccessException e) {
                             e.printStackTrace();
                         } catch (InvocationTargetException e) {
-                            if (e.getCause().getMessage().contains("IndexOutOfBoundsException")) return c;
+                            if (e.getCause().toString().contains("IndexOutOfBoundsException")) return c;
                         } catch (InstantiationException e) {
                             e.printStackTrace();
                         }
-                    }
-                }
+
+
             }
 
         }

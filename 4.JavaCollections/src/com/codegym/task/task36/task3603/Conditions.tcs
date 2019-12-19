@@ -1,0 +1,20 @@
+taskKey="com.codegym.task.task36.task3603"\n\nSearch for a class by its description
+
+
+Replace the following words with those required:
+1. ClassNameToBeReplaced - the name of a class that is a thread-safe version of ArrayList, in which all change operations
+(mutative operations) use a new copy of the original array.
+
+2. methodNameToBeReplaced - the name of a method that adds to the current "list" the elements of the passed collection
+that aren't in "list".
+
+Don't leave commented code.
+
+
+Requirements:
+1.	The main method must create a thread-safe version of ArrayList as outlined in the task conditions.
+2.	After creating the correct type of list, the main method must call a method that will only add to the current &quot;list&quot; the elements of the passed collection that aren&#39;t in &quot;list&quot;.
+3.	The program must display 4 strings: &quot;A C B D&quot;.
+4.	The program must not contain the words &quot;ClassNameToBeReplaced&quot; and &quot;methodNameToBeReplaced&quot;.
+
+

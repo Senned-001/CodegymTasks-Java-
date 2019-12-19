@@ -1,0 +1,32 @@
+taskKey="com.codegym.task.task36.task3605"\n\nUsing TreeSet
+
+
+The first parameter is the file name: file1.
+file1 only contains Latin letters, spaces, punctuation, dashes, and carriage returns.
+Sort the letters alphabetically and display the first 5 unique letters on a single line without separators.
+If there are less than 5 unique letters in file1, then display them all.
+Uppercase and lowercase letters should be treated as the same letter.
+The displayed result is not case sensitive.
+Close the streams.
+
+Example 1 - input file data:
+zBk yaz b-kN
+Example 1 - output:
+abkny
+
+Example 2 - input file data:
+caAC
+A, aB? bB
+Example 2 - output:
+abc
+
+Hint: use TreeSet
+
+
+Requirements:
+1.	The program must use the TreeSet class.
+2.	Call the TreeSet object&#39;s add method to add elements.
+3.	The program must display the result on the screen.
+4.	The program&#39;s output must correspond to the task conditions.
+
+

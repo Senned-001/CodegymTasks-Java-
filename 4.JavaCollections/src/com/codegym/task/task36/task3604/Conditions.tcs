@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task36.task3604"\n\nUnderstanding red-black trees
+
+
+You are given an implementation of a red-black tree.
+But some methods are broken. Analyze the code and fix the errors.
+The main method is not tested.
+All of the modifiers are correct.
+Don't change variable or method names.
+
+
+Requirements:
+1.	Fix the error in the RedBlackTree class&#39;s isEmpty method.
+2.	Fix the error in the RedBlackTree class&#39;s rotateWithRightNode method.
+3.	Fix the error in the RedBlackTree class&#39;s insert method.
+4.	The RedBlackTree class must implement a red-black tree.
+
+
