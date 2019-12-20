@@ -1,0 +1,102 @@
+taskKey="com.codegym.task.task33.task3310.big04"\n\nShortener (4)
+
+
+We'll need several helper classes:
+4.1.	Create a Helper class.
+4.1.1.	Add a static String generateRandomString() method, which
+will generate a random string. Use the SecureRandom
+and BigInteger classes to do this. Hint: search for "random string Java" on Google.
+The string may consist of numbers and any of the 26 letters of the lowercase English alphabet.
+4.1.2.	Add a static printMessage(String message) method to the class. It should display
+the passed text on the console. All subsequent output in the program should
+come through this method!
+4.2.	Create an ExceptionHandler class.
+4.2.1.	Add a static log(Exception e) method, which will display
+a brief description of the exception.
+
+
+Requirements:
+1.	The Helper class&#39;s generateRandomString method should generate a random string in the manner described in the task conditions.
+2.	The Helper class&#39;s printMessage method should display the passed text on the screen.
+3.	The ExceptionHandler class&#39;s log method should display a brief description of the exception.
+
+
+Shortener (part 3)
+
+
+Let's return to the Shortener class:
+3.1.	Add a Long lastId field to it. Initialize it to zero. This field will
+hold the identifier of the last string
+added to the repository.
+3.2.	Add a StorageStrategy storageStrategy field that will store the
+data storage strategy.
+3.3.	Add a constructor that accepts a StorageStrategy and initializes
+the corresponding field.
+3.4.	Implement the getId method. It should:
+3.4.1.	Check whether the passed value is in the repository. If it is, then return
+its key.
+3.4.2.	If the passed value is not in the repository, then:
+3.4.2.1.	Increase the value of lastId by one;
+3.4.2.2.	Add a new key-value pair (new value of lastId, passed string) to the
+repository;
+3.4.2.3.	Return the new value of lastId.
+3.5.	Implement the getString method. It should return the string for a given identifier
+(key).
+3.6.	Make sure you can call the getId and getString methods from different threads
+by adding the appropriate modifier to the method headers.
+
+
+
+Shortener (part 2)
+
+
+Shortener will support various data storage strategies
+(for strings and string identifiers). All these strategies will be inherited from the
+StorageStrategy interface. Read more about the Strategy pattern on Wikipedia.
+Our repository will rely on two concepts: key and value. The string identifier will be
+the key, while the string itself will be the value.
+
+2.1.	Add the StorageStrategy interface to the strategy package.
+2.2.	Add the following methods to the interface:
+2.2.1. boolean containsKey(Long key) - Returns true if the repository
+contains the passed key.
+2.2.2. boolean containsValue(String value) - Returns true if the repository
+contains the passed value.
+2.2.3. void put(Long key, String value) - Adds a new key-value pair to the
+repository.
+2.2.4.	Long getKey(String value) - Returns the key for the passed value.
+2.2.5.	String getValue(Long key) - Return the value for the passed key.
+
+
+
+Shortener (part 1)
+
+
+Let's write a Shortener. It will be similar to
+Google URL Shortener (https://goo.gl), but we'll extend its functionality and
+make it console-based. It will shorten not only links, but also any string.
+Our Shortener class will return a unique identifier
+for any string, and vice versa — it will return a string based on a previously
+obtained identifier.
+
+Two additional requirements for Shortener:
+- for two identical strings, the same identifier should be returned;
+- it must support as many strings as there are unique long values:
+the identifiers will be longs.
+The first requirement greatly affects performance, because upon receiving
+the identifier for a new string, we need to check whether we processed the
+string previously in order to return the old identifier.
+
+1.1.	Declare a Shortener class.
+1.2.	Add stub methods to the declared class:
+1.2.1.	Long getId(String string) – Returns the id for the specified
+string.
+1.2.2.	String getString(Long id) – Returns a string for the specified
+id or null if an invalid id is passed.
+
+1.3.    Create a Solution class with an empty main method.
+
+P.S. Make all methods public and fields private if there are no explicit instructions regarding access modifiers.
+
+
+
