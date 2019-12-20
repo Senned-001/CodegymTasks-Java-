@@ -1,0 +1,20 @@
+taskKey="com.codegym.task.task36.task3612"\n\nWhy doesn't the set contain an element?
+
+
+Historians added several dates of past events to a special set in the initializeDates method. Later,
+they studied the historical documents more closely and more precisely calculated the time of the latest event lastDate. But what was their surprise
+when they found that the required date wasn't in the set. In other words, the isLastDateInDates method returns
+false.
+Amigo, your duty is to save history. Make the changes necessary to ensure that the date of the last event is in
+the dates set (i.e. the program returns true).
+
+
+Requirements:
+1.	The Solution class must have a private Set&lt;Date&gt; dates field.
+2.	The Solution class must have a private Date lastDate field.
+3.	The isLastDateInDates method must correctly return a boolean indicating whether lastDate is in dates.
+4.	The number of elements in the dates set must not change after calling the updateLastDate method.
+5.	The updateLastDate method must remove the old lastDate element from the dates set.
+6.	The updateLastDate method must add the updated lastDate date to the dates set.
+
+

@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task36.task3607"\n\nFind the class by its description
+
+
+Class description:
+1. It implements the Queue interface.
+2. It is used when working with threads.
+3. Elements can only be taken from the queue after they have expired (their delay period has passed).
+4. The head of the queue is the element that expires first.
+
+
+Requirements:
+1.	The getExpectedClass method must not use the getDeclaredClasses method.
+2.	The getExpectedClass method must return the correct type.
+3.	The main method must call the getExpectedClass method.
+4.	The main method must display the returned class on the screen.
+
+

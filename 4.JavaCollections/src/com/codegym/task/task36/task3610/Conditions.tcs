@@ -1,0 +1,46 @@
+taskKey="com.codegym.task.task36.task3610"\n\nMyMultiMap
+
+
+Amigo, sometimes Java's built-in collections aren't enough. When that's the case, you can use third-party implementations,
+such as Google Guava or Apache Commons, or you can implement your own data structure. Today you have
+a unique opportunity to put your knowledge to the test and write part of your own data structure.
+
+Our data structure is called MyMultiMap. It is a generic class, inherits HashMap, and
+implements the Cloneable and Serializable interfaces. Our map will be special in that its constructor will accept
+an int repeatCount argument, which is the number of values that a single key can store.
+Implement the following methods:
+1) int size() - This method must return the number of values in our collection.
+2) V put(K key, V value) - This must add value using key. If key is already in the map and
+the number of values for key is less than repeatCount, then add value to the end of the list in the
+map object. If the number of values stored using key equals repeatCount, then remove the element with index zero from the map object's list
+and add value to the end of the list. The method must return the value of the last
+item added using key (but not the value we're currently adding). If key
+doesn't have any values yet, then return null.
+3) V remove(Object key) - This method must remove a value using key. If several elements are stored using key,
+then the element with the index zero must be removed from the list. If an empty list is stored for key,
+then remove the key-value pair. The method must return the element that you
+removed. If the key isn't in the map, return null.
+4) Set<K> keySet() - This method must return a set with all of the keys in map.
+5) Collection<V> values() - This method must return an ArrayList<V> with all of the values. The order of the values in the list isn't
+important.
+6) boolean containsKey(Object key) - This method must return true if key is in map, otherwise it must return
+false.
+7) boolean containsValue(Object value) - this must return true if value is in map, otherwise it must return
+false.
+
+See the example in the main() method.
+The main() method is not tested.
+
+
+Requirements:
+1.	The MyMultiMap&lt;K, V&gt; class must inherit HashMap&lt;K, V&gt; and implement the Cloneable and Serializable interfaces.
+2.	The MyMultiMap class must have a private HashMap&lt;K, List&lt;V &gt;&gt; map field.
+3.	You must implement the int size() method as outlined in the task conditions.
+4.	You must implement the boolean containsKey(Object key) method as outlined in the task conditions.
+5.	You must implement the boolean containsValue(Object value) method as outlined in the task conditions.
+6.	You must implement the V put(K key, V value) method as outlined in the task conditions.
+7.	You must implement the V remove(Object key) method as outlined in the task conditions.
+8.	You must implement the Set&lt;K&gt; keySet() method as outlined in the task conditions.
+9.	You must implement the Collection&lt;V&gt; values() method as outlined in the task conditions.
+
+

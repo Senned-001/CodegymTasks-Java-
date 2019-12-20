@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task36.task3606"\n\nMastering ClassLoader and Reflection
+
+
+The Solution class constructor's parameter is the absolute path to a package.
+The package name may include the File.separator.
+In addition to compiled classes (.class), the package may have other files (for example: .java).
+We know that every class has a no-argument constructor and implements the HiddenClass interface.
+Read all the classes from the file system. Create a factory. Implement the getHiddenClassObjectByKey method.
+Note: The package can only have one class whose simple name starts with the String key (not case sensitive).
+
+
+Requirements:
+1.	Implement the scanFileSystem method. It must add the classes it finds to the hiddenClasses field.
+2.	Implement the getHiddenClassObjectByKey method. It must create a class object as outlined in the task conditions.
+3.	Don&#39;t change the main method.
+4.	The getHiddenClassObjectByKey method must not throw exceptions.
+
+

@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task36.task3613"\n\nFind the class by its description
+
+
+Class description:
+1. The class is in the java.util.concurrent package.
+2. It implements the BlockingQueue interface.
+3. It is used when working with threads.
+4. It is a blocking queue in which each add operation must wait for a corresponding
+delete operation on another thread and vice versa.
+5. It has no internal storage capacity, not even capacity for a single element.
+
+The getExpectedClass() method must return the class as XXX.class, where
+XXX is the class name.
+
+
+Requirements:
+1.	The getExpectedClass method must not call any other methods.
+2.	The getExpectedClass method must return the correct type.
+3.	The main method must call the getExpectedClass method.
+4.	The main method must display the returned class on the screen.
+
+
