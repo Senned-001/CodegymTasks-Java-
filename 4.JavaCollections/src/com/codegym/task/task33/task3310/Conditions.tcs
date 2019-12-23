@@ -1,4 +1,117 @@
-taskKey="com.codegym.task.task33.task3310.big04"\n\nShortener (4)
+taskKey="com.codegym.task.task33.task3310.big08"\n\nShortener (8)
+
+
+Add and implement a OurHashMapStorageStrategy class, using the Entry class from the
+previous subtask. The OurHashMapStorageStrategy class must implement
+the StorageStrategy interface.
+8.1. Add the following fields to the class:
+8.1.1. static final int DEFAULT_INITIAL_CAPACITY = 16;
+8.1.2. static final float DEFAULT_LOAD_FACTOR = 0.75f;
+8.1.3. Entry[] table = new Entry[DEFAULT_INITIAL_CAPACITY];
+8.1.4. int size;
+8.1.5. int threshold = (int) (DEFAULT_INITIAL_CAPACITY * DEFAULT_LOAD_FACTOR);
+8.1.6. float loadFactor = DEFAULT_LOAD_FACTOR;
+8.2. Implement the following helper methods in the class:
+8.2.1. int hash(Long k)
+8.2.2. int indexFor(int hash, int length)
+8.2.3. Entry getEntry(Long key)
+8.2.4. void resize(int newCapacity)
+8.2.5. void transfer(Entry[] newTable)
+8.2.6. void addEntry(int hash, Long key, String value, int bucketIndex)
+8.2.7. void createEntry(int hash, Long key, String value, int bucketIndex)
+8.3. Add the public methods required by the StorageStrategy interface.
+Don't use any additional fields. Don't implement any methods
+not specified in the task. If you have questions on how to implement a
+method or what it's supposed to do, you can always take a look at how the corresponding
+method works in HashMap.
+You can add testing of the new strategy to the Solution class's main method. Run the program
+and compare the execution time of the two strategies on the same number of elements.
+
+
+Requirements:
+1.	The OurHashMapStorageStrategy class must support the StorageStrategy interface.
+2.	All the required fields (according to the task conditions) must be created in the OurHashMapStorageStrategy class.
+3.	The StorageStrategy interface&#39;s methods must be implemented in OurHashMapStorageStrategy in a way that ensures the correct operation of the Shortener class on which it is based.
+4.	The OurHashMapStorageStrategy class must have all the helper methods listed in the task conditions.
+
+
+Shortener (7)
+
+
+Let's start implementing the second strategy: OurHashMapStorageStrategy. It won't
+use the ready-made HashMap from the standard library, but rather will itself be
+a collection.
+
+7.1.	Understand how the standard HashMap works. Look at its source code or
+google for articles about it.
+7.2.	If you really did the previous item, then you know what the
+Node class, which supports the Entry interface, is used for inside HashMap. Create your own analog inside the
+strategy package. This should be an ordinary, non-nested, non-generic class. Make it public.
+Unlike the Node class in HashMap, our class will only support
+the Serializable interface and will be called Entry.
+7.3.	Add the following fields to Entry: Long key, String value, Entry next, int hash. As you can
+see, our implementation will only support Long keys and
+String values. Keep the default field visibility.
+7.4.	Add and implement an Entry(int hash, Long key, String value, Entry next) constructor.
+7.5.	Add and implement the following methods: Long getKey(), String getValue(), int hashCode(), boolean equals(), and String
+toString(). Don't implement the remaining methods from the original Entry. We're
+writing the simplified version.
+
+
+
+Shortener (6)
+
+
+The first strategy is ready. It's time to test it. To do this:
+6.1.	Create a Solution class if you haven't already done so.
+6.2.	Add implementations of the static helper methods to the Solution class:
+6.2.1.	Set<Long> getIds(Shortener shortener, Set<String> strings). This method should
+return a set of identifiers for a passed set of strings. You need to use shortner to get
+the identifier for each individual string.
+6.2.2.	Set<String> getStrings(Shortener shortener, Set<Long> keys). The method will
+return the set of strings that matches the passed set of identifiers.
+Of course, when you use Shortener for its actual purposes, you probably won't have to get a set of identifiers from a set of strings, nor vice versa.
+This task is only necessary for testing.
+6.2.3.	testStrategy(StorageStrategy strategy, long elementsNumber). The method will
+test the passed strategy on a specific number of
+elements (elementsNumber). The implementation should:
+6.2.3.1.	Display the name of the class strategy. The name must not include the package name.
+6.2.3.2.	Generate a test set using Helper and the specified
+number of elements (elementsNumber).
+6.2.3.3.	Create a Shortener object using the passed strategy.
+6.2.3.4.	Measure and display the time required to run the getIds method
+for the given strategy and the given set of elements. Display
+time in milliseconds. When measuring the method's execution time, you can
+ignore the processor switching to other threads, as well as the time
+spent on the call itself, returning values, and calling methods
+to get the time (date). Measure time
+using Date objects.
+6.2.3.5.	Measure and display the time required to run the
+getStrings method for a given strategy and the set of identifiers obtained in the
+previous clause.
+6.2.3.6.	Check whether the contents of the set of generated strings and the set
+returned by getStrings method
+are the same. If the sets are the same, then display "The test passed.".
+Otherwise, display "The test failed.".
+6.2.4.	Add a main() method. Inside the method, test the
+HashMapStorageStrategy strategy on 10,000 items.
+6.3.	Verify that the program works and the test is passed.
+
+
+
+Shortener (5)
+
+
+Let's write our first repository (storage strategy). Internally, it will
+have an ordinary HashMap. We'll keep all the strategies in the strategy package.
+5.1. Create a HashMapStorageStrategy class that implements the StorageStrategy interface.
+5.2. Add a HashMap<Long, String> data field to the class. It will store our data.
+5.3. Implement all the methods the class needs. The methods' implementations must
+use the data field. Don't create additional fields.
+
+
+
+Shortener (4)
 
 
 We'll need several helper classes:
@@ -14,11 +127,6 @@ come through this method!
 4.2.1.	Add a static log(Exception e) method, which will display
 a brief description of the exception.
 
-
-Requirements:
-1.	The Helper class&#39;s generateRandomString method should generate a random string in the manner described in the task conditions.
-2.	The Helper class&#39;s printMessage method should display the passed text on the screen.
-3.	The ExceptionHandler class&#39;s log method should display a brief description of the exception.
 
 
 Shortener (part 3)
@@ -44,59 +152,6 @@ repository;
 (key).
 3.6.	Make sure you can call the getId and getString methods from different threads
 by adding the appropriate modifier to the method headers.
-
-
-
-Shortener (part 2)
-
-
-Shortener will support various data storage strategies
-(for strings and string identifiers). All these strategies will be inherited from the
-StorageStrategy interface. Read more about the Strategy pattern on Wikipedia.
-Our repository will rely on two concepts: key and value. The string identifier will be
-the key, while the string itself will be the value.
-
-2.1.	Add the StorageStrategy interface to the strategy package.
-2.2.	Add the following methods to the interface:
-2.2.1. boolean containsKey(Long key) - Returns true if the repository
-contains the passed key.
-2.2.2. boolean containsValue(String value) - Returns true if the repository
-contains the passed value.
-2.2.3. void put(Long key, String value) - Adds a new key-value pair to the
-repository.
-2.2.4.	Long getKey(String value) - Returns the key for the passed value.
-2.2.5.	String getValue(Long key) - Return the value for the passed key.
-
-
-
-Shortener (part 1)
-
-
-Let's write a Shortener. It will be similar to
-Google URL Shortener (https://goo.gl), but we'll extend its functionality and
-make it console-based. It will shorten not only links, but also any string.
-Our Shortener class will return a unique identifier
-for any string, and vice versa — it will return a string based on a previously
-obtained identifier.
-
-Two additional requirements for Shortener:
-- for two identical strings, the same identifier should be returned;
-- it must support as many strings as there are unique long values:
-the identifiers will be longs.
-The first requirement greatly affects performance, because upon receiving
-the identifier for a new string, we need to check whether we processed the
-string previously in order to return the old identifier.
-
-1.1.	Declare a Shortener class.
-1.2.	Add stub methods to the declared class:
-1.2.1.	Long getId(String string) – Returns the id for the specified
-string.
-1.2.2.	String getString(Long id) – Returns a string for the specified
-id or null if an invalid id is passed.
-
-1.3.    Create a Solution class with an empty main method.
-
-P.S. Make all methods public and fields private if there are no explicit instructions regarding access modifiers.
 
 
 
