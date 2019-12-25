@@ -1,4 +1,43 @@
-taskKey="com.codegym.task.task33.task3310.big14"\n\nShortener (14)
+taskKey="com.codegym.task.task33.task3310.big15"\n\nShortener (15)
+
+
+We're going to write another test that verifies that using HashBiMapStorageStrategy to get the identifier for a string
+can be faster than using
+HashMapStorageStrategy.
+15.1.	Create a SpeedTest class in the tests package.
+15.2.	Add a long getTimeToGetIds(Shortener shortener, Set <String>
+strings, Set<Long> ids) method to the class. It should return the time in milliseconds
+required to get the identifier for every string in strings. The identifiers
+must be added to the ids set.
+15.3.	Add a long getTimeToGetStrings(Shortener shortener,
+Set<Long> ids, Set<String> strings) method to the class. It should return the time in milliseconds
+required to get the string for every identifier in ids. The strings
+must be added to the strings set.
+15.4.	Add a testHashMapStorage() test to the SpeedTest class. It must:
+15.4.1.	Create two Shortener objects, one based on
+HashMapStorageStrategy, the second based on HashBiMapStorageStrategy. Let's call
+them shortener1 and shortener2.
+15.4.2.	Generate 10,000 strings using Helper and add them to a set of
+strings. Let's call it origStrings.
+15.4.3.	Get the time required to get the identifiers for origStrings (call
+the getTimeToGetIds method on shortener1 and then on shortener2).
+15.4.4.	Use JUnit to check that the time obtained in the previous item
+for shortener1 is greater than for shortener2.
+15.4.5.	Get the time required to get the strings (call the getTimeToGetStrings method
+on shortener1 and shortener2).
+15.4.6.	Use JUnit to check that the time obtained in the previous item
+for shortener1 is approximately equal to the time for shortener2. Use the
+assertEquals(float expected, float actual, float delta) method. For the delta, you can
+use 30. That will be sufficient for our experiments.
+
+
+Requirements:
+1.	The getTimeToGetStrings method should return the time in milliseconds required to get all the strings for the set of identifiers (ids).
+2.	The getTimeToGetIds method should return the time in milliseconds required to get all the identifiers for the set of strings (strings).
+3.	The testHashMapStorage method should compare the time required to get the set of keys and set of values for HashMapStorageStrategy and HashBiMapStorageStrategy.
+
+
+Shortener (14)
 
 
 We've tested our strategies many times using the Solution class's
@@ -33,12 +72,6 @@ method.
 Run the program and verify that all tests pass.
 
 
-
-Requirements:
-1.	The FunctionalTest class must be added to the created tests package.
-2.	In the testStorage method, the getId and getString methods must be called three times.
-3.	The test methods listed in the task conditions should be marked only with the @Test annotation.
-4.	Each test method must call the testStorage method.
 
 
 Shortener (13)
@@ -121,35 +154,6 @@ FileBucket[] table
 int size
 private long bucketSizeLimit = DEFAULT_BUCKET_SIZE_LIMIT
 long maxBucketSize
-
-
-
-Shortener (9)
-
-
-Let's write another strategy. We'll call it FileStorageStrategy. It will be very similar
-to OurHashMapStorageStrategy, but files will be
-the buckets. I'm sure you know what I mean by buckets. If not, copy the internal workings
-of HashMap.
-9.1.	Create a FileBucket class in the strategy package.
-9.2.	Add a Path path field to the class. This will be the path to the file.
-9.3.	Add a no-argument constructor to the class. It should:
-9.3.1.	Initialize the path field with a temporary file. The file must be placed
-in the directory for temporary files and have a random name. Hint:
-Files.createTempFile.
-9.3.2.	Use the path field to create a new file. If the file already exists, then
-replace it.
-9.3.3.	Ensure the file is deleted when you exit the program. Hint:
-deleteOnExit().
-9.4.	Add the following methods to the class:
-9.4.1. long getFileSize() - Returns the size of the file pointed to
-by path.
-9.4.2. void putEntry(Entry entry) - Serializes the passed entry to
-the file. Be aware that each entry may contain another entry.
-9.4.3.	Entry getEntry() - Gets an entry from the file. If the file size is zero,
-return null.
-9.4.4. void remove() - Delete the file pointed to by path.
-The constructor and methods should not throw exceptions.
 
 
 

@@ -45,12 +45,13 @@ public class OurHashMapStorageStrategy implements StorageStrategy {
 
     @Override
     public Long getKey(String value) {
-        if (this.containsValue( value )) {
-            for (Entry e : table) {
-                if (e.getValue().equals( value )) return e.getKey();
-            }
+        if(this.containsValue(value)) {
+
+            for (int i = 0; i < table.length; i++)
+                for (Entry e = table[i]; e != null; e = e.next)
+                    if (e.getValue().equals(value)) return e.getKey();
         }
-        return null;
+            return null;
     }
 
     @Override
