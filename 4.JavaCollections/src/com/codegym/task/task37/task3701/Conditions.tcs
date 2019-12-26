@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task37.task3701"\n\nCircular iterator
+
+
+The Solution class inherits ArrayList.
+Properly override the iterator method in the Solution class.
+Write your own CircularIterator class inside the Solution class. It will be an iterator for the Solution list.
+The iterator must move circularly through all of the elements.
+In all other ways, its behavior must be identical to the current iterator.
+
+
+Requirements:
+1.	The circular iterator must go to the first element after the last element and so on.
+2.	The no-argument remove method must remove the current element.
+3.	If the list is modified incorrectly from different threads, a ConcurrentModificationException must be thrown.
+4.	The Solution class must be a child of the ArrayList class.
+5.	The Solution class&#39;s iterator() method must return a CircularIterator object.
+
+

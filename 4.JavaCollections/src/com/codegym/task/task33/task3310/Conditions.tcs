@@ -1,4 +1,31 @@
-taskKey="com.codegym.task.task33.task3310.big15"\n\nShortener (15)
+taskKey="com.codegym.task.task33.task3310.big16"\n\nShortener (16)
+
+
+Stuff you can do on your own (we won't test you on any of these items):
+- Add a strategy for working with a database. Google JDBC.
+- Make a web service that returns an identifier for any URL or string,
+and returns the string for an identifier.
+- Write a version of HashMap that uses two threads, where one thread is
+responsible for working with elements, and the second is responsible for monitoring the number of elements. When
+the number of elements exceeds a threshold, the second thread should double
+the size of table. Additionally, the first thread should not know anything about the threshold.
+
+Here's what you have achieved:
+- You repeated the Strategy pattern.
+- You gained experience using the Guava library.
+- You gained experience using Apache Commons Collections.
+- You tried using JUnit to write tests.
+- You took one more step toward working as a Java programmer.
+
+Congratulations! I'm proud of you!
+You're a great student!
+
+
+Requirements:
+1.	Your Shortener class is done!
+
+
+Shortener (15)
 
 
 We're going to write another test that verifies that using HashBiMapStorageStrategy to get the identifier for a string
@@ -30,11 +57,6 @@ for shortener1 is approximately equal to the time for shortener2. Use the
 assertEquals(float expected, float actual, float delta) method. For the delta, you can
 use 30. That will be sufficient for our experiments.
 
-
-Requirements:
-1.	The getTimeToGetStrings method should return the time in milliseconds required to get all the strings for the set of identifiers (ids).
-2.	The getTimeToGetIds method should return the time in milliseconds required to get all the identifiers for the set of strings (strings).
-3.	The testHashMapStorage method should compare the time required to get the set of keys and set of values for HashMapStorageStrategy and HashBiMapStorageStrategy.
 
 
 Shortener (14)
@@ -123,37 +145,6 @@ all 4 strategies. Be sure that we've made it significantly faster to get
 an identifier. Of course, you understand that this solution has both advantages and disadvantages.
 Think about when it makes sense to use OurHashBiMapStorageStrategy and when
 HashMapStorageStrategy would be preferred.
-
-
-
-Shortener (10)
-
-
-Create and implement a FileStorageStrategy class. It must:
-10.1.	Implement the StorageStrategy interface.
-10.2.	Use FileBucket as a buckets. Hint: The class
-must have a FileBucket[] table field.
-10.3.	It works like OurHashMapStorageStrategy, but
-double the number of buckets not when the number of size elements becomes larger
-than some threshold, but rather when the size of one of the buckets (files) became larger than
-bucketSizeLimit.
-10.3.1.	Add a long bucketSizeLimit field to the class.
-10.3.2.	Initialize it with a default value, such as 10,000 bytes.
-10.3.3.	Add a setter and getter for this field.
-10.4.	When implementing the resize(int newCapacity) method, be sure that the files you no longer need
-have been deleted (call the remove() method).
-Test the new strategy in the main() method. Bear in mind that the FileStorageStrategy strategy is much
-slower than the others. Don't use a large number of elements for the test.
-Doing so could take a looooog time.
-Run the program and compare the performance of all 3 strategies.
-
-P.S. Be sure that the FileStorageStrategy class has all the necessary fields by analogy with OurHashMapStorageStrategy:
-static final int DEFAULT_INITIAL_CAPACITY
-static final long DEFAULT_BUCKET_SIZE_LIMIT
-FileBucket[] table
-int size
-private long bucketSizeLimit = DEFAULT_BUCKET_SIZE_LIMIT
-long maxBucketSize
 
 
 
