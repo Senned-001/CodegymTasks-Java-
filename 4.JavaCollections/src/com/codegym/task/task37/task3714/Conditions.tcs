@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task37.task3714"\n\nAncient Rome
+
+
+Hi, Amigo! I recently developed an interest in your planet's history and became interested in the Ancient Roman period.
+It would have been interesting to live then! Nonstop entertainment and wine! Or slavery if your starting location wasn't lucky...
+
+Basically, I need a romanToInteger method that will convert a
+Roman numeral {I, V, X, L, C, D, M} into a base ten number. Otherwise, it's impossible to know what
+happened when with them.
+
+
+Requirements:
+1.	The romanToInteger method must convert a Roman numeral number into a base ten number.
+2.	The romanToInteger method must return an int value and accept one String argument.
+3.	The romanToInteger method must be public.
+4.	The romanToInteger method must be static.
+
+

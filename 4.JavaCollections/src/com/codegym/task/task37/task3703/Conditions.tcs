@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task37.task3703"\n\nFind the class by its description
+
+
+The getExpectedClass method must return a class that matches the following description:
+1. It implements the Map interface.
+2. It is used when working with threads.
+3. It a non-blocking version of a skip list that has been adapted for hash tables.
+Read about skip lists in the additional material for this lesson.
+
+
+Requirements:
+1.	The getExpectedClass method must return the class described in the task conditions.
+2.	The class returned by the getExpectedClass method must be a child of the AbstractMap class.
+3.	The class returned by the getExpectedClass method must support the ConcurrentNavigableMap interface.
+4.	The class returned by the getExpectedClass method must support the Serializable interface.
+5.	The class returned by the getExpectedClass method must support the Cloneable interface.
+
+

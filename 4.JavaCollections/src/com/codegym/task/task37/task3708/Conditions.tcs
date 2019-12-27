@@ -1,0 +1,28 @@
+taskKey="com.codegym.task.task37.task3708"\n\nCaching proxy
+
+
+The Proxy pattern provides an object that controls access to another object.
+
+You need to create a CachingProxyRetriever class in the retrievers package. It will provide the same
+functionality as the OriginalRetriever class, but with one important addition. You need to always try
+to first get the object from a cache, and only perform the expensive operation of loading it from storage
+if it is not in the cache. After the required object is retrieved from storage, it must be cached
+using an LRUCache object.
+
+For the client (in this case, the Solution class), using CachingProxyRetriever should be no different
+than using the OriginalRetriever class.
+
+P.S. You will need LRUCache and OriginalRetriever fields in the CachingProxyRetriever class.
+
+
+Requirements:
+1.	An OriginalRetriever field must be created in the CachingProxyRetriever class.
+2.	An LRUCache field must be created in the CachingProxyRetriever class.
+3.	The CachingProxyRetriever class&#39;s constructor must accept one Storage argument and initialize an OriginalRetriever field.
+4.	The CachingProxyRetriever class&#39;s retrieve method must use the find method to search the cache for a suitable object.
+5.	The CachingProxyRetriever class&#39;s retrieve method must retrieve the object from storage using an OriginalRetriever object&#39;s retrieve method and add it to the cache if it isn&#39;t found there.
+6.	The CachingProxyRetriever class&#39;s retrieve method must not call the OriginalRetriever&#39;s retrieve method if the object is found in the cache.
+7.	The CachingProxyRetriever class&#39;s retrieve method must return from storage the object that corresponds to the id passed as an argument.
+8.	The CachingProxyRetriever class must support the Retriever interface.
+
+

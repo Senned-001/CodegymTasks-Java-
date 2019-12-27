@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task37.task3704"\n\nBug fix
+
+
+The getExpectedMap method is used everywhere in your huge project.
+At some point, the testers discovered that the getExpectedMap method throws a NullPointerException.
+The expected behavior is described in the main method's comments.
+Find a different standard implementation of the Map interface, and have getExpectMap return an object of that type rather than a TreeMap.
+The main method must complete its work without throwing exceptions.
+
+
+Requirements:
+1.	The getExpectedMap method must not return a TreeMap object.
+2.	The getExpectedMap method must return a standard Map implementation that satisfies the task conditions.
+3.	The Solution class&#39;s main method must display data on the screen.
+4.	The getExpectedMap method must be static.
+
+
