@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task37.task3713"\n\nChain of Responsibility
+
+
+Amigo, we have a problem! During a visit to Planet #IND893, we dared to outsource the automatic assignment of
+incoming tasks for crew members. It's hard to believe, but now it seems that the first mate has to
+do everything!
+
+We need to fix the program quickly, because cabin boys can scrub the deck, but only the captain can
+shout "Battle stations!"
+
+P.S. Try to implement the handleRequest method so that we don't have to change it
+if we add new positions. Don't touch the other methods.
+P.P.S. All enums support the Comparable interface.
+
+
+Requirements:
+1.	The request must be handled by the current crew member, if possible.
+2.	The request must be passed up the chain if the current crew member can&#39;t handle it.
+3.	The CabinBoy, Engineer, FirstMate, and Captain classes must inherit AbstractCrewMember.
+4.	The AbstractCrewMember class must be abstract.
+
+

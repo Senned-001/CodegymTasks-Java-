@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task37.task3712"\n\nTemplate method
+
+
+The Football, Basketball, and Tennis classes describe three popular games.
+Ask your favorite search engine about the Template Method pattern and make it so
+that the code in the Solution class's main method makes sense.
+
+P.S. The Game class must be abstract.
+
+
+Requirements:
+1.	The Football, Basketball, and Tennis classes must be children of the Game class.
+2.	The Game class must have three abstract methods: prepareForTheGame, playGame, and congratulateWinner.
+3.	The run method must be implemented in the Game class. It should call the prepareForTheGame, playGame, and congratulateWinner methods in the correct order.
+4.	The Game class must be abstract.
+
+

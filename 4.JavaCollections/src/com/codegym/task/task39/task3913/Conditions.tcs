@@ -1,0 +1,64 @@
+taskKey="com.codegym.task.task39.task3913.big01"\n\nLog parser (part 1)
+
+
+Today we're going to write a log parser.
+The log file has the following format:
+ip username date event status
+where:
+ip is the IP address from which the user generated the event,
+user is the username (one or more words separated by spaces),
+date is the date of the event formatted as <day.month.year hour:minute:second>,
+event is one of the following events:
+LOGIN - a user logged in,
+DOWNLOAD_PLUGIN - a user downloaded the plugin,
+SEND_MESSAGE - a user sent a message,
+ATTEMPT_TASK - a user attempted to complete a task,
+COMPLETE_TASK - a user has completed a task.
+The ATTEMPT_TASK and COMPLETE_TASK events have one additional parameter,
+separated from the others by a space: the task number.
+status is one of the following event statuses:
+OK - the event succeeded,
+FAILED - the event failed,
+ERROR - an error occurred.
+
+Example of a line from a log file:
+"146.34.15.5	Eduard Bentley	05.01.2021 20:22:55	COMPLETE_TASK 48	FAILED".
+The log file entries are not necessarily ordered by date: events could
+be logged in a different order than they occur.
+
+The class that will be responsible for parsing logs is called LogParser.
+1.1.	Add a LogParser class constructor with a Path logDir parameter that indicates
+the directory with the logs. There may be several logs. All of them must have the LOG extension.
+1.2.	Implement the IPQuery interface in the LogParser class:
+1.2.1.	The getNumberOfUniqueIPs(Date after, Date before) method should return
+the number of unique IP addresses for the specified period. Hereinafter,
+if a method has Date after and Date before parameters, then you should only return
+data related to this period (including the dates represented by the after and before parameters).
+If the after parameter is null, then you need to process all entries whose
+date is less than or equal to the before parameter.
+If the before parameter is null, then you need to process all entries whose
+date is greater than or equal to the after parameter.
+If both after and before are null, then you need to process absolutely every entry
+(without filtering by date).
+1.2.2.	The getUniqueIPs() method must return a set of all
+unique IP address. Store each IP address in a String.
+1.2.3.	The getIPsForUser() method must return the IP addresses that the passed user
+has worked from.
+1.2.4.	The getIPsForEvent() method must return the IP addresses that produced
+the passed event.
+1.2.5.	The getIPsForStatus() method must return the IP addresses that generated events that
+ended with the passed status.
+
+You can change the implementation of the main() method as you see fit.
+
+
+Requirements:
+1.	A public LogParser(Path logDir) constructor must be created in the LogParser class.
+2.	The LogParser class must support the IPQuery interface.
+3.	The getNumberOfUniqueIPs(Date, Date) method should return the number of unique IP addresses for the specified period.
+4.	The LogParser class&#39;s getUniqueIPs(Date, Date) method must return a set containing all unique IP addresses for the specified period.
+5.	The LogParser class&#39;s getIPsForUser(String, Date, Date) method must return the IP addresses that the passed user worked from during the specified period.
+6.	The LogParser class&#39;s getIPsForEvent(Event, Date, Date) method must return the IP addresses that generated the passed event during the specified period.
+7.	The LogParser class&#39;s getIPsForStatus(Status, Date, Date) method must return the IP addresses that generated events that ended with the specified status during the specified period.
+
+

@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task37.task3706"\n\nThe long forgotten Array
+
+
+Implement the getData method so that the main method finishes without throwing exceptions.
+Don't change the rest of the code.
+
+
+Requirements:
+1.	The getData method must not return null.
+2.	The getData method must return an object that satisfies the task conditions.
+3.	The getData method must be public.
+4.	The getData method must be static.
+
+

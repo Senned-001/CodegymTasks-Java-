@@ -1,0 +1,24 @@
+taskKey="com.codegym.task.task37.task3710"\n\nDecorator
+
+
+Create a RedShapeDecorator class in the decorators package. It must extend the functionality of Shape objects
+without changing their structure.
+
+I've already created an abstract ShapeDecorator class, so:
+1) Make the RedShapeDecorator class inherit the ShapeDecorator class.
+2) Implement a private setBorderColor method with one Shape parameter.
+It must display "Setting the border color for XXX to red.",
+where XXX is the name of the specific class being decorated (you can call the
+getClass().getSimpleName() method on the passed object).
+3) Override the draw method. First, use the setBorderColor method to change
+the color of the object being displayed, and then draw it.
+
+
+Requirements:
+1.	The RedShapeDecorator class must be a child of the ShapeDecorator class.
+2.	The setBorderColor method must display the phrase outlined in the task condition.
+3.	The setBorderColor method must be private.
+4.	In the RedShapeDecorator class&#39;s draw method, the color of the decorated object must be changed and its draw method called.
+5.	The RedShapeDecorator class&#39;s public constructor must accept one Shape argument.
+
+
