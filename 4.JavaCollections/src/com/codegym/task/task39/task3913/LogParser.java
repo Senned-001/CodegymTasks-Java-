@@ -2,7 +2,9 @@ package com.codegym.task.task39.task3913;
 
 
 
+import com.codegym.task.task39.task3913.query.DateQuery;
 import com.codegym.task.task39.task3913.query.IPQuery;
+import com.codegym.task.task39.task3913.query.UserQuery;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -11,10 +13,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class LogParser implements IPQuery {
+public class LogParser implements IPQuery, UserQuery, DateQuery {
     private Path logDir;
     private List<String[]> logData;
-    private DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.ENGLISH);
+    private DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 
 
     public LogParser(Path logDir) {
@@ -26,49 +28,42 @@ public class LogParser implements IPQuery {
     private void readLogs(Path path) {
         File files = path.toFile();
         File[] logsFiles = files.listFiles();
-        List<File>logsFilesCorrect=new ArrayList<>();
-        for (File f : logsFiles) {
-            if (f.getName().toLowerCase().endsWith(".log")) ;
-            logsFilesCorrect.add(f);
-        }
 
         for (File f : logsFiles) {
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader(f));
-                String s;
-                while ((s = reader.readLine()) != null) {
-                    String[] tempData = s.split(" |\t");
-                    String[] tempCorrectData = new String[5];
-
-                    tempCorrectData[0] = (tempData[0]);                                     //insert ip
-
-                    String spl = null;
-                    int index = 1;
-                    for (int i = index; i < tempData.length; i++) {                        //insert name as one string
-                        if (tempData[i].toLowerCase().matches("[a-z]"))
-                            spl = spl + tempData[i] + " ";
-                        else {
-                            tempCorrectData[1] = spl.trim();
-                            index = i;                                                      //save index for time
-                        }
+            if(f.getName().toLowerCase().endsWith(".log")) {
+                try {
+                    BufferedReader reader = new BufferedReader(new FileReader(f));
+                    String s;
+                    while ((s = reader.readLine()) != null) {
+                        String[] tempData = s.split("\t");
+                        logData.add(tempData);                                               //adding data in correct format
                     }
-
-                    tempCorrectData[2] = tempData[index] + " " + tempData[++index];         //save time as one string
-
-                    if (tempData[tempData.length - 2].matches("\\d"))
-                        tempCorrectData[3] = tempData[++index] + " " + tempData[++index];   //save event as one string
-                    else tempCorrectData[3] = tempData[++index];
-
-                    tempCorrectData[4] = tempData[tempData.length - 1];                     //save state
-
-                    logData.add(tempCorrectData);                                               //adding data in correct format
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         }
     }
-
+    public boolean compareDates(String dateToCompare, Date after, Date before){
+        boolean dateGets =false;
+        Date date = null;
+        try {
+            date = df.parse(dateToCompare);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if (after == null && before == null) {
+            dateGets=true;
+        } else if (after == null && before != null&&date.getTime() <= before.getTime()) {
+            dateGets=true;
+        } else if (before == null && after != null&&date.getTime() >= after.getTime()) {
+            dateGets=true;
+        } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+            dateGets=true;
+        }
+        return dateGets;
+    }
     @Override
     public int getNumberOfUniqueIPs(Date after, Date before) {
         return getUniqueIPs(after,before).size();
@@ -81,22 +76,31 @@ public class LogParser implements IPQuery {
             Date date = null;
             try {
                 date = df.parse(strFromLog[2]);
+                //System.out.println(date);
             } catch (ParseException e) {
-                e.printStackTrace();
+                System.out.println("Incorrect date format");
+                continue;
             }
 
             if(after==null&&before==null) {
                 result.add(strFromLog[0]);
+                //System.out.println("Adding");
             }
             else if(after==null&&date.getTime()<=before.getTime()){
                 result.add(strFromLog[0]);
+                //System.out.println("Adding");
+
             }
             else if(before==null&&date.getTime()>=after.getTime()){
                 result.add(strFromLog[0]);
+                //System.out.println("Adding");
             }
-            else if(date.getTime()>=after.getTime()&&date.getTime()<=before.getTime())
+            else if(before!=null&&after!=null&&date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()){
                 result.add(strFromLog[0]);
+                //System.out.println("Adding");
+            }
         }
+
         return result;
     }
 
@@ -114,13 +118,13 @@ public class LogParser implements IPQuery {
             if(after==null&&before==null&&user.equals(strFromLog[1])) {
                 result.add(strFromLog[0]);
             }
-            else if(after==null&&date.getTime()<=before.getTime()&&user.equals(strFromLog[1])){
+            else if(after==null&&before!=null&&date.getTime()<=before.getTime()&&user.equals(strFromLog[1])){
                 result.add(strFromLog[0]);
             }
-            else if(before==null&&date.getTime()>=after.getTime()&&user.equals(strFromLog[1])){
+            else if(before==null&&after!=null&&date.getTime()>=after.getTime()&&user.equals(strFromLog[1])){
                 result.add(strFromLog[0]);
             }
-            else if(date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()&&user.equals(strFromLog[1]))
+            else if(before!=null&&after!=null&&date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()&&user.equals(strFromLog[1]))
                 result.add(strFromLog[0]);
         }
         return result;
@@ -137,16 +141,16 @@ public class LogParser implements IPQuery {
                 e.printStackTrace();
             }
 
-            if(after==null&&before==null&&event.equals(strFromLog[3])) {
+            if(after==null&&before==null&&event.equals(Event.valueOf(strFromLog[3].split(" ")[0]))) {
                 result.add(strFromLog[0]);
             }
-            else if(after==null&&date.getTime()<=before.getTime()&&event.equals(strFromLog[3])){
+            else if(after==null&&before!=null&&date.getTime()<=before.getTime()&&event.equals(Event.valueOf(strFromLog[3].split(" ")[0]))){
                 result.add(strFromLog[0]);
             }
-            else if(before==null&&date.getTime()>=after.getTime()&&event.equals(strFromLog[3])){
+            else if(before==null&&after!=null&&date.getTime()>=after.getTime()&&event.equals(Event.valueOf(strFromLog[3].split(" ")[0]))){
                 result.add(strFromLog[0]);
             }
-            else if(date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()&&event.equals(strFromLog[3]))
+            else if(before!=null&&after!=null&&date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()&&event.equals(Event.valueOf(strFromLog[3].split(" ")[0])))
                 result.add(strFromLog[0]);
         }
         return result;
@@ -163,18 +167,423 @@ public class LogParser implements IPQuery {
                 e.printStackTrace();
             }
 
-            if(after==null&&before==null&&status.equals(strFromLog[4])) {
+            if(after==null&&before==null&&status.equals(Status.valueOf(strFromLog[4]))) {
                 result.add(strFromLog[0]);
             }
-            else if(after==null&&date.getTime()<=before.getTime()&&status.equals(strFromLog[4])){
+            else if(after==null&&before!=null&&date.getTime()<=before.getTime()&&status.equals(Status.valueOf(strFromLog[4]))){
                 result.add(strFromLog[0]);
             }
-            else if(before==null&&date.getTime()>=after.getTime()&&status.equals(strFromLog[4])){
+            else if(before==null&&after!=null&&date.getTime()>=after.getTime()&&status.equals(Status.valueOf(strFromLog[4]))){
                 result.add(strFromLog[0]);
             }
-            else if(date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()&&status.equals(strFromLog[4]))
+            else if(before!=null&&after!=null&&date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()&&status.equals(Status.valueOf(strFromLog[4])))
                 result.add(strFromLog[0]);
         }
         return result;
+    }
+
+    @Override
+    public Set<String> getAllUsers() {
+        Set<String> allUsers=new HashSet<>();
+        for(String[] strFromLog : logData){
+            allUsers.add(strFromLog[1]);
+        }
+        return allUsers;
+    }
+
+    @Override
+    public int getNumberOfUsers(Date after, Date before) {
+        int count=0;
+        for(String user : getAllUsers()){
+            Set<String> result=getIPsForUser(user,after,before);
+            if(!result.isEmpty()) count++;
+        }
+        return count;
+    }
+
+    @Override
+    public int getNumberOfUserEvents(String user, Date after, Date before) {
+        Set<String> uniqueEvents=new HashSet<>();
+        for(String[] strFromLog : logData){
+           if(strFromLog[1].equals(user)) {
+               Date date = null;
+               try {
+                   date = df.parse(strFromLog[2]);
+               } catch (ParseException e) {
+                   e.printStackTrace();
+               }
+
+               if(after==null&&before==null) {
+                   uniqueEvents.add(strFromLog[3]);
+               }
+               else if(after==null&&before!=null&&date.getTime()<=before.getTime()){
+                   uniqueEvents.add(strFromLog[3]);
+
+               }
+               else if(before==null&&after!=null&&date.getTime()>=after.getTime()){
+                   uniqueEvents.add(strFromLog[3]);
+               }
+               else if(before!=null&&after!=null&&date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()){
+                   uniqueEvents.add(strFromLog[3]);
+               }
+           }
+        }
+        return uniqueEvents.size();
+    }
+
+    @Override
+    public Set<String> getUsersForIP(String ip, Date after, Date before) {
+        Set<String> users=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(strFromLog[0].equals(ip)) {
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if (after == null && before == null) {
+                    users.add(strFromLog[1]);
+                } else if (after == null && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+
+                } else if (before == null && date.getTime() >= after.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                }
+            }
+        }
+        return users;
+    }
+
+    @Override
+    public Set<String> getUsersWhoHaveLoggedIn(Date after, Date before) {
+        Set<String> users=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.LOGIN)) {
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if (after == null && before == null) {
+                    users.add(strFromLog[1]);
+                } else if (after == null && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before == null && date.getTime() >= after.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                }
+            }
+        }
+        return users;
+    }
+
+    @Override
+    public Set<String> getUsersWhoHaveDownloadedPlugin(Date after, Date before) {
+        Set<String> users=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.DOWNLOAD_PLUGIN)) {
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if (after == null && before == null) {
+                    users.add(strFromLog[1]);
+                } else if (after == null && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before == null && date.getTime() >= after.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                }
+            }
+        }
+        return users;
+    }
+
+    @Override
+    public Set<String> getUsersWhoHaveSentMessages(Date after, Date before) {
+        Set<String> users=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.SEND_MESSAGE)) {
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if (after == null && before == null) {
+                    users.add(strFromLog[1]);
+                } else if (after == null && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before == null && date.getTime() >= after.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                }
+            }
+        }
+        return users;
+    }
+
+    @Override
+    public Set<String> getUsersWhoHaveAttemptedTasks(Date after, Date before) {
+        Set<String> users=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.ATTEMPT_TASK)) {
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if (after == null && before == null) {
+                    users.add(strFromLog[1]);
+                } else if (after == null && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before == null && date.getTime() >= after.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                }
+            }
+        }
+        return users;
+    }
+
+    @Override
+    public Set<String> getUsersWhoHaveAttemptedTasks(Date after, Date before, int task) {
+        Set<String> users=new HashSet<>();
+        String t=task+"";
+        for(String[] strFromLog : logData){
+            if(Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.ATTEMPT_TASK)&&strFromLog[3].split(" ")[1].equals(t)) {
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if (after == null && before == null) {
+                    users.add(strFromLog[1]);
+                } else if (after == null && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before == null && date.getTime() >= after.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                }
+            }
+        }
+        return users;
+    }
+
+    @Override
+    public Set<String> getUsersWhoHaveCompletedTasks(Date after, Date before) {
+        Set<String> users=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.COMPLETE_TASK)) {
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if (after == null && before == null) {
+                    users.add(strFromLog[1]);
+                } else if (after == null && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+
+                } else if (before == null && date.getTime() >= after.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                }
+            }
+        }
+        return users;
+    }
+
+    @Override
+    public Set<String> getUsersWhoHaveCompletedTasks(Date after, Date before, int task) {
+        Set<String> users=new HashSet<>();
+        String t=task+"";
+        for(String[] strFromLog : logData){
+            if(Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.COMPLETE_TASK)&&strFromLog[3].split(" ")[1].equals(t)) {
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if (after == null && before == null) {
+                    users.add(strFromLog[1]);
+                } else if (after == null && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+
+                } else if (before == null && date.getTime() >= after.getTime()) {
+                    users.add(strFromLog[1]);
+                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                    users.add(strFromLog[1]);
+                }
+            }
+        }
+        return users;
+    }
+
+
+
+    @Override
+    public Set<Date> getDatesForUserAndEvent(String user, Event event, Date after, Date before) {
+        Set<Date> dates=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(user.equals(strFromLog[1])&&Event.valueOf(strFromLog[3].split(" ")[0]).equals(event)&&compareDates(strFromLog[2],after,before)){
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                dates.add(date);
+            }
+        }
+        return dates;
+    }
+
+    @Override
+    public Set<Date> getDatesWhenSomethingFailed(Date after, Date before) {
+        Set<Date> dates=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(Status.valueOf(strFromLog[4]).equals(Status.FAILED)&&compareDates(strFromLog[2],after,before)){
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                dates.add(date);
+            }
+        }
+        return dates;
+    }
+
+    @Override
+    public Set<Date> getDatesWhenErrorOccurred(Date after, Date before) {
+        Set<Date> dates=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(Status.valueOf(strFromLog[4]).equals(Status.ERROR)&&compareDates(strFromLog[2],after,before)){
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                dates.add(date);
+            }
+        }
+        return dates;
+    }
+
+    @Override
+    public Date getDateWhenUserLoggedInFirstTime(String user, Date after, Date before) {
+        Set<Date> dates=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(user.equals(strFromLog[1])&&Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.LOGIN)&&compareDates(strFromLog[2],after,before)){
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                dates.add(date);
+            }
+        }
+        if(dates.isEmpty()) return null;
+        return Collections.min(dates);
+    }
+
+    @Override
+    public Date getDateWhenUserAttemptedTask(String user, int task, Date after, Date before) {
+        String t=task+"";
+        Set<Date> dates=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(user.equals(strFromLog[1])&&Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.ATTEMPT_TASK)&&t.equals(strFromLog[3].split(" ")[1])&&compareDates(strFromLog[2],after,before)){
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                dates.add(date);
+            }
+        }
+        if(dates.isEmpty()) return null;
+        return Collections.min(dates);
+    }
+
+    @Override
+    public Date getDateWhenUserCompletedTask(String user, int task, Date after, Date before) {
+        String t=task+"";
+        Set<Date> dates=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(user.equals(strFromLog[1])&&Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.COMPLETE_TASK)&&t.equals(strFromLog[3].split(" ")[1])&&compareDates(strFromLog[2],after,before)){
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                dates.add(date);
+            }
+        }
+        if(dates.isEmpty()) return null;
+        return Collections.min(dates);
+    }
+
+    @Override
+    public Set<Date> getDatesWhenUserSentMessages(String user, Date after, Date before) {
+        Set<Date> dates=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(user.equals(strFromLog[1])&&Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.SEND_MESSAGE)&&compareDates(strFromLog[2],after,before)){
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                dates.add(date);
+            }
+        }
+        return dates;
+    }
+
+    @Override
+    public Set<Date> getDatesWhenUserDownloadedPlugin(String user, Date after, Date before) {
+        Set<Date> dates=new HashSet<>();
+        for(String[] strFromLog : logData){
+            if(user.equals(strFromLog[1])&&Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.DOWNLOAD_PLUGIN)&&compareDates(strFromLog[2],after,before)){
+                Date date = null;
+                try {
+                    date = df.parse(strFromLog[2]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                dates.add(date);
+            }
+        }
+        return dates;
     }
 }
