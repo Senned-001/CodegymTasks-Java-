@@ -2,9 +2,7 @@ package com.codegym.task.task39.task3913;
 
 
 
-import com.codegym.task.task39.task3913.query.DateQuery;
-import com.codegym.task.task39.task3913.query.IPQuery;
-import com.codegym.task.task39.task3913.query.UserQuery;
+import com.codegym.task.task39.task3913.query.*;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -13,7 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class LogParser implements IPQuery, UserQuery, DateQuery {
+public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQuery {
     private Path logDir;
     private List<String[]> logData;
     private DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
@@ -586,4 +584,187 @@ public class LogParser implements IPQuery, UserQuery, DateQuery {
         }
         return dates;
     }
+
+    @Override
+    public int getNumberOfEvents(Date after, Date before) {
+        return getAllEvents(after,before).size();
+    }
+
+    @Override
+    public Set<Event> getAllEvents(Date after, Date before) {
+        Set<Event>allEvents=new HashSet<>();
+        for(String[] strFromLog : logData) {
+            if(compareDates(strFromLog[2],after,before)) {
+                allEvents.add(Event.valueOf(strFromLog[3].split(" ")[0]));
+            }
+        }
+        return allEvents;
+    }
+
+    @Override
+    public Set<Event> getEventsForIP(String ip, Date after, Date before) {
+        Set<Event>allEvents=new HashSet<>();
+        for(String[] strFromLog : logData) {
+            if(compareDates(strFromLog[2],after,before)&&ip.equals(strFromLog[0])) {
+                allEvents.add(Event.valueOf(strFromLog[3].split(" ")[0]));
+            }
+        }
+        return allEvents;
+    }
+
+    @Override
+    public Set<Event> getEventsForUser(String user, Date after, Date before) {
+        Set<Event>allEvents=new HashSet<>();
+        for(String[] strFromLog : logData) {
+            if(compareDates(strFromLog[2],after,before)&&user.equals(strFromLog[1])) {
+                allEvents.add(Event.valueOf(strFromLog[3].split(" ")[0]));
+            }
+        }
+        return allEvents;
+    }
+
+    @Override
+    public Set<Event> getFailedEvents(Date after, Date before) {
+        Set<Event>allEvents=new HashSet<>();
+        for(String[] strFromLog : logData) {
+            if(compareDates(strFromLog[2],after,before)&&Status.valueOf(strFromLog[4]).equals(Status.FAILED)) {
+                allEvents.add(Event.valueOf(strFromLog[3].split(" ")[0]));
+            }
+        }
+        return allEvents;
+    }
+
+    @Override
+    public Set<Event> getErrorEvents(Date after, Date before) {
+        Set<Event>allEvents=new HashSet<>();
+        for(String[] strFromLog : logData) {
+            if(compareDates(strFromLog[2],after,before)&&Status.valueOf(strFromLog[4]).equals(Status.ERROR)) {
+                allEvents.add(Event.valueOf(strFromLog[3].split(" ")[0]));
+            }
+        }
+        return allEvents;
+    }
+
+    @Override
+    public int getNumberOfAttemptsToCompleteTask(int task, Date after, Date before) {
+        int count=0;
+        String t=task+"";
+        for(String[] strFromLog : logData) {
+            if(compareDates(strFromLog[2],after,before)
+                    &&Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.ATTEMPT_TASK)
+                    &&t.equals(strFromLog[3].split(" ")[1])){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @Override
+    public int getNumberOfSuccessfulAttemptsToCompleteTask(int task, Date after, Date before) {
+        int count=0;
+        String t=task+"";
+        for(String[] strFromLog : logData) {
+            if(compareDates(strFromLog[2],after,before)
+                    &&Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.COMPLETE_TASK)
+                    &&t.equals(strFromLog[3].split(" ")[1])){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @Override
+    public Map<Integer, Integer> getAllAttemptedTasksAndNumberOfAttempts(Date after, Date before) {
+        Map<Integer, Integer>AllAttemptedTasksAndNumberOfAttempts=new HashMap<>();
+        for(String[] strFromLog : logData) {
+            if(compareDates(strFromLog[2],after,before)&&Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.ATTEMPT_TASK)){
+                int task=Integer.parseInt(strFromLog[3].split(" ")[1]);
+                if(AllAttemptedTasksAndNumberOfAttempts.containsKey(task)){
+                    AllAttemptedTasksAndNumberOfAttempts.put(task,AllAttemptedTasksAndNumberOfAttempts.get(task)+1);
+                }else AllAttemptedTasksAndNumberOfAttempts.put(task,1);
+            }
+        }
+        return AllAttemptedTasksAndNumberOfAttempts;
+    }
+
+    @Override
+    public Map<Integer, Integer> getAllCompletedTasksAndNumberOfCompletions(Date after, Date before) {
+        Map<Integer, Integer>AllCompletedTasksAndNumberOfCompletions=new HashMap<>();
+        for(String[] strFromLog : logData) {
+            if(compareDates(strFromLog[2],after,before)&&Event.valueOf(strFromLog[3].split(" ")[0]).equals(Event.COMPLETE_TASK)){
+                int task=Integer.parseInt(strFromLog[3].split(" ")[1]);
+                if(AllCompletedTasksAndNumberOfCompletions.containsKey(task)){
+                    AllCompletedTasksAndNumberOfCompletions.put(task,AllCompletedTasksAndNumberOfCompletions.get(task)+1);
+                }else AllCompletedTasksAndNumberOfCompletions.put(task,1);
+            }
+        }
+        return AllCompletedTasksAndNumberOfCompletions;
+    }
+
+    public Set<Date>getAllDates(){
+        Set<Date>AllDates=new HashSet<>();
+        for(String[] strFromLog : logData) {
+            Date date = null;
+            try {
+                date = df.parse(strFromLog[2]);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            AllDates.add(date);
+        }
+        return AllDates;
+    }
+
+    public Set<Status>getAllStatus(){
+        Set<Status>AllStatus=new HashSet<>();
+        for(String[] strFromLog : logData) {
+            AllStatus.add(Status.valueOf(strFromLog[4]));
+            if(AllStatus.size()==3) break;
+        }
+        return AllStatus;
+    }
+
+    @Override
+    public Set<Object> execute(String query) {
+        switch (query){
+            case "get ip" : return new HashSet<>(getUniqueIPs(null,null));
+            case "get user" : return new HashSet<>(getAllUsers());
+            case "get date" : return new HashSet<>(getAllDates());
+            case "get event" : return new HashSet<>(getAllEvents(null,null));
+            case "get status" : return new HashSet<>(getAllStatus());
+        }
+
+        String field1 = query.split(" ")[1];
+        String field2 = query.split(" ")[3];
+        String value1 = query.split("=")[1].trim();
+        value1=value1.substring(1,value1.length()-1);
+
+        int indexForField1=0;
+        int indexForField2=0;
+
+        switch (field1){
+            case "ip" : {indexForField1=0;break;}
+            case "user" : {indexForField1=1;break;}
+            case "date" : {indexForField1=2;break;}
+            case "event" : {indexForField1=3;break;}
+            case "status" : {indexForField1=4;break;}
+        }
+        switch (field2){
+            case "ip" : {indexForField2=0;break;}
+            case "user" : {indexForField2=1;break;}
+            case "date" : {indexForField2=2;break;}
+            case "event" : {indexForField2=3;break;}
+            case "status" : {indexForField2=4;break;}
+        }
+
+        Set<Object> result=new HashSet<>();
+        for(String[] strFromLog : logData) {
+            if(strFromLog[indexForField2].equals(value1)) {
+                result.add(strFromLog[indexForField1]);
+            }
+        }
+        return result;
+    }
+
+
 }

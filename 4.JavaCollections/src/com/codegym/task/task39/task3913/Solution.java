@@ -11,7 +11,7 @@ public class Solution {
         System.out.println(logParser.getIPsForUser("Pete Tyson",null, null));
         System.out.println(logParser.getIPsForStatus(Status.ERROR,null, null));
         System.out.println(logParser.getIPsForEvent(Event.COMPLETE_TASK,null, null));
-
+        System.out.println(logParser.execute("get ip for event = \"ATTEMPT_TASK 18\""));
 
     }
 }
