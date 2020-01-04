@@ -53,11 +53,11 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
         }
         if (after == null && before == null) {
             dateGets=true;
-        } else if (after == null && before != null&&date.getTime() <= before.getTime()) {
+        } else if (after == null && before != null&&date.getTime() < before.getTime()) {
             dateGets=true;
-        } else if (before == null && after != null&&date.getTime() >= after.getTime()) {
+        } else if (before == null && after != null&&date.getTime() > after.getTime()) {
             dateGets=true;
-        } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+        } else if (before != null && after != null && date.getTime() > after.getTime() && date.getTime() < before.getTime()) {
             dateGets=true;
         }
         return dateGets;
@@ -79,26 +79,10 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 System.out.println("Incorrect date format");
                 continue;
             }
-
-            if(after==null&&before==null) {
+            if(compareDates(strFromLog[2],after,before)) {
                 result.add(strFromLog[0]);
-                //System.out.println("Adding");
-            }
-            else if(after==null&&date.getTime()<=before.getTime()){
-                result.add(strFromLog[0]);
-                //System.out.println("Adding");
-
-            }
-            else if(before==null&&date.getTime()>=after.getTime()){
-                result.add(strFromLog[0]);
-                //System.out.println("Adding");
-            }
-            else if(before!=null&&after!=null&&date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()){
-                result.add(strFromLog[0]);
-                //System.out.println("Adding");
             }
         }
-
         return result;
     }
 
@@ -113,17 +97,9 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 e.printStackTrace();
             }
 
-            if(after==null&&before==null&&user.equals(strFromLog[1])) {
+            if(compareDates(strFromLog[2],after,before)&&user.equals(strFromLog[1])) {
                 result.add(strFromLog[0]);
             }
-            else if(after==null&&before!=null&&date.getTime()<=before.getTime()&&user.equals(strFromLog[1])){
-                result.add(strFromLog[0]);
-            }
-            else if(before==null&&after!=null&&date.getTime()>=after.getTime()&&user.equals(strFromLog[1])){
-                result.add(strFromLog[0]);
-            }
-            else if(before!=null&&after!=null&&date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()&&user.equals(strFromLog[1]))
-                result.add(strFromLog[0]);
         }
         return result;
     }
@@ -138,18 +114,9 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-
-            if(after==null&&before==null&&event.equals(Event.valueOf(strFromLog[3].split(" ")[0]))) {
+            if(compareDates(strFromLog[2],after,before)&&event.equals(Event.valueOf(strFromLog[3].split(" ")[0]))) {
                 result.add(strFromLog[0]);
             }
-            else if(after==null&&before!=null&&date.getTime()<=before.getTime()&&event.equals(Event.valueOf(strFromLog[3].split(" ")[0]))){
-                result.add(strFromLog[0]);
-            }
-            else if(before==null&&after!=null&&date.getTime()>=after.getTime()&&event.equals(Event.valueOf(strFromLog[3].split(" ")[0]))){
-                result.add(strFromLog[0]);
-            }
-            else if(before!=null&&after!=null&&date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()&&event.equals(Event.valueOf(strFromLog[3].split(" ")[0])))
-                result.add(strFromLog[0]);
         }
         return result;
     }
@@ -164,18 +131,9 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-
-            if(after==null&&before==null&&status.equals(Status.valueOf(strFromLog[4]))) {
+            if(compareDates(strFromLog[2],after,before)&&status.equals(Status.valueOf(strFromLog[4]))) {
                 result.add(strFromLog[0]);
             }
-            else if(after==null&&before!=null&&date.getTime()<=before.getTime()&&status.equals(Status.valueOf(strFromLog[4]))){
-                result.add(strFromLog[0]);
-            }
-            else if(before==null&&after!=null&&date.getTime()>=after.getTime()&&status.equals(Status.valueOf(strFromLog[4]))){
-                result.add(strFromLog[0]);
-            }
-            else if(before!=null&&after!=null&&date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()&&status.equals(Status.valueOf(strFromLog[4])))
-                result.add(strFromLog[0]);
         }
         return result;
     }
@@ -210,18 +168,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                } catch (ParseException e) {
                    e.printStackTrace();
                }
-
-               if(after==null&&before==null) {
-                   uniqueEvents.add(strFromLog[3]);
-               }
-               else if(after==null&&before!=null&&date.getTime()<=before.getTime()){
-                   uniqueEvents.add(strFromLog[3]);
-
-               }
-               else if(before==null&&after!=null&&date.getTime()>=after.getTime()){
-                   uniqueEvents.add(strFromLog[3]);
-               }
-               else if(before!=null&&after!=null&&date.getTime()>=after.getTime()&&date.getTime()<=before.getTime()){
+               if(compareDates(strFromLog[2],after,before)) {
                    uniqueEvents.add(strFromLog[3]);
                }
            }
@@ -240,15 +187,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-
-                if (after == null && before == null) {
-                    users.add(strFromLog[1]);
-                } else if (after == null && date.getTime() <= before.getTime()) {
-                    users.add(strFromLog[1]);
-
-                } else if (before == null && date.getTime() >= after.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                if (compareDates(strFromLog[2],after,before)) {
                     users.add(strFromLog[1]);
                 }
             }
@@ -267,14 +206,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-
-                if (after == null && before == null) {
-                    users.add(strFromLog[1]);
-                } else if (after == null && date.getTime() <= before.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before == null && date.getTime() >= after.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                if (compareDates(strFromLog[2],after,before)) {
                     users.add(strFromLog[1]);
                 }
             }
@@ -293,14 +225,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-
-                if (after == null && before == null) {
-                    users.add(strFromLog[1]);
-                } else if (after == null && date.getTime() <= before.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before == null && date.getTime() >= after.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                if (compareDates(strFromLog[2],after,before)) {
                     users.add(strFromLog[1]);
                 }
             }
@@ -319,14 +244,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-
-                if (after == null && before == null) {
-                    users.add(strFromLog[1]);
-                } else if (after == null && date.getTime() <= before.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before == null && date.getTime() >= after.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                if (compareDates(strFromLog[2],after,before)) {
                     users.add(strFromLog[1]);
                 }
             }
@@ -345,14 +263,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-
-                if (after == null && before == null) {
-                    users.add(strFromLog[1]);
-                } else if (after == null && date.getTime() <= before.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before == null && date.getTime() >= after.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                if (compareDates(strFromLog[2],after,before)) {
                     users.add(strFromLog[1]);
                 }
             }
@@ -372,14 +283,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-
-                if (after == null && before == null) {
-                    users.add(strFromLog[1]);
-                } else if (after == null && date.getTime() <= before.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before == null && date.getTime() >= after.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                if (compareDates(strFromLog[2],after,before)) {
                     users.add(strFromLog[1]);
                 }
             }
@@ -398,15 +302,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-
-                if (after == null && before == null) {
-                    users.add(strFromLog[1]);
-                } else if (after == null && date.getTime() <= before.getTime()) {
-                    users.add(strFromLog[1]);
-
-                } else if (before == null && date.getTime() >= after.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                if (compareDates(strFromLog[2],after,before)) {
                     users.add(strFromLog[1]);
                 }
             }
@@ -426,23 +322,13 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-
-                if (after == null && before == null) {
-                    users.add(strFromLog[1]);
-                } else if (after == null && date.getTime() <= before.getTime()) {
-                    users.add(strFromLog[1]);
-
-                } else if (before == null && date.getTime() >= after.getTime()) {
-                    users.add(strFromLog[1]);
-                } else if (before != null && after != null && date.getTime() >= after.getTime() && date.getTime() <= before.getTime()) {
+                if (compareDates(strFromLog[2],after,before)) {
                     users.add(strFromLog[1]);
                 }
             }
         }
         return users;
     }
-
-
 
     @Override
     public Set<Date> getDatesForUserAndEvent(String user, Event event, Date after, Date before) {
@@ -733,15 +619,35 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
             case "get event" : return new HashSet<>(getAllEvents(null,null));
             case "get status" : return new HashSet<>(getAllStatus());
         }
-
+        //if query have format: get field1 for field2 = "value1" then:
         String field1 = query.split(" ")[1];
         String field2 = query.split(" ")[3];
         String value1 = query.split("=")[1].trim();
-        value1=value1.substring(1,value1.length()-1);
+        value1 = value1.substring(1, value1.length() - 1);
+        Date dateAfter = null;
+        Date dateBefore = null;
 
-        int indexForField1=0;
-        int indexForField2=0;
+        //if query have format: get field1 for field2 = "value1" and date between "after" and "before"
+        if(query.contains("and date between")){
+            value1=value1.split(" and date between")[0];
+            value1= value1.substring(0, value1.length() - 1);
+            String after=query.split("and date between ")[1];
+            after=after.split(" and")[0];
+            after=after.substring(1, after.length() - 1);
+            String before=query.split("and date between ")[1];
+            before=before.split("and ")[1];
+            before=before.substring(1, before.length() - 1);
 
+            try {
+                dateAfter = df.parse(after);
+                dateBefore = df.parse(before);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        int indexForField1=0;               //index of element in logdata for result
+        int indexForField2=0;               //index of element in logdata for filter with value
         switch (field1){
             case "ip" : {indexForField1=0;break;}
             case "user" : {indexForField1=1;break;}
@@ -759,12 +665,60 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
 
         Set<Object> result=new HashSet<>();
         for(String[] strFromLog : logData) {
-            if(strFromLog[indexForField2].equals(value1)) {
-                result.add(strFromLog[indexForField1]);
+            if(field1.equals("date")){
+                if(field2.equals("event")){                         //if filter on event element it needs only name without number of task
+                    if(compareDates(strFromLog[2],dateAfter,dateBefore)&&strFromLog[indexForField2].split(" ")[0].equals(value1)){
+                        Date date = null;
+                        try {
+                            date = df.parse(strFromLog[indexForField1]);
+                        } catch (ParseException e) {
+                            continue;
+                        }
+                        result.add(date);
+                    }
+                }
+                else{
+                    if(compareDates(strFromLog[2],dateAfter,dateBefore)&&strFromLog[indexForField2].equals(value1)){
+                        Date date = null;
+                        try {
+                            date = df.parse(strFromLog[indexForField1]);
+                        } catch (ParseException e) {
+                            continue;
+                        }
+                        result.add(date);
+                    }
+                }
+            }
+            else if(field1.equals("event")){
+                if(compareDates(strFromLog[2],dateAfter,dateBefore)&&strFromLog[indexForField2].equals(value1)){
+                    result.add(Event.valueOf(strFromLog[indexForField1].split(" ")[0]));
+                }
+            }
+            else if(field1.equals("status")){
+                if(field2.equals("event")) {
+                    if (compareDates(strFromLog[2],dateAfter,dateBefore)&&strFromLog[indexForField2].split(" ")[0].equals(value1)) {
+                        result.add(Status.valueOf(strFromLog[indexForField1]));
+                    }
+                }
+                else{
+                    if(compareDates(strFromLog[2],dateAfter,dateBefore)&&strFromLog[indexForField2].equals(value1)){
+                        result.add(Status.valueOf(strFromLog[indexForField1]));
+                    }
+                }
+            }
+            else{
+                if(field2.equals("event")) {
+                    if (compareDates(strFromLog[2],dateAfter,dateBefore)&&strFromLog[indexForField2].split(" ")[0].equals(value1)) {
+                        result.add(strFromLog[indexForField1]);
+                    }
+                }
+                else{
+                    if(compareDates(strFromLog[2],dateAfter,dateBefore)&&strFromLog[indexForField2].equals(value1)) {
+                        result.add(strFromLog[indexForField1]);
+                    }
+                }
             }
         }
         return result;
     }
-
-
 }
