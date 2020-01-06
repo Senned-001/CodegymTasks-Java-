@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task38.task3803"\n\nRuntime exceptions (unchecked exceptions)
+
+
+Write the implementation of the methodThrowsClassCastException() method. It must
+always throw a ClassCastException.
+
+Write the implementation of the methodThrowsNullPointerException() method. It must
+always throw a NullPointerException.
+
+Using the keyword throw to throw an exception is explicitly forbidden.
+
+
+Requirements:
+1.	The veryComplexClass class&#39;s methodThrowsClassCastException method must not use the keyword throw.
+2.	The veryComplexClass class&#39;s methodThrowsNullPointerException method must not use the keyword throw.
+3.	The veryComplexClass class&#39;s methodThrowsClassCastException method must throw a ClassCastException.
+4.	The veryComplexClass class&#39;s methodThrowsNullPointerException method must throw a NullPointerException.
+
+

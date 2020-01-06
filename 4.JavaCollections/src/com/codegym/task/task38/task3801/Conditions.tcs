@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task38.task3801"\n\nFix coding errors
+
+
+The NameIsEmptyException and NameIsNullException exceptions must be checked.
+All types of exceptions must be handled.
+Don't change the implementations of the main() and getNumberOfCharacters() methods.
+Only the order of the catch blocks in the main() method should be changed.
+
+
+Requirements:
+1.	When a NameIsNullException occurs, the following must be displayed: &quot;Error: No name was specified&quot;.
+2.	When a NameIsEmptyException occurs, the following must be displayed: &quot;Error: The name is empty&quot;.
+3.	When any other exception occurs, the string returned the exception&#39;s toString method must be displayed.
+4.	If no exceptions occur, the following format string must be displayed: &quot;The name contains X characters&quot;, where X is the number of characters in the first argument passed to the main method.
+5.	The NameIsEmptyException class must be a child of the Exception class.
+6.	The NameIsNullException class must be a child of the Exception class.
+
+

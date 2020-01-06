@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task38.task3802"\n\nChecked exceptions
+
+
+Write the implementation of the veryComplexMethod() method.
+It must always throw a checked exception.
+Using the keyword throw to throw an exception is explicitly forbidden.
+
+
+Requirements:
+1.	The veryComplexClass class&#39;s veryComplexMethod method must not use the keyword throw.
+2.	The veryComplexClass class&#39;s veryComplexMethod method must throw an exception.
+3.	The thrown exception must NOT be a RuntimeException.
+4.	The veryComplexMethod method must NOT be private.
+
+
