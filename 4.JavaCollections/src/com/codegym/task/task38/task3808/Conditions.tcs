@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task38.task3808"\n\nIncorrect annotations
+
+
+Fix the incorrect annotations. The code must compile without errors or warnings.
+
+Avoid redundancy. Don't just write out all of the annotations you know one after another.
+
+
+Requirements:
+1.	The @Main annotation must only be used to annotate methods.
+2.	The Solution class&#39;s main method must only be annotated with the @Main annotation.
+3.	The SubSolution class&#39;s overriddenMethod method must only be annotated with @Override.
+4.	In the uncheckedCall method, unchecked warnings must be suppressed using an annotation.
+
+

@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task38.task3806"\n\nImprovements in Java 7 (try-with-resources)
+
+
+Rewrite the implementations of the Solution class's methods.
+Use the new exception handling feature (try-with-resources) that has been added to Java 7.
+
+
+Requirements:
+1.	There must not be catch blocks in the printFile1 method.
+2.	There must not be catch blocks in the printFile2 method.
+3.	In the printFile1 method, the FileInputStream must be initialized as a resource in a try block.
+4.	In the printFile2 method, the BufferedInputStream must be initialized as a resource in a try block.
+5.	In the printFile2 method, the BufferedInputStream must be initialized as a resource in a try block.
+6.	There must be only one try block in the printFile2 method.
+
+

@@ -1,0 +1,29 @@
+taskKey="com.codegym.task.task38.task3804"\n\nException factory
+
+
+Create an exception factory class that has a single static method that returns the required exception.
+This method should accept one enum argument.
+Do the following for each of these enums:
+* ApplicationExceptionMessage: return an Exception
+* DatabaseExceptionMessage: return a RuntimeException
+* UserExceptionMessage: return an Error
+otherwise: return IllegalArgumentException without a message.
+
+Use the name of the enum field as the message of the returned object,
+replacing all of the underscores with spaces. Everything must be lowercase except the first character of the message.
+For example, the message for ApplicationExceptionMessage.SOCKET_IS_CLOSED should be "Socket is closed".
+
+Return the created factory class in the Solution.getFactoryClass method.
+
+Don't change the enums.
+
+
+Requirements:
+1.	The getFactoryClass method must return the exception factory.
+2.	ApplicationExceptionMessage must not have any additional methods or constructors.
+3.	DatabaseExceptionMessage must not have any additional methods or constructors.
+4.	UserExceptionMessage must not have any additional methods or constructors.
+5.	The static exception factory method must return the exceptions listed in the conditions (including the message) for any inputs.
+6.	The factory must have one method and it must be static.
+
+

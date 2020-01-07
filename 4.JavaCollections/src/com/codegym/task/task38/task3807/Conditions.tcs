@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task38.task3807"\n\nPredefined annotation types
+
+
+In this class, wherever you can, add all of the possible predefined annotations.
+There shouldn't be anything redundant.
+
+
+Requirements:
+1.	The Solution class must be annotated with @Deprecated.
+2.	The SubSolution class must be annotated with @Deprecated.
+3.	The arguments field must be annotated with @Deprecated.
+4.	The main method must be annotated with @Deprecated.
+5.	The Solution class&#39;s voidMethod method must be annotated with @Deprecated.
+6.	The SubSolution class&#39;s voidMethod method must be annotated with @Deprecated and @Override.
+7.	The Solution class&#39;s constructor must be annotated with @Deprecated and @SafeVarargs.
+
+

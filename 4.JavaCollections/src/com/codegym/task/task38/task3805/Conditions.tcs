@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task38.task3805"\n\nImprovements in Java 7 (multiple exceptions)
+
+
+Rewrite the implementations of the Solution class's methods.
+Use Java 7's new ability to handle multiple exceptions.
+
+
+Requirements:
+1.	In the Solution class&#39;s constructor, WrongDataException and ConnectionException must be handled in a single catch block.
+2.	WrongDataException and ConnectionException must be handled in a single catch block in the write method.
+3.	WrongDataException and ConnectionException must be handled in a single catch block in the read method.
+4.	WrongDataException and ConnectionException must be handled in a single catch block in the disconnect method.
+
+

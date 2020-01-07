@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task38.task3809"\n\nAnnotation + reflection
+
+
+Analyze the code and fix the error.
+Focus on the expected output.
+Make as few changes as possible.
+
+
+Requirements:
+1.	The program should display data on the screen.
+2.	The screen output must match the expected output.
+3.	@interface LongPositive must be annotated with two other annotations.
+4.	@interface LongPositive must only be applied to fields.
+5.	@interface LongPositive must be available at runtime.
+
+
