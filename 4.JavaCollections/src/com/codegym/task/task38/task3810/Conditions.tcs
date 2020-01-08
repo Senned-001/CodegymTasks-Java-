@@ -1,0 +1,15 @@
+taskKey="com.codegym.task.task38.task3810"\n\nImplement annotations
+
+
+The project must compile and display the Solution class's annotation.
+Don't change the Solution class or its annotation.
+The Changelog annotation must be visible at runtime.
+
+
+Requirements:
+1.	The screen output must match the expected output.
+2.	The Solution class&#39;s @Changelog annotation must be displayed.
+3.	The @Changelog annotation must be visible at runtime.
+4.	The Solution class must implement a main method with one String[] parameter.
+
+

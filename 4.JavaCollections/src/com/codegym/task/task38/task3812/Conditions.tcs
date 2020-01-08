@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task38.task3812"\n\nProcessing annotations
+
+
+Implement the simplest possible annotation processor in the Solution class.
+
+A class is passed to the printFullyQualifiedNames and printValues methods. If this class is annotated with
+PrepareMyTest, you need to use the appropriate methods to display the fully qualified names and values, and return
+true. If the PrepareMyTest annotation is missing, return false.
+
+Use the simple name (getSimpleName) to display the classes in the value array.
+
+
+Requirements:
+1.	The printFullyQualifiedNames method must return false if the passed class isn&#39;t annotated with @PrepareMyTest.
+2.	The printValues method must return false if the passed class isn&#39;t annotated with @PrepareMyTest.
+3.	The printFullyQualifiedNames method must display all of the elements of the fullyQualifiedValues array and return true if the passed class is annotated with @PrepareMyTest.
+4.	The printValues method must display the simple name of all of the elements of the value array and return true if the passed class is annotated with @PrepareMyTest.
+
+
