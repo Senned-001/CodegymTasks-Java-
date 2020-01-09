@@ -1,0 +1,169 @@
+taskKey="com.codegym.task.task28.task2810.big08"\n\nAggregator (part 8)
+
+
+Run the program in debug mode again.
+Copy the value of document.html() into the HTML file we created earlier.
+Format it and find the tags with job postings.
+
+Read additional lesson material about attribute selectors in the Community.
+
+PLEASE NOTE THIS SPECIAL RULE FOR TESTING THIS TASK!
+The HTML code on the Linkedin page might change. To allow this task to work consistently without requiring us to change the tests,
+use the cached version at http://codegym.cc/testdata/big28data.html
+This is only for this item. Use real pages in subsequent tasks.
+
+1. In the LinkedinStrategy class, create a protected Document getDocument(String searchString, int page) throws IOException method.
+
+2. Implement the following logic in the LinkedinStrategy class's getJobPostings method:
+2.1. Use the getDocument method to fetch the cached Linkedin page. The numbering starts with 0.
+2.2. Get the list of elements with the "jobs-search-result-item" class. There should be up to 25 job postings per page.
+2.3. If there is data in the list from step 2.2, then for each element:
+2.3.1. create a JobPosting and set all its fields using data from the current element.
+2.4. Repeat items 2.1-2.3 for the next Linkedin page.
+2.5. When there are no more pages of job postings, exit the loop.
+
+Ignore exceptions.
+Add all job postings to a single list and return it.
+
+
+Requirements:
+1.	In the LinkedinStrategy class, create a protected getDocument(String searchString, int start) method. Move the logic for getting the Document object to there.
+2.	The LinkedinStrategy class&#39;s getJobPostings method must use the getDocument method to get the contents of web pages. Start with start 0.
+3.	Get a list of HTML elements with the &quot;jobs-search-result-item&quot; class from the Document object. For each element, create a JobPosting object and add it to the list returned by the method.
+4.	You need to consecutively process all of the pages in the search results. As soon as you are out of pages with job postings, exit the loop and return the list of job postings.
+5.	Each JobPosting must have a title field set using job title retrieved from the HTML element.
+6.	Each JobPosting must have a url field set using the job posting link retrieved from the HTML element.
+7.	Each JobPosting must have a city field set using the city information retrieved from the HTML element.
+8.	Each JobPosting must have a companyName field set using the company information retrieved from the HTML element.
+9.	Each JobPosting must have a websiteName field set using the name of the website where the job posting was found on.
+10.	If you changed the value of the URL_FORMAT field, don&#39;t forget to change it back.
+
+
+Aggregator (part 7)
+
+
+To let Linkedin know who's connecting to it, we'll add Request Headers to our request.
+
+There are developer tools that show various information about requests.
+I'll tell you about two tools.
+
+***Chrome****
+1. In the Chrome browser, go to Menu -> Tools -> Developer Tools, or press Ctrl+Shift+I
+2. In the browser bar, enter the URL https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco
+3. Go to the Network tab. The requested URL should be at the top.
+It shows that the GET method was used to send the data (POST is also an option), and that the status is 200 (success)
+4. Select it and you will see information about the page.
+5. Find "Request Headers"
+
+***Firefox***
+1. Firefox has a Firebug plugin. Install Firebug (Menu -> Add-ons -> Search -> Firebug -> install).
+2. Right-click to inspect an element using Firebug. Go to the Net tab and then the HTML submenu.
+3. In the browser bar, enter the URL https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco
+4. The HTML submenu has a list of requests, including the one you entered in the browser bar. Click on it and go to the "Headers" menu
+5. Find "Request Headers"
+
+Add a userAgent and referrer to the Linkedin connection.
+
+
+
+Aggregator (part 6)
+
+
+1. On the left in the Project panel, find "External Libraries" at the bottom. Find the examples package in jsoup, and look at the classes in this package.
+
+2. Similar to the implementations in the jsoup examples, connect to the Linkedin URL using the GET method.
+This needs to be done in the LinkedinStrategy class's getJobPostings method.
+Hint: You'll get a Document object.
+
+3. Set a breakpoint right after the connection. Run the program in debug mode.
+Copy the value of document.html() into the clipboard.
+
+4. Create a file with an html extension somewhere in the project's root.
+Paste the contents of the clipboard into this file, and format it using Ctrl+Alt+L. IDEA knows how to format HTML.
+Hooray! This is the page's HTML code :)
+
+5. Implement equals/hashCode methods in the JobPosting class.
+Press Alt+Enter for the equals() and hashCode() methods.
+
+
+
+Aggregator (part 5)
+
+
+1. Add a getJobPostings(String searchString) method to the interface. It will return a list of job postings.
+
+2. Correct the errors in the LinkedinStrategy class.
+
+3. Return to the Provider class's getJavaJobPostings method. Implement it assuming that all the data is adequate.
+
+4. Let's try to run our program and see how it works.
+In the main method, write controller.scan() instead of outputting to the screen;
+Accept IDEA's suggestion and create a method.
+Inside the method, go through all of the providers and collect all their job postings and add them to the list. Display the number of job postings.
+
+5. Fix the NullPointerException (NPE) if one occurs (add a stub).
+
+
+
+Aggregator (part 4)
+
+
+Open the Linkedin website (https://www.linkedin.com/jobs/)
+Type "Java San Francisco" in the search bar. At the bottom, navigate to the second page, since URLs often differ between the first and subsequent pages.
+I got this URL:
+https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco&start=25
+It follows that:
+1) if you need to filter by city, then you add the name of the city after the word "Java" and separate them with a "+" sign,
+2) there are 25 job postings per page.
+
+So, a generic URL would look something like this:
+https://www.linkedin.com/jobs/search?keywords=Java+ADDITIONAL_VALUE&start=PAGE_VALUE
+
+1. Use the resulting URL to create a private String URL_FORMAT constant in LinkedinStrategy, which will be passed to String.format.
+String.format(URL_FORMAT, "San+Francisco", 75) must be equal to
+"https://www.linkedin.com/jobs/search?keywords=Java+San+Francisco&start=75"
+To do this, copy the URL into your code and press the required key combination over it.
+Ctrl+Alt+C is for creating constants,
+Ctrl+Alt+M is for creating methods,
+Ctrl+Alt+V is for creating variables.
+
+2. You need to get the web page's source code programmatically. This is done with an HTTP request. You will need a Java HTML Parser.
+jsoup is a good parser. Let's use it.
+Find the jsoup website, and download version 1.9.2 of the library and its source files. You don't need to include them in the project!
+
+3. Connect the new libraries:
+In IDEA, open the "Project Structure" menu item (in the File menu).
+On the left, select Project Settings -> Libraries. In the upper-right window, click "+".
+Choose "Java" if the libraries aren't there yet, or choose "Attach Files or Directories" to add jar files to an existing library.
+In the dialog box, open the folder path from item 2. Then open the folder itself and select all of the *.jar files.
+
+4. Read additional material for this lesson in the Community.
+
+
+
+Aggregator (part 3)
+
+
+Starting in this task, you will begin writing the logic for fetching data from a website.
+This logic will be contained entirely in the classes that implement Strategy.
+
+Speaking in terms of the Strategy pattern, the provider acts as the context.
+The provider must have a method that will call the strategy's method for performing the primary operation.
+This method will return all of the Java job postings from the selected website.
+
+1. In the root of the task, create a vo (value object) package and create a JobPosting class in it.
+This class will store job posting data.
+
+2. In Provider, create a List<JobPosting> getJavaJobPostings(String searchString) method. Leave the method empty for now.
+
+3. What data is associated with a job posting?
+A job title, city, company name, name of the website where the job posting was found, and a link to the job posting.
+In the JobPosting class, create the corresponding String fields: title, city, companyName, websiteName, and url.
+
+4. Create getters and setters for all of the JobPosting class's fields.
+
+5. In the model package, create an LinkedinStrategy class that implements Strategy.
+This class will implement a specific strategy for working with the Linkedin website (https://www.linkedin.com/jobs/).
+
+
+
