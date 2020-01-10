@@ -9,14 +9,6 @@ public class JobPosting {
     private String websiteName;
     private String url;
 
-    public JobPosting(String title, String city, String companyName, String websiteName, String url) {
-        this.title = title;
-        this.city = city;
-        this.companyName = companyName;
-        this.websiteName = websiteName;
-        this.url = url;
-    }
-
     public String getTitle() {
         return title;
     }
