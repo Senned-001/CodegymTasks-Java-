@@ -29,27 +29,16 @@ public class IndeedStrategy implements Strategy{
             //Elements elements = document.getElementsByAttributeValue("class", "jobsearch");
             if(elements.size()==0) break;
             for(Element e:elements){
-                if(e!=null) {
-                    if(e.attr("class").contains("result")) {    //filter for "Recommended jobs for you"
+                    //if(e.attr("class").contains("result")) {    //filter for "Recommended jobs for you"
                         JobPosting newPost = new JobPosting();
                         newPost.setTitle(e.getElementsByTag("a").first().attr("title").trim());
                         newPost.setCity(e.getElementsByClass("location").text().trim());
                         newPost.setCompanyName(e.getElementsByClass("company").text().trim());
                         newPost.setUrl(e.getElementsByTag("a").first().attr("href").trim());
                         newPost.setWebsiteName(URL_FORMAT);
-                    /*System.out.println(newPost.getTitle());
-                    System.out.println(newPost.getCity());
-                    System.out.println(newPost.getCompanyName());
-                    System.out.println(newPost.getUrl());
-                    System.out.println(newPost.getWebsiteName());*/
-                        if (!jobPostingList.contains(newPost))
-                            jobPostingList.add(newPost);
-                    }
-                }
+                        jobPostingList.add(newPost);
             }
-            i=i+10;     //numeration on Indeed
-            /*System.out.println("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII="+i);
-            System.out.println(jobPostingList.size());*/
+            i=i+10;     //numeration of pages on Indeed
         }
         return jobPostingList;
     }

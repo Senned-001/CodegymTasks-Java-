@@ -1,4 +1,36 @@
-taskKey="com.codegym.task.task28.task2810.big16"\n\nAggregator (part 16)
+taskKey="com.codegym.task.task28.task2810.big17"\n\nAggregator (part 17)
+
+
+Stuff you can do on your own (we won't test you on any of these items):
+1. Add a bazillion other job sites for aggregating job postings.
+You just need to create a strategy, and then add a provider for that strategy to the model.
+2. Sort all of the job postings. For example, you could sort them by their posting date or salary (you'll have to parse the date or salary from the HTML you receive).
+3. Create your own view. For example, you could make one using swing. Swap HtmlView with SwingView in the main method.
+You already know how to add libraries. Make it so the request comes from a swing form.
+4. Package the application into a WAR file, deploy Tomcat, and use it to deploy the application. Make it so the request comes from a browser.
+
+
+Here's what you have achieved:
+1. You figured out the Strategy pattern,
+2. You figured out MVC, the most popular design pattern and one that is often asked about during interviews,
+3. You learned how to parse HTML,
+4. You gained experience using the jsoup library,
+5. You learned how to connect external libraries to IDEA,
+6. You gained experience using external libraries,
+7. You wrote a cool architecture,
+8. You know more and can do more,
+9. You saw how to break a task into subtasks,
+10. You moved one step closer to working as a Java programmer.
+
+Congratulations! I'm proud of you!
+You're my dream student!
+
+
+Requirements:
+1.	Congratulations! The job aggregator is ready.
+
+
+Aggregator (part 16)
 
 
 You are doing great! You've done a lot of work! Now it will be easy for you to monitor job vacancies :)
@@ -23,20 +55,6 @@ As with Linkedin, the HTML code for a job posting on Indeed might change. To tes
 use this cached version of a page when implementing this task: http://codegym.cc/testdata/big28data2.html.
 You'll need this to test this task. Once you pass the test, check whether IndeedStrategy works on the actual site.
 
-
-Requirements:
-1.	In the model package, create a new IndeedStrategy class that implements the Strategy interface.
-2.	In the IndeedStrategy class, add a private static URL_FORMAT constant by analogy with what we did in LinkedinStrategy.
-3.	In the IndeedStrategy class, create a protected getDocument(String searchString, int page) method. Implement it by analogy with how you implemented LinkedinStrategy.
-4.	The IndeedStrategy class&#39;s getJobPostings method must use the getDocument method to get the contents of web pages. Start with 0.
-5.	Get a list of HTML elements with job postings from the Document object. For each element, create a JobPosting object and add it to the list returned by the method.
-6.	You need to consecutively process all of the pages in the search results. As soon as you are out of pages with job postings, exit the loop and return the list of job postings.
-7.	Each JobPosting must have a title field set using job title retrieved from the HTML element.
-8.	Each JobPosting must have a url field set using the job posting link retrieved from the HTML element.
-9.	Each JobPosting must have a companyName field set using the company information retrieved from the HTML element.
-10.	Each JobPosting must have a websiteName field set using the name of the website where the job posting was found on.
-11.	The JobPosting&#39;s city field must be set if the HTML element had a tag with city information in it. Otherwise, the field must be initialized with an empty string.
-12.	Add a new provider to the model in the main method, and initialize it with IndeedStrategy.
 
 
 Aggregator (part 15)
@@ -144,27 +162,6 @@ This is an indication that you can move on.
 
 4. Run the application! Wait a few seconds to get the data.
 Did it work? Great! It works!
-
-
-
-Aggregator (part 11)
-
-
-Model has a selectCity method to which the name of the city for the job search is passed.
-Obviously, this method will be called by the controller, since it decides which model to use.
-
-1. Add a new Model model field to the Controller.
-
-2. Remove the scan() method from the Controller. Its logic has been moved to the model.
-
-3. Remove the constructor, toString method, and providers field from the controller.
-
-4. Create a Controller constructor with a Model parameter.
-Throw an IllegalArgumentException for invalid data
-
-5. Create a public void onCitySelected(String cityName) method in Controller, in which we will call the appropriate method on the model.
-
-6. Remove the code from the main method. This code is no longer valid.
 
 
 
