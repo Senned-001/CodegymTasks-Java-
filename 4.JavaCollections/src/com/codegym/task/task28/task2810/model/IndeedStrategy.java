@@ -38,7 +38,7 @@ public class IndeedStrategy implements Strategy{
                         newPost.setWebsiteName(URL_FORMAT);
                         jobPostingList.add(newPost);
             }
-            i=i+10;     //numeration of pages on Indeed
+            i=i+10;     //numeration of pages on Indeed 0 10 20 ...
         }
         return jobPostingList;
     }
