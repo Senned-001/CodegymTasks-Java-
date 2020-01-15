@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task39.task3901"\n\nUnique substrings
+
+
+Implement the lengthOfLongestUniqueSubstring method so that it returns the length
+of the longest substring without repeated characters in the string passed as an argument.
+For example, for "a123bcbcqwe", it should return 6. For "ttttwt", it should return 2.
+If the passed string is empty or null, return 0.
+
+
+Requirements:
+1.	The lengthOfLongestUniqueSubstring method must return the length of the substring with the maximum number of unique characters.
+2.	The lengthOfLongestUniqueSubstring method must return 0 for an empty string or null.
+3.	The lengthOfLongestUniqueSubstring method must be public.
+4.	The lengthOfLongestUniqueSubstring method must be static.
+
+

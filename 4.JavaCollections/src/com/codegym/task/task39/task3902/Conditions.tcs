@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task39.task3902"\n\nBits were bits
+
+
+While developing a complex encryption algorithm, there was a need to determine whether the binary representation of a number has
+an even number of ones.
+
+Implement the boolean isWeightEven(long number) method. It should return true or false depending on whether
+binary representation of number has an even or odd number of ones.
+
+P.S. Try to use only bitwise operations and minimize the program's execution time.
+
+
+Requirements:
+1.	The isWeightEven method must return true if the number of ones in the binary representation of the passed number is even.
+2.	The isWeightEven method must return false if the number of ones in the binary representation of the passed number is odd.
+3.	The isWeightEven method&#39;s execution time should be as low as possible.
+4.	The isWeightEven method must be public and static.
+
+

@@ -1,0 +1,19 @@
+taskKey="com.codegym.task.task39.task3903"\n\nUnequal exchange
+
+
+Continuing the development of the algorithm, we could really use a method that can swap specified bits
+in the binary representation of a long.
+
+Implement a long swapBits(long number, int i, int j) method that swaps the bits with indices i and j in the binary
+representation of number, and returns the result.
+
+The least significant bit has index 0.
+
+
+Requirements:
+1.	The swapBits method must be implemented in accordance with the task conditions.
+2.	The swapBits method must be public.
+3.	The swapBits method must be static.
+4.	The swapBits method must return a long.
+
+
