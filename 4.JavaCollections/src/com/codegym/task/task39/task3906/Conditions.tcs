@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task39.task3906"\n\nInterfaces will save us!
+
+
+Amigo, help... I have no idea what to do. I carefully followed the specifications, which required me to create a system
+for enabling an alarm. I created an alarm system (SecuritySystem) and power button (ElectricPowerSwitch),
+and verified that it works in the Solution class's main method.
+But then I received a new requirement. It turns out they are so enthralled with the ability to turn on the alarm with a single button
+that determines the action to perform that now they want to also add
+the ability to turn on a light.
+I created the LightBulb class in the image and likeness of the SecuritySystem class, but I can't figure out how to tie it to the
+button, since the button only works with the alarm system...
+
+Maybe you can try creating an interface for them to share?
+
+
+Requirements:
+1.	The LightBulb and SecuritySystem classes must have a common interface called Switchable.
+2.	The ElectricPowerSwitch class must not have SecuritySystem or LightBulb fields.
+3.	The ElectricPowerSwitch class must have only one field.
+4.	The logic of the ElectricPowerSwitch class and the press method must remain unchanged.
+
+

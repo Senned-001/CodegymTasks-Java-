@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task39.task3908"\n\nIs a palindrome possible?
+
+
+Implement the isPalindromePermutation(String s) method. It should return true if you can make a palindrome from all
+the characters in string s. Otherwise, it should return false.
+
+The passed string includes only ASCII characters.
+Ignore the case of the letters.
+
+
+Requirements:
+1.	The isPalindromePermutation method should return true if you can make a palindrome by rearranging the characters in the passed string.
+2.	The isPalindromePermutation method should return false if you  cannot make a palindrome by rearranging the characters in the passed string.
+3.	The isPalindromePermutation method must be public.
+4.	The isPalindromePermutation method must be static.
+
+

@@ -1,0 +1,17 @@
+taskKey="com.codegym.task.task39.task3909"\n\nOne change
+
+
+Implement the isOneEditAway(String first, String second) method that returns true if it is possible
+to edit/add/delete one character in one of the strings to get the other string.
+
+The passed string includes only ASCII characters.
+Ignore the case of the characters.
+
+
+Requirements:
+1.	The isOneEditAway method should work correctly for strings of the same length.
+2.	The isOneEditAway method should work correctly for strings of different lengths.
+3.	The isOneEditAway method should work correctly for empty strings.
+4.	The isOneEditAway method must be public.
+
+

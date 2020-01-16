@@ -1,0 +1,14 @@
+taskKey="com.codegym.task.task39.task3910"\n\nisPowerOfThree
+
+
+Fix the bug in the isPowerOfThree(int n) method. It should return true if n is an integer
+power of the number 3. Otherwise, it should return false.
+
+
+Requirements:
+1.	The isPowerOfThree method must return true if n is an integer power of 3.
+2.	The isPowerOfThree method must return false if n is not an integer power of 3.
+3.	The isPowerOfThree method must be public.
+4.	The isPowerOfThree method must be static.
+
+

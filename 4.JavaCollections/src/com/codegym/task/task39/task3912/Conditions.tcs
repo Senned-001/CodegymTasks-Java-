@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task39.task3912"\n\nMaximum area
+
+
+Implement the int maxSquare(int[][] matrix) method. IT returns the area of the largest square
+of ones in the two-dimensional array called matrix.
+The matrix array contains only zeros and ones.
+
+
+Requirements:
+1.	The maxSquare method must be implemented in accordance with the task conditions.
+2.	The maxSquare method should work efficiently with large arrays.
+3.	The maxSquare method must be public.
+4.	The maxSquare method must return an int.
+5.	The maxSquare method must be static.
+
+

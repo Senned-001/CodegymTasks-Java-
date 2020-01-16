@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task39.task3911"\n\nRollback
+
+
+You must implement the rollback method in the Software class. It should make it possible to roll back the current software version
+to the desired version. All versions after the one we roll back to must be removed. And don't forget
+to change the currentVersion field.
+The rollback method should return true if everything succeeds and false if the desired version is not found.
+
+
+Requirements:
+1.	The rollback method should return false if the desired version is not found in versionHistoryMap.
+2.	The rollback method should only remove from versionHistoryMap software versions that follow the one passed as an argument.
+3.	The rollback method should set currentVersion to a new value and return true if the rollback is successful.
+4.	If the rollback is not possible, then the rollback method must not change currentVersion and versionHistoryMap.
+
+

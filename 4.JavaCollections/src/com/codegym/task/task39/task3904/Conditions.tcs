@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task39.task3904"\n\nStairs
+
+
+A boy runs up a flight of stairs consisting of n steps; in 1 bound, he can move up one, two or three steps.
+
+Implement the numberOfPossibleAscents(int n) method, which should return the number of ways the boy can
+ascend an entire flight of stairs consisting of n steps.
+
+P.S. If the flight of stairs consists of 0 steps, the method should return 1. For n < 0, return 0.
+
+
+Requirements:
+1.	The numberOfPossibleAscents method should return the number of ways to ascend a flight of stairs consisting of n steps.
+2.	The numberOfPossibleAscents method should return 1 for n = 0.
+3.	The numberOfPossibleAscents method should return 0 for n &lt; 0.
+4.	The numberOfPossibleAscents method must have linear running time.
+
+

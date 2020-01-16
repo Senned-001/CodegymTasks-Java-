@@ -1,0 +1,23 @@
+taskKey="com.codegym.task.task39.task3905"\n\nFill 'er up
+
+
+While developing a new version of a popular graphics editor, it has become necessary to implement the ability
+to fill an area of an image with a specified color.
+
+Implement a paintFill method in the PhotoPaint class so that it:
+- returns false if the color of the starting point (the coordinates are passed as arguments) matches the fill color
+or if the starting coordinates are beyond the bounds of the array.
+- modifies the input array and returns true if the fill can still be performed.
+
+The point with coordinates (x, y) corresponds to the array element with indices [y][x].
+
+P.S. If the fill algorithm isn't clear, practice using Paint.
+
+
+Requirements:
+1.	The paintFill method must return false if the passed coordinates are beyond the bounds of the image.
+2.	The paintFill method must return false if the color of the starting point is the same as the fill color.
+3.	If possible, the paintFill method must return true and correctly modify the image.
+4.	The paintFill method must be public.
+
+
