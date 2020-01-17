@@ -1,0 +1,147 @@
+taskKey="com.codegym.task.task26.task2613.big09"\n\nCashMachine (part 9)
+
+
+Today we're going to tackle ExitCommand.
+1. Implement the following logic in ExitCommand:
+1.1. Ask whether the user really wants to exit. Provide the following options: yes (y) or no (n).
+1.2. If the user confirms, then say goodbye.
+1.3. If the user does not confirm, then don't say goodbye — simply exit the program.
+
+This is all good, but sometimes we need to urgently interrupt an operation, for example, if the user chose the wrong operation.
+This is why we have InterruptedOperationException.
+2. Implement the following logic:
+2.1. If at any time the user enters "EXIT", regardless of case, throw an InterruptedOperationException.
+2.2. Find the only correct place to put this logic. Implement the functionality in this one method.
+
+3. Wrap the body of the main method in a try-catch and handle InterruptedOperationExceptions.
+Use ConsoleHelper to say goodbye to the user in the catch block.
+
+
+Requirements:
+1.	The ExitCommand class&#39;s execute() method, ask the user whether he or she really wants to exit. Provide the following options: yes (y) or no (n). If the user confirms, then say goodbye. If not, then don&#39;t say goodbye &mdash; simply exit the program.
+2.	Implement the logic with the ability to interrupt operations (by throwing an InterruptedOperationException).
+3.	The main method should not throw exceptions.
+
+
+CashMachine (part 8)
+
+
+It's time to whip our main method into shape. It already has a bunch of stuff that shouldn't be there.
+
+1. Move the logic from main to DepositCommand and InfoCommand.
+So what's happened to main? We have a loop, in which we ask the user for an operation and then call a method on the CommandExecutor.
+And so on forever... You need to come up the exit condition for the loop.
+Correct the loop to make it a do-while. The exit condition is the EXIT operation.
+
+2. Let's run the program and top up the account with "EUR 100 2" and "USD 20 6". Then we'll look at INFO.
+It's not clear what to do, since we've created 2 manipulators: the first for EUR, the second for USD.
+Let's improve the logic of InfoCommand. We need to display the balance for each manipulator.
+
+2.1. In the CurrencyManipulatorFactory class, create a static getAllCurrencyManipulators() method that returns a Collection of all manipulators.
+You stored all the manipulators in a map, right? If not, then refactor.
+2.2. In InfoCommand, display "<currency code> - <total amount of money for the selected currency>".
+Let's run the program and top up the account with "EUR 100 2" and "USD 20 6". Then we'll look at INFO.
+Does everything work correctly?
+EUR - 200
+USD - 120
+Excellent!
+
+3. Run the program and immediately request the INFO operation as the first operation. Nothing is displayed? That's no good.
+Add a boolean hasMoney() method to the manipulator. It should indicate whether any banknotes have been added.
+
+4. In InfoCommand, use the method in item 3 and display "No money available." if there is no money in the ATM.
+
+
+
+CashMachine (part 7)
+
+
+Let's return to the Command pattern.
+
+1. Create a command package. It will contain all classes with relevant logic.
+Think about the access modifier for each class in this package.
+
+2. Create a Command interface with a void execute() method.
+
+3. For each operation, create a command class that follows the Command pattern.
+The names of these classes are DepositCommand, InfoCommand, WithdrawCommand, ExitCommand.
+
+4. Create a public CommandExecutor class that we will use to interact with all the commands.
+Create a static Map<Operation, Command> allKnownCommandsMap field in it. Initialize the map with all known operations and commands.
+
+4.1 Create a public static final void execute(Operation operation) method that will call the execute method on the desired command.
+Implement this logic.
+4.2. Arrange access modifiers correctly, accounting for the fact that the only entry point is the execute method.
+
+We'll check that your structure matches the tests on the server.
+We'll carry the logic over to the next task.
+
+
+
+CashMachine (part 6)
+
+
+To refactor the code according to the Command pattern, you need to extract several logical blocks of code.
+For now, we have two such blocks: 1) code for the DEPOSIT operation, 2) code for the INFO operation.
+This code is in the main method. We need to get rid of it.
+Now you need to make it so the user is the one who chooses the operation to perform.
+
+1. Add a static Operation getAllowableOperationByOrdinal(Integer i) method to the Operation enum
+It should return one of the enum's fields: 1 - INFO, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT;
+Throw an IllegalArgumentException if invalid data is entered.
+
+2. In the ConsoleHelper class, implement the logic for a static Operation requestOperation() method.
+Ask the user to choose an operation.
+If the user enters 1, execute the INFO command, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT;
+Use the method described in item 1.
+Handle any exceptions and repeat the request for an operation.
+
+
+
+CashMachine (part 5)
+
+
+1. In the previous task, we implemented the basic logic of the DEPOSIT operation.
+But we couldn't see the results.
+So, in the manipulator, create an int getTotalAmount() method that calculates the total amount for the selected currency.
+
+2. Call the getTotalAmount() method in the main method.
+Is everything working correctly? Then let's move right along.
+Clearly, the getTotalAmount() method calculates what we need for the INFO operation.
+So it's time for a little refactoring.
+Read about the Command pattern!!
+Before you start refactoring, you need to understand one thing. But we won't go over that just now.
+
+
+
+CashMachine (part 4)
+
+
+1. Let's decide what operation to start with.
+Think about it. The ATM doesn't have money yet, so we can't test INFO and WITHDRAW.
+We'll start with the DEPOSIT operation.
+We read the currency code from the console. Then we read the denomination and number of banknotes. And then add them to the manipulator.
+
+2. To read the currency code, add a static String requestCurrencyCode() method to ConsoleHelper.
+This method should prompt the user to enter a currency code. Verify that the code contains 3 characters.
+If the currency code is invalid, then inform the user and repeat.
+If the currency code is valid, then convert the code to uppercase and return it.
+
+3. To read the denomination and number of banknotes, add a static String[] method getTwoValidNumbers(String currencyCode) to ConsoleHelper.
+This method should prompt the user to enter two positive integers.
+The first number is the denomination. The second is the number of banknotes.
+There is no validation of the denomination. That is, 1200 is an acceptable denomination.
+If the currency code is invalid, then inform the user and repeat.
+Example input:
+200 5
+
+4. In the CurrencyManipulator class, create a void addAmount(int denomination, int count) method
+that adds banknotes in the specified denomination and quantity.
+
+5. It's time to see the application in action.
+In the main method, write the code to implement the logic described in item 1.
+By the way, to avoid problems with testing the server, add "Locale.setDefault(Locale.ENGLISH);" as the first line in the main method.
+Let's start it, debug it, and check it out.
+
+
+
