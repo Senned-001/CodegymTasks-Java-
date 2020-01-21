@@ -1,4 +1,113 @@
-taskKey="com.codegym.task.task26.task2613.big10"\n\nCashMachine (part 10)
+taskKey="com.codegym.task.task26.task2613.big15"\n\nCashMachine (part 15)
+
+
+1. In CashMachine, create a constant for the path to the resources.
+public static final String RESOURCE_PATH;
+Refactor the loading of all the ResourceBundles to use RESOURCE_PATH.
+
+2. The CashMachine class should have no initialization of ResourceBundles.
+Move the message about exiting from CashMachine into ConsoleHelper. Call the method "printExitMessage".
+
+3. That's it! You can make it beautiful on your own. But we won't test you on this.
+For example:
+3.1. Fix the displayed texts.
+3.2. Add resources for multiple locales. For example, add support for Russian.
+3.3. Validate the input denominations.
+
+Here's what you have achieved:
+1. You figured out the Command pattern.
+2. You made friends with a greedy algorithm.
+3. You got acquainted with localization.
+4. You know more and can do more.
+5. You saw how to break a task into subtasks.
+6. You moved one step closer to working as a Java programmer.
+7. You solved one of the test tasks that are given at interviews. But shhhhh! Don't tell anyone :).
+If you're ever given this task, don't copy this solution. Instead, make your own by analogy.
+
+Congratulations!
+
+
+Requirements:
+1.	The CashMachine class must have a public static final String RESOURCE_PATH field.
+2.	The ConsoleHelper class must have a public static void printExitMessage() method.
+3.	Congratulations! That&#39;s all for this level!
+
+
+CashMachine (part 14)
+
+
+1. In LoginCommand and WithdrawCommand, add a private ResourceBundle res field and initialize it with the appropriate resource.
+For LoginCommand, use login_en.properties.
+For WithdrawCommand, use withdraw_en.properties.
+
+2. Use common_en.properties to replace all the strings in ConsoleHelper.
+To do this, create a private static ResourceBundle res field in the ConsoleHelper class and initialize it with the appropriate resource.
+Important: build the path to the resources dynamically using the CashMachine class's getPackage() method.
+
+
+
+
+CashMachine (part 13)
+
+
+You've already figured out ResourceBundle! Cool!
+Now we can add localization, i.e. support for multiple languages.
+
+1. In DepositCommand, ExitCommand, and InfoCommand, add a private ResourceBundle res field and initialize it with the appropriate resource.
+For DepositCommand, use deposit_en.properties.
+For ExitCommand, use exit_en.properties.
+For InfoCommand, use info_en.properties.
+Important: build the path to the resources dynamically using the CashMachine class's getPackage() method
+2. For each new resource, replace all the strings in the corresponding command.
+
+
+
+CashMachine (part 12)
+
+
+In part 11, we hardcoded the credit card number and PIN code used to allow working with our ATM.
+But we could have lots of users. We certainly won't hardcode them all! If we need to add another user,
+we would have to redeploy our application. There is a solution to this problem.
+
+Note that a new resources package has been added. We'll store our resource files in it.
+This package has the verifiedCards.properties file, where card numbers and PIN codes are specified.
+
+1. Add a private ResourceBundle validCreditCards field to LoginCommand.
+In the declaration, initialize this field with the data from the verifiedCards.properties file.
+Read online to find out how this is done for a ResourceBundle.
+Important: build the path to verifiedCards.properties dynamically using the CashMachine class's getPackage() method
+2. Replace the hardcoded credit card and PIN data with a check to see whether the entered user data is in verifiedCards.properties.
+
+
+
+CashMachine (part 11)
+
+
+Congratulations! You implemented WithdrawCommand! The main functionality is finished. Next you can do some polishing and make things pretty.
+Let's implement one sweet feature. We can get by without it, but it will make things more beautiful.
+I'm talking about verification of the user's credit card. No, there won't be any third-party API. Just processing of data from the console.
+
+Let's call this the LOGIN operation and make a corresponding command.
+1. Add the LOGIN operation with ordinal 0
+2. Prevent the user from selecting this operation from the list.
+In the only method for selecting operations, use the operation's ordinal to deny access — throw an IllegalArgumentException.
+3. Create LoginCommand by analogy with the other commands. In this command, hardcode card number and PIN code
+123456789012 and 1234, respectively.
+4. Implement the following logic for LoginCommand:
+4.1. Until the user enters a valid card number and PIN code, perform the following actions:
+4.2. Request 2 numbers from the user: a 12-digit credit card number and a 4-digit PIN code.
+4.3. Display a message if the user enters invalid data.
+4.4. If the data is valid, then compare them with the hardcoded values (123456789012 and 1234).
+4.5. If the user enters the data specified in item 4.4, then report that the verification was successful.
+4.6. If the user does NOT enter the data specified in item 4.4, then return to item 4.1.
+5. Fix CommandExecutor. Add the new operation to allKnownCommandsMap.
+6. Fix the main method.
+The LOGIN operation must be run once before any other operations are performed.
+Don't forget about InterruptedOperationExceptions anywhere the user can stop working with the ATM. So, call the operation inside a try-catch block.
+
+
+
+CashMachine (part 10)
 
 
 Today we'll tackle WithdrawCommand. It's the most complex operation.
@@ -47,124 +156,6 @@ The manipulator has the following banknotes:
 200 - 2
 The available banknotes cannot provide the requested amount. Throw an exception.
 Don't forget that maps sometimes throw ConcurrentModificationExceptions.
-
-
-Requirements:
-1.	The CurrencyManipulator class must have a boolean isAmountAvailable(int expectedAmount) method.
-2.	The isAmountAvailable method should return true if there is enough money for the withdrawal.
-3.	The CurrencyManipulator class must contain a Map&lt;Integer, Integer&gt; withdrawAmount(int expectedAmount) method.
-4.	The withdrawAmount method should return a map according to the task conditions.
-5.	The WithdrawCommand class&#39;s execute method must implement an algorithm for WithdrawCommand according to the task conditions.
-
-
-CashMachine (part 9)
-
-
-Today we're going to tackle ExitCommand.
-1. Implement the following logic in ExitCommand:
-1.1. Ask whether the user really wants to exit. Provide the following options: yes (y) or no (n).
-1.2. If the user confirms, then say goodbye.
-1.3. If the user does not confirm, then don't say goodbye — simply exit the program.
-
-This is all good, but sometimes we need to urgently interrupt an operation, for example, if the user chose the wrong operation.
-This is why we have InterruptedOperationException.
-2. Implement the following logic:
-2.1. If at any time the user enters "EXIT", regardless of case, throw an InterruptedOperationException.
-2.2. Find the only correct place to put this logic. Implement the functionality in this one method.
-
-3. Wrap the body of the main method in a try-catch and handle InterruptedOperationExceptions.
-Use ConsoleHelper to say goodbye to the user in the catch block.
-
-
-
-CashMachine (part 8)
-
-
-It's time to whip our main method into shape. It already has a bunch of stuff that shouldn't be there.
-
-1. Move the logic from main to DepositCommand and InfoCommand.
-So what's happened to main? We have a loop, in which we ask the user for an operation and then call a method on the CommandExecutor.
-And so on forever... You need to come up the exit condition for the loop.
-Correct the loop to make it a do-while. The exit condition is the EXIT operation.
-
-2. Let's run the program and top up the account with "EUR 100 2" and "USD 20 6". Then we'll look at INFO.
-It's not clear what to do, since we've created 2 manipulators: the first for EUR, the second for USD.
-Let's improve the logic of InfoCommand. We need to display the balance for each manipulator.
-
-2.1. In the CurrencyManipulatorFactory class, create a static getAllCurrencyManipulators() method that returns a Collection of all manipulators.
-You stored all the manipulators in a map, right? If not, then refactor.
-2.2. In InfoCommand, display "<currency code> - <total amount of money for the selected currency>".
-Let's run the program and top up the account with "EUR 100 2" and "USD 20 6". Then we'll look at INFO.
-Does everything work correctly?
-EUR - 200
-USD - 120
-Excellent!
-
-3. Run the program and immediately request the INFO operation as the first operation. Nothing is displayed? That's no good.
-Add a boolean hasMoney() method to the manipulator. It should indicate whether any banknotes have been added.
-
-4. In InfoCommand, use the method in item 3 and display "No money available." if there is no money in the ATM.
-
-
-
-CashMachine (part 7)
-
-
-Let's return to the Command pattern.
-
-1. Create a command package. It will contain all classes with relevant logic.
-Think about the access modifier for each class in this package.
-
-2. Create a Command interface with a void execute() method.
-
-3. For each operation, create a command class that follows the Command pattern.
-The names of these classes are DepositCommand, InfoCommand, WithdrawCommand, ExitCommand.
-
-4. Create a public CommandExecutor class that we will use to interact with all the commands.
-Create a static Map<Operation, Command> allKnownCommandsMap field in it. Initialize the map with all known operations and commands.
-
-4.1 Create a public static final void execute(Operation operation) method that will call the execute method on the desired command.
-Implement this logic.
-4.2. Arrange access modifiers correctly, accounting for the fact that the only entry point is the execute method.
-
-We'll check that your structure matches the tests on the server.
-We'll carry the logic over to the next task.
-
-
-
-CashMachine (part 6)
-
-
-To refactor the code according to the Command pattern, you need to extract several logical blocks of code.
-For now, we have two such blocks: 1) code for the DEPOSIT operation, 2) code for the INFO operation.
-This code is in the main method. We need to get rid of it.
-Now you need to make it so the user is the one who chooses the operation to perform.
-
-1. Add a static Operation getAllowableOperationByOrdinal(Integer i) method to the Operation enum
-It should return one of the enum's fields: 1 - INFO, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT;
-Throw an IllegalArgumentException if invalid data is entered.
-
-2. In the ConsoleHelper class, implement the logic for a static Operation requestOperation() method.
-Ask the user to choose an operation.
-If the user enters 1, execute the INFO command, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT;
-Use the method described in item 1.
-Handle any exceptions and repeat the request for an operation.
-
-
-
-CashMachine (part 5)
-
-
-1. In the previous task, we implemented the basic logic of the DEPOSIT operation.
-But we couldn't see the results.
-So, in the manipulator, create an int getTotalAmount() method that calculates the total amount for the selected currency.
-
-2. Call the getTotalAmount() method in the main method.
-Is everything working correctly? Then let's move right along.
-Clearly, the getTotalAmount() method calculates what we need for the INFO operation.
-So it's time for a little refactoring.
-Read about the Command pattern!!
-Before you start refactoring, you need to understand one thing. But we won't go over that just now.
 
 
 

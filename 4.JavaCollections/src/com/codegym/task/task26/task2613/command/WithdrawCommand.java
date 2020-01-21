@@ -1,5 +1,6 @@
 package com.codegym.task.task26.task2613.command;
 
+import com.codegym.task.task26.task2613.CashMachine;
 import com.codegym.task.task26.task2613.ConsoleHelper;
 import com.codegym.task.task26.task2613.CurrencyManipulator;
 import com.codegym.task.task26.task2613.CurrencyManipulatorFactory;
@@ -9,17 +10,20 @@ import com.codegym.task.task26.task2613.exception.InterruptedOperationException;
 import java.util.*;
 
 class WithdrawCommand implements Command{
+    private ResourceBundle res = ResourceBundle.getBundle(CashMachine.RESOURCE_PATH + "withdraw_en");
+
     @Override
     public void execute() throws InterruptedOperationException {
+        ConsoleHelper.writeMessage(res.getString("before"));
         CurrencyManipulator currencyManipulator1 = CurrencyManipulatorFactory.getManipulatorByCurrencyCode(ConsoleHelper.requestCurrencyCode());
         while(true) {
-            ConsoleHelper.writeMessage("Enter a sum of withdraw:");
+            ConsoleHelper.writeMessage(res.getString("specify.amount"));
             int expectedAmount;
             try {
                 expectedAmount = Integer.parseInt(ConsoleHelper.readString());
                 if(expectedAmount<=0) throw new NumberFormatException();
             } catch (NumberFormatException e) {
-                ConsoleHelper.writeMessage("Sum is not correct");
+                ConsoleHelper.writeMessage(res.getString("specify.not.empty.amount"));
                 continue;
             }
             if(currencyManipulator1.isAmountAvailable(expectedAmount)){
@@ -27,7 +31,7 @@ class WithdrawCommand implements Command{
                 try {
                     withdrawAmountMap = currencyManipulator1.withdrawAmount(expectedAmount);
                 } catch (InsufficientFundsException e) {
-                    ConsoleHelper.writeMessage("There are insufficient banknotes, please enter other sum");
+                    ConsoleHelper.writeMessage(res.getString("exact.amount.not.available"));
                     continue;
                 }
                 Set<Integer> keys = withdrawAmountMap.keySet();
@@ -35,13 +39,12 @@ class WithdrawCommand implements Command{
                 Collections.sort(result);
                 Collections.reverse(result);
                 for(Integer x:result){
-                    ConsoleHelper.writeMessage("\t"+x+" - "+withdrawAmountMap.get(x));
+                    ConsoleHelper.writeMessage(String.format(res.getString("success.format"),x,withdrawAmountMap.get(x)+""));
                 }
-                ConsoleHelper.writeMessage("Transaction was successful");
                 break;
             }
             else {
-                ConsoleHelper.writeMessage("There are not enough money, try other sum");
+                ConsoleHelper.writeMessage(res.getString("not.enough.money"));
             }
         }
     }
