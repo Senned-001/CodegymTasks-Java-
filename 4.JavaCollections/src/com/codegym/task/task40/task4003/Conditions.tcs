@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task40.task4003"\n\nSending an email with a file attachment
+
+
+Fix the implementation of the setAttachment method. This method must attach a file to the email.
+Hints:
+1. Use version 1.4.7 of the JavaMail API library.
+2. The email must have only one part (MimeBodyPart) with the file.
+
+
+Requirements:
+1.	The setAttachment method must assign new content to message. The content type must be MimeMultipart.
+2.	After the setAttachment method is called, message&#39;s content must have one MimeBodyPart.
+3.	The setAttachment method must attach the file to the appropriate MimeBodyPart object.
+4.	The setAttachment method must assign the file name to the appropriate MimeBodyPart object.
+
+

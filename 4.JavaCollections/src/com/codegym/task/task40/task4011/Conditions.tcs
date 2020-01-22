@@ -1,0 +1,34 @@
+taskKey="com.codegym.task.task40.task4011"\n\nURL properties
+
+
+The decodeURLString method must take a URL as a String and display its properties on the screen:
+- protocol
+- authority
+- file
+- host
+- path
+- port
+- default port
+- query
+- ref
+
+If the passed String is not a valid URL, a message must be displayed on the screen as follows:
+"Parameter "s" is not a valid URL.", where "s" is the passed String.
+
+P.S. You don't need to parse the String. Create a URL object and call the methods you need.
+
+
+Requirements:
+1.	A new URL object must be created in the decodeURLString method.
+2.	The passed URL&#39;s protocol property must be displayed.
+3.	The passed URL&#39;s authority property must be displayed.
+4.	The passed URL&#39;s file property must be displayed.
+5.	The passed URL&#39;s host property must be displayed.
+6.	The passed URL&#39;s path property must be displayed.
+7.	The passed URL&#39;s port property must be displayed.
+8.	The passed URL&#39;s default port property must be displayed.
+9.	The passed URL&#39;s query property must be displayed.
+10.	The passed URL&#39;s ref property must be displayed.
+11.	The decodeURLString method must display an error message for invalid URLs.
+
+

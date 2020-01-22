@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task40.task4001"\n\nPOST, not GET
+
+
+Fix the errors in the sendPost method so that it sends a POST request with the passed arguments.
+Note: the main method isn't tested, but to make the program work correctly locally, you can:
+go to http://requestb.in/,
+create your own RequestBin, and use it in main.
+
+
+Requirements:
+1.	The sendPost method must call the setRequestMethod method with &quot;POST&quot; as the argument.
+2.	The sendPost method must set the connection&#39;s doOutput flag to true.
+3.	The arguments passed to the sendPost method must be written to the connection&#39;s OutputStream.
+4.	The sendPost method must display its results on the screen.
+
+
