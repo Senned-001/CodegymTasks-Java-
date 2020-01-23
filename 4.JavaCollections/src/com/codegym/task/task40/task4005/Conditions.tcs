@@ -1,0 +1,16 @@
+taskKey="com.codegym.task.task40.task4005"\n\nSocket server and client
+
+
+You have a server that receives incoming messages from clients and responds using echo.
+You have clients that read messages from the keyboard and send them to the server.
+The program starts, but it doesn't work.
+Figure out what the problem is and make the smallest possible changes to the code to make it work.
+
+
+Requirements:
+1.	Don&#39;t change the Client class.
+2.	Don&#39;t change the Server class.
+3.	Make the necessary changes to the Connection class.
+4.	Don&#39;t change the Connection class&#39;s fields.
+
+

@@ -1,0 +1,18 @@
+taskKey="com.codegym.task.task40.task4006"\n\nSending a GET request via a socket
+
+
+Rewrite the implementation of the getSite method. It must explicitly create and use a Socket connection with
+the server.
+The server address and parameters for the GET request should be retrieved from the url parameter.
+Use the default port for HTTP (80).
+Don't use HttpURLConnection, HttpClient, etc.
+Don't leave commented code.
+
+
+Requirements:
+1.	 The getSite method must create a Socket object with the correct (String host, int port) arguments.
+2.	The getSite method must write the correct request to the OutputStream.
+3.	The getSite method must display the socket&#39;s InputStream.
+4.	The getSite method must not use HttpURLConnection or HttpClient.
+
+

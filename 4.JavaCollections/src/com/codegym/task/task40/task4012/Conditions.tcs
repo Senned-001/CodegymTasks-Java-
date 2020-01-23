@@ -1,0 +1,22 @@
+taskKey="com.codegym.task.task40.task4012"\n\nUseful methods of the DateTime API
+
+
+Java 8's DateTime API implements many classes and methods that greatly simplify working with
+dates and times.
+
+Let's implement a few simple methods to get to know them better.
+
+1) The isLeap method must accept a date and return true if the year is a leap year, otherwise it must return false.
+2) The isBefore method must accept a date and return true if it is before the current date, otherwise it must return false.
+3) The addTime method must return the passed time plus n ChronoUnits.
+4) The getPeriodBetween method must take two dates and return the time interval between them. Remember,
+the earlier date must be passed before the later date to the Period.between method.
+
+
+Requirements:
+1.	The isLeap method must accept a date and return true if the year is a leap year, otherwise it must return false.
+2.	The isBefore method must accept a date and return true if it is before the current date, otherwise it must return false.
+3.	The addTime method must return the passed time plus n ChronoUnits.
+4.	The getPeriodBetween method must take two dates and return the time interval between them.
+
+

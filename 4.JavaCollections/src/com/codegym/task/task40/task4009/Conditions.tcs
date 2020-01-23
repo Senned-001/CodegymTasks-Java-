@@ -1,0 +1,21 @@
+taskKey="com.codegym.task.task40.task4009"\n\nBuon Compleanno!
+
+
+Implement the getWeekdayOfBirthday method.
+The method must return the day of the week for a birthday in a given year (past, present, or future), in Italian.
+See the main method for example date formats.
+
+Example:
+1) For "30.05.1984" and "2015", the method must return: sabato
+2) For "1.12.2015" and "2016", the method must return: giovedì
+
+Complete this task using Java 8's DateTime API.
+
+
+Requirements:
+1.	Use the LocalDate class&#39;s static parse method.
+2.	Use the Year class&#39;s static parse method.
+3.	 Use the Locale.ITALIAN locale.
+4.	The getWeekdayOfBirthday method must return the correct day of the week for the passed arguments.
+
+

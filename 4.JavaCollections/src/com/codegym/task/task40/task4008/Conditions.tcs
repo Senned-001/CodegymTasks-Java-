@@ -1,0 +1,48 @@
+taskKey="com.codegym.task.task40.task4008"\n\nWorking with Java 8's DateTime API
+
+
+Complete this task using Java 8's DateTime API.
+Implement the printDate(String date) method.
+It must accept a date as an argument (in one of 3 formats)
+and display it as follows:
+
+1) For "9.10.2017 5:56:45", the output must be:
+Day: 9
+Day of the week: 1
+Day of the month: 9
+Day of the year: 282
+Week of the month: 3
+Week of the year: 42
+Month: 10
+Year: 2017
+AM or PM: PM
+Hour: 5
+Hour of the day: 5
+Minutes: 56
+Seconds: 45
+
+2) For "21.4.2014":
+Day: 21
+Day of the week: 1
+Day of the month: 21
+Day of the year: 111
+Week of the month: 4
+Week of the year: 17
+Month: 4
+Year: 2014
+
+3) For "17.33.40":
+AM or PM: PM
+Hour: 5
+Hour of the day: 17
+Minutes: 33
+Seconds: 40
+
+
+Requirements:
+1.	If a date is passed to the printDate method in the format &quot;date time&quot;, the output should be: Day, Day of the week, Day of the month, Day of the year, Week of the month, Week of the year, Month, Year, AM or PM, Hour, Hour of the day, Minutes, and Seconds.
+2.	If a date is passed to the printDate method in the format &quot;date&quot;, the output should be: Day, Day of the week, Day of the month, Day of the year, Week of the month, Week of the year, Month, and Year.
+3.	If a date is passed to the printDate method in the format &quot;time&quot;, the output should be: AM or PM, Hour, Hour of the day, Minutes, and Seconds.
+4.	Use the static parse method of the LocalDate and LocalTime classes.
+
+
