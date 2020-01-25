@@ -1,131 +1,117 @@
-taskKey="com.codegym.task.task34.task3410.big05"\n\nSokoban (part 5)
+taskKey="com.codegym.task.task34.task3410.big11"\n\nSokoban (part 11)
 
 
-Box and Player game objects can not only
-collide with other objects, but also move around the board.
-5.1. Create a Player class and a Box class in the model package. Make each of them
-inherit the most appropriate class.
-5.2. The created classes must support the interface responsible for object
-movement.
-5.3. Add constructors that accept int x and int y arguments.
-5.4. In each class, implement the method responsible for movement. It must shift
-the object's (x, y) coordinates by the passed values.
-5.5. In each class, implement the method responsible for drawing. This method should:
-set a color and draw some basic shapes. Be sure
-that the coordinates of the shape's center are (x, y), and that its width and height match
-the width and height fields.
-Hint: you can draw the player as a solid yellow circle, and boxes — as orange
-squares with diagonals. But these are just examples. You can choose the colors yourself.
-The appearance of your objects is limited only by your imagination and the methods available
-in the Graphics class.
-
-To check how your box and player are drawn, you can create
-a Box or Player object in the Board class's paint() method and call the object's
-draw() method. Do this only do to test the draw() methods. We'll implement the
-paint() method differently in the future.
+Let's begin fleshing out the Model class' functionality. Add the following:
+11.1. A GameObjects gameObjects field. It will store our game objects.
+11.2. An int currentLevel field that stores the current level. Initialize it
+to 1.
+11.3. A LevelLoader levelLoader field that stores the level loader.
+Initialize it using the levels.txt file from the res folder.
+11.4. A GameObjects getGameObjects() method that must return all of the game
+objects.
+11.5. A restartLevel(int level) method that must receive the new game objects
+from levelLoader for the specified level and save them in the gameObjects field.
+11.6. The restart() method must restart the current level by calling restartLevel
+with the appropriate argument.
+11.7. The startNextLevel() method must increase the value of the
+currentLevel variable, which stores the current level number, and restart the new level.
 
 
 Requirements:
-1.	Create a Player class and a Box class in the model package. Make each of them inherit the most appropriate class.
-2.	The Player and Box classes must support the interface responsible for object movement.
-3.	Add Player and Box class constructors that accept int x and int y arguments.
-4.	In the Player and Box classes, implement the method responsible for movement. It must shift the object&#39;s (x, y) coordinates by the passed values.
-5.	In the Player and Box classes, implement the method responsible for drawing.
+1.	Add a GameObjects gameObjects field to the Model class.
+2.	Add an int currentLevel field to the Model class. Initialize it to 1.
+3.	Add a LevelLoader levelLoader field to the Model class.
+4.	Implement the GameObjects getGameObjects() method in the Model class.
+5.	Implement the restartLevel(int level) method in the Model class.
+6.	Implement the restart() method in the Model class.
+7.	Implement the startNextLevel() method in the Model class.
 
 
-Sokoban (part 4)
+Sokoban (part 10)
 
 
-We already have a shared GameObject class. It's time to create classes
-for specific types of game objects.
-4.1. Some game objects can move (player and boxes) and some can't (walls
-and storage locations).
-4.1.1. Add the Movable interface to the model package.
-4.1.2. The Movable interface must have a void move(int x, int y) method.
-4.2. Add a Direction enum to the model package. It must have the following values:
-LEFT, RIGHT, UP, and DOWN. This type will be used to describe the direction
-of an object's movement.
-4.3. The "storage location" objects don't support collision detection (the player and
-boxes can freely move over them). As for other objects,
-they must not pass through one another, i.e. they should collide. For example,
-a box can't be pushed through a wall.
-4.3.1. Add an abstract CollisionObject class to the model package.
-3.4.2. The CollisionObject class must inherit GameObject.
-4.3.3. Add the following to the CollisionObject class:
-4.3.3.1. A constructor that accepts int x and int y arguments.
-4.3.3.2. A boolean isCollision(GameObject gameObject, Direction direction) method.
-This method should return true if the current
-object will collide with the gameObject parameter after moving a distance of BOARD_CELL_SIZE
-in the direction specified by the direction parameter.
-Otherwise, it should return false. If (x, y) coordinates match, you have a collision.
+The game will have several levels, and all of them will be stored in a text file. Now we'll
+write a LevelLoader test stub. Why a test stub? We don't
+need the full functionality yet. It's pretty complicated, so we'll leave it for later. For now:
+10.1. Create a LevelLoader class in the model package.
+10.2. Add a constructor that accepts a Path levels argument. The levels parameter is
+the path to the test file containing the level descriptions.
+10.3. Add the GameObjects getLevel(int level) method to the LevelLoader class. For now, it doesn't
+matter what this method returns. For now, have it always return a set with: one player,
+one storage location, one box, and several walls. That will make it easier to debug the game.
+The coordinates of each object must be non-zero and multiples of half of
+BOARD_CELL_SIZE (the center of each object must be in the middle of a cell).
 
 
 
-Sokoban (part 3)
+Sokoban (part 9)
 
 
-Soon we'll be creating various game objects. It would be handy to be able
-to draw them somewhere right away and see how they look. Objects will be
-drawn on the game board represented by a Board object.
-You've received modified code for the View class that creates a Board object and
-sets up the view properly. You will also need:
-3.1. Add to the view package a Board class that inherits JPanel.
-3.2. Add the following to the Board class:
-3.2.1. A constructor with a View view parameter.
-3.2.2. A View view field that must be initialized in the constructor.
-3.2.3. Create a stub for a paint(Graphics g) method. It won't do anything yet.
-3.3. Add a call to the view's init() method to the Controller class constructor.
-3.4. The Controller class's main() method must create a new Controller object.
-
-
-
-Sokoban (part 2)
-
-
-The foundation is laid, so now let's start building. You can think of the gameplay
-as the interaction of GameObject objects. We'll have several types of them:
-Box, StorageLocation (the place where you need to put the box), Wall, and Player.
-2.1. Add an abstract GameObject class to the model package.
-2.2. Add the following fields to the GameObject class: int x, int y, int width, and int height. These fields represent the position and
-size of the object when drawn.
-2.3. Add setters and getters for the class's fields.
-2.4. Add to the Model class a public static int BOARD_CELL_SIZE = 20 constant. This
-represents the size of cells on the game board. All game objects will occupy one cell
-of the game board. This is the size that will be used when calculating movement and
-object collisions. The size stored inside an object will only be
-used when drawing that object.
-2.5. Add two constructors to the GameObject class:
-2.5.1. GameObject(int x, int y)
-2.5.2. GameObject(int x, int y, int width, int height)
-The constructors must initialize all of the class's fields. If width and height aren't passed,
-then use BOARD_CELL_SIZE as the width and height.
-2.6. Add an abstract void draw(Graphics graphics) method to the GameObject class. This method
-will be implemented differently in each type of game object. In other words,
-each type of game object will know how it should be drawn and will
-draw itself in the graphics context. Graphics is an abstract class from the
-java.awt library.
+Various events will occur during the game. Let's create an
+EventListener interface. Every class that wants to handle events must
+implement it. And classes that generate events will call
+this interface's methods.
+9.1. Add the EventListener interface to the controller package.
+9.2. Add these void methods to the interface:
+9.2.1. move(Direction direction) - moves the object in the specified direction.
+9.2.2. restart() - restart the current level.
+9.2.3. startNextLevel() - start the next level.
+9.2.4. levelCompleted(int level) - the level with the passed index has been completed.
+9.3. Add the EventListener interface to the Controller class, and write the stubs required to
+implement the interface.
+9.4. Add an EventListener eventListener field to the Model and Board classes.
+9.5. Add the setEventListener(EventListener eventListener) method
+to the Model, View, and Board classes. In the View class, this method must call the analogous method on the
+board object. In the Model and Field classes, it must set the value of the internal eventListener fields.
 
 
 
-Sokoban (part 1)
+Sokoban (part 8)
 
 
-Today we're going to write our own implementation of the game Sokoban. This is a logical puzzle game.
-You can read more about it on Wikipedia. The game will consist of 3
-main components (as you may have guessed, you'll need the MVC pattern).
-The graphical interface will be implemented using Swing.
-1.1. Create a view package and add a View class that inherits JFrame. This class
-will be responsible for displaying our game.
-1.2. Create a model package and add a Model class. This class will be responsible for our game's
-model. How do you like the class names? Totally unpredictable, right? :) Actually,
-it's very important to name classes in a way that allows anyone seeing your project for the first time
-to immediately understand what the classes are responsible for.
-1.3. Create a controller package and add a Controller class with a default constructor.
-1.4. Add a View class constructor that accept a Controller and saves it
-in a field inside the class (which you will also need to add). Name the field "controller".
-1.5. Add View view and Model model fields to the Controller class. Initialize them in
-the constructor.
-1.6. Since the controller is our main class, add the main method to it.
+You've created the complete collection of game objects. Let's create a class to
+store these objects.
+8.1. Create a GameObjects class in the model package.
+8.2. Add the following:
+8.2.1. Set<Wall> walls, Set<Box> boxes, Set<StorageLocation> storageLocations, and Player player fields.
+8.2.2. Getters for these fields.
+8.2.3. A class constructor that accepts Set<Wall> walls, Set<Box> boxes, Set<StorageLocation> storageLocations,
+and Player player arguments, and that initializes the class's fields.
+8.2.4. A Set<GameObject> getAll() method. It must return a set containing
+all of the objects stored in the object.
+
+
+
+
+Sokoban (part 7)
+
+
+Let's make the Wall class. A wall can collide with other objects, but it
+can't move.
+7.1. Add a Wall class to the model package.
+7.2. Make the class inherit the appropriate parent class.
+7.3. Implement a constructor with int x and int y parameters.
+7.4. Implement the method for drawing.
+Hint: you could draw walls as brown squares, but
+no one is limiting your choice of color. Show your full creative potential.
+
+
+
+Sokoban (part 6)
+
+
+It's time to create the StorageLocation class. This class will be responsible for the game board cells
+that all the boxes must be moved to. Objects of this type must not move
+across the board or collide with other game objects.
+6.1. Add a StorageLocation class to the model package.
+6.2. The class must inherit the most appropriate base class.
+6.3. Add a constructor that accepts int x and int y arguments. The width and height
+of storage locations must be equal to 2.
+6.4. Implement the method for drawing a storage location. Hint: you can use red and
+an unfilled circle.
+
+As with previous game objects, you can test the draw method in the
+Board class's paint() method.
 
 
 
