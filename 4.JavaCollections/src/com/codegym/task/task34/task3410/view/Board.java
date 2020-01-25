@@ -13,6 +13,7 @@ public class Board extends JPanel {
         this.view = view;
     }
 
+    @Override
     public void paint(Graphics g){
         //new Box(10,10).draw(g);
         //new Player(100, 100).draw(g);
