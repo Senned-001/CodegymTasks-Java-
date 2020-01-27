@@ -1,4 +1,138 @@
-taskKey="com.codegym.task.task34.task3410.big11"\n\nSokoban (part 11)
+taskKey="com.codegym.task.task34.task3410.big16"\n\nSokoban (part 16)
+
+
+All that remains is to finish implementing the level loader.
+16.1. Open the levels.txt file and carefully study the file structure. The character 'X'
+represents a wall, ‘*’ represents a box, ‘.’ represents a storage location, ‘&’ represents a box in a storage location, and ‘@’ represents the player.
+There are 60 levels in the file.
+16.2. Implement the GameObjects getLevel(int level) method. It must:
+16.2.1. Read the data for the passed level from the file. The levels should repeat in a loop.
+If the user has completed all 60 levels and gets to level 61, then
+the program takes the user back to level 1. And instead of level 62, the player is taken to level 2, etc.
+16.2.2. Create all of the game objects described in the specified level. The coordinates
+of each game object must be calculated using the following logic:
+16.2.2.1. The top-left object (if there is one) must have
+coordinates x = x0 = BOARD_CELL_SIZE / 2 and y = y0 = BOARD_CELL_SIZE / 2.
+16.2.2.2. An object that is one cell to the right must
+have coordinates x = x0 + BOARD_CELL_SIZE and y = y0.
+16.2.2.3. An object that is one cell below the top-left object
+must have coordinates x = x0 and y = y0 + BOARD_CELL_SIZE.
+16.2.2.4. The coordinates of all objects on the board must be calculated in a similar manner.
+16.2.3. Create a new GameObjects object and put all of the objects into it.
+16.2.4. Return the created object container.
+
+The game must be fully functional. Check to see if there are any problems. If there are, fix them.
+
+
+Requirements:
+1.	Implement the GameObjects getLevel(int level) method as outlined in the task conditions.
+
+
+Sokoban (part 15)
+
+
+The time has come to implement the model's move() method, which is responsible for movement. But first,
+let's implement some helper methods. Add the following methods to the Model class:
+15.1. boolean checkWallCollision(CollisionObject gameObject, Direction direction). This
+method checks for collisions with a wall. It should return true if the gameObject will collide
+with a wall by moving in the passed direction;
+otherwise, it should return false. To determine if there is a collision, use the game object's
+isCollision() method.
+15.2. boolean checkBoxCollisionAndMoveIfAvaliable(Direction direction). This method checks for
+collisions with boxes. The method should:
+15.2.1. Return true if the player can't move in the specified direction (i.e. the cell is occupied by
+a box with a wall behind it or by a box with another box behind it).
+15.2.2. Return false if the player can move in the specified direction (i.e. the cell is occupied by
+an empty cell or by a storage location or by a box with an empty
+cell or a storage location behind it). In this case, if a movable box is in the way, then
+you need to move it to new coordinates. Note that
+all the objects move by a fixed distance equal to BOARD_CELL_SIZE regardless
+of the dimensions used for drawing.
+Hint: check for collisions using the game objects' isCollision() methods
+and the model's checkWallCollision() method.
+15.3. void checkCompletion(). This method must check whether the level has been completed (whether
+all the storage locations have boxes on them, i.e. their coordinates match). If this condition
+is true, then let the event listener know that the current level is complete.
+15.4. void move(Direction direction). The method should:
+15.4.1. Check for a wall collision (use the checkWallCollision() method). If there is a
+collision, then exit the method.
+15.4.2. Check for a box collision (use the checkBoxCollisionAndMoveIfAvaliable() method). If there is a
+collision, then exit the method.
+15.4.3. Move the player in the passed direction.
+15.4.4. Check whether the level is completed.
+
+Run the program and be sure that the player can move itself and
+boxes, that walls prevent the player from moving, and that when you move all the boxes onto storage locations that a message about
+completing the level is displayed.
+
+
+
+Sokoban (part 14)
+
+
+Let's make our game more interactive (using a keyboard
+to move the player). We'll start by handling keystrokes.
+14.1. Add to the Board class a nested KeyHandler class that
+inherits KeyAdapter.
+14.2. Overload its keyPressed() method. If the key with code VK_LEFT is pressed,
+then send an event with a Direction.LEFT argument to eventListener.
+Handle keystrokes with codes VK_RIGHT, VK_UP, and
+VK_DOWN in a similar manner. If the user presses the R key, which has code VK_R, then call the event
+listener's restart() method.
+14.3. In the Board class constructor:
+14.3.1. Create a KeyHandler object.
+14.3.2. Use the addKeyListener() method to the handler to the listener.
+14.3.3. Set focusable to true (using the setFocusable() method).
+
+
+
+Sokoban (part 13)
+
+
+Let's fill out the controller's functionality.
+13.1. In addition to what the Controller class constructor already has, add event listeners
+on the model and view. The controller must itself be a listener.
+13.2. Implement the controller's methods:
+13.2.1. move(Direction direction) - should call the model's move(Direction direction) method
+and the view's update() method. The model doesn't have a move() method yet. Add a
+stub for it. We'll implement it later.
+13.2.2. restart() - must restart the model and update the view.
+13.2.3. startNextLevel() - must start a new level on the model and update
+the view.
+13.3. Add to the view a completed(int level) method that lets the user know
+when a level has been completed. The method should:
+13.3.1. Update the view.
+13.3.2. Show a dialog box with a message saying that the user has completed
+a level. Hint: use JOptionPane.showMessageDialog.
+13.3.3. Ask the controller to start the next level.
+13.4. Implement the levelCompleted(int level) method in the controller. It should call
+the view's completed() method.
+
+
+
+Sokoban (part 12)
+
+
+Let's try organizing the interaction between the view and model.
+12.1. Add an update() method to the View class. It must call the repaint() method on the
+board field. In other words, the update() method will update the view
+(redraw the board).
+12.2. Add the GameObjects getGameObjects() method to the controller class. It must
+request game objects from the model and return them. Add the same method to the view class.
+It should get objects from the controller.
+12.3. Properly implement the paint(Graphics g) method in the Board class. It must:
+12.3.1. Fill the entire board with some color such as black (call the setColor and
+fillRect methods).
+12.3.2. Get all the game objects from the view.
+12.3.3. Draw all the game objects.
+12.4. The Controller must restart the model in its constructor.
+
+
+Run the program and be sure that all of the game objects are drawn correctly.
+
+
+
+Sokoban (part 11)
 
 
 Let's begin fleshing out the Model class' functionality. Add the following:
@@ -15,103 +149,6 @@ from levelLoader for the specified level and save them in the gameObjects field.
 with the appropriate argument.
 11.7. The startNextLevel() method must increase the value of the
 currentLevel variable, which stores the current level number, and restart the new level.
-
-
-Requirements:
-1.	Add a GameObjects gameObjects field to the Model class.
-2.	Add an int currentLevel field to the Model class. Initialize it to 1.
-3.	Add a LevelLoader levelLoader field to the Model class.
-4.	Implement the GameObjects getGameObjects() method in the Model class.
-5.	Implement the restartLevel(int level) method in the Model class.
-6.	Implement the restart() method in the Model class.
-7.	Implement the startNextLevel() method in the Model class.
-
-
-Sokoban (part 10)
-
-
-The game will have several levels, and all of them will be stored in a text file. Now we'll
-write a LevelLoader test stub. Why a test stub? We don't
-need the full functionality yet. It's pretty complicated, so we'll leave it for later. For now:
-10.1. Create a LevelLoader class in the model package.
-10.2. Add a constructor that accepts a Path levels argument. The levels parameter is
-the path to the test file containing the level descriptions.
-10.3. Add the GameObjects getLevel(int level) method to the LevelLoader class. For now, it doesn't
-matter what this method returns. For now, have it always return a set with: one player,
-one storage location, one box, and several walls. That will make it easier to debug the game.
-The coordinates of each object must be non-zero and multiples of half of
-BOARD_CELL_SIZE (the center of each object must be in the middle of a cell).
-
-
-
-Sokoban (part 9)
-
-
-Various events will occur during the game. Let's create an
-EventListener interface. Every class that wants to handle events must
-implement it. And classes that generate events will call
-this interface's methods.
-9.1. Add the EventListener interface to the controller package.
-9.2. Add these void methods to the interface:
-9.2.1. move(Direction direction) - moves the object in the specified direction.
-9.2.2. restart() - restart the current level.
-9.2.3. startNextLevel() - start the next level.
-9.2.4. levelCompleted(int level) - the level with the passed index has been completed.
-9.3. Add the EventListener interface to the Controller class, and write the stubs required to
-implement the interface.
-9.4. Add an EventListener eventListener field to the Model and Board classes.
-9.5. Add the setEventListener(EventListener eventListener) method
-to the Model, View, and Board classes. In the View class, this method must call the analogous method on the
-board object. In the Model and Field classes, it must set the value of the internal eventListener fields.
-
-
-
-Sokoban (part 8)
-
-
-You've created the complete collection of game objects. Let's create a class to
-store these objects.
-8.1. Create a GameObjects class in the model package.
-8.2. Add the following:
-8.2.1. Set<Wall> walls, Set<Box> boxes, Set<StorageLocation> storageLocations, and Player player fields.
-8.2.2. Getters for these fields.
-8.2.3. A class constructor that accepts Set<Wall> walls, Set<Box> boxes, Set<StorageLocation> storageLocations,
-and Player player arguments, and that initializes the class's fields.
-8.2.4. A Set<GameObject> getAll() method. It must return a set containing
-all of the objects stored in the object.
-
-
-
-
-Sokoban (part 7)
-
-
-Let's make the Wall class. A wall can collide with other objects, but it
-can't move.
-7.1. Add a Wall class to the model package.
-7.2. Make the class inherit the appropriate parent class.
-7.3. Implement a constructor with int x and int y parameters.
-7.4. Implement the method for drawing.
-Hint: you could draw walls as brown squares, but
-no one is limiting your choice of color. Show your full creative potential.
-
-
-
-Sokoban (part 6)
-
-
-It's time to create the StorageLocation class. This class will be responsible for the game board cells
-that all the boxes must be moved to. Objects of this type must not move
-across the board or collide with other game objects.
-6.1. Add a StorageLocation class to the model package.
-6.2. The class must inherit the most appropriate base class.
-6.3. Add a constructor that accepts int x and int y arguments. The width and height
-of storage locations must be equal to 2.
-6.4. Implement the method for drawing a storage location. Hint: you can use red and
-an unfilled circle.
-
-As with previous game objects, you can test the draw method in the
-Board class's paint() method.
 
 
 

@@ -5,7 +5,7 @@ import java.awt.*;
 public class StorageLocation extends GameObject{
 
     public StorageLocation(int x, int y) {
-        super(x, y, 2, 2);
+        super(x, y, 20, 20);
     }
 
     @Override
