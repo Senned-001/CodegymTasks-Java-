@@ -11,7 +11,6 @@ Mastering the static block
 
 public class Solution {
     public static void main(String[] args) {
-
     }
     
     static {
@@ -37,7 +36,6 @@ public class Solution {
                 e.printStackTrace();
             }
             result = new Plane(i);
-
         }
         try {
             reader.close();

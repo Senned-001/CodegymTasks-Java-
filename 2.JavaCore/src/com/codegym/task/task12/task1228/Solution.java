@@ -12,26 +12,32 @@ public class Solution {
     }
 
     public static interface Employee {
+
         public void workLazily();
     }
 
     public static interface Businessman {
+
         public void workHard();
     }
 
     public static interface Secretary {
+
         public void workLazily();
     }
 
     public static interface Miner {
+
         public void workVeryHard();
     }
 
     public static class Human implements Employee, Businessman, Secretary{
 
+        @Override
         public void workHard() {
         }
 
+        @Override
         public void workLazily() {
         }
     }

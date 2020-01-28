@@ -9,6 +9,7 @@ public class Solution {
     }
 
     public interface Drinker {
+
         void askForMore(String message);
 
         void sayThankYou();
@@ -21,19 +22,28 @@ public class Solution {
 
         void sleepOnTheFloor();
 
+        @Override
         void askForMore(String message);
+
+        @Override
         void sayThankYou();
+
+        @Override
         boolean isReadyToGoHome();
     }
 
     public static class  BeerLover implements Alcoholic{
 
-
+        @Override
         public void sleepOnTheFloor(){}
+
+        @Override
         public void askForMore(String message){}
+
+        @Override
         public void sayThankYou(){}
+
+        @Override
         public boolean isReadyToGoHome(){return READY_TO_GO_HOME;}
-
-
     }
 }

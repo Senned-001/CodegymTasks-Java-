@@ -22,12 +22,13 @@ public class Solution {
     public static class Euro extends Money {
         private double amount = 123d;
 
+        @Override
         public Euro getMoney() {
             return this;
         }
+
         @Override
         public Object getAmount (){return this.amount;
-
         }
     }
 }

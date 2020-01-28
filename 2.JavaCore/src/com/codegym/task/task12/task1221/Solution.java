@@ -8,7 +8,6 @@ We all have a little cat in us…
 public class Solution {
     public static void main(String[] args) {
         Pet pet = new Cat();
-
         System.out.println(pet.getName());
     }
 
@@ -19,6 +18,7 @@ public class Solution {
     }
 
     public static class Cat extends Pet {
+
         @Override
         public String getName() {
             return "I'm a cat";

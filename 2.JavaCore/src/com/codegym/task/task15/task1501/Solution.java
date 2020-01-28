@@ -7,7 +7,6 @@ OOP: Arrange interfaces
 
 public class Solution {
     public static void main(String[] args) {
-
     }
 
     public interface Movable {
@@ -27,10 +26,12 @@ public class Solution {
         public boolean isMovable(){
             return true;
         }
+
         @Override
         public Object getAllowedAction(String name){
             return null;
         }
+
         @Override
         public Object getAllowedAction(){
             return null;

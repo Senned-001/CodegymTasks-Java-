@@ -12,14 +12,10 @@ public class Solution {
     }
 
     public static class NakedCat {
-       /* public NakedCat() {
-            super();
-        }*/
     }
 
     public static class NormalCat extends NakedCat {
        public NormalCat() {
-           /* super();*/
         }
 
         public NormalCat(String name) {

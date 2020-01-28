@@ -11,11 +11,9 @@ public class Solution {
 
     // Adam
     public class Adam {
-
     }
 
     // Eve
     public class Eve extends Adam{
-
     }
 }

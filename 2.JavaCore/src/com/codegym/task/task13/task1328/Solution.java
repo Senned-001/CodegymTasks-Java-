@@ -9,7 +9,6 @@ public class Solution {
     public static void main(String[] args) {
         Robot amigo = new Robot("Amigo");
         Robot enemy = new Robot("Enemy");
-
         doMove(amigo, enemy);
         doMove(amigo, enemy);
         doMove(enemy, amigo);

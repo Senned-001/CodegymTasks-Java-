@@ -8,7 +8,6 @@ Whales, the descendants of cows
 public class Solution {
     public static void main(String[] args) {
         Cow cow = new Whale();
-
         System.out.println(cow.getName());
     }
 
@@ -21,7 +20,6 @@ public class Solution {
     public static class Whale extends Cow {
         @Override
         public String getName(){return "";
-
         }
     }
 }

@@ -10,7 +10,6 @@ public class Solution {
         Food food = new Food();
         Selectable selectable = new Food();
         Food newFood = (Food) selectable;
-
         foodMethods(food);
         selectableMethods(selectable);
     }

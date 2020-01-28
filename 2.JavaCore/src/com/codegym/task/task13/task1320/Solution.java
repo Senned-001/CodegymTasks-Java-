@@ -21,11 +21,13 @@ public class Solution {
     static class User implements DBObject{
         long id;
         String name;
+
         public User initializeIdAndName(long id, String name){
             this.id=id;
             this.name=name;
             return User.this;
         }
+
         @Override
         public String toString() {
             return String.format("The user's name is %s, id = %d", name, id);

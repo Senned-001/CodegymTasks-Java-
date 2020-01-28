@@ -9,8 +9,4 @@ public class  Earth implements Planet {
             if(instance==null) instance = new Earth();
             return instance;
         }
-
-
-
-
 }

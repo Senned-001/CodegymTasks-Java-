@@ -7,7 +7,6 @@ Tom, Jerry and Spike
 
 public class Solution {
     public static void main(String[] args) {
-
     }
 
     // Can move
@@ -47,6 +46,4 @@ public class Solution {
         @Override
         public void beEaten(){}
     }
-
-
 }

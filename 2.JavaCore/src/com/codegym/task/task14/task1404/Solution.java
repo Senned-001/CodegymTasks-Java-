@@ -18,7 +18,7 @@ public class Solution {
         else  {c=CatFactory.getCatByKey(name1);
             System.out.println(c.toString());}
         }
-
+        reader.close();
     }
 
     static class CatFactory {
@@ -48,6 +48,7 @@ public class Solution {
             return this.name;
         }
 
+        @Override
         public String toString() {
             return "I'm " + getName() + ", an alley cat";
         }
@@ -58,6 +59,7 @@ public class Solution {
             super(name);
         }
 
+        @Override
         public String toString() {
             return "I'm a cat powerhouse named " + getName();
         }
@@ -68,6 +70,7 @@ public class Solution {
             super(name);
         }
 
+        @Override
         public String toString() {
             return "I'm a cute kitty named " + getName();
         }

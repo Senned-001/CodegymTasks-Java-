@@ -20,9 +20,9 @@ public class Solution {
                 o.getClass().getSimpleName().equals("Tiger")||
                 o.getClass().getSimpleName().equals("Lion")||
                 o.getClass().getSimpleName().equals("Bull")||
-                o.getClass().getSimpleName().equals("Pig"))
-            s= o.getClass().getSimpleName();
-
+                o.getClass().getSimpleName().equals("Pig")) {
+            s = o.getClass().getSimpleName();
+        }
         return s;
     }
 

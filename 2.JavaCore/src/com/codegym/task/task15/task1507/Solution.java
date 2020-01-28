@@ -31,8 +31,4 @@ public class Solution {
     public static void printMatrix(int m, Object n, String value) {}
     public static void printMatrix(String m, Object n, int value) {}
     public static void printMatrix(String m, Object n, String value) {}
-    
-    
-    
-    
 }

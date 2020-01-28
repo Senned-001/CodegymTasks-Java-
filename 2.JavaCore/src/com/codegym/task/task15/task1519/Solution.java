@@ -12,44 +12,41 @@ Different methods for different types
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         while(true){
             String name = reader.readLine();
             if(name.equals("exit")){
-                reader.close();break;
+                reader.close();
+                break;
             }
-            boolean doub, inte;
+            boolean doub;
+            boolean inte;
             Double d=0.0;
             int i=0;
-            {//proverka convertacii double i int
-                try {
-                    d = Double.parseDouble(name);
-                    doub=true;
-                } catch (NumberFormatException e) {
-                    doub=false;
-                }
-                try {
-                    i = Integer.parseInt(name);
-                    inte = true;
-                } catch (NumberFormatException e) {
-                    inte = false;
-                }
-
+            try {                   //check convertation d
+                d = Double.parseDouble(name);
+                doub = true;
+            } catch (NumberFormatException e) {
+                doub=false;
             }
-
-                if(name.contains(".")&&doub) {
-                    print(d);
-                }
-                else if (inte&&(i>0)&&(i<128)){
-
-                    print((short)i);
-                }
-                else if (inte){
-                    print(i);
-                }
-                else print(name);
-
+            try {
+                i = Integer.parseInt(name);
+                inte = true;
+            } catch (NumberFormatException e) {
+                inte = false;
+            }
+            if(name.contains(".")&&doub) {
+                print(d);
+            }
+            else if (inte&&(i>0)&&(i<128)){
+                print((short)i);
+            }
+            else if (inte){
+                print(i);
+            }
+            else
+                print(name);
         }
+        reader.close();
     }
 
     public static void print(Double value) {

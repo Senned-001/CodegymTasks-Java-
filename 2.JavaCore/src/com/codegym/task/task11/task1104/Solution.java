@@ -10,18 +10,14 @@ public class Solution {
     }
 
     public class Manager extends Employee{
-
     }
 
     public class CEO extends Employee{
-
     }
 
     public class Employee {
-
     }
 
     public class Secretary extends Employee{
-
     }
 }

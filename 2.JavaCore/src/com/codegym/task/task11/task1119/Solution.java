@@ -10,18 +10,14 @@ public class Solution {
     }
 
     public class House {
-
     }
 
     public class Cat {
-
     }
 
     public class Car {
-
     }
 
     public class Dog {
-
     }
 }

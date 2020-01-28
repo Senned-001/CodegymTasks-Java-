@@ -11,7 +11,6 @@ Player and Dancer
 public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         Person person = null;
         String key;
         while (!(key = reader.readLine()).equals("exit")) {
@@ -22,11 +21,14 @@ public class Solution {
             }
             haveFun(person);
         }
+        reader.close();
     }
 
     public static void haveFun(Person person) {
-        if (person instanceof Player) ((Player) person).play();  //vizov funkcii cherez privedenie tipov obecta
-        else ((Dancer) person).dance();
+        if (person instanceof Player)
+            ((Player) person).play();
+        else
+            ((Dancer) person).dance();
     }
 
     interface Person {

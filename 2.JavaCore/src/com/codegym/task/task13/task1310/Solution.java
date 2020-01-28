@@ -10,6 +10,7 @@ public class Solution {
     }
 
     interface Person {
+
         void use(Person person);
 
         void startToWork();
@@ -26,10 +27,13 @@ public class Solution {
     }
 
     class CleverMan implements Boss {
+
+        @Override
         public void use(Person person) {
             person.startToWork();
         }
 
+        @Override
         public void startToWork() {
         }
 
@@ -39,9 +43,12 @@ public class Solution {
     }
 
     class SmartGirl implements Secretary{
+
+        @Override
         public void use(Person person) {
         }
 
+        @Override
         public void startToWork() {
         }
     }

@@ -10,19 +10,14 @@ public class Solution {
     }
 
     public class Schoolboy {
-
     }
 
     public class Student extends Schoolboy{
-
     }
 
     public class Employee extends Student{
-
     }
 
     public class Slave extends Employee{
-
     }
-
 }

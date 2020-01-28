@@ -11,16 +11,18 @@ public class Solution {
     }
 
     public static interface CanFly {
+
         public void fly();
     }
 
     public static class Horse {
-        public void run() {
 
+        public void run() {
         }
     }
 
     public static class Pegasus extends Horse implements CanFly{
+
         @Override
         public void fly(){}
     }

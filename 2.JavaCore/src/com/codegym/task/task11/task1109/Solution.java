@@ -9,7 +9,6 @@ public class Solution {
     public static void main(String[] args) {
         Cat cat = new Cat("Oscar", 5);
         Dog dog = new Dog("Rover", 4);
-
         cat.isDogNear(dog);
         dog.isCatNear(cat);
     }

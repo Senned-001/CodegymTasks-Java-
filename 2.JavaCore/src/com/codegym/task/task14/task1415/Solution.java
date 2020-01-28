@@ -14,18 +14,19 @@ public class Solution {
         apartments.add(new OneRoomApt());
         apartments.add(new TwoRoomApt());
         apartments.add(new ThreeRoomApt());
-
         cleanAllApartments(apartments);
     }
 
     public static void cleanAllApartments(List<Apartment> apartments) {
         // Write your implementation of Items 1-4 here
         for (Apartment x:apartments) {
-            if(x instanceof OneRoomApt) ((OneRoomApt) x).clean1Room();
-            if(x instanceof TwoRoomApt) ((TwoRoomApt) x).clean2Rooms();
-            if(x instanceof ThreeRoomApt) ((ThreeRoomApt) x).clean3Rooms();
+            if(x instanceof OneRoomApt)
+                ((OneRoomApt) x).clean1Room();
+            if(x instanceof TwoRoomApt)
+                ((TwoRoomApt) x).clean2Rooms();
+            if(x instanceof ThreeRoomApt)
+                ((ThreeRoomApt) x).clean3Rooms();
         }
-
     }
 
     static interface Apartment {

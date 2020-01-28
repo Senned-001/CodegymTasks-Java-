@@ -9,7 +9,6 @@ public class Solution {
     public static void main(String[] args) {
         Pet pet = new Cat();
         pet.setName("I'm Fluffy");
-
         System.out.println(pet.getName());
     }
 
@@ -30,6 +29,8 @@ public class Solution {
     }
 
     public static class Cat extends Pet {
+
+        @Override
         public void setName(String name) {
             this.name ="I'm a cat";
         }

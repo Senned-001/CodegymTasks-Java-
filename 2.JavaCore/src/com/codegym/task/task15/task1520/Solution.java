@@ -17,6 +17,7 @@ public class Solution {
         public void doAction() {
             System.out.println("Flying");
         }
+
         @Override
         public void doAnotherAction(){
             System.out.println("Moving");

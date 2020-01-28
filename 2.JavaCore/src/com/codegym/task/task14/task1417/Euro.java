@@ -9,6 +9,4 @@ public class Euro extends Money {
     public String getCurrencyName() {
         return "EUR";
     }
-
-
 }

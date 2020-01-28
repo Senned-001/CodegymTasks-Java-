@@ -8,24 +8,30 @@ Climb, fly, and run
 public class Solution {
 
     public static void main(String[] args) {
-
     }
 
     public interface CanFly {
+
         void fly();
     }
+
     public interface CanClimb {
+
         void climb();
     }
+
     public interface CanRun {
+
         void run();
     }
 
 
 
     public class Cat implements CanClimb,CanRun{
+
         @Override
         public void climb(){}
+
         @Override
         public void run(){}
     }
@@ -40,8 +46,10 @@ public class Solution {
     }
 
     public class Duck implements CanRun, CanFly{
+
         @Override
         public void run(){}
+
         @Override
         public void fly(){}
     }

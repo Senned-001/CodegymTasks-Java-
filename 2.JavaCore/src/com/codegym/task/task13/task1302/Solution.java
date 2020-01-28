@@ -16,6 +16,7 @@ public class Solution {
     }
 
     public static class AlcoholicBeer implements Drink{
+
         @Override
         public boolean isAlcoholic(){return true;}
 
@@ -26,8 +27,6 @@ public class Solution {
             } else {
                 return "Non-alcoholic beverage";
             }
-
         }
-
     }
 }

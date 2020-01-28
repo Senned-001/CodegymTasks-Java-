@@ -14,7 +14,5 @@ public class Solution {
     }
 
     interface Presentable extends Person{
-
     }
-
 }

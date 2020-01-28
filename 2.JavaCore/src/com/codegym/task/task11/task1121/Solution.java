@@ -10,22 +10,17 @@ public class Solution {
     }
 
     public class Pet  {
-
     }
 
     public class Cat extends Pet {
-
     }
 
     public class Dog extends Pet {
-
     }
 
     public class House  {
-
     }
 
     public class Airplane {
-
     }
 }

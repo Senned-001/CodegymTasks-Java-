@@ -10,14 +10,11 @@ public class Solution {
     }
 
     public interface Runnable {
-
     }
 
     public class Machine implements Runnable {
-       
     }
 
     public class Car extends Machine {
-       
     }
 }

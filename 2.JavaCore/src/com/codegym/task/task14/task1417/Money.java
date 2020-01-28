@@ -7,8 +7,6 @@ public abstract class Money {
         this.amount=amount;
     }
 
-
-
     public  double getAmount(){
         return this.amount;
     }

@@ -12,16 +12,14 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String fname = reader.readLine();
         BufferedWriter bw = new BufferedWriter(new FileWriter(fname));
-
         while (true){
-
             String lin = reader.readLine();
-
-            if(lin.equals("exit")) {bw.write(lin); bw.flush();break;}
-
-            bw.write(lin);  //schitivanie stroki v buffer + \n
-
-            bw.flush();                 //zapis iz buffera v file
+            if(lin.equals("exit")) {
+                bw.write(lin); bw.flush();
+                break;
+            }
+            bw.write(lin);
+            bw.flush();
             bw.newLine();
         }
         reader.close();

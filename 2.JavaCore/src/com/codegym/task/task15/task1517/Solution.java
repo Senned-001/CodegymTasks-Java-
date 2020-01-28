@@ -8,7 +8,8 @@ Static modifiers and exceptions
 public class Solution {
     public static int A = 0;
 
-    static { B=5/A;
+    static {
+        B=5/A;
         // Throw an exception here
     }
 

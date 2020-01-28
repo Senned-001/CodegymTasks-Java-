@@ -12,6 +12,7 @@ public class Solution {
     }
 
     public interface Animal {
+
         Color getColor();
     }
 

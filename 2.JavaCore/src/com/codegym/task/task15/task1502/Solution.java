@@ -9,7 +9,6 @@ public class Solution {
     // Add the Goose and Dragon classes here
 
     public static void main(String[] args) {
-
     }
 
     public static class BigAnimal {

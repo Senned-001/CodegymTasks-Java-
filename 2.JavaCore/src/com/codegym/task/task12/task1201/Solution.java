@@ -8,7 +8,6 @@ Whales and cows
 public class Solution {
     public static void main(String[] args) {
         Cow cow = new Whale();
-
         System.out.println(cow.getName());
     }
 

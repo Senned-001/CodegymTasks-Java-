@@ -23,7 +23,6 @@ public class Solution {
 
     public String name = "First name";
 
-
     public Solution() {
         System.out.println("Solution constructor");
         printAllFields(this);
@@ -42,6 +41,5 @@ public class Solution {
         System.out.println("static void printAllFields");
         System.out.println(obj.i);
         System.out.println(obj.name);
-
     }
 }

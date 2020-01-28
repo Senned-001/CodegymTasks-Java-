@@ -11,6 +11,4 @@ public class Robot extends AbstractRobot  {
     public String getName() {
         return name;
     }
-
-
 }

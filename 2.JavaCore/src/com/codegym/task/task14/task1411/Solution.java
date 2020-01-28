@@ -15,7 +15,6 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Person person = null;
         String key = null;
-
         // Here's the loop for reading the keys. Item 1
         while (true) {
             key = reader.readLine();
@@ -25,13 +24,7 @@ public class Solution {
             else if (key.equals("programmer")) {person = new Person.Programmer();doWork(person);}
             else break;
         }
-
-
-            // Create an object. Item 2
-
-             // Call doWork
-
-
+        reader.close();
     }
 
     public static void doWork(Person person) {

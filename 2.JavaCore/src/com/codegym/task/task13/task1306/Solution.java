@@ -31,12 +31,9 @@ public class Solution {
             return this;
         }
 
-
-
         @Override
         public String toString() {
             return String.format("The user's name is %s, id = %d", name, id);
         }
     }
-
 }

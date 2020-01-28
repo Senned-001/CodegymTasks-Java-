@@ -24,7 +24,5 @@ public class Solution {
         }
         @Override
         public void onSelect(){}
-
-
     }
 }

@@ -7,9 +7,7 @@ Overloading constructors
 
 public class Solution {
 
-
     public static void main(String[] args) {
-
     }
 
     public Solution(String name) {
@@ -19,11 +17,9 @@ public class Solution {
     }
 
     private Solution(int i){
-
     }
 
     protected Solution(double a){
-
     }
 }
 

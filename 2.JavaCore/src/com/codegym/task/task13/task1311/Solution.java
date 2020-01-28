@@ -12,6 +12,7 @@ public class Solution {
     }
 
     public static abstract class Translator {
+
         public abstract String getLanguage();
 
         public String translate() {
@@ -20,9 +21,9 @@ public class Solution {
     }
 
     public static class RussianTranslator extends Translator{
-        public String getLanguage(){return "Russian";
 
+        @Override
+        public String getLanguage(){return "Russian";
         }
     }
-
 }

@@ -15,21 +15,18 @@ File in a static block
 public class Solution {
     public static List<String> lines = new ArrayList<>();
 
-
-
     static{
         try {
             BufferedReader reader = new BufferedReader(new FileReader(Statics.FILE_NAME));
-
             String line = reader.readLine();
             while (line != null){
                 lines.add(line);
                 line = reader.readLine();
             }
+            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public static void main(String[] args) {

@@ -25,6 +25,7 @@ public class Solution {
         String name1 = null;
         try {
             name1 = reader.readLine();
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

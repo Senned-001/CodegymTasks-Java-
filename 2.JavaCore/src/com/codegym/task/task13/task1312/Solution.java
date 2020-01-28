@@ -16,6 +16,4 @@ public class Solution {
             return "I translate from Russian";
         }
     }
-
-
 }

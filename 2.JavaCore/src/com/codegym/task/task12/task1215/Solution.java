@@ -7,7 +7,6 @@ Cats should not be abstract!
 
 public class Solution {
     public static void main(String[] args) {
-
     }
 
     public static abstract class Pet {
@@ -17,10 +16,12 @@ public class Solution {
     }
 
     public static class Cat extends Pet{
+
         @Override
         public  String getName(){
             return "";
         }
+
         @Override
         public Pet getChild(){
             return null;
@@ -28,14 +29,15 @@ public class Solution {
     }
 
     public static class Dog extends Pet{
+
         @Override
         public  String getName(){
             return "";
         }
+
         @Override
         public Pet getChild(){
             return null;
         }
     }
-
 }

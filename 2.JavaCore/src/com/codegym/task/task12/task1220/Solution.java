@@ -7,7 +7,6 @@ Human class and CanRun and CanSwim interfaces
 
 public class Solution {
     public static void main(String[] args) {
-
     }
 
     public interface CanRun{
@@ -17,10 +16,6 @@ public class Solution {
         public void swim();
     }
 
-
     public abstract class Human implements CanRun,CanSwim{
-
     }
-
-
 }

@@ -17,8 +17,4 @@ public class Solution {
         plot.add(new Person("Granddaughter"));
         TurnipStory.tell(plot);
     }
-
-    
-
-
 }

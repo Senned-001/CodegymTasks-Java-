@@ -7,7 +7,6 @@ Abstract Pet class
 
 public class Solution {
     public static void main(String[] args) {
-
     }
 
     public static abstract class Pet {
@@ -15,5 +14,4 @@ public class Solution {
             return "I'm a kitten";
         }
     }
-
 }

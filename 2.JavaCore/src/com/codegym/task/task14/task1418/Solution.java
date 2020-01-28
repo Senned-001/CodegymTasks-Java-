@@ -13,11 +13,8 @@ public class Solution {
         List<Number> list = new LinkedList<>();
         // 3
         initList(list);
-
-
         // 4 - Correct 2 bugs
         printListValues​​(list);
-
         // 5
         processCastObjects(list);
     }
@@ -28,7 +25,6 @@ public class Solution {
         list.add(new Float(-90 / -3));
         list.remove(new Double("123e-445632"));
         return list;
-
     }
 
     public static void printListValues​​(List<Number> list){
@@ -49,5 +45,4 @@ public class Solution {
             }
         }
     }
-
 }

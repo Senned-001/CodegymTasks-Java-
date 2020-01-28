@@ -15,24 +15,21 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String name1 = reader.readLine();
         reader.close();
-
-        //umenchenie stroki do parametrov(posle ?)
+        //reduce string for param (after ?)
         String parametrs=null;
         for(int i=0;i<name1.length();i++){
             if(name1.charAt(i)=='?') {
-                parametrs=name1.substring(i+1,name1.length()); break;
-                
+                parametrs=name1.substring(i+1,name1.length());
+                break;
             }
         }
-
-        //System.out.println(parametrs);
-
-        //zapolnenie massiva parrametrami par=a ili prosto par
+        //init array of param par=a
         ArrayList<String> list=new ArrayList<>();
-        String s="",k="",v="";
+        String s="";
+        String k="";
+        String v="";
         for(int i=0;i<parametrs.length();i++){
             if(parametrs.charAt(i)=='&') {
-
                 list.add(s);
                 s="";
             }
@@ -44,14 +41,7 @@ public class Solution {
                 s=s+parametrs.charAt(i);
             }
         }
-
-        /*
-        for (String x: list) {
-            System.out.println(x);
-        }
-
-         */
-        //zapolnenie znacheniyami hashmap k=v
+        //init hashmap by values k=v
         LinkedHashMap<String,String> map = new LinkedHashMap<>();
         for (String x: list) {
             if(x.contains("=")) {
@@ -74,35 +64,22 @@ public class Solution {
             }
         }
         int count=0;
-        //vivod kluchey cherez probel i poisk obj
-
-/*
-        for(HashMap.Entry<String, String> x : map.entrySet()){
-            if(x.getKey().equals("obj")) count++;
-
-            System.out.print(x.getKey()+" ");
-        }
-*/
-        //vivod cherz iterator bez poslednego probela
+        //print with iterator without last space-" "
         Set entrySet = map.entrySet();
         Iterator it = entrySet.iterator();
         while(it.hasNext()) {
             Map.Entry me = (Map.Entry) it.next();
-            if(me.getKey().equals("obj")) count++;
+            if(me.getKey().equals("obj"))
+                count++;
             if(it.hasNext())
                 System.out.print(me.getKey()+" ");
             else
                 System.out.print(me.getKey());
         }
-
-
-        //esli obj bil nayden to probuem privesti k double
+        //if object founded try to parse to Double
         if ((count>0)) {
             System.out.println();
-
-
             Double d = 0.0;
-            //proverka convertacii double i int
             try {
                 d = Double.parseDouble(map.get("obj"));
                 alert(d);

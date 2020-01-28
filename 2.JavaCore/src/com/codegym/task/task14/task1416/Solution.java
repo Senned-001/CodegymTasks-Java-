@@ -28,6 +28,8 @@ public class Solution {
     }
 
     static abstract class SeaCreature implements CanSwim {
+
+        @Override
         public void swim() {
             SeaCreature currentCreature = (SeaCreature) getCurrentCreature();
             currentCreature.displaySwim();
@@ -41,6 +43,7 @@ public class Solution {
     }
 
     static class Orca extends SeaCreature{
+        @Override
         public CanSwim getCurrentCreature(){
             return null;
         }
@@ -53,7 +56,10 @@ public class Solution {
     }
 
     static class RiverOtter implements CanWalk, CanSwim {
+        @Override
         public void walk(){}
+
+        @Override
         public void swim(){}
     }
 }

@@ -20,13 +20,17 @@ public class Solution {
             this.name = name;
         }
 
+        @Override
         public Object containsBones() {
             return "Yes";
         }
 
+        @Override
         public String toString() {
-            if(containsBones().equals("Yes")) return name + " contains bones";
-            else return name + " does not contain bones";
+            if(containsBones().equals("Yes"))
+                return name + " contains bones";
+            else
+                return name + " does not contain bones";
         }
     }
 
@@ -38,6 +42,7 @@ public class Solution {
             this.isArtificial = isArtificial;
         }
 
+        @Override
         public Object containsBones() {
             if (super.containsBones().equals("Yes")&&!isArtificial) return "Yes";
             else return "No";

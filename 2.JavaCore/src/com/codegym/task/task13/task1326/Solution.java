@@ -18,19 +18,19 @@ public class Solution {
         reader.close();
 
         FileInputStream inStream = new FileInputStream(fname);
-        BufferedReader br = new BufferedReader(new InputStreamReader(inStream)); //chtenie s otkritogo potoka v buffer
+        BufferedReader br = new BufferedReader(new InputStreamReader(inStream));
 
         String s;
         ArrayList<Integer> list=new ArrayList<>();
         while((s=br.readLine())!=null){
-            if(Integer.parseInt(s)%2==0) list.add(Integer.parseInt(s));
+            if(Integer.parseInt(s)%2==0)
+                list.add(Integer.parseInt(s));
         }
         Collections.sort(list);
         inStream.close();
         br.close();
         for (Integer x:list) {
             System.out.println(x);
-
         }
     }
 }

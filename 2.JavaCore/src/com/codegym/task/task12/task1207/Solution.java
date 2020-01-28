@@ -13,9 +13,7 @@ public class Solution {
     }
 
     static void print(int a){
-
     }
     static void print(Integer a){
-
     }
 }

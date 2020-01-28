@@ -9,6 +9,5 @@ public class Solution {
     public static void main(String[] args) {
         //LatteMaker.makeDrink(new LatteMaker());
         //DrinkMaker.makeDrink(new TeaMaker());
-
     }
 }

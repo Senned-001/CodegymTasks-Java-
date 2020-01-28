@@ -13,7 +13,6 @@ public class Solution {
         Fox bigFox = new BigFox();
         System.out.println(bigFox.getName());
         System.out.println(bigFox.getColor());
-
     }
 
     public interface Animal {
@@ -27,6 +26,7 @@ public class Solution {
     }
 
     public static class BigFox extends Fox implements Animal{
+        @Override
         public Color getColor() {
             return Color.GRAY;
         }

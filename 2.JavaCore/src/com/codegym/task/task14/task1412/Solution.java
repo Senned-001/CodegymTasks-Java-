@@ -10,27 +10,27 @@ public class Solution {
         Object obj = new Circle();
         Movable movable = (Movable) obj;
         Drawable drawable = new Rectangle();
-
         printMainInfo(drawable);
         printMainInfo(movable);
     }
 
     public static void printMainInfo(Object object) {
-        if (object instanceof Movable) ((Movable) object).move();
-        if (object instanceof Drawable) ((Drawable) object).draw();
+        if (object instanceof Movable)
+            ((Movable) object).move();
+        if (object instanceof Drawable)
+            ((Drawable) object).draw();
     }
 
     static interface Movable {
-
         void move();
     }
 
     static class Circle implements Movable {
-
         public void draw() {
             System.out.println("Can be drawn");
         }
 
+        @Override
         public void move() {
             System.out.println("Can be moved");
         }
@@ -42,6 +42,7 @@ public class Solution {
     }
 
     static class Rectangle implements Drawable {
+        @Override
         public void draw() {
             System.out.println("Can be drawn");
         }

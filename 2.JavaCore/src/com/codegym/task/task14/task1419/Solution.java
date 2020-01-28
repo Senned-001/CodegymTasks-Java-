@@ -16,7 +16,6 @@ public class Solution {
 
     public static void main(String[] args) {
         initExceptions();
-
         for (Exception exception : exceptions) {
             System.out.println(exception);
         }
@@ -25,57 +24,51 @@ public class Solution {
     private static void initExceptions() {   // The first exception
         try {
             float i = 1 / 0;
-
         } catch (Exception e) {
             exceptions.add(e);
         }
-
         try {
             int[] m=new int[2];
             m[3]=2;
         } catch (Exception e) {
             exceptions.add(e);
         }
-
         try {
             List<Integer> l = new LinkedList<>();
             l.get(2);
         } catch (Exception e) {
             exceptions.add(e);
         }
-
         try {
             int[] m=new int[-2];
         } catch (Exception e) {
             exceptions.add(e);
         }
-
         try {
             int c = Integer.parseInt("s");
         } catch (Exception e) {
             exceptions.add(e);
         }
         try {
-        Object o = null;
-        o.toString();
+            Object o = null;
+            o.toString();
         } catch (Exception e) {
             exceptions.add(e);
         }
         try {
-
             FileOutputStream f = new FileOutputStream("C:/output.file");
         } catch (Exception e) {
             exceptions.add(e);
         }
         try {
-        String st = "sas";
-        char cg = st.charAt(4);
+            String st = "sas";
+            char cg = st.charAt(4);
         } catch (Exception e) {
             exceptions.add(e);
         }
         try {
-        a aaa = new a();
-        b bbb = (b)aaa;
+            a aaa = new a();
+            b bbb = (b)aaa;
         } catch (Exception e) {
             exceptions.add(e);
         }
@@ -89,9 +82,9 @@ public class Solution {
     }
 
     public static void dou (byte s){
-
     }
 
     public static class a {}
+
     public static class b extends a{}
 }

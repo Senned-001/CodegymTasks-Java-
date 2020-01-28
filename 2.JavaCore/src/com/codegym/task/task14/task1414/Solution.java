@@ -23,21 +23,22 @@ public class Solution {
         String key = null;
         while (true) {
             key = reader.readLine();
-            if (key.equals("soapOpera")||key.equals("cartoon")||key.equals("thriller"))
-            {movie = MovieFactory.getMovie(key);
-                System.out.println(movie.getClass().getSimpleName());}
-
-            else {movie = MovieFactory.getMovie(key);break;}
+            if (key.equals("soapOpera")||key.equals("cartoon")||key.equals("thriller")) {
+                movie = MovieFactory.getMovie(key);
+                System.out.println(movie.getClass().getSimpleName());
+            }
+            else {
+                movie = MovieFactory.getMovie(key);
+                break;
+            }
         }
-
-
+        reader.close();
     }
 
     static class MovieFactory {
 
         static Movie getMovie(String key) {
             Movie movie = null;
-
             // Create a SoapOpera object for the key "soapOpera"
             if ("soapOpera".equals(key)) {
                 movie = new SoapOpera();
@@ -49,7 +50,6 @@ public class Solution {
                 movie = new Thriller();
             }
             //write your code here. Items 5, 6
-
             return movie;
         }
     }
@@ -61,12 +61,8 @@ public class Solution {
     }
 
     static class Cartoon extends Movie{
-
     }
 
     static class Thriller extends Movie{
-
     }
-
-    // Write your classes here. Item 3
 }

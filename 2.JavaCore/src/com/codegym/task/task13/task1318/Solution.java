@@ -16,9 +16,9 @@ public class Solution {
         reader.close();
         InputStream inStream = new FileInputStream(fname);
         while (inStream.available() > 0) {
-
             System.out.print((char)inStream.read());
         }
         inStream.close();
+        reader.close();
     }
 }

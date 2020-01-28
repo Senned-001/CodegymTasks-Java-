@@ -13,14 +13,16 @@ public class Solution {
     }
 
     public static interface Businessman {
+
         public void workHard();
     }
 
     public static class AAA implements Businessman{
+
+        @Override
         public void workHard(){}
     }
 
     public static class CTO extends AAA implements Businessman  {
-
     }
 }

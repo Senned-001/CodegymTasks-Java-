@@ -19,5 +19,4 @@ public class Solution {
         System.out.println(item.getName());
         return item.getName() != null && item.getName().length() > 4;
     }
-
 }

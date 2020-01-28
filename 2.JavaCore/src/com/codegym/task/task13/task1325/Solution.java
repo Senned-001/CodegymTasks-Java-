@@ -26,13 +26,14 @@ public class Solution {
     }
 
     public static class BigFox extends Fox{
+        @Override
         public String getName() {
             return "BigFox";
         }
+
+        @Override
         public Color getColor(){
             return null;
         }
-
     }
-
 }

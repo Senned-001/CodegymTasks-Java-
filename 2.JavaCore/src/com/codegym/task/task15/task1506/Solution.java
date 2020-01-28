@@ -18,14 +18,6 @@ public class Solution {
         System.out.println("This is an Integer");
     }
 
-    /*public static void print(int i) {
-        System.out.println("This is an Integer");
-    }
-
-    public static void print(Short i) {
-        System.out.println("This is an Object");
-    }
-*/
     public static void print(Object i) {
         System.out.println("This is an Object");
     }
@@ -34,11 +26,4 @@ public class Solution {
         System.out.println("This is a double");
     }
 
-   /* public static void print(Double i) {
-        System.out.println("This is a double");
-    }
-
-    public static void print(float i) {
-        System.out.println("This is a Double");
-    }*/
 }

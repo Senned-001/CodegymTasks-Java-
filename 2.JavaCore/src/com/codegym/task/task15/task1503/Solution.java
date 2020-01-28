@@ -26,19 +26,18 @@ public class Solution {
     }
 
     public static class Ferrari extends LuxuryCar{
+        @Override
         public void printlnDesire() {
             System.out.println(Constants.WANT_STRING+Constants.FERRARI_NAME);
         }
     }
 
     public static class GeoMetro extends CheapCar{
+        @Override
         public void printlnDesire() {
             System.out.println(Constants.WANT_STRING+Constants.GEO_METRO_NAME);
         }
     }
-
-
-
 
     public static class Constants {
         public static String WANT_STRING = "I want to drive ";

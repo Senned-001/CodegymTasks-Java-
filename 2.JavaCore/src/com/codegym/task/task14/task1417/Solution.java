@@ -28,9 +28,6 @@ public class Solution {
             this.allMoney.add(new Ruble(50.2));
             this.allMoney.add(new Euro(24.2));
         }
-
-
-
         public List<Money> getAllMoney() {
             return allMoney;
         }

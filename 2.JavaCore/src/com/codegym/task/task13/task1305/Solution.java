@@ -8,7 +8,6 @@ Four mistakes
 public class Solution {
 
     public static void main(String[] args) {
-
         System.out.println( Dream.HOBBY.toString());
         System.out.println(new Hobby().toString());
 
@@ -30,5 +29,4 @@ public class Solution {
             return "" + INDEX;
         }
     }
-
 }
