@@ -12,15 +12,20 @@ Expressing ourselves more concisely
 public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         ArrayList<String> strings = new ArrayList<String>();
-        for(int i=0;i<5;i++)
+        for(int i=0;i<5;i++) {
             strings.add(reader.readLine());
+        }
         int min=strings.get(0).length();
-
-        for(int i=0;i<5;i++)
-            if (strings.get(i).length() <= min) {min=strings.get(i).length();}
-        for(int i=0;i<5;i++)
-            if(strings.get(i).length()== min) System.out.println(strings.get(i));
+        for(int i=0;i<5;i++) {
+            if (strings.get(i).length() <= min) {
+                min = strings.get(i).length();
+            }
+        }
+        for(int i=0;i<5;i++) {
+            if (strings.get(i).length() == min)
+                System.out.println(strings.get(i));
+        }
+        reader.close();
     }
 }

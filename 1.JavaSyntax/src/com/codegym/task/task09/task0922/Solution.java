@@ -20,7 +20,6 @@ public class Solution {
         SimpleDateFormat dn = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
         Date date1 =df.parse(name1);
         System.out.println(dn.format(date1).toUpperCase());
-
-
+        reader.close();
     }
 }

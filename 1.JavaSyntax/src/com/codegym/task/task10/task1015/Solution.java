@@ -16,18 +16,13 @@ public class Solution {
     public static ArrayList<String>[] createList() {
         ArrayList<String>[] array = new ArrayList[3];
 
-
         for (int i=0;i<3;i++) {
             ArrayList<String> t = new ArrayList<>();
             for (int j = 0; j < 3; j++)
-
                 t.add("asdasdasd");
             array[i]=t;
-
-
            // t.clear();
         }
-
         return array;
     }
 

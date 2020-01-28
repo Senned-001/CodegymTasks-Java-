@@ -13,13 +13,15 @@ Words in reverse
 public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         ArrayList<String> list = new ArrayList<String>();
-        for(int i=0;i<5;i++)
+        for(int i=0;i<5;i++) {
             list.add(reader.readLine());
+        }
         list.remove(2);
-        for(int i=3;i>=0;i--)
+        for(int i=3;i>=0;i--) {
             System.out.println(list.get(i));
+        }
+        reader.close();
     }
 }
 

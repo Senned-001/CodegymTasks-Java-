@@ -11,12 +11,11 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         //write your code here
         try{
-        ArrayList<String> list = new ArrayList<String>();
-        String s = list.get(18);
+            ArrayList<String> list = new ArrayList<String>();
+            String s = list.get(18);
         }
         catch (IndexOutOfBoundsException e){
             System.out.println(e.toString());
         }
-        //write your code here
     }
 }

@@ -18,16 +18,13 @@ public class Solution {
         for (int i = 0; i < 30; i++) {
             array[i] = Integer.parseInt(reader.readLine());
         }
-
         sort(array);
-
         System.out.println(array[9]);
         System.out.println(array[10]);
+        reader.close();
     }
 
     public static void sort(int[] array) {
-              Arrays.sort(array);
-        //  Collections.sort(Arrays.asList(array));
-
+        Arrays.sort(array);
     }
 }

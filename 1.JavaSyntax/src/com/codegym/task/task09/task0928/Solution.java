@@ -10,13 +10,10 @@ The code won't compile…
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         String sourceFileName = reader.readLine();
         String destinationFileName = reader.readLine();
-
         InputStream fileInputStream = getInputStream(sourceFileName);
         OutputStream fileOutputStream = getOutputStream(destinationFileName);
-
         int count = 0;
         while (fileInputStream.available() > 0)
         {
@@ -24,11 +21,10 @@ public class Solution {
             fileOutputStream.write(data);
             count++;
         }
-
         System.out.println("Bytes copied: " + count);
-
         fileInputStream.close();
         fileOutputStream.close();
+        reader.close();
     }
 
     public static InputStream getInputStream(String fileName) throws IOException {

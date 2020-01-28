@@ -11,7 +11,6 @@ public class Solution {
         int b = 4;
         float c = (float) a / b;
         double d = a * 1e-3 + c;
-
         System.out.println(d);
     }
 }

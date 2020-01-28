@@ -12,17 +12,17 @@ Checking the order
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         ArrayList<String> list = new ArrayList<String>();
-        for(int i=0;i<10;i++)
+        for(int i=0;i<10;i++) {
             list.add(reader.readLine());
-
-        for(int i=0;i<9;i++)
-            if(list.get(i).length()>=list.get(i+1).length()) {
-
-                System.out.println(i+1);
-                break;}
-
+        }
+        for(int i=0;i<9;i++) {
+            if (list.get(i).length()>=list.get(i + 1).length()) {
+                System.out.println(i + 1);
+                break;
+            }
+        }
+        reader.close();
     }
 }
 

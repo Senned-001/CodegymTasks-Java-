@@ -11,10 +11,10 @@ Greater than 10? You're not a good fit for us
 public class Solution {
     public static HashSet<Integer> createSet() {
         HashSet<Integer> set = new HashSet<Integer>();
-        for(int i=0;i<20;i++)
+        for(int i=0;i<20;i++) {
             set.add(i);
+        }
         return set;
-
     }
 
     public static HashSet<Integer> removeAllNumbersGreaterThan10(HashSet<Integer> set) {
@@ -23,6 +23,5 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
     }
 }

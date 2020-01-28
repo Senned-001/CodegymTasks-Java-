@@ -12,18 +12,15 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         //write your code here
         try {
-        method1();
+            method1();
         } catch (NullPointerException e) {
             e.printStackTrace();
         }  catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        //write your code here
     }
 
     public static void method1() throws NullPointerException, ArithmeticException, FileNotFoundException, URISyntaxException {
-
-
             int i = (int) (Math.random() * 4);
             if (i == 0)
                 throw new NullPointerException();
@@ -33,6 +30,5 @@ public class Solution {
                 throw new FileNotFoundException();
             if (i == 3)
                 throw new URISyntaxException("", "");
-
     }
 }

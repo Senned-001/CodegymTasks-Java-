@@ -21,16 +21,14 @@ public class Solution {
         ArrayList<Integer> a = new ArrayList<>();
         try {
             while(true){
-
                 a.add(Integer.parseInt(reader.readLine()));
             }
         }
         catch (Exception e) {
                 //e.printStackTrace();
-                for(Integer x:a)
+                for(Integer x:a) {
                     System.out.println(x);
+                }
         }
-
-
     }
 }

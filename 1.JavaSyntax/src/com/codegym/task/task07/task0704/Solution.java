@@ -16,6 +16,7 @@ public class Solution {
             c[i]=Integer.parseInt(reader.readLine());
         for(int i=9;i>=0;i--)
             System.out.println(c[i]);
+        reader.close();
     }
 }
 

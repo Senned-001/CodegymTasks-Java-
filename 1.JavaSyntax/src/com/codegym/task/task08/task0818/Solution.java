@@ -24,7 +24,6 @@ public class Solution {
         return map;
     }
 
-
     public static void removeItemFromMap(HashMap<String, Integer> map) {
         HashMap<String, Integer> rab = new HashMap<String, Integer>(map);
         for (HashMap.Entry<String, Integer> ent : rab.entrySet()) {
@@ -33,6 +32,5 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
     }
 }

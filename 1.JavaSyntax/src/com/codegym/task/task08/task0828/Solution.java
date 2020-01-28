@@ -25,13 +25,12 @@ public class Solution {
         map.put("10","October");
         map.put("11","November");
         map.put("12","December");
-
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String month = reader.readLine();
-
+        reader.close();
         for(HashMap.Entry<String, String> x : map.entrySet()){
-            if(x.getValue().equals(month)) System.out.println(x.getValue() + " is month " + x.getKey());
+            if(x.getValue().equals(month))
+                System.out.println(x.getValue() + " is month " + x.getKey());
         }
-
     }
 }

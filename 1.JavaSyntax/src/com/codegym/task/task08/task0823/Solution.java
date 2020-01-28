@@ -16,17 +16,21 @@ public class Solution {
         String s = reader.readLine();
         char[] l = s.toCharArray();
         int m=0;
-        if(l[0]!=' ')
-        {s = (""+l[0]).toUpperCase();m=1;} //perevodit v zaglavnie pervuy bukvu
-        else s="";
-
+        if(l[0]!=' ') {
+            s = (""+l[0]).toUpperCase();
+            m=1;
+        }
+        else
+            s="";
         for(int i=m; i<l.length;i++){
             s=s+l[i];
-            if(l[i]==' ')
-            {
-                String t=(""+l[i+1]).toUpperCase();s=s+t;i++;}//pri nahogdenii probela perevodit sled bukvi v zaglavnuyu cherez dop stoku
-
+            if(l[i]==' ') {
+                String t=(""+l[i+1]).toUpperCase();
+                s=s+t;
+                i++;
+            }
         }
         System.out.println(s);
+        reader.close();
     }
 }

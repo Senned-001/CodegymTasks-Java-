@@ -16,15 +16,12 @@ public class Solution {
     public static ArrayList<int[]> createList() {
         ArrayList<int[]> list = new ArrayList<>();
         int[] indexes = {5, 2, 4, 7, 0};
-        //int[]c=new int[0];
-        for(int i = 0; i<indexes.length;i++){
-           // if(indexes[i]>0){
-
-                int[]c=new int[indexes[i]];
-                for (int j =0; j<indexes[i];j++)
-                c[j]=j;
+        for(int i = 0; i<indexes.length;i++) {
+            int[] c = new int[indexes[i]];
+            for (int j = 0; j < indexes[i]; j++) {
+                c[j] = j;
                 list.add(c);
-           //else {c=new int[0];list.add(c);}
+            }
         }
         return list;
     }

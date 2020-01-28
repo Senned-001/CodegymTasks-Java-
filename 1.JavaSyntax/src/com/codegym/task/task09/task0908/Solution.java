@@ -13,7 +13,7 @@ public class Solution {
         String m = s.toLowerCase();
     }
         catch ( NullPointerException e){
-        System.out.println(e.toString());
-    }
+            System.out.println(e.toString());
+        }
     }
 }

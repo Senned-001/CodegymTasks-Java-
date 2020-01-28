@@ -18,9 +18,10 @@ public class Solution {
             c[i]=Integer.parseInt(reader.readLine());
         for(int i=0;i<10;i++){
             a[i]=c[i];
-            b[i]=c[i+10];}
-
+            b[i]=c[i+10];
+        }
         for(int i=0;i<10;i++)
             System.out.println(b[i]);
+        reader.close();
     }
 }

@@ -14,7 +14,6 @@ public class Solution {
     public static void main(String[] args) {
         Solution room = new Solution();
         room.A = 5;
-
         Solution.D = 5;
     }
 

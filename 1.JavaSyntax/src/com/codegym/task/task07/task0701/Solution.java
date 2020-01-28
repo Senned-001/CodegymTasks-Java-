@@ -21,6 +21,7 @@ public class Solution {
         int[] array = new int[20];
         for(int i=0;i<20;i++)
             array[i]=Integer.parseInt(reader.readLine());
+        reader.close();
         return array;
     }
 

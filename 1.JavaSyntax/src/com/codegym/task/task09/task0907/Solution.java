@@ -8,9 +8,8 @@ Exception when working with numbers
 public class Solution {
     public static void main(String[] args) throws Exception {
         //write your code here
-        try
-        {
-        int a = 42 / 0;
+        try {
+            int a = 42 / 0;
         }
         catch ( ArithmeticException e){
             System.out.println(e.toString());

@@ -23,12 +23,9 @@ public class Solution {
         map.put("potato","tuber");
         for (HashMap.Entry<String, String> pair : map.entrySet())
         {
-            String key = pair.getKey();                      //ключ
-            String value = pair.getValue();                  //значение
+            String key = pair.getKey();
+            String value = pair.getValue();
             System.out.println(key + " - " + value);
         }
-
-
-
     }
 }

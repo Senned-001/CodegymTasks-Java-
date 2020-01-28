@@ -38,10 +38,8 @@ public class Solution {
             if (x.equals(lastName)) count++;
         }
         return count;
-
     }
 
     public static void main(String[] args) {
-
     }
 }

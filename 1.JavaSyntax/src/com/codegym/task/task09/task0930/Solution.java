@@ -19,50 +19,25 @@ public class Solution {
             if (s.isEmpty()) break;
             list.add(s);
         }
-
         String[] array = list.toArray(new String[list.size()]);
         sort(array);
-
         for (String x : array) {
             System.out.println(x);
         }
+        reader.close();
     }
 
     public static void sort(String[] array) {
-
         ArrayList<Integer> chisl = new ArrayList<>();
         ArrayList<String> str = new ArrayList<>();
-
         for (int i = 0; i < array.length; i++)
             if (isNumber(array[i]))
                 chisl.add(Integer.parseInt(array[i]));
             else
                 str.add(array[i]);
-
-      /*  System.out.println("chisl ");
-        for (Integer x : chisl) {
-            System.out.println(x);}
-
-        System.out.println("str ");
-        for (String x : str) {
-            System.out.println(x);}
-
-
-        /*for (int i = 0; i < chisl.size(); i++)
-            for (int j = 0; j < chisl.size() - 1; j++) {
-                if (!isGreaterThan(chisl.get(j), chisl.get(j + 1))) {
-                    Integer l = chisl.get(j);
-                    chisl.set(j, chisl.get(j + 1));
-                    chisl.set(j + 1, l);
-                }
-            }*/
         Collections.sort(chisl);
         Collections.reverse(chisl);
-      /*  System.out.println("chisl otsort");
-        for (Integer x : chisl) {
-            System.out.println(x);}*/
-
-        for (int i = 0; i < str.size(); i++)
+        for (int i = 0; i < str.size(); i++) {
             for (int j = 0; j < str.size() - 1; j++) {
                 if (isGreaterThan(str.get(j), str.get(j + 1))) {
                     String l = str.get(j);
@@ -71,22 +46,17 @@ public class Solution {
 
                 }
             }
-       /* System.out.println("str otsort");
-        for (String x : str) {
-            System.out.println(x);}
-*/
+        }
         int indchisl=0,indstr=0;
-
-        for (int i = 0; i < array.length; i++)
-            if (isNumber(array[i])){
-                array[i]=String.valueOf(chisl.get(indchisl));indchisl++;
+        for (int i = 0; i < array.length; i++) {
+            if (isNumber(array[i])) {
+                array[i] = String.valueOf(chisl.get(indchisl));
+                indchisl++;
+            } else {
+                array[i] = str.get(indstr);
+                indstr++;
             }
-            else{
-                array[i]=str.get(indstr);indstr++;
-            }
-
-
-
+        }
     }
 
     // String comparison method: 'a' is greater than 'b'
@@ -97,8 +67,8 @@ public class Solution {
 
     // Is the passed string a number?
     public static boolean isNumber(String s) {
-        if (s.length() == 0) return false;
-
+        if (s.length() == 0)
+            return false;
         char[] chars = s.toCharArray();
         for (int i = 0; i < chars.length; i++) {
             char c = chars[i];

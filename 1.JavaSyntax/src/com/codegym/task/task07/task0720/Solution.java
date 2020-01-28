@@ -15,24 +15,21 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(reader.readLine());
         int M = Integer.parseInt(reader.readLine());
-
         ArrayList<String> list = new ArrayList<String>();
-        for(int i=0;i<N;i++)
+        for(int i=0;i<N;i++) {
             list.add(reader.readLine());
-
-        for(int i=0;i<M;i++)
+        }
+        for(int i=0;i<M;i++) {
             list.add(list.get(i));
-
+        }
         Iterator <String> listiterator = list.iterator(); //iterator for remove
-
         String s = list.get(M);
-        while (!listiterator.next().equals(s))
+        while (!listiterator.next().equals(s)) {
             listiterator.remove();
-
-        for (String x : list)
-        {
+        }
+        for (String x : list) {
             System.out.println(x);
         }
-
+        reader.close();
     }
 }

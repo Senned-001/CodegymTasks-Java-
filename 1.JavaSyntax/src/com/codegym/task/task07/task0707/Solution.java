@@ -14,7 +14,8 @@ public class Solution {
         ArrayList<String> list = new ArrayList<String>();
         for(int i=0;i<5;i++){
             s=s+i;
-            list.add(s);}
+            list.add(s);
+        }
         System.out.println(list.size());
         for(int i=0;i<5;i++)
             System.out.println(list.get(i));

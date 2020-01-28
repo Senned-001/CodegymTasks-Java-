@@ -77,6 +77,5 @@ public class Solution {
             this.sex=sex;
             this.age=age;
         }
-
     }
 }

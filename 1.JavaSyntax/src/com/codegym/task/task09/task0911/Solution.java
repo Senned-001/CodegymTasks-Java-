@@ -11,13 +11,12 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         //write your code here
         try{
-        HashMap<String, String> map = new HashMap<String, String>(null);
-        map.put(null, null);
-        map.remove(null);
+            HashMap<String, String> map = new HashMap<String, String>(null);
+            map.put(null, null);
+            map.remove(null);
         }
         catch (NullPointerException e){
             System.out.println(e.toString());
         }
-        //write your code here
     }
 }

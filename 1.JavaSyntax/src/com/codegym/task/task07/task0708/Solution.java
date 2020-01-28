@@ -19,14 +19,13 @@ public class Solution {
         strings = new ArrayList<String>();
         for(int i=0;i<5;i++)
             strings.add(reader.readLine());
-
-
         for(int i=0;i<5;i++)
-            if (strings.get(i).length() >= max) {max=strings.get(i).length();}
+            if (strings.get(i).length() >= max) {
+                max=strings.get(i).length();
+            }
         for(int i=0;i<5;i++)
-                if(strings.get(i).length()== max) System.out.println(strings.get(i));
-
-
-
+                if(strings.get(i).length()== max)
+                    System.out.println(strings.get(i));
+        reader.close();
     }
 }

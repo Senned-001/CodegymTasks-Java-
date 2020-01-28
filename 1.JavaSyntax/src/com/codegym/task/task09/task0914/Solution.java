@@ -13,16 +13,11 @@ public class Solution {
             method1();
         }
         catch (Exception3 a ) {
-
         }
         catch (Exception2 b) {
-
         }
         catch (Exception1 c) {
-
         }
-        //write your code here
-
     }
 
     public static void method1() throws Exception1, Exception2, Exception3 {

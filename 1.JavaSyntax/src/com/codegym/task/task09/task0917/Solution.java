@@ -16,7 +16,7 @@ public class Solution {
             obj.method2();
             obj.method3();
         } catch (Exception e) {
-           printStack(e);
+            printStack(e);
         }
     }
 

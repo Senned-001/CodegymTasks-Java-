@@ -17,19 +17,23 @@ public class Solution {
         for (int i = 0; i < 20; i++) {
             array[i] = Integer.parseInt(reader.readLine());
         }
-
         sort(array);
-
+        reader.close();
     }
 
     public static void sort(int[] array) {
         int t=0;
-        for(int i = 0;i<array.length;i++)
-            for (int j=0;j<array.length-1;j++)
-                if (array[j]<array[j+1]) {t=array[j]; array[j]= array[j+1];array[j+1]=t;}
-
-
-        for (int x : array)
+        for(int i = 0;i<array.length;i++) {
+            for (int j = 0; j < array.length - 1; j++) {
+                if (array[j] < array[j + 1]) {
+                    t = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = t;
+                }
+            }
+        }
+        for (int x : array) {
             System.out.println(x);
+        }
     }
 }

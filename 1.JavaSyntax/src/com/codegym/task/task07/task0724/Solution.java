@@ -22,19 +22,20 @@ public class Solution {
         System.out.println(old2.toString());
         System.out.println(old3.toString());
         System.out.println(old4.toString());
+
         System.out.println(young1.toString());
         System.out.println(young2.toString());
         System.out.println(young3.toString());
         System.out.println(young4.toString());
         System.out.println(young5.toString());
-
     }
 
     public static class Human {
         String name;
         boolean sex;
         int age;
-        Human father, mother;
+        Human father;
+        Human mother;
 
         public Human(String name, boolean sex, int age){
             this.name = name;
@@ -56,12 +57,12 @@ public class Solution {
             text += ", sex: " + (this.sex ? "male" : "female");
             text += ", age: " + this.age;
 
-            if (this.father != null)
+            if (this.father != null) {
                 text += ", father: " + this.father.name;
-
-            if (this.mother != null)
+            }
+            if (this.mother != null) {
                 text += ", mother: " + this.mother.name;
-
+            }
             return text;
         }
     }

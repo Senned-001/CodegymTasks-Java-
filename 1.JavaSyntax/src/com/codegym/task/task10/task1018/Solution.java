@@ -18,7 +18,6 @@ public class Solution {
 
     public Solution() {
         this.map = new HashMap<Integer, String>();
-        //map.put(index, name);
     }
 
     public void puttomap(int index,String name){
@@ -28,17 +27,16 @@ public class Solution {
     public static void main(String[] args) throws IOException {
         Solution solution = new Solution();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         for (int i = 0; i < 10; i++) {
             int index = Integer.parseInt(reader.readLine());
             String name = reader.readLine();
             solution.puttomap(index, name);
         }
-
         for (Map.Entry<Integer, String> pair : solution.map.entrySet()) {
             index = pair.getKey();
             name = pair.getValue();
             System.out.println("Id=" + index + " Name=" + name);
         }
+        reader.close();
     }
 }

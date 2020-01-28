@@ -17,12 +17,10 @@ public class Solution {
         solution.B = 5 * B;
         solution.C = 5 * C * D;
         Solution.D = 5 * D * C;
-
         Solution.D = 5;
     }
 
     public int getA() {
         return A;
     }
-
 }

@@ -15,22 +15,20 @@ public class Solution {
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         while (true) {
             ArrayList<String> list = new ArrayList<>();
             String name = reader.readLine();
-
-            if (name.isEmpty()) break;
+            if (name.isEmpty())
+                break;
             int age = Integer.parseInt(reader.readLine());
             int weight = Integer.parseInt(reader.readLine());
             int tailLength = Integer.parseInt(reader.readLine());
 
-
             Cat cat = new Cat(name,age,weight,tailLength);
             CATS.add(cat);
         }
-
         printList();
+        reader.close();
     }
 
     public static void printList() {

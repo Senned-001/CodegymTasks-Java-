@@ -22,8 +22,7 @@ public class Solution {
         HashSet.add("iris");
         HashSet.add("potato");
 
-        for (String text : HashSet)
-        {
+        for (String text : HashSet) {
             System.out.println(text);
         }
     }

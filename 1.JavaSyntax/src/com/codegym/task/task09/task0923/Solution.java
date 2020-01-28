@@ -17,14 +17,15 @@ public class Solution {
         String name1 = reader.readLine();
         ArrayList<Character> vow = new ArrayList<>();
         ArrayList<Character> con = new ArrayList<>();
-
+        reader.close();
         for(int i=0;i<name1.length();i++){
             if(name1.charAt(i)!=' '){
-            if(isVowel(name1.charAt(i)))
-                vow.add(name1.charAt(i));
-            else con.add(name1.charAt(i));}
+                if(isVowel(name1.charAt(i)))
+                    vow.add(name1.charAt(i));
+                else
+                con.add(name1.charAt(i));
+            }
         }
-
         for (Character x: vow) {
             System.out.print(x+" ");
         }

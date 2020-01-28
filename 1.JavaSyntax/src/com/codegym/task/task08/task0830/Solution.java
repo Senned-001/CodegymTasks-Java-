@@ -13,15 +13,14 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String[] array1 = new String[20];
-
         for (int i = 0; i < array1.length; i++) {
             array1[i] = reader.readLine();
         }
         sort(array1);
-
         for (String x : array1) {
             System.out.println(x);
         }
+        reader.close();
     }
 
     public static void sort(String[] array) {
@@ -30,7 +29,6 @@ public class Solution {
                 String temp = array[i];
                 String s1 = array[i];
                 String s2 = array[j];
-
                 if (isGreaterThan(s1, s2)) {
                     array[i] = array[j];
                     array[j] = temp;

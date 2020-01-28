@@ -10,8 +10,6 @@ import java.util.*;
 public class Solution {
     public static Set<String> createSet() {
         HashSet<String> set = new HashSet<String>();
-
-
         set.add("Letter");
         set.add("List");
         set.add("Loop");
@@ -32,12 +30,9 @@ public class Solution {
         set.add("Lx");
         set.add("Lb");
         set.add("Ln");
-
-
         return set;
     }
 
     public static void main(String[] args) {
-
     }
 }

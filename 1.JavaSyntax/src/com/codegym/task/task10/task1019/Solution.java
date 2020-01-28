@@ -12,7 +12,6 @@ public class Solution {
     public static void main(String[] args) throws IOException, NullPointerException  {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         HashMap<String, Integer> map = new HashMap<String, Integer>();
-        
         while(true){
             int v=0;
             String k = reader.readLine();
@@ -25,13 +24,12 @@ public class Solution {
                 {map.put("",v);break;}
             else
                 map.put(k,v);
-        
         }
-
         for (Map.Entry<String, Integer> pair : map.entrySet()) {
             String t = pair.getKey();
             int a = pair.getValue();
             System.out.println(a + " " + t);
         }
+        reader.close();
     }
 }

@@ -14,7 +14,6 @@ public class Solution {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //write your code here
         }
     }
 }

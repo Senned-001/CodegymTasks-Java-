@@ -18,9 +18,7 @@ public class Solution {
 
     public static long getInsertTimeInMs(List list) {
         Date startTime = new Date();
-
         insert10000(list);
-
         Date endTime = new Date();
         long time = endTime.getTime()-startTime.getTime();
         return time;

@@ -22,11 +22,10 @@ public class Solution {
                 count++;
                 if (count > max)
                     max = count;
-            } else count = 1;
+            } else
+                count = 1;
         }
-
-            System.out.println(max);
-
-
+        System.out.println(max);
+        reader.close();
     }
 }

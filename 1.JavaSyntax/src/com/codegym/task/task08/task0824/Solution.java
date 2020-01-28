@@ -9,15 +9,16 @@ import java.util.ArrayList;
 
 public class Solution {
     public static void main(String[] args) {
-
         Human ch1 = new Human();
         ch1.name = "ch1";
         ch1.sex = true;
         ch1.age = 12;
+
         Human ch2 = new Human();
         ch2.name = "ch2";
         ch2.sex = false;
         ch2.age = 8;
+
         Human ch3 = new Human();
         ch3.name = "ch3";
         ch3.sex = true;
@@ -30,6 +31,7 @@ public class Solution {
         p1.children.add(ch1);
         p1.children.add(ch2);
         p1.children.add(ch3);
+
         Human p2 = new Human();
         p2.name = "p1";
         p2.sex = false;
@@ -86,7 +88,6 @@ public class Solution {
             int childCount = this.children.size();
             if (childCount > 0) {
                 text += ", children: " + this.children.get(0).name;
-
                 for (int i = 1; i < childCount; i++) {
                     Human child = this.children.get(i);
                     text += ", " + child.name;
@@ -95,5 +96,4 @@ public class Solution {
             return text;
         }
     }
-
 }

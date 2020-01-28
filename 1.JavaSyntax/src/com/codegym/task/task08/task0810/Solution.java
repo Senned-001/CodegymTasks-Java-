@@ -25,19 +25,15 @@ public class Solution {
 
     public static long getGetTimeInMs(List list) {
         Date startTime = new Date();
-
         get10000(list);
-
         Date endTime = new Date();
         long time = endTime.getTime()-startTime.getTime();
         return time;
-
     }
 
     public static void get10000(List list) {
         if (list.isEmpty()) return;
         int x = list.size() / 2;
-
         for (int i = 0; i < 10000; i++) {
             list.get(x);
         }

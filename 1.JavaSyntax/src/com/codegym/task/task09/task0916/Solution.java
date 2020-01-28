@@ -11,7 +11,6 @@ Catching checked exceptions
 public class Solution {
     public static void main(String[] args) {
         handleExceptions(new Solution());
-
     }
 
     public static void handleExceptions(Solution obj) {

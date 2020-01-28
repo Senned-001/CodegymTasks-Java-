@@ -22,8 +22,8 @@ public class Solution {
         map.put("Hugs", 111111111111L);
         map.put("Comp", (double) 123);
 
-        for (Map.Entry<String, Object> pair : map.entrySet())
+        for (Map.Entry<String, Object> pair : map.entrySet()) {
             System.out.println(pair.getKey() + " - " + pair.getValue());
-
+        }
     }
 }

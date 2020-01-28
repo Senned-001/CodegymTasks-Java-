@@ -13,10 +13,10 @@ Set of cats
 public class Solution {
     public static void main(String[] args) {
         Set<Cat> cats = createCats();
-
         for (Cat s:cats){
-        cats.remove(s);break;}
-
+            cats.remove(s);
+            break;
+        }
         printCats(cats);
     }
 
@@ -34,11 +34,11 @@ public class Solution {
     }
 
     public static void printCats(Set<Cat> cats) {
-        for (Cat s:cats)
+        for (Cat s:cats) {
             System.out.println(s);
+        }
     }
 
     public static class Cat {
-
     }
 }

@@ -26,8 +26,7 @@ public class Solution {
         Cat cat8 = new Cat("cat8");
         Cat cat9 = new Cat("cat9");
         Cat cat10 = new Cat("cat10");
-        
-        
+
         map.put(cat1.name, cat1);
         map.put(cat2.name, cat2);
         map.put(cat3.name, cat3);
@@ -38,14 +37,11 @@ public class Solution {
         map.put(cat8.name, cat8);
         map.put(cat9.name, cat9);
         map.put(cat10.name, cat10);
-        
         return map;
-        
     }
 
     public static Set<Cat> convertMapToSet(Map<String, Cat> map) {
         Set<Cat> set = new HashSet<Cat>();
-
         for(HashMap.Entry<String, Cat> x : map.entrySet()){
             set.add(x.getValue());
         }

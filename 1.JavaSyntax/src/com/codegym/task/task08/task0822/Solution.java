@@ -26,8 +26,10 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n=Integer.parseInt(reader.readLine());
         List<Integer> list = new LinkedList<>();
-        for (int i=0;i<n;i++)
+        for (int i=0;i<n;i++) {
             list.add(Integer.parseInt(reader.readLine()));
+        }
+        reader.close();
         return list;
     }
 }

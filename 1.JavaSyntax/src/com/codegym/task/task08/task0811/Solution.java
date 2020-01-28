@@ -13,7 +13,6 @@ public class Solution {
     public static List getListForGet() {
         ArrayList list = new ArrayList();
         return list;
-
     }
 
     public static List getListForSet() {
@@ -29,10 +28,8 @@ public class Solution {
     public static List getListForRemove() {
         LinkedList list = new LinkedList();
         return list;
-
     }
 
     public static void main(String[] args) {
-
     }
 }

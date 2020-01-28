@@ -23,28 +23,19 @@ public class Solution {
         map.put("Iris","flower");
         map.put("Potato","tuber");
         return map;
-
     }
 
     public static void removeFirstNameDuplicates(Map<String, String> map) {
-
         ArrayList <String> del =  new ArrayList<>();
-
-
-        for (HashMap.Entry<String, String> s : map.entrySet())          //dvoinoi cikl po Hashmap
+        for (HashMap.Entry<String, String> s : map.entrySet())
             for (HashMap.Entry<String, String> ss : map.entrySet()){
-                if((!s.getKey().equals(ss.getKey()))&&(s.getValue().equals(ss.getValue()))&&(!del.contains(s.getValue()))) //esli kluchi ne ravni i znacheniya ravni i eche ne sodergatcya v liste na udalenie
-                    del.add(ss.getValue());                                                                                 //to zanosim ih v list udaleniya
+                if((!s.getKey().equals(ss.getKey()))&&(s.getValue().equals(ss.getValue()))&&(!del.contains(s.getValue())))
+                    del.add(ss.getValue());
         }
-
 
         for(int i =0;i<del.size();i++){
             removeItemFromMapByValue(map,del.get(i));
         }
-
-       // for (HashMap.Entry<String, String> ent : map.entrySet()) {
-         //      System.out.println(ent.getKey() + " - " + ent.getValue());
-       // }
     }
 
     public static void removeItemFromMapByValue(Map<String, String> map, String value) {

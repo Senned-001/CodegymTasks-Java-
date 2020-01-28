@@ -26,7 +26,6 @@ public class Solution {
         map.put("Strawberry","Serg");
         map.put("Iris","flower");
         map.put("Potato","tuber");
-
         return map;
     }
 
