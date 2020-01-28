@@ -13,13 +13,13 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
         int su=0;
-        while (true)
-        {
+        while (true) {
             String s = buffer.readLine();
             if (s.equals("sum"))
                 break;
             else su = su+Integer.parseInt(s);
         }
         System.out.println(su);
+        buffer.close();
     }
 }

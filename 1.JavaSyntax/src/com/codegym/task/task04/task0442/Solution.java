@@ -14,11 +14,12 @@ public class Solution {
         int sum=0;
         while (true) {
             int number = Integer.parseInt(reader.readLine());
-            sum=sum+number;
+            sum+=number;
             if (number == -1)
             break;
         }
         System.out.println(sum);
+        reader.close();
     }
 
 }

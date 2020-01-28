@@ -11,7 +11,6 @@ public class Solution {
         Cat cat1 = new Cat("Pusk",5,4,10);
         Cat cat2 = new Cat("Dusk",4,5,12);
         Cat cat3 = new Cat("Lusk",3,4,9);
-
     }
 
     public static class Cat {

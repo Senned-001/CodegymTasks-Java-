@@ -17,7 +17,6 @@ public class Solution {
         char c2 = str.charAt(1);
         char c3 = str.charAt(2);
 
-
         int n1 = c1 - '0';
         int n2= c2 - '0';
         int n3 = c3 - '0';

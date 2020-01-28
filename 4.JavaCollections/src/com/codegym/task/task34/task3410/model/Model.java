@@ -12,7 +12,7 @@ public class Model {
     public static final int BOARD_CELL_SIZE = 20;
     private GameObjects gameObjects;
     private int currentLevel = 1;
-    private LevelLoader levelLoader = new LevelLoader(Paths.get(Controller.class.getPackage()+".res.levels.txt"));
+    private LevelLoader levelLoader = new LevelLoader(new File(getClass().getResource("../res/levels.txt").getFile()).toPath());
 
     public void setEventListener(EventListener eventListener){
         this.eventListener=eventListener;

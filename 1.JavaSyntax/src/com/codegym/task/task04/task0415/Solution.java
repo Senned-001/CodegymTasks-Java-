@@ -13,8 +13,9 @@ public class Solution {
         int a = Integer.parseInt(reader.readLine());
         int b = Integer.parseInt(reader.readLine());
         int c = Integer.parseInt(reader.readLine());
-        if((a<(b+c))&&(b<(a+c))&&(c<(a+b))) System.out.println("The triangle is possible.");
-            else System.out.println("The triangle is not possible.");
-
+        if((a<(b+c))&&(b<(a+c))&&(c<(a+b)))
+            System.out.println("The triangle is possible.");
+        else System.out.println("The triangle is not possible.");
+        reader.close();
     }
 }

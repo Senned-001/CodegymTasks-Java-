@@ -13,7 +13,6 @@ public class Solution {
         String name1 = reader.readLine();
         int age = Integer.parseInt(reader.readLine());
         if (age>20) System.out.println("18 is old enough");
-
-
+        reader.close();
     }
 }

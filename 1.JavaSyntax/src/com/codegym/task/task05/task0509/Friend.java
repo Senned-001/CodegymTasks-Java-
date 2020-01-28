@@ -24,6 +24,5 @@ public class Friend {
         this.sex = sex;
     }
     public static void main(String[] args) {
-
     }
 }

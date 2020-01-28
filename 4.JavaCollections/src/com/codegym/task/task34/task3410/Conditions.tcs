@@ -1,4 +1,23 @@
-taskKey="com.codegym.task.task34.task3410.big16"\n\nSokoban (part 16)
+taskKey="com.codegym.task.task34.task3410.big17"\n\nSokoban (part 17)
+
+
+You're a superstar! You've made a great game. Now you can relax a bit and play it.
+If you ever get tired of it, which is practically impossible, you could make the following
+improvements:
+17.1. Use images to represent the objects.
+17.2. Make a level editor.
+17.3. Add rankings. You could even post them online :).
+17.4. Port the game to a mobile platform, publish in an app store, and
+make tons of money.
+
+Keep it up! You're one step closer to your career as a programmer!
+
+
+Requirements:
+1.	You finished another big task!
+
+
+Sokoban (part 16)
 
 
 All that remains is to finish implementing the level loader.
@@ -23,9 +42,6 @@ must have coordinates x = x0 and y = y0 + BOARD_CELL_SIZE.
 
 The game must be fully functional. Check to see if there are any problems. If there are, fix them.
 
-
-Requirements:
-1.	Implement the GameObjects getLevel(int level) method as outlined in the task conditions.
 
 
 Sokoban (part 15)
@@ -129,26 +145,6 @@ fillRect methods).
 
 
 Run the program and be sure that all of the game objects are drawn correctly.
-
-
-
-Sokoban (part 11)
-
-
-Let's begin fleshing out the Model class' functionality. Add the following:
-11.1. A GameObjects gameObjects field. It will store our game objects.
-11.2. An int currentLevel field that stores the current level. Initialize it
-to 1.
-11.3. A LevelLoader levelLoader field that stores the level loader.
-Initialize it using the levels.txt file from the res folder.
-11.4. A GameObjects getGameObjects() method that must return all of the game
-objects.
-11.5. A restartLevel(int level) method that must receive the new game objects
-from levelLoader for the specified level and save them in the gameObjects field.
-11.6. The restart() method must restart the current level by calling restartLevel
-with the appropriate argument.
-11.7. The startNextLevel() method must increase the value of the
-currentLevel variable, which stores the current level number, and restart the new level.
 
 
 

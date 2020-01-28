@@ -8,8 +8,8 @@ Cat and Dog objects: 50,000 each
 public class Solution {
     public static void main(String[] args) {
         for (int i =0;i<50000;i++){
-        Cat cat = new Cat();
-        Dog dog = new Dog();
+            Cat cat = new Cat();
+            Dog dog = new Dog();
         }
     }
 }

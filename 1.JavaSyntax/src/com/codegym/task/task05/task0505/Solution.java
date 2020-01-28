@@ -32,9 +32,8 @@ public class Solution {
             int ageAdvantage = this.age > anotherCat.age ? 1 : 0;
             int weightAdvantage = this.weight > anotherCat.weight ? 1 : 0;
             int strengthAdvantage = this.strength > anotherCat.strength ? 1 : 0;
-
             int score = ageAdvantage + weightAdvantage + strengthAdvantage;
-            return score > 2; // return score > 2 ? true : false;
+            return score > 2;           // return score > 2 ? true : false;
         }
     }
 }

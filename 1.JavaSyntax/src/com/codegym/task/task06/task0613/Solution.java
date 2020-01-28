@@ -11,7 +11,6 @@ public class Solution {
         for (int i = 0;i<10;i++)
             cat = new Cat();
         System.out.println(Cat.catCount);
-
         // Display the value of the variable catCount
     }
 

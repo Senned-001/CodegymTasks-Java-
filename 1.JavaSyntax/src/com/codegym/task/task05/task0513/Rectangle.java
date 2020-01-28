@@ -6,13 +6,16 @@ Let's put together a rectangle
 */
 
 public class Rectangle {
-    int top, left, width =0, height= 0;
+    int top;
+    int left;
+    int width=0;
+    int height=0;
 
     public void initialize(int top, int left, int width, int height) {
         this.top = top;
         this.left = left;
         this.width = width;
-        this.height=height;
+        this.height = height;
     }
 
     public void initialize(int top, int left) {
@@ -24,20 +27,16 @@ public class Rectangle {
         this.top = top;
         this.left = left;
         this.width = width;
-        this.height=width;
+        this.height = width;
     }
 
     public void initialize(Rectangle a) {
         this.top = a.top;
         this.left = a.left;
         this.width = a.width;
-        this.height=a.height;
+        this.height = a.height;
     }
 
-
-
-
     public static void main(String[] args) {
-
     }
 }

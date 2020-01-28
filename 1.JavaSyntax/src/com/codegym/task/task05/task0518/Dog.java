@@ -7,7 +7,8 @@ Dog registration
 
 
 public class Dog {
-    String name, color;
+    String name;
+    String color;
     int height;
 
     public Dog(String name){
@@ -25,8 +26,6 @@ public class Dog {
         this.height = height;
     }
 
-
     public static void main(String[] args) {
-
     }
 }

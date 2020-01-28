@@ -7,7 +7,11 @@ Walking in circles
 
 
 public class Circle {
-    int centerX, centerY, radius, width, color;
+    int centerX;
+    int centerY;
+    int radius;
+    int width;
+    int color;
 
     public Circle(int centerX,int centerY, int radius) {
         this.centerX = centerX;
@@ -31,6 +35,5 @@ public class Circle {
     }
 
     public static void main(String[] args) {
-
     }
 }

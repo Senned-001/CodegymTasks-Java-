@@ -17,6 +17,6 @@ public class Solution {
         int d = Integer.parseInt(reader.readLine());
         System.out.println("My name is " + name + ".");
         System.out.println("I was born on " +m+ "/" +d+ "/"+y);
-
+        reader.close();
     }
 }

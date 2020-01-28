@@ -7,7 +7,6 @@ Notepad for new ideas
 
 public class Solution {
     public static void main(String[] args) {
-
         printIdea(new Idea());
     }
 

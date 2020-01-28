@@ -17,7 +17,8 @@ public class Cat {
         Cat cat;
         for (int i=0;i<10;i++){
             cat = new Cat();
-            cats.add(cat);}
+            cats.add(cat);
+        }
         printCats();
     }
 

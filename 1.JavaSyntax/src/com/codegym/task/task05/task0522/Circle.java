@@ -21,15 +21,14 @@ public class Circle {
 
     public Circle(double x){
         this.x=x;
-
     }
 
     public Circle(double x, double y, double radius){
         this.x=x;
         this.y=y;
-        this.radius = radius;
+        this.radius=radius;
     }
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
     }
 }

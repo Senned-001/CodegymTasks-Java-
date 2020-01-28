@@ -18,7 +18,6 @@ public class Solution {
         if (b>0) kol++;
         if (c>0) kol++;
         System.out.println(kol);
-
-
+        reader.close();
     }
 }

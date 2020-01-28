@@ -14,7 +14,8 @@ public class Cat {
     }
 
     public boolean fight(Cat anotherCat) {
-        int s1,s2;
+        int s1;
+        int s2;
         s1 = (this.age+this.weight)*this.strength;
         s2 = (anotherCat.age+anotherCat.weight)*anotherCat.strength;
         if (s1>s2)
@@ -23,6 +24,5 @@ public class Cat {
     }
 
     public static void main(String[] args) {
-
     }
 }

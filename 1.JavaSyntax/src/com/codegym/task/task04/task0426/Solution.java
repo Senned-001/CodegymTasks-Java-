@@ -16,5 +16,6 @@ public class Solution {
                 else if ((a<0)&&(a%2!=0)) System.out.println("Negative odd number");
                     else if ((a<0)&&(a%2==0)) System.out.println("Negative even number");
                         else System.out.println("Zero");
+        reader.close();
     }
 }

@@ -6,7 +6,6 @@ This age doesn't work for me…
 */
 public class Solution {
     public static void main(String[] args) {
-
         Person person = new Person();
         System.out.println("Age: " + person.age);
         person.adjustAge(person.age);

@@ -13,7 +13,8 @@ public class Solution {
     }
 
     public static void checkInterval(int a) {
-        if ((50<a)&&(a<100)) System.out.println("The number "+a+" is in the interval.");
+        if ((50<a)&&(a<100))
+            System.out.println("The number "+a+" is in the interval.");
         else System.out.println("The number "+a+" is not in the interval.");
     }
 }

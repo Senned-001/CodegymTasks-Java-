@@ -14,15 +14,12 @@ public class Cat {
 
     public static int getCatCount() {
         return Cat.catCount;
-
     }
 
     public static void setCatCount(int catCount) {
         Cat.catCount = catCount;
-
     }
 
     public static void main(String[] args) {
-
     }
 }

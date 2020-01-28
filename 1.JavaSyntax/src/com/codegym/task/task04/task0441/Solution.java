@@ -13,9 +13,11 @@ public class Solution {
         int a = Integer.parseInt(reader.readLine());
         int b = Integer.parseInt(reader.readLine());
         int c = Integer.parseInt(reader.readLine());
-
-        if (((b>=a)&&(b<=c))||((b<=a)&&(b>=c))) System.out.println(b);
-            else if (((a>=b)&&(a<=c))||((a<=b)&&(a>=c))) System.out.println(a);
-                else System.out.println(c);
+        if (((b>=a)&&(b<=c))||((b<=a)&&(b>=c)))
+            System.out.println(b);
+        else if (((a>=b)&&(a<=c))||((a<=b)&&(a>=c)))
+            System.out.println(a);
+        else System.out.println(c);
+        reader.close();
     }
 }

@@ -18,7 +18,8 @@ public class Solution {
     }
 
     public static class Man {
-        String name, address;
+        String name;
+        String address;
         int age;
 
         public Man(String name, int age, String address) {
@@ -29,7 +30,8 @@ public class Solution {
     }
 
     public static class Woman {
-        String name, address;
+        String name;
+        String address;
         int age;
 
         public Woman (String name, int age, String address) {
@@ -38,5 +40,4 @@ public class Solution {
             this.address=address;
         }
     }
-
 }

@@ -12,5 +12,6 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(reader.readLine());
         System.out.println("I will earn $" + n +" per hour");
+        reader.close();
     }
 }

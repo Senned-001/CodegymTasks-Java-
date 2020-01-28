@@ -12,8 +12,11 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int a = Integer.parseInt(reader.readLine());
         int b = Integer.parseInt(reader.readLine());
-        if(a>b) System.out.println(b);
-            else if (b>a) System.out.println(a);
-                else System.out.println(b);
+        if(a>b)
+            System.out.println(b);
+        else if (b>a)
+            System.out.println(a);
+        else System.out.println(b);
+        reader.close();
     }
 }

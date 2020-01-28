@@ -14,8 +14,9 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String str = reader.readLine();
         int a = Integer.parseInt(reader.readLine());
-        while (a>0)
-        {System.out.println(str);a--;}
-
+        reader.close();
+        while (a>0){
+            System.out.println(str);a--;
+        }
     }
 }

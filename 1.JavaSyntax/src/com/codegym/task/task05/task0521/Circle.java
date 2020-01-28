@@ -22,7 +22,6 @@ public class Circle {
     }
 
     public Circle() {
-
         this(5, 5, 1);
     }
 

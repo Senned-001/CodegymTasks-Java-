@@ -12,8 +12,6 @@ public class Person {
     int weight;
     double size;
 
-
-
     public void initialize(String name, int money, char sex, int weight, double size) {
         this.name = name;
         this.money = money;
@@ -23,6 +21,5 @@ public class Person {
     }
 
     public static void main(String[] args) {
-
     }
 }

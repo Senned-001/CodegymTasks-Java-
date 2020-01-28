@@ -14,13 +14,11 @@ public class Solution {
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         String max = "The max is ";
         int a = Integer.parseInt(reader.readLine());
         int b = Integer.parseInt(reader.readLine());
         Solution.max = a > b ? a : b;
-
         System.out.println(max + Solution.max);
+        reader.close();
     }
-
 }

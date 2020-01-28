@@ -12,9 +12,7 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int number = Integer.parseInt(reader.readLine());
         String name = reader.readLine();
-
-
-
         System.out.print(name + " will take over the world in " + number + " years. Mwa-ha-ha!");
+        reader.close();
     }
 }

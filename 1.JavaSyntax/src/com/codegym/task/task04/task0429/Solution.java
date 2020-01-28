@@ -22,6 +22,6 @@ public class Solution {
             else if(c<0) otr++;
         System.out.println("Number of negative numbers: "+otr);
         System.out.println("Number of positive numbers: "+kol);
-
+        reader.close();
     }
 }

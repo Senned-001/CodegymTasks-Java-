@@ -7,7 +7,6 @@ KissMyShinyMetalRearActuator
 
 public class Solution {
     public static class KissMyShinyMetalRearActuator {
-
     }
 
     public static void main(String[] args) {

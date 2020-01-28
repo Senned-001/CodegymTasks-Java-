@@ -34,6 +34,7 @@ public class Solution {
         System.out.println(mother.toString());
         System.out.println(son.toString());
         System.out.println(daughter.toString());
+        reader.close();
     }
 
     public static class Cat {
@@ -51,8 +52,6 @@ public class Solution {
             this.father = father;
         }
 
-
-
         @Override
         public String toString() {
             if ((father == null)&&(mother == null))
@@ -65,5 +64,4 @@ public class Solution {
                 return "The cat's name is " + name + ", " + mother.name + " is the mother, "+ father.name + " is the father";
         }
     }
-
 }
