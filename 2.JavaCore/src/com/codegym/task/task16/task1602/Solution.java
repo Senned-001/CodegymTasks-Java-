@@ -13,7 +13,6 @@ public class Solution {
 
 
     public static class TestThread extends Thread{
-
         static{
             System.out.println("This is the static block inside TestThread");
         }

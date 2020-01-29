@@ -11,7 +11,6 @@ A list and some threads
 public class Solution {
     public static volatile List<Thread> list = new ArrayList<>(5);
 
-
     public static void main(String[] args) {
         //write your code here
         SpecialThread t1 = new SpecialThread();
@@ -31,8 +30,6 @@ public class Solution {
         list.add(th3);
         list.add(th4);
         list.add(th5);
-
-
     }
 
     public static class SpecialThread implements Runnable {

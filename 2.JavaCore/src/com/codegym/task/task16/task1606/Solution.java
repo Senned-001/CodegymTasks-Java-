@@ -25,8 +25,8 @@ public class Solution {
 
     public static List<String> getList(int n) {
         List<String> result = new ArrayList<>();
-        if (n < 1) return result;
-
+        if (n < 1)
+            return result;
         for (int i = 0; i < n; i++) {
             result.add(String.format("String %d", (i + 1)));
         }
@@ -38,6 +38,7 @@ public class Solution {
             super(name);
         }
 
+        @Override
         public void run() {
             printList(getList(20), getName());
         }

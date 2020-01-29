@@ -20,14 +20,12 @@ public class Solution {
         int finishedCount = 0;
         //write your code here
         for(int i=0;i<horses.size();i++){
-        if(!horses.get(i).isFinished()){
-            System.out.println("Waiting for " + horses.get(i).getName());
-            horses.get(i).join();   //gdem okonchanie vipolneniya potoka
+            if(!horses.get(i).isFinished()) {
+                System.out.println("Waiting for " + horses.get(i).getName());
+                horses.get(i).join();
         }
         else
             finishedCount++;
-
-
         }
         return finishedCount;
     }
@@ -58,6 +56,7 @@ public class Solution {
             return isFinished;
         }
 
+        @Override
         public void run() {
             String s = "";
             for (int i = 0; i < 1001; i++) {   // Delay

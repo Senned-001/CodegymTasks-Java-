@@ -25,7 +25,6 @@ public class Solution {
 
     public interface MusicalInstrument extends Runnable {
         Date startPlaying();
-
         Date stopPlaying();
     }
 
@@ -36,11 +35,13 @@ public class Solution {
             this.owner = owner;
         }
 
+        @Override
         public Date startPlaying() {
             System.out.println(this.owner + " is starting to play");
             return new Date();
         }
 
+        @Override
         public Date stopPlaying() {
             System.out.println(this.owner + " is stopping playing");
             return new Date();

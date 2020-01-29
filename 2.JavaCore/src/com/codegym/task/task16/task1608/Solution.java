@@ -14,10 +14,8 @@ public class Solution {
         chump.join();
         Politician dustbin = new Politician("Dustbin");
         Politician schooner = new Politician("Schooner");
-
         while (chump.getSpeechCount() + dustbin.getSpeechCount() + schooner.getSpeechCount() < totalSpeechCount) {
         }
-
         System.out.println(chump);
         System.out.println(dustbin);
         System.out.println(schooner);
@@ -32,6 +30,7 @@ public class Solution {
             start();
         }
 
+        @Override
         public void run() {
             while (utteranceCount < totalSpeechCount * utterancesPerSpeech) {
                 utteranceCount++;
