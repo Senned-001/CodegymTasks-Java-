@@ -30,6 +30,7 @@ public class Solution {
             start();
         }
 
+        @Override
         public void run() {
             System.out.println(getName() + " gave birth to 2 kittens");
             try {
@@ -52,6 +53,7 @@ public class Solution {
             super(name);
         }
 
+        @Override
         public void run() {
             System.out.println(getName() + " got out of the basket");
             investigateWorld();
