@@ -39,14 +39,10 @@ public class Solution {
         }
 
         private void doStep() throws InterruptedException {
-
             // write your code here
-
                 stepNumber++;
-
                 Thread.sleep(1000/owner.getSpeed());
                 System.out.println(owner.getName() + " takes step " + stepNumber + "!");
-
         }
     }
 
