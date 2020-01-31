@@ -21,14 +21,13 @@ public class Solution {
         FileOutputStream outputStream = new FileOutputStream(file2);
         FileOutputStream outputStream2 = new FileOutputStream(file3);
         int ind=inputStream.available();
-        while (inputStream.available() > 0) //пока остались непрочитанные байты
-        {   int data = inputStream.read();
+        while (inputStream.available() > 0) {
+            int data = inputStream.read();
             if(inputStream.available() >= ind/2)
                 outputStream.write(data);
             else
                 outputStream2.write(data);
         }
-
         inputStream.close();
         outputStream.close();
         outputStream2.close();

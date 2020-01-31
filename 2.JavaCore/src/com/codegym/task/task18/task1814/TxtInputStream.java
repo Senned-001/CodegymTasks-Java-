@@ -17,11 +17,9 @@ public class TxtInputStream extends FileInputStream {
             super.close();
             throw new UnsupportedFileNameException();
         }
-
     }
 
     public static void main(String[] args) {
-
     }
 }
 

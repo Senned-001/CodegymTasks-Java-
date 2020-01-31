@@ -17,7 +17,6 @@ public class AmigoOutputStream extends FileOutputStream {
     public AmigoOutputStream (FileOutputStream l) throws FileNotFoundException{
        super(fileName);
         obj=l;
-
     }
 
     public AmigoOutputStream(FileDescriptor fdObj) {
@@ -44,20 +43,13 @@ public class AmigoOutputStream extends FileOutputStream {
         obj.write(b,off,len);
     }
 
-
-
     @Override
     public void close() throws IOException {
         obj.flush();
         String s="CodeGym © All rights reserved.";
         obj.write(s.getBytes());
         obj.close();
-
-
     }
-
-
-
 
     public static void main(String[] args) throws FileNotFoundException {
         new AmigoOutputStream(new FileOutputStream(fileName));

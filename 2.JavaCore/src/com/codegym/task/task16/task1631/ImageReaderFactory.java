@@ -12,5 +12,4 @@ public class ImageReaderFactory {
         if(s.equals(ImageTypes.PNG)) return new PngReader();
         throw new IllegalArgumentException("Unknown image type");
     }
-
 }

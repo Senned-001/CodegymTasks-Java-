@@ -18,15 +18,15 @@ public class Solution {
             BufferedReader bufr = new BufferedReader(new FileReader(name));
             if (args[0].equals("-u")) {
 
-
                 String s = bufr.readLine();
                 while (s != null) {
                     String ind = s.substring(0, 8);
                     String arg=args[1];
-                    if (arg.contains(" ")) arg = arg.substring(0, arg.indexOf(" "));
-                    if (ind.contains(" ")) ind = ind.substring(0, ind.indexOf(" "));       //ubiraem probeli esli est
+                    if (arg.contains(" "))
+                        arg = arg.substring(0, arg.indexOf(" "));
+                    if (ind.contains(" "))
+                        ind = ind.substring(0, ind.indexOf(" "));       //remove space if it has
                     if (arg.equals(ind)) {
-
                         String new_prod = args[2];
                         String new_price = args[3];
                         String new_q = args[4];
@@ -41,7 +41,8 @@ public class Solution {
                         }
                         String data = s.substring(0, 8) + new_prod + new_price + new_q;
                         text.add(data);
-                    } else text.add(s);
+                    } else
+                        text.add(s);
                     s = bufr.readLine();
                 }
                 bufr.close();
@@ -52,7 +53,6 @@ public class Solution {
                     bufw.flush();
                 }
                 bufw.close();
-
             }
 
             if (args[0].equals("-d")){
@@ -60,27 +60,23 @@ public class Solution {
                 while (s != null) {
                     String ind = s.substring(0, 8);
                     String arg=args[1];
-                    if (arg.contains(" ")) arg = arg.substring(0, arg.indexOf(" "));
-                    if (ind.contains(" ")) ind = ind.substring(0, ind.indexOf(" "));       //ubiraem probeli esli est
-                    if (!arg.equals(ind))  text.add(s);
-
+                    if (arg.contains(" "))
+                        arg = arg.substring(0, arg.indexOf(" "));
+                    if (ind.contains(" "))
+                        ind = ind.substring(0, ind.indexOf(" "));       //remove space if it has
+                    if (!arg.equals(ind))
+                        text.add(s);
                     s = bufr.readLine();
                 }
                 bufr.close();
+
                 BufferedWriter bufw = new BufferedWriter(new FileWriter(name));
                 for (int i = 0; i < text.size(); i++) {
                     bufw.write(text.get(i)+"\n");
                     bufw.flush();
                 }
-
                 bufw.close();
             }
         }
-
-
-
-
-
-
     }
 }

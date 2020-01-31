@@ -51,9 +51,6 @@ public class Beach implements Comparable<Beach>{
         }
     }
 
-
-
     public static void main(String[] args) {
-
     }
 }

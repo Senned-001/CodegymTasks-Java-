@@ -54,7 +54,6 @@ public class Solution {
                     incrementCount();
                     values[getCount()]++;
                 }
-
                 try {
                     Thread.sleep(1);
                 } catch (InterruptedException ignored) {

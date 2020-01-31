@@ -43,7 +43,6 @@ public class Solution {
                     Thread.sleep(1);
                 } catch (Exception e) {}
                 Note.removeNote(getName());
-                
             }
         }
     }

@@ -14,14 +14,12 @@ public class Solution {
         FileInputStream inputStream = new FileInputStream("c:/data.txt");
         // Create a stream to write bytes to a file
         FileOutputStream outputStream = new FileOutputStream("c:/result.txt");
-
         if (inputStream.available() > 0) {
             // Read the entire file in one batch
             byte[] buffer = new byte[inputStream.available()];
             int count = inputStream.read(buffer);
             outputStream.write(buffer, 0, count);
         }
-
         inputStream.close();
         outputStream.close();
     }

@@ -11,32 +11,29 @@ public class QuestionFileOutputStream implements AmigoOutputStream {
     private AmigoOutputStream n;
 
 
-    public QuestionFileOutputStream(AmigoOutputStream s){
-        n=s;
+    public QuestionFileOutputStream(AmigoOutputStream s) {
+        n = s;
     }
 
+    @Override
+    public void flush() throws IOException {
+        n.flush();
+    }
 
+    @Override
+    public void write(int b) throws IOException {
+        n.write(b);
+    }
 
-        @Override
-            public void flush() throws IOException {
-                n.flush();
-            }
+    @Override
+    public void write(byte[] b) throws IOException {
+        n.write(b);
+    }
 
-            @Override
-            public void write(int b) throws IOException {
-                n.write(b);
-            }
-
-            @Override
-            public void write(byte[] b) throws IOException {
-                n.write(b);
-            }
-
-            @Override
-            public void write(byte[] b, int off, int len) throws IOException {
-                n.write(b,off,len);
-            }
-
+    @Override
+    public void write(byte[] b, int off, int len) throws IOException {
+        n.write(b, off, len);
+    }
 
 
     @Override
@@ -45,8 +42,8 @@ public class QuestionFileOutputStream implements AmigoOutputStream {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String answer = reader.readLine();
         reader.close();
-        if(answer.equals("Y")) n.close();
-
+        if (answer.equals("Y"))
+            n.close();
     }
 }
 

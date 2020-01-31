@@ -25,6 +25,7 @@ public class Solution {
         protected Gamer gamer2 = new Gamer("Jones", 1);
         protected Gamer gamer3 = new Gamer("Gates", 5);
 
+        @Override
         public void run() {
             gamer1.start();
             gamer2.start();
@@ -62,11 +63,6 @@ public class Solution {
             } catch (InterruptedException e) {
                 System.out.println("["+getName ()+":lost]");
             }
-
-
-
         }
-
-
     }
 }

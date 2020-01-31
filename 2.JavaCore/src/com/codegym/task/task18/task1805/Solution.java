@@ -16,28 +16,17 @@ public class Solution {
         String name = reader.readLine();
         reader.close();
         FileInputStream inputStream = new FileInputStream(name);
-
-
         Set<Integer> t = new HashSet();
-
-        while (inputStream.available() > 0) //пока остались непрочитанные байты
-        {
-            int data = inputStream.read(); //прочитать очередной байт
+        while (inputStream.available() > 0) {
+            int data = inputStream.read();
             t.add(data);
         }
-        inputStream.close(); //
-
+        inputStream.close();
         ArrayList<Integer>s=new ArrayList<>(t);
         Collections.sort(s);
 
-
         for(int i=0;i<s.size();i++){
           System.out.print(s.get(i)+" ");
-
         }
-
-
-
-
     }
 }

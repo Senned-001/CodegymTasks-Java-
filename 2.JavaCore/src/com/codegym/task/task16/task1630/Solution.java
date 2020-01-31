@@ -51,25 +51,25 @@ public class Solution {
         private ArrayList<String> result = new ArrayList<>();
         private String fn;
 
-
+        @Override
         public void setFileName(String fullFileName){
             fn=fullFileName;
         }
 
+        @Override
         public String getFileContents(){
             String s="";
             for (int i=0;i<result.size();i++){
                 if(i<(result.size()-1))
                     s=s+(result.get(i)+" ");
-                else s=s+result.get(i);
+                else
+                    s=s+result.get(i);
             }
             return s;
         }
 
-
         @Override
         public void run() {
-
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(fn));
                 String t=reader.readLine();

@@ -10,6 +10,7 @@ Table
 public class Solution {
     public class TableInterfaceWrapper implements TableInterface {
         private TableInterface obj;
+
         public TableInterfaceWrapper(TableInterface a){
             obj=a;
         }

@@ -20,12 +20,12 @@ public class Solution {
                     countdownIndex++;
                     Thread.sleep(500);
                     if (countdownIndex > Solution.number) return;
-
                 }
             } catch (InterruptedException e) {
             }
         }
 
+        @Override
         public String toString() {
             return Thread.currentThread().getName() + ": " + countdownIndex;
         }
@@ -35,18 +35,21 @@ public class Solution {
     public static class CountdownRunnable implements Runnable {
         private int countdownIndex = Solution.number;
 
+        @Override
         public void run() {
             try {
                 while (true) {
                     System.out.println(toString());
                     countdownIndex -= 1;
-                    if (countdownIndex == 0) return;
+                    if (countdownIndex == 0)
+                        return;
                     Thread.sleep(2500);
                 }
             } catch (InterruptedException e) {
             }
         }
 
+        @Override
         public String toString() {
             return Thread.currentThread().getName() + ": " + countdownIndex;
         }

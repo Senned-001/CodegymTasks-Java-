@@ -20,15 +20,11 @@ public class Solution {
         FileInputStream inputStream = new FileInputStream(file1);
         FileOutputStream outputStream = new FileOutputStream(file2);
         byte[] buffer = new byte[inputStream.available()];
-
-            for(int i=buffer.length-1;i>=0;i--){
-                buffer[i]=(byte)inputStream.read();
-            }
-            outputStream.write(buffer);
-
-
+        for(int i=buffer.length-1;i>=0;i--){
+            buffer[i]=(byte)inputStream.read();
+        }
+        outputStream.write(buffer);
         inputStream.close();
         outputStream.close();
-
     }
 }

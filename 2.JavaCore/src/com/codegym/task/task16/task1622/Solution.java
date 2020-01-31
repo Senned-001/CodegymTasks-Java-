@@ -12,8 +12,6 @@ public class Solution {
         for (int i = 0; i < COUNT; i++) {
             Thread s =new SleepingThread();
             s.join();
-            //write your code here
-
         }
     }
 
@@ -26,22 +24,21 @@ public class Solution {
             start();
         }
 
+        @Override
         public void run() {
             while (true) {
                 System.out.println(this);
                 if (--countdownIndex == 0) return;
                 //write your code here
-
                  try {
                         Thread.sleep(10);
                  } catch (InterruptedException e) {
                         System.out.println("Thread interrupted");
                  }
-
-
             }
         }
 
+        @Override
         public String toString() {
             return "#" + getName() + ": " + countdownIndex;
         }

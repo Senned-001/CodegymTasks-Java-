@@ -23,9 +23,7 @@ public class BankAccount {
 
     public synchronized void withdraw(BigDecimal money) throws NotEnoughMoneyException {
         BigDecimal newBalance = balance.subtract(money);
-
         if (newBalance.compareTo(BigDecimal.ZERO) < 0) throw new NotEnoughMoneyException();
-
         balance = newBalance;
         System.out.println("Spend " + money + ", account balance " + balance);
     }

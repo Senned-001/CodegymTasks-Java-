@@ -7,7 +7,6 @@ public class IMF {
     public static IMF getFund() {
         synchronized (IMF.class){
         if(imf==null) imf = new IMF();
-
         return imf;
         }
     }

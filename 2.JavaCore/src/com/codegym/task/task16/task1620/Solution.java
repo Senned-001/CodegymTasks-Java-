@@ -28,9 +28,8 @@ public class Solution {
     private static void initThreadsAndStart() {
         Water water = new Water("water");
         for (int i = 0; i < threadCount; i++) {
-            threads.add(new Thread(water, "#" + i));//constructor potokov pri rabote s odnim resursom
+            threads.add(new Thread(water, "#" + i));
         }
-
         for (int i = 0; i < threadCount; i++) {
             threads.get(i).start();
         }
@@ -43,6 +42,7 @@ public class Solution {
             this.sharedResource = sharedResource;
         }
 
+        @Override
         public void run() {
             //fix 2 variables
             boolean isCurrentThreadInterrupted = Thread.currentThread().isInterrupted();
@@ -50,7 +50,6 @@ public class Solution {
 
             try {
                 while (!isCurrentThreadInterrupted) {
-
                     System.out.println("Object " + sharedResource + ", thread " + threadName);
                     Thread.sleep(1000);
                 }

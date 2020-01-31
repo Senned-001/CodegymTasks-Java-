@@ -23,11 +23,8 @@ public class Solution {
         public void run() {
             synchronized (Iron.class) {
                 Iron iron = takeIron();
-
                 Clothes clothes = takeClothes();
-
                 iron(iron, clothes);
-
                 returnIron();
             }
         }
@@ -56,7 +53,6 @@ public class Solution {
 
     public static class Clothes {
         String name;
-
         public Clothes(String name) {
             this.name = name;
         }

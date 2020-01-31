@@ -17,6 +17,8 @@ public class Solution {
     }
 
     public static class ThreadNamePrinter extends Thread {
+
+        @Override
         public void run() {
             for (int i = 0; i < count; i++) {
                 printMsg();
@@ -32,8 +34,6 @@ public class Solution {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            // Add sleep here
         }
     }
 }

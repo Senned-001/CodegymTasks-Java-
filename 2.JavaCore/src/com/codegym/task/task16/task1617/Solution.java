@@ -13,7 +13,6 @@ public class Solution {
         //write your code here
         Thread.sleep(3500);
         clock.interrupt();
-
     }
 
     public static class RacingClock extends Thread {
@@ -21,6 +20,7 @@ public class Solution {
             start();
         }
 
+        @Override
         public void run() {
             //write your code here
             try {
@@ -33,7 +33,6 @@ public class Solution {
             } catch (InterruptedException ignored) {
                 System.out.println("Interrupted!");
             }
-
         }
     }
 }

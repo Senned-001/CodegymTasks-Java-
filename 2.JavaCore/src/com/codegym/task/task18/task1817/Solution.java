@@ -21,7 +21,5 @@ public class Solution {
         float f=count/symbs*100;
         DecimalFormat df = new DecimalFormat("###.##"); //fofmat vivoda chisla
         System.out.println(df.format(f));
-
-
     }
 }

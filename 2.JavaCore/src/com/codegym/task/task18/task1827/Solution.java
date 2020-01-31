@@ -27,14 +27,13 @@ public class Solution {
                     s = bufr.readLine();
                 }
                 bufr.close();
-                         //sled index
                 last_id = last_id + 1;
 
                 String new_id = "" + last_id;
                 String new_prod = args[1];
                 String new_price = args[2];
                 String new_q = args[3];
-                        //zapolnenie probelami
+
                 while (new_id.toCharArray().length < 8) {
                     new_id = new_id + " ";
                 }
@@ -47,21 +46,16 @@ public class Solution {
                 while (new_q.toCharArray().length < 4) {
                     new_q = new_q + " ";
                 }
-
                 String data = "\n" + new_id + new_prod + new_price + new_q;
                 BufferedWriter bufw = new BufferedWriter(new FileWriter(name,true));
                 /*for (int i = 0; i < text.size(); i++) {
                     bufw.write(text.get(i));
                     bufw.flush();
                 }*/
-
                 bufw.write(data);
                 bufw.flush();
                 bufw.close();
-
-
             }
-
         }
     }
 }

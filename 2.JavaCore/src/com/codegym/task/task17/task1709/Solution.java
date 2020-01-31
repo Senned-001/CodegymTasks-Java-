@@ -34,7 +34,6 @@ public class Solution {
         @Override
         public void run() {
             int thisProposal = proposal;
-
             while (thisProposal < 10) {
                 if (thisProposal != proposal) {
                     System.out.println("Accepted Proposal No." + proposal);

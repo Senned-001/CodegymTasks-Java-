@@ -9,9 +9,7 @@ Synchronized notes
 */
 
 public class Solution {
-
     public static void main(String[] args) {
-
     }
 
     public static class Note {
@@ -23,7 +21,6 @@ public class Solution {
             synchronized (notes) {
                 notes.add(index, note);
             }
-
             System.out.println("The note [" + note + "] has already been added");
         }
 
@@ -36,5 +33,4 @@ public class Solution {
             System.out.println("The note [" + note + "] has already been deleted from position " + index);
         }
     }
-
 }

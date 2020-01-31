@@ -23,7 +23,6 @@ public class Solution {
         for (int i = 1000 - 1; i >= 0; i--) {
             expectedResult.append(i).append(" ");
         }
-
         initThreads();
 
         StringBuffer result = new StringBuffer();
@@ -36,9 +35,15 @@ public class Solution {
 
     public static void initThreads() throws InterruptedException {
         List<Thread> threads = new ArrayList<Thread>(threadCount);
-        for (int i = 0; i < threadCount; i++) threads.add(new SortThread());
-        for (Thread thread : threads) thread.start();
-        for (Thread thread : threads) thread.join();
+        for (int i = 0; i < threadCount; i++) {
+            threads.add(new SortThread());
+        }
+        for (Thread thread : threads) {
+            thread.start();
+        }
+        for (Thread thread : threads) {
+            thread.join();
+        }
     }
 
     public static void sort(int[] array) {
@@ -52,6 +57,7 @@ public class Solution {
             }
         }
     }
+
     public static class  SortThread extends Thread{
         @Override
         public void run() {

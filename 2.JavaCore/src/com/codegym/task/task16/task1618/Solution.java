@@ -13,13 +13,12 @@ public class Solution {
         TestThread th = new TestThread();
         th.start();
         th.interrupt();
-
     }
 
     //write your code here
     public static class TestThread extends Thread{
+        @Override
         public void run(){
-
         }
     }
 }

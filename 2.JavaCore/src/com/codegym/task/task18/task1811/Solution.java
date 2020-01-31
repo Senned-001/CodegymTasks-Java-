@@ -45,5 +45,4 @@ public class Solution {
             component.run();
         }
     }
-
 }

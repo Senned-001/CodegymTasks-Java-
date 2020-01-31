@@ -17,7 +17,6 @@ public class Solution {
 
     public static void main(String[] args) throws Exception{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         while(true){
             String name = reader.readLine();
             if(name.equals("exit")) break;
@@ -25,14 +24,9 @@ public class Solution {
         }
 
         reader.close();
-
         for(HashMap.Entry<String, Integer> x : resultMap.entrySet()){
             new ReadThread(x.getKey()).start();
-
         }
-
-
-
     }
 
     public static class ReadThread extends Thread {
@@ -40,37 +34,31 @@ public class Solution {
         public ReadThread(String fileName) {
             // Implement constructor body
             this.filename=fileName;
-
         }
-
         // Implement file reading here
-
-
         @Override
         public void run() {
             int key= 0;
             try {
                 FileInputStream inputStream = new FileInputStream(filename);
-
                 HashMap<Integer,Integer> t = new HashMap<>();
                 int max =0;
-
                 while (inputStream.available() > 0) //пока остались непрочитанные байты
                 {
                     int data = inputStream.read(); //прочитать очередной байт
-                    if(t.containsKey(data)) t.replace(data,t.get(data)+1);
-                    else t.put(data,1);
+                    if(t.containsKey(data))
+                        t.replace(data,t.get(data)+1);
+                    else
+                        t.put(data,1);
                     if(t.get(data)>max) {
                         max=t.get(data); //srazu schitaem max povtoreniy
                         key=data;
                     }
-
                 }
                 inputStream.close(); // закрываем поток
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             resultMap.replace(filename,key);
         }
     }

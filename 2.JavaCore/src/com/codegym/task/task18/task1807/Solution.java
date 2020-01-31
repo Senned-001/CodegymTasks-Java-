@@ -16,8 +16,7 @@ public class Solution {
         reader.close();
         FileInputStream inputStream = new FileInputStream(name);
         int count=0;
-        while (inputStream.available() > 0) //пока остались непрочитанные байты
-        {
+        while (inputStream.available() > 0){
             int data = inputStream.read();
             if (data == 44) count++;
         }

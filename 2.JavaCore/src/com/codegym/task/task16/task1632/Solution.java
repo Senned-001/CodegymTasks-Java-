@@ -18,11 +18,10 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
-
     }
 
     public static class t1 extends Thread{
+
         @Override
         public void run() {
             while (true) {
@@ -31,6 +30,7 @@ public class Solution {
     }
 
     public static class t2 extends Thread{
+
         @Override
         public void run() {
             try {
@@ -43,12 +43,13 @@ public class Solution {
 
         }
     }
+
     public static class t3 extends Thread{
+
         @Override
         public void run() {
             try {
                 while(true){
-
                     System.out.println("Hurray");
                     Thread.sleep(500);
                 }
@@ -57,17 +58,23 @@ public class Solution {
             }
         }
     }
+
     public static class t4 extends Thread implements Message{
+
+        @Override
         public void showWarning(){
             this.interrupt();
         }
+
         @Override
         public void run() {
            while(!Thread.currentThread().isInterrupted()){}
         }
     }
+
     public static class t5 extends Thread{
         ArrayList <Integer> list = new ArrayList<>();
+
         @Override
         public void run() {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -82,11 +89,10 @@ public class Solution {
                     sum=sum+list.get(i);
                 }
                 System.out.println(sum);
+                reader.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
-
 }

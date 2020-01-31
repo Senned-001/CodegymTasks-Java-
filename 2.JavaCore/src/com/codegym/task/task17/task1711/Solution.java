@@ -25,9 +25,9 @@ public class Solution {
             SimpleDateFormat datein = new SimpleDateFormat("MM dd yyyy", Locale.ENGLISH);//parametr vnosimoy dati
             SimpleDateFormat dateout = new SimpleDateFormat("MMM dd yyyy", Locale.ENGLISH);//parametr vivodimoy dati
 
-            switch (args[0]){                   //realizaciya cherz switch
+            switch (args[0]){
 
-                case "-c":                       //-c
+                case "-c":
                 for(int i=0;i<(args.length-1);i=i+3) { //shag raven kol-vu argumentov
                     if (args[i+2].equals("m")) allPeople.add(Person.createMale(args[i+1], datein.parse(args[i+3])));
                     else allPeople.add(Person.createFemale(args[i+1], datein.parse(args[i+3])));
@@ -35,7 +35,7 @@ public class Solution {
                 }
                 break;
 
-                case "-u":                       //-u
+                case "-u":
                 for(int i=0;i<(args.length-1);i=i+4) {
                     allPeople.get(Integer.parseInt(args[i+1])).setName(args[i+2]);
                     if (args[i+3].equals("m")) allPeople.get(Integer.parseInt(args[i+1])).setSex(Sex.MALE);
@@ -44,7 +44,7 @@ public class Solution {
                 }
                 break;
 
-                case "-d":                       //-d
+                case "-d":
                 for(int i=0;i<(args.length-1);i++) {
                     allPeople.get(Integer.parseInt(args[i+1])).setName(null);
                     allPeople.get(Integer.parseInt(args[i+1])).setSex(null);
@@ -52,7 +52,7 @@ public class Solution {
                 }
                 break;
 
-                case "-i":                        //-i
+                case "-i":
                 for(int i=0;i<(args.length-1);i++) {
                     System.out.print(allPeople.get(Integer.parseInt(args[i+1])).getName() + " ");
                     if (allPeople.get(Integer.parseInt(args[i+1])).getSex().equals(Sex.MALE))
@@ -63,12 +63,11 @@ public class Solution {
                 }
                 break;
 
-                default:
-
+                default:{
                 System.out.println("Error");
                 break;
+                }
+            }
         }
-
-    }
     }
 }
