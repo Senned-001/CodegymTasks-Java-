@@ -33,7 +33,6 @@ public class AdapterFileOutputStream  implements AmigoStringWriter{
 
 
     public static void main(String[] args) {
-
     }
 }
 

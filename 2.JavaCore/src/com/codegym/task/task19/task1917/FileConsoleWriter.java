@@ -14,7 +14,7 @@ public class FileConsoleWriter {
     private FileWriter fileWriter;
 
     public FileConsoleWriter (File file) throws IOException{
-    fileWriter=new FileWriter(file);
+        fileWriter=new FileWriter(file);
     }
     public FileConsoleWriter (File file, boolean append) throws IOException{
         fileWriter=new FileWriter(file,append);
@@ -33,7 +33,7 @@ public class FileConsoleWriter {
         fileWriter.write(cbuf,off,len);
         String s="";
         for(int i=off;i<off+len;i++){
-            s=s+cbuf[i];
+            s+=cbuf[i];
         }
         System.out.println(s);
     }
@@ -54,7 +54,7 @@ public class FileConsoleWriter {
         //System.out.println(cbuf.toString());
         String s="";
         for(int i=0;i<cbuf.length;i++){
-            s=s+cbuf[i];
+            s+=cbuf[i];
         }
         System.out.println(s);
     }
@@ -62,9 +62,6 @@ public class FileConsoleWriter {
         fileWriter.close();
     }
 
-
     public static void main(String[] args) {
-
     }
-
 }

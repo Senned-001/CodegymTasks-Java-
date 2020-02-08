@@ -27,7 +27,6 @@ public class Solution {
         while ((data1=read1f.readLine())!=null){
             lines.add(new LineItem(Type.REMOVED,data1));
         }
-
         read1f.close();
         BufferedReader read2f = new BufferedReader(new FileReader(name2));
         String data2="";
@@ -39,20 +38,14 @@ public class Solution {
                 }
                 else {
                     lines.add(new LineItem(Type.ADDED,"ADDED "+data2));
-
                 }
             }
-
         }
-
-
         read2f.close();
         for(int i=0;i<lines.size();i++){
             if(lines.get(i).type==Type.REMOVED) lines.get(i).line="REMOVED "+lines.get(i).line;
         }
-
-
- */  //  sohranenie pamyati no validator zabril
+ */  //  save memory, but validator has agro
 
         ArrayList<String> sp = new ArrayList<>();
         ArrayList<String> sp2= new ArrayList<>();
@@ -63,19 +56,12 @@ public class Solution {
         while ((data1=read1f.readLine())!=null){
             sp.add(data1);
         }
-
         read1f.close();
 
         while ((data2=read2f.readLine())!=null){
             sp2.add(data2);
         }
-
         read2f.close();
-
-
-
-            //for(int i=0;i<sp2.size();i++) {
-
             while(!sp2.isEmpty()){
                 if((sp.isEmpty())){ //esli fail 2 bolche
                     lines.add(new LineItem(Type.ADDED, sp2.get(0)));
@@ -92,16 +78,13 @@ public class Solution {
                     lines.add(new LineItem(Type.ADDED, sp2.get(0)));
                     sp2.remove(0);
                 }
-
             }
 
 
-        while(!sp.isEmpty()){ //esli fail odin bolche
+        while(!sp.isEmpty()){               //if file one begger
             lines.add(new LineItem(Type.REMOVED, sp.get(0)));
             sp.remove(0);
         }
-
-
     }
 
     public static enum Type {

@@ -26,12 +26,10 @@ public class Solution {
             this.fileScanner=fileScanner;
         }
 
-
         @Override
         public Person read() throws IOException, ParseException {
             String[] data = fileScanner.nextLine().split(" ");
             DateFormat df = new SimpleDateFormat("MMddyyyy", Locale.ENGLISH);
-
             return new Person(data[2],data[0],data[1],df.parse(data[3]+data[4]+data[5]));
         }
 

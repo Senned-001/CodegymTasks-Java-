@@ -29,8 +29,6 @@ public class Solution {
         map.put(10, "ten");
         map.put(11, "eleven");
         map.put(12, "twelve");
-
-
     }
 
     public static void main(String[] args) throws IOException {
@@ -42,9 +40,7 @@ public class Solution {
         String data = "";
         String result = "";
         while ((data = read1f.readLine()) != null) {
-
             result = data;
-
             char punct;
             String[] raz = result.split(" |\\n");//split string on " " and "\n"
             result = "";
@@ -70,20 +66,14 @@ public class Solution {
                     int n = Integer.parseInt(raz[i]);       //try to parsing to int if without sign at end of word
                     if (n >= 0 && n <= 12)
                         raz[i] = map.get(Integer.parseInt(raz[i]));
-
                 } catch (NumberFormatException e) {
                 }
-
                 result = result + raz[i] + " ";
             }
             result = result.trim();
             result = result + "\n";
-
             System.out.println(result);
         }
         read1f.close();
-
-
     }
-
 }

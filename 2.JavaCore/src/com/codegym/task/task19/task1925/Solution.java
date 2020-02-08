@@ -14,7 +14,6 @@ public class Solution {
         String data="";
         String result="";
         while ((data=read1f.readLine())!=null) {
-
             String[] res = data.split(" ");
             for (int i = 0; i < res.length; i++) {
                 if (res[i].length() > 6) {
@@ -26,6 +25,5 @@ public class Solution {
         result=result.substring(0,result.length()-1);
         bw.write(result);
         bw.close();
-
     }
 }

@@ -44,18 +44,14 @@ public class Solution {
 
         @Override
         public String getPhoneNumber() {
-            String number = ""+data.getPhoneNumber();
+            String number = "" + data.getPhoneNumber();
             while(number.length()<10){
                 number="0"+number;
             }
             String code="+"+data.getCountryPhoneCode();
-
-
-
-            return code+"("+number.substring(0,3)+")"+number.substring(3,6)+"-"+number.substring(6,8)+"-"+number.substring(8,number.length());
+            return code+"("+number.substring(0,3)+")"+number.substring(3,6) + "-" + number.substring(6,8) + "-" + number.substring(8,number.length());
         }
     }
-
 
     public static interface IncomeData {
         String getCountryCode();        // For example: US

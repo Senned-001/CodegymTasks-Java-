@@ -16,14 +16,11 @@ public class Solution {
 
         BufferedReader read = new BufferedReader(new FileReader(name1));
         BufferedWriter writer = new BufferedWriter(new FileWriter(name2));
-
         String s="";
         while((s=read.readLine())!=null){
-
             writer.write(s.replace(".","!"));
         }
         read.close();
         writer.close();
-
     }
 }

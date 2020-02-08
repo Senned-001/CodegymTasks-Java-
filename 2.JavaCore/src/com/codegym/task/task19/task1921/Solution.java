@@ -19,10 +19,7 @@ public class Solution {
 
     public static void main(String[] args) throws Exception {
         BufferedReader read1f = new BufferedReader(new FileReader(args[0]));
-
-
         SimpleDateFormat  df = new SimpleDateFormat("MM dd yyyy", Locale.ENGLISH);
-
         String name="",date="";
         String data ="";
         while((data=read1f.readLine())!=null){

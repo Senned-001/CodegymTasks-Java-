@@ -16,17 +16,13 @@ public class Solution {
 
         BufferedReader read = new BufferedReader(new FileReader(name1));
         BufferedWriter writer = new BufferedWriter(new FileWriter(name2));
-
         String s="";
         while((s=read.readLine())!=null){
             String[]data=s.split("\\p{P}|\\n ");//znaki punktuacii ili simvol novoy stroki
             for(int i=0;i<data.length;i++){
                 writer.write(data[i]);
             }
-
         }
-
-
         read.close();
         writer.close();
     }

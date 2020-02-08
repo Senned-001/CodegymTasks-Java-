@@ -17,11 +17,8 @@ public class Solution {
 
         FileReader read = new FileReader(name1);
         FileWriter writer = new FileWriter(name2);
-
         BufferedReader sc = new BufferedReader(read);
-
         String s="",line="";
-
         while ((line=sc.readLine())!=null) {
             String[] data = line.split(" ");
             for(int i=0;i<data.length;i++){
@@ -29,12 +26,8 @@ public class Solution {
                     int b = Integer.parseInt(data[i]);
                     s=s+b+" ";
                 } catch (Exception e) {
-
                 }
             }
-
-
-
         }
         BufferedWriter bw = new BufferedWriter(writer);
         read.close();
@@ -42,6 +35,5 @@ public class Solution {
         bw.write(s);
         bw.close();
         writer.close();
-
     }
 }

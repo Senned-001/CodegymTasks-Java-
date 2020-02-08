@@ -32,10 +32,11 @@ public class Solution {
             int count = 0;
             String[] res=data.split(" ");
             for(int i=0;i<res.length;i++){
-                if(words.contains(res[i])) count++;
+                if(words.contains(res[i]))
+                    count++;
             }
-            if(count==2) System.out.println(data);
-
+            if(count==2)
+                System.out.println(data);
         }
         read1f.close();
     }

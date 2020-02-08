@@ -18,13 +18,10 @@ public class Solution {
         String name1 = reader.readLine();
         reader.close();
 
-
         BufferedReader read1f = new BufferedReader(new FileReader(name1));
-
         String data="";
         String res="";
         while ((data=read1f.readLine())!=null) {
-
             for(int i=data.length()-1;i>=0;i--){
                 res=res+data.charAt(i);
             }
@@ -32,13 +29,7 @@ public class Solution {
             System.out.println(res);
             res="";
                     }
-
         read1f.close();
-
         //res=res.substring(0,res.length()-1);
-
-
-
     }
-
 }

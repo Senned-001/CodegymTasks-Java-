@@ -14,7 +14,6 @@ public class Solution {
         String data="";
 
         while ((data=read1f.readLine())!=null) {
-
             String[] res = data.split(" ");
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res[i].toCharArray().length; j++) {

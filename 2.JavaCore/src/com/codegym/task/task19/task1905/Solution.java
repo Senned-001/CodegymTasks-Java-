@@ -16,7 +16,6 @@ public class Solution {
         countries.put("FR", "France");
     }
     public static void main(String[] args) {
-
     }
 
     public static class DataAdapter implements RowItem{
@@ -30,13 +29,11 @@ public class Solution {
 
         @Override
         public String getCountryCode() {
-
             String cname=null;
-
             for(HashMap.Entry<String, String> x : countries.entrySet()){
-                if(x.getValue().equals(customer.getCountryName())) cname=x.getKey();
+                if(x.getValue().equals(customer.getCountryName()))
+                    cname=x.getKey();
             }
-
             return cname;
         }
 
@@ -62,11 +59,9 @@ public class Solution {
                 if(contact.getPhoneNumber().toCharArray()[i]!='+'&&
                         contact.getPhoneNumber().toCharArray()[i]!='('&&
                         contact.getPhoneNumber().toCharArray()[i]!=')'&&
-                        contact.getPhoneNumber().toCharArray()[i]!='-') numb=numb+contact.getPhoneNumber().toCharArray()[i];
+                        contact.getPhoneNumber().toCharArray()[i]!='-')
+                    numb=numb+contact.getPhoneNumber().toCharArray()[i];
             }
-
-
-
             return "callto://+"+numb;
         }
     }

@@ -27,7 +27,6 @@ public class Solution {
             else word="";
             if(word.equals("world")) kol++;
         }*/
-
         Scanner scanner = new Scanner(read);
         scanner.useDelimiter("\\W");
         while (scanner.hasNext()){
@@ -36,11 +35,7 @@ public class Solution {
                 kol++;
             }
         }
-
-
-
         read.close();
         System.out.println(kol);
-
     }
 }
