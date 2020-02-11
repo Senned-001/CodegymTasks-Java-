@@ -16,19 +16,15 @@ public class Solution implements Serializable {
 
         Solution solution = new Solution();
         outputStream.writeObject(solution);
-
         fileOutput.close();
         outputStream.close();
 
         // Loading
         FileInputStream fiStream = new FileInputStream("your.file.name");
         ObjectInputStream objectStream = new ObjectInputStream(fiStream);
-
         Solution loadedObject = (Solution) objectStream.readObject();
-
         fiStream.close();
         objectStream.close();
-
         // Attention!!
         System.out.println(loadedObject.size());
     }
@@ -43,8 +39,6 @@ public class Solution implements Serializable {
         m.put("Mickey", "Mouse");
         m.put("Mickey", "Mantle");
     }
-
-
 
     public int size() {
         return m.size();

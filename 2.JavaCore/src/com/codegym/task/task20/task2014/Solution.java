@@ -16,13 +16,10 @@ public class Solution implements Serializable {
         FileOutputStream os=new FileOutputStream(args[0]);
         Solution savedObject = new Solution(5);
 
-
         ObjectOutputStream outputStream = new ObjectOutputStream(os);
         outputStream.writeObject(savedObject);
         outputStream.close();
         os.close();
-
-
 
         ObjectInputStream objectStream = new ObjectInputStream(is);
         Solution loadedObject = (Solution) objectStream.readObject();
@@ -31,7 +28,6 @@ public class Solution implements Serializable {
 
         System.out.println(savedObject.toString());
         System.out.println(loadedObject.toString());
-
         //System.out.println(new Solution(4));
     }
 
@@ -43,7 +39,6 @@ public class Solution implements Serializable {
     public Solution(int temperature) {
         this.currentDate = new Date();
         this.temperature = temperature;
-
         string = "Today is %s, and the current temperature is %s C";
         SimpleDateFormat format = new SimpleDateFormat(pattern);
         this.string = String.format(string, format.format(currentDate), temperature);

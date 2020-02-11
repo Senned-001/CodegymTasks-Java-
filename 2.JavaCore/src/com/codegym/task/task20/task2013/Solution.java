@@ -26,7 +26,6 @@ public class Solution {
         }
 
         public Person() {
-
         }
 
         public void setMother(Person mother) {
@@ -64,6 +63,5 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
     }
 }

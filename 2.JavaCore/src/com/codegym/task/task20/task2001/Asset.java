@@ -19,12 +19,14 @@ public class Asset {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         Asset asset = (Asset) o;
-
-        if (Double.compare(asset.price, price) != 0) return false;
+        if (Double.compare(asset.price, price) != 0)
+            return false;
         return name != null ? name.equals(asset.name) : asset.name == null;
     }
 

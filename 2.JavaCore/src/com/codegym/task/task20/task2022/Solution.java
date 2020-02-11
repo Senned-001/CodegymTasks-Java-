@@ -23,12 +23,10 @@ public class Solution implements Serializable, AutoCloseable {
 
     private void writeObject(ObjectOutputStream out) throws IOException {
         out.defaultWriteObject();
-
     }
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
         in.defaultReadObject();
-
         this.stream = new FileOutputStream(fileName,true);
     }
 
@@ -47,13 +45,11 @@ public class Solution implements Serializable, AutoCloseable {
         os.writeObject(s);
         os.close();
         fs.close();
-
         FileInputStream fis= new FileInputStream(args[1]);
         ObjectInputStream ois = new ObjectInputStream(fis);
         Solution l= (Solution) ois.readObject();
         ois.close();
         fis.close();
-
         l.writeObject("STRING2");
         s.close();
         l.close();
@@ -63,9 +59,5 @@ public class Solution implements Serializable, AutoCloseable {
         line1=line1+reader.readLine();
         reader.close();
         System.out.println(line1);
-
-
-
-
     }
 }

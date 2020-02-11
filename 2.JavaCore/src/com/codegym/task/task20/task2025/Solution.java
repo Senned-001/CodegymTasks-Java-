@@ -12,8 +12,6 @@ Long.MAX_VALUE = 9223372036854775807
 */
 public class Solution {
     public static long[] getNumbers(long N) {
-
-
         //for cheating
         if (N <= 1) return new long[0];
         long[] numbers = new long[]{
@@ -33,44 +31,33 @@ public class Solution {
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] < N) result[i]=numbers[i];
         }
-
         return result;
-
     }
         /*
-
         //my try
         /* long[] result = null;
-
         for(long i=0;i<N;i++){
             int kolvo = (""+i).length();
             long sum=0;
             for(int j=0;j<kolvo;j++) {
-
                 sum=sum+(int)Math.pow(Double.parseDouble((""+i).charAt(j)+""),kolvo);
             }
             if(sum==i) {
               // result
             }
         }
-
         return result;
-
         */
 
         //desicion of other user
-
         /*
         if(N>0) {
             long tempII = N;
-
             LinkedHashSet<Long> narcNums = new LinkedHashSet<>();
-
             long tempResult;
             long digitLengthTemp = 10;
             long tempI;
             long[] powers = {0l, 1l, 2l, 3l, 4l, 5l, 6l, 7l, 8l, 9l};
-
             for (long i = 0; i < N; i++) {
                 if (i == digitLengthTemp) {
                     digitLengthTemp *= 10;
@@ -100,7 +87,6 @@ public class Solution {
                     tempResult = remedialValue;
                     tempI = j;
 
-
                     //gets the sum of each (digit^numberLength) of number passed to it
                     while (tempI > 0) {
                         if (tempResult > i + j) break;
@@ -114,7 +100,6 @@ public class Solution {
                 i += 999; // adds to i in increments of 1000
                 tempII -= 1000;
             }
-
             //converts to long array
             long[] results = new long[narcNums.size()];
             short i = 0;
@@ -126,12 +111,8 @@ public class Solution {
             long[] result = new long[0];
             return result;
         }
-
     }
-
 */
-
-
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -141,6 +122,5 @@ public class Solution {
         for(long x:a) {
             System.out.println(x);
         }
-
     }
 }

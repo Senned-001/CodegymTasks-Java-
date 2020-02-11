@@ -10,7 +10,6 @@ public class Solution {
     public static void main(String[] args) {
         // You can find your_file_name.tmp in your TMP directory or adjust outputStream/inputStream according to your file's actual location
         try {
-
             File yourFile = File.createTempFile("your_file_name", null);
             OutputStream outputStream = new FileOutputStream(yourFile);
             InputStream inputStream = new FileInputStream(yourFile);
@@ -52,9 +51,7 @@ public class Solution {
             writer.println(i);
             writer.println(j);
             System.out.println("SAVED");
-
             writer.close();
-
         }
 
         public void load(InputStream inputStream) throws Exception {
@@ -63,21 +60,19 @@ public class Solution {
             staticString=reader.readLine();
             this.i=Integer.parseInt(reader.readLine());
             this.j=Integer.parseInt(reader.readLine());
-
-
             reader.close();
         }
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
+            if (this == o)
+                return true;
+            if (o == null || getClass() != o.getClass())
+                return false;
             ClassWithStatic that = (ClassWithStatic) o;
-
-            if (i != that.i) return false;
+            if (i != that.i)
+                return false;
             return j == that.j;
-
         }
 
         @Override

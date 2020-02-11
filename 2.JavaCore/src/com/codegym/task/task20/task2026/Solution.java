@@ -30,22 +30,22 @@ public class Solution {
         for(int i=0;i<a.length;i++){
             for(int j=0;j<a[0].length;j++){                 //finding first element with 1
                 if(a[i][j]==1) {                            //if finded - replace by 0 and scan next element from this element on right and on down
-                    for(int k=i;k<a.length;k++){               //if finded -repeat, if not break and count++
+                    for(int k=i;k<a.length;k++){            //if finded -repeat, if not break and count++
                         if(a[k][j]==1) {                    //finding other element with 1
                             for (int n = j; n < a[0].length; n++) {
-                                if (a[k][n] == 1) a[k][n] = 0;
-                                else break;
+                                if (a[k][n] == 1)
+                                    a[k][n] = 0;
+                                else
+                                    break;
                             }
                         }
-                        else break;
+                        else
+                            break;
                     }
                     kol++;
                 }
-
             }
         }
-
-
         return kol;
     }
 }

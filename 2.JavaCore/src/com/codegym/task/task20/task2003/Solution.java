@@ -20,15 +20,10 @@ public class Solution {
 
         InputStream inputStream = new FileInputStream(name1);
         //OutputStream outputStream = new FileOutputStream(name1);
-
         load(inputStream);
         //save(outputStream);
-
         inputStream.close();
         //outputStream.close();
-
-
-
     }
 
     public void save(OutputStream outputStream) throws Exception {
@@ -36,21 +31,16 @@ public class Solution {
         PrintWriter writer = new PrintWriter(outputStream);
         Properties prop = new Properties();
 
-
-
         for(Map.Entry<String, String> x : properties.entrySet()){
             prop.put(x.getKey(),x.getValue());
         }
         prop.store(outputStream, null);
         writer.flush();
         writer.close();
-
     }
 
     public void load(InputStream inputStream) throws Exception {
         // Implement this method
-
-
         Properties prop = new Properties();
         prop.load(inputStream);
         for (String key : prop.stringPropertyNames())
@@ -61,6 +51,5 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
     }
 }

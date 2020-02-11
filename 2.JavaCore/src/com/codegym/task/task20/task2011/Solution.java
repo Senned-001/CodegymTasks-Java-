@@ -37,7 +37,6 @@ public class Solution {
         public void writeExternal(ObjectOutput out) throws IOException {
             out.writeObject(address);
             out.writeInt(year);
-
         }
 
         @Override
@@ -48,6 +47,5 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
     }
 }

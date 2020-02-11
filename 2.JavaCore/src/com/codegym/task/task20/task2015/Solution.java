@@ -38,6 +38,5 @@ public class Solution implements Serializable, Runnable {
     }
 
     public static void main(String[] args) {
-
     }
 }

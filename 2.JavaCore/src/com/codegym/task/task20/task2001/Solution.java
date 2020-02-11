@@ -53,12 +53,14 @@ public class Solution {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o)
+                return true;
+            if (o == null || getClass() != o.getClass())
+                return false;
 
             Human human = (Human) o;
-
-            if (name != null ? !name.equals(human.name) : human.name != null) return false;
+            if (name != null ? !name.equals(human.name) : human.name != null)
+                return false;
             return assets != null ? assets.equals(human.assets) : human.assets == null;
         }
 
@@ -88,13 +90,10 @@ public class Solution {
             //ObjectOutputStream oos = new ObjectOutputStream(outputStream);
             //oos.writeObject(this);
             //oos.close();
-
         }
 
         public void load(InputStream inputStream) throws Exception {
             // Implement this method
-
-
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             this.name=reader.readLine();
             if(reader.readLine().equals("yes")){
@@ -105,8 +104,6 @@ public class Solution {
                 }
                 reader.close();
             }
-
-
            // ObjectInputStream ois = new ObjectInputStream(inputStream);
            // Object s=  ois.readObject();
            // this = (Human) s;

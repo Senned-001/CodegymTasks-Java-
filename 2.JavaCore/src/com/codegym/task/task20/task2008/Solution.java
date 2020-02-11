@@ -9,7 +9,6 @@ How do you serialize Singleton?
 public class Solution implements Serializable {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Singleton instance = Singleton.getInstance();
-
         ByteArrayOutputStream byteArrayOutputStream = serializeSingletonInstance(instance);
 
         Singleton singleton = deserializeSingletonInstance(byteArrayOutputStream);
@@ -24,21 +23,17 @@ public class Solution implements Serializable {
 
     public static ByteArrayOutputStream serializeSingletonInstance(Singleton instance) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-
         ObjectOutputStream oos = new ObjectOutputStream(byteArrayOutputStream);
         oos.writeObject(instance);
         oos.close();
-
         return byteArrayOutputStream;
     }
 
     public static Singleton deserializeSingletonInstance(ByteArrayOutputStream byteArrayOutputStream) throws IOException, ClassNotFoundException {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-
         ObjectInputStream ois = new ObjectInputStream(byteArrayInputStream);
         Singleton singleton = (Singleton) ois.readObject();
         ois.close();
-
         return singleton;
     }
 
@@ -58,7 +53,5 @@ public class Solution implements Serializable {
         private Object readResolve() {
             return ourInstance;
         }
-
-
     }
 }

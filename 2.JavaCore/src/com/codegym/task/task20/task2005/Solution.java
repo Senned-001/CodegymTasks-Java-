@@ -26,13 +26,9 @@ public class Solution {
             somePerson.load(inputStream);
             // Check that smith is equal to somePerson
 
-
             System.out.println(smith.equals(somePerson));
-
-
             System.out.println(smith.hashCode());
             System.out.println(somePerson.hashCode());
-
             inputStream.close();
 
         } catch (IOException e) {
@@ -51,14 +47,15 @@ public class Solution {
         @Override
         public boolean equals(Object o) {
             //if (this == o) return false;   //WTF
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
+            if (this == o)
+                return true;
+            if (o == null || getClass() != o.getClass())
+                return false;
             Human human = (Human) o;
 
-            if (name != null ? !name.equals(human.name) : human.name != null) return false;   //replace ==
+            if (name != null ? !name.equals(human.name) : human.name != null)
+                return false;   //replace ==
             return assets != null ? assets.equals(human.assets) : human.assets == null;
-
         }
 
         @Override
@@ -93,7 +90,6 @@ public class Solution {
         public void load(InputStream inputStream) throws Exception {
             // Implement this method
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-
             this.name = reader.readLine();
             String assetName;
             while ((assetName = reader.readLine()) != null)

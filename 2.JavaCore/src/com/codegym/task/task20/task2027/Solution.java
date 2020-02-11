@@ -17,18 +17,15 @@ public class Solution {
         };
 
         List<Word> r=detectAllWords(wordSearch, "home", "same", "red");
-
         for (Word x: r) {
             System.out.println(x.toString());
         }
-
         /*
 Expected result
 home - (5, 3) - (2, 0)
 same - (1, 1) - (4, 1)
          */
     }
-
     public static List<Word> detectAllWords(int[][] wordSearch, String... words) {
         List<Word> result=new ArrayList<>();
 
@@ -39,22 +36,22 @@ same - (1, 1) - (4, 1)
                     for(int j=0;j<wordSearch[0].length;j++){
                         if(slovo.charAt(0)==wordSearch[i][j]){  //search to start position
                             startX=j;startY=i;
-
                             //search
                             while(!findedwrite){
-
                                 //search ->
                                 for(int d=1;d<slovo.length();d++) {
                                     if((j+d)<wordSearch[0].length) {      //check for out of array
                                         if (slovo.charAt(d) == wordSearch[i][j + d]) {
                                             endX = j + d;
                                             endY = i;
-                                            if(d==slovo.length()-1) findedwrite=true;
-                                        } else break;
+                                            if(d==slovo.length()-1)
+                                                findedwrite=true;
+                                        } else
+                                            break;
                                     }
-                                    else break;
+                                    else
+                                        break;
                                 }
-
                                 //search <-
                                 if(!findedwrite)
                                 for(int d=1;d<slovo.length();d++) {
@@ -76,10 +73,13 @@ same - (1, 1) - (4, 1)
                                         if (slovo.charAt(d) == wordSearch[i - d][j]) {
                                             endX = j;
                                             endY = i - d;
-                                            if(d==slovo.length()-1) findedwrite=true;
-                                        } else break;
+                                            if(d==slovo.length()-1)
+                                                findedwrite=true;
+                                        } else
+                                            break;
                                     }
-                                    else break;
+                                    else
+                                        break;
                                 }
 
                                 //search down
@@ -89,10 +89,13 @@ same - (1, 1) - (4, 1)
                                         if (slovo.charAt(d) == wordSearch[i + d][j]) {
                                             endX = j;
                                             endY = i + d;
-                                            if(d==slovo.length()-1) findedwrite=true;
-                                        } else break;
+                                            if(d==slovo.length()-1)
+                                                findedwrite=true;
+                                        } else
+                                            break;
                                     }
-                                    else break;
+                                    else
+                                        break;
                                 }
 
                                 //search -> and up
@@ -102,10 +105,13 @@ same - (1, 1) - (4, 1)
                                         if (slovo.charAt(d) == wordSearch[i - d][j+d]) {
                                             endX = j+d;
                                             endY = i-d;
-                                            if(d==slovo.length()-1) findedwrite=true;
-                                        } else break;
+                                            if(d==slovo.length()-1)
+                                                findedwrite=true;
+                                        } else
+                                            break;
                                     }
-                                    else break;
+                                    else
+                                        break;
                                 }
 
                                 //search <- and up
@@ -115,10 +121,13 @@ same - (1, 1) - (4, 1)
                                         if (slovo.charAt(d) == wordSearch[i - d][j-d]) {
                                             endX = j-d;
                                             endY = i-d;
-                                            if(d==slovo.length()-1) findedwrite=true;
-                                        } else break;
+                                            if(d==slovo.length()-1)
+                                                findedwrite=true;
+                                        } else
+                                            break;
                                     }
-                                    else break;
+                                    else
+                                        break;
                                 }
 
                                 //search <- and down
@@ -128,10 +137,13 @@ same - (1, 1) - (4, 1)
                                         if (slovo.charAt(d) == wordSearch[i + d][j-d]) {
                                             endX = j-d;
                                             endY = i+d;
-                                            if(d==slovo.length()-1) findedwrite=true;
-                                        } else break;
+                                            if(d==slovo.length()-1)
+                                                findedwrite=true;
+                                        } else
+                                            break;
                                     }
-                                    else break;
+                                    else
+                                        break;
                                 }
 
                                 //search -> and down
@@ -141,18 +153,23 @@ same - (1, 1) - (4, 1)
                                         if (slovo.charAt(d) == wordSearch[i + d][j+d]) {
                                             endX = j+d;
                                             endY = i+d;
-                                            if(d==slovo.length()-1) findedwrite=true;
-                                        } else break;
+                                            if(d==slovo.length()-1)
+                                                findedwrite=true;
+                                        } else
+                                            break;
                                     }
-                                    else break;
+                                    else
+                                        break;
                                 }
                                 break;
                             }
 
                         }
-                        if(findedwrite) break;
+                        if(findedwrite)
+                            break;
                     }
-                    if(findedwrite) break;
+                    if(findedwrite)
+                        break;
             }
 
             if(findedwrite) {       //if success then add results
@@ -168,11 +185,8 @@ same - (1, 1) - (4, 1)
             endY=0;
             findedwrite=false;
         }
-
         return result;
     }
-
-
 
     public static class Word {
         private String text;

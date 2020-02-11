@@ -20,6 +20,5 @@ public class Solution implements Serializable {
 
     }
     public static void main(String[] args) {
-
     }
 }

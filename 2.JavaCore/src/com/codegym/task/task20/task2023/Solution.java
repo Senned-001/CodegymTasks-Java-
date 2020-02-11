@@ -22,22 +22,25 @@ public class Solution {
     }
 
     public static class B extends A {
-        public void method1() {
 
+        public void method1() {
             super.method2();
             System.out.println("B class, method1");
         }
 
+        @Override
         public void method2() {
             System.out.println("B class, method2");
         }
     }
 
     public static class C extends B {
+        @Override
         public void method1() {
             System.out.println("C class, method1");
         }
 
+        @Override
         public void method2() {
             System.out.println("C class, method2");
             super.method1();

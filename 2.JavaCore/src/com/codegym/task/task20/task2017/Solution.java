@@ -18,7 +18,6 @@ public class Solution {
             e.printStackTrace();
             return null;
         }
-
     }
 
     public class A implements Serializable {
@@ -31,6 +30,5 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
     }
 }
