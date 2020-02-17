@@ -17,8 +17,10 @@ public class Solution {
     }
 
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         if (!(o instanceof Solution))
             return false;
         Solution solution = (Solution) o;
@@ -35,7 +37,5 @@ public class Solution {
         Set<Solution> s = new HashSet<>();
         s.add(new Solution("Mickey", "Mouse"));
         System.out.println(s.contains(new Solution("Mickey", "Mouse")));
-
-
     }
 }

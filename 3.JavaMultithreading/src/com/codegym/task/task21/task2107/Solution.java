@@ -17,11 +17,8 @@ public class Solution implements Cloneable{
         for(Map.Entry<String, User> x : this.users.entrySet()){
             n.users.put(x.getKey(),x.getValue().clone());
         }
-
         return n;
-        
     }
-
 
     public static void main(String[] args) {
         Solution solution = new Solution();
@@ -62,8 +59,10 @@ public class Solution implements Cloneable{
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof User)) return false;
+            if (this == o)
+                return true;
+            if (!(o instanceof User))
+                return false;
             User user = (User) o;
             return age == user.age &&
                     Objects.equals(name, user.name);

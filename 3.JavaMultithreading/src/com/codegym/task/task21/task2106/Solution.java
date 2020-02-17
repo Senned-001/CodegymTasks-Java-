@@ -22,11 +22,12 @@ public class Solution {
         this.solution = solution;
     }
 
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Solution)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Solution))
+            return false;
         Solution solution1 = (Solution) o;
         return anInt == solution1.anInt &&
                 Double.compare(solution1.aDouble, aDouble) == 0 &&
@@ -41,6 +42,5 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
     }
 }

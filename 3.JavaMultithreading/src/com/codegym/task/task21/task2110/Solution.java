@@ -20,10 +20,7 @@ public class Solution {
         Charset charset = StandardCharsets.UTF_8;
         Path outputFilePath = Paths.get(outputFileName);
 
-
-
         try (BufferedWriter writer =Files.newBufferedWriter(outputFilePath, charset);ZipFile zip =new ZipFile(zipFileName)){
-
             String newLine = System.getProperty("line.separator");
             for (Enumeration entries = zip.entries(); entries.hasMoreElements(); ) {
                 // Get the file name from the archive and write it to the output file
@@ -36,6 +33,5 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
     }
 }

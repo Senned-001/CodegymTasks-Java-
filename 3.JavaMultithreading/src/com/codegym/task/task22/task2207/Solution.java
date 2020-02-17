@@ -19,18 +19,14 @@ public class Solution {
     public static List<Pair> result = new LinkedList<>();
 
     public static void main(String[] args) throws IOException {
-
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String name1 = reader.readLine();
         reader.close();
 
-
         BufferedReader r = new BufferedReader(new FileReader(name1));
         String line = r.readLine();
-
         //String line = "rat tar tart a\n" +        //for checking
                // "a tot tot tot";
-
         //decision 1 - it works but validator is a bitch
  /*          ArrayList<String>str=new ArrayList<>();
              while (line != null){
@@ -38,10 +34,8 @@ public class Solution {
             for(int i =0;i<s.length;i++){       //str.addAll(Arrays.asList(s);
                 str.add(s[i]);
             }
-
             line = r.readLine();
         }*/
-
         HashSet<String> values = new HashSet<>();
         while (line != null){
             for(String x: line.split(" "))
@@ -51,13 +45,12 @@ public class Solution {
                 if(values.contains(x2)){
                     values.remove(x2);
                     result.add(new Pair(x,x2));
-                }else values.add(x);
+                }else
+                    values.add(x);
             }
             line = r.readLine();
         }
-
         r.close();
-
 /*      //decision 1 - it works but validator is a bitch
         for(String x:str){
             StringBuilder sn = new StringBuilder(x);
@@ -77,7 +70,6 @@ public class Solution {
         for(Pair x:result){
             System.out.println(x);
         }
-
     }
 
     public static class Pair {
@@ -94,12 +86,14 @@ public class Solution {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o)
+                return true;
+            if (o == null || getClass() != o.getClass())
+                return false;
 
             Pair pair = (Pair) o;
-
-            if (first != null ? !first.equals(pair.first) : pair.first != null) return false;
+            if (first != null ? !first.equals(pair.first) : pair.first != null)
+                return false;
             return second != null ? second.equals(pair.second) : pair.second == null;
 
         }

@@ -39,7 +39,6 @@ public class Solution {
         @Override
         protected Object clone() throws CloneNotSupportedException {
             throw new CloneNotSupportedException();
-
         }
 
         public String getName() {
@@ -65,12 +64,10 @@ public class Solution {
         @Override
         protected Object clone() throws CloneNotSupportedException {
             C newc=new C(super.getI(),super.getJ(),super.getName());
-
             return newc;
         }
     }
 
     public static void main(String[] args) {
-
     }
 }

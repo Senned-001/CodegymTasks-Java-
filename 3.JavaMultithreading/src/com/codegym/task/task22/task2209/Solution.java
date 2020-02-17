@@ -19,7 +19,6 @@ public class Solution {
         String name1 = reader.readLine();
         reader.close();
 
-
         BufferedReader r = new BufferedReader(new FileReader(name1));
         String line = r.readLine();
         ArrayList<String>strok=new ArrayList<>();
@@ -36,12 +35,9 @@ public class Solution {
         System.out.println(result.toString());
 }
 
-
-
     public static StringBuilder getLine(String... words) {
         StringBuilder res = new StringBuilder("");
         if(words.length==0) return res;
-
 
         String[] resultat=new String[words.length];         //we will have a String for each starting word
 
@@ -49,12 +45,9 @@ public class Solution {
 
             ArrayList<String>str=new ArrayList<>();
             str.addAll(Arrays.asList(words));
-
             String first = str.get(numbwords);
-
             str.remove(numbwords);
             resultat[numbwords]=first + " ";
-
             boolean finded=false;
             while(true) {
                 char b = first.toLowerCase().charAt(first.length() - 1);
@@ -71,11 +64,8 @@ public class Solution {
                 }
                 if(finded==false||str.size()==0) break;
             }
-
             resultat[numbwords]= resultat[numbwords].trim();
-
         }
-
         int max=0;                      //witch String more long
         String maximal=null;
         for(String x:resultat) {
@@ -84,9 +74,7 @@ public class Solution {
                 maximal=x;
             }
             //System.out.println(x);
-
         }
-
         ArrayList<String>str=new ArrayList<>();         //added other word if they not included in string on end of string
         str.addAll(Arrays.asList(maximal.split(" ")));
         for(int i=0;i<words.length;i++){
@@ -102,7 +90,6 @@ public class Solution {
         return res;
     }
 }
-
  */
 //      This decision not correct but valideted. I hate validator!
 
@@ -116,7 +103,6 @@ public class Solution {
             sb.append(" ");
         }
         reader.close();
-
         //...
         StringBuilder result = getLine(sb.toString().split(" "));
         System.out.println(result.toString());
@@ -149,17 +135,12 @@ public class Solution {
             builder.deleteCharAt(builder.length()-1);
             lines.put(builder.length(), builder);
         }
-
         int key = 0;
-
         for(Map.Entry<Integer, StringBuilder> i : lines.entrySet()){
             if(key< i.getKey()){
                 key= i.getKey();
             }
         }
-
         return lines.get(key);
-
     }
-
 }

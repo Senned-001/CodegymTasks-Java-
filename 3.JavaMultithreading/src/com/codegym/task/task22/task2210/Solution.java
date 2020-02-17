@@ -13,7 +13,6 @@ public class Solution {
     }
     public static String [] getTokens(String query, String delimiter) {
         ArrayList<String> ar=new ArrayList<>();
-
         StringTokenizer tokenizer = new StringTokenizer(query, delimiter);
         while (tokenizer.hasMoreTokens()) {
             ar.add(tokenizer.nextToken());

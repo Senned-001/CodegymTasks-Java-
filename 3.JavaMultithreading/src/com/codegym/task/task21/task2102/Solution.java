@@ -29,11 +29,8 @@ public class Solution {
         System.out.println(isModifierSet(classModifiers, Modifier.PUBLIC));   //true
         System.out.println(isModifierSet(classModifiers, Modifier.STATIC));   //false
 
-        int methodModifiers = getMainMethod().getModifiers();               //return main(public static)
-        System.out.println(isModifierSet(methodModifiers, Modifier.STATIC));      //true
-
-
-
+        int methodModifiers = getMainMethod().getModifiers();                 //return main(public static)
+        System.out.println(isModifierSet(methodModifiers, Modifier.STATIC));  //true
     }
 
     public static boolean isModifierSet(int allModifiers, int specificModifier) {
@@ -55,16 +52,18 @@ public class Solution {
             if(mod.charAt(i)=='1'&&i==11) modif.add(Modifier.STRICT);
         }
 
-        if(modif.contains(specificModifier)) return true;
-        else return false;
+        if(modif.contains(specificModifier))
+            return true;
+        else
+            return false;
     }
 
     private static Method getMainMethod() {
         Method[] methods = Solution.class.getDeclaredMethods();
         for (Method method : methods) {
-            if (method.getName().equalsIgnoreCase("main")) return method;
+            if (method.getName().equalsIgnoreCase("main"))
+                return method;
         }
-
         return null;
     }
 }

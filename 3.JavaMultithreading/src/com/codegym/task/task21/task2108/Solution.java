@@ -43,9 +43,7 @@ public class Solution {
                 newbranches[i]=this.branches[i];
             }
             Tree ntree=new Tree(this.getName(),newbranches);
-
             return ntree;
-
         }
 
         public Tree(String name, String[] branches) {

@@ -6,7 +6,8 @@ Between tabs
 */
 public class Solution {
     public static String getPartOfString(String string) throws StringTooShortException {
-        if(string==null) throw new StringTooShortException();
+        if(string==null)
+            throw new StringTooShortException();
         try {
             string=string.substring(string.indexOf("\t")+1,string.length());
             string=string.substring(0,string.indexOf("\t"));

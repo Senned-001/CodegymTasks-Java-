@@ -20,10 +20,8 @@ public class Solution {
         for (int i = 0;i<4;i++) {
             net[i]= (byte) (ip[i] &  mask[i]);
         }
-
         return net;
     }
-
 
     public static void print(byte[] bytes) {
         for (byte x: bytes) {
@@ -32,10 +30,8 @@ public class Solution {
                 a+=256;
             }
             String bin = String.format("%8s", Integer.toBinaryString(a)).replace(' ', '0');
-
             System.out.print(bin+" ");
         }
         System.out.println();
-
     }
 }

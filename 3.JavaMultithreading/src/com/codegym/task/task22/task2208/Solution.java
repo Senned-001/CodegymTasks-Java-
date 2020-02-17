@@ -13,7 +13,6 @@ public class Solution {
             map.put("country",null);
             map.put("city",null);
             map.put("age",null);
-
         System.out.println(getQuery(map));
     }
     public static String getQuery(Map<String, String> params) {
@@ -25,7 +24,8 @@ public class Solution {
         }
         String result = WHERE.toString();
         System.out.println(result);
-        if(result.length()<5) return "";
+        if(result.length()<5)
+            return "";
         result=result.substring(0,result.length()-5);
         return result;
     }

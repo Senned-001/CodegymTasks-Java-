@@ -7,12 +7,10 @@ public class Hippodrome {
 
     static Hippodrome game;
 
-
     public static void main(String[] args) {
         horses.add(new Horse("Pinky",3,0));
         horses.add(new Horse("Brain",3,0));
         horses.add(new Horse("Brian",3,0));
-
         game=new Hippodrome(horses);
         game.run();
         game.printWinner();
@@ -36,7 +34,6 @@ public class Hippodrome {
                 e.printStackTrace();
             }
         }
-
     }
 
     public void move(){
