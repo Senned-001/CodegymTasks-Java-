@@ -52,7 +52,6 @@ public class Solution {
         public static final String ACCESS_IS_DENIED = "Access is denied.";
     }
 
-
     public static void main(String[] args) {
 
     }

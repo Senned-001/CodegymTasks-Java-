@@ -22,6 +22,8 @@ public class Solution {
 //
 
     public static class Test1 implements Cloneable{
+
+        @Override
         protected Test1 clone() throws CloneNotSupportedException {
             return (Test1)super.clone();
         }
@@ -45,6 +47,7 @@ public class Solution {
             return super.clone();
         }
 
+        @Override
         protected Object c1one() throws CloneNotSupportedException {
             return super.clone();
         }

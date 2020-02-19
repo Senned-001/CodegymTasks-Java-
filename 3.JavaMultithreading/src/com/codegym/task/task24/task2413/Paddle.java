@@ -24,6 +24,7 @@ public class Paddle extends BaseObject {
     /**
      * This method moves the paddle according to the direction variable.
      */
+    @Override
     void move() {
         double dx = speed * direction;
         x = x + dx;

@@ -38,8 +38,6 @@ public class Solution {
             Solution.this.tasks = MockDB.getFakeTasks(criteria);
 
         }
-
-
     }
 
     private class NameDataProvider implements DbDataProvider{

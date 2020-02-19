@@ -68,6 +68,7 @@ public class Ball extends BaseObject {
     /**
      * Move by one step.
      */
+    @Override
     public void move() {
         if (isFrozen) return;
 

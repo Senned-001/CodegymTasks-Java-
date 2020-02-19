@@ -18,8 +18,6 @@ public class Solution {
             }
         }
 
-
-
         public class Apartment {
         }
     }

@@ -17,8 +17,6 @@ public class Solution {
         array[0].innerClasses[1]=array[0].new InnerClass();
         array[1].innerClasses[0]=array[1].new InnerClass();
         array[1].innerClasses[1]=array[1].new InnerClass();
-
-
         return array;
     }
 
