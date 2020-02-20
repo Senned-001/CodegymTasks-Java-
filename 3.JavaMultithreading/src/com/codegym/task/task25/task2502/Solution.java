@@ -21,15 +21,10 @@ public class Solution {
             // Init wheels here
             if(loadWheelNamesFromDB()==null||loadWheelNamesFromDB().length>4) throw new IllegalArgumentException();
             wheels = new ArrayList<>();
-
             wheels.add(Wheel.valueOf(loadWheelNamesFromDB()[0]));
             wheels.add(Wheel.valueOf(loadWheelNamesFromDB()[1]));
             wheels.add(Wheel.valueOf(loadWheelNamesFromDB()[2]));
             wheels.add(Wheel.valueOf(loadWheelNamesFromDB()[3]));
-
-
-
-
         }
 
 
