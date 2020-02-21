@@ -9,7 +9,8 @@ public class Solution implements Thread.UncaughtExceptionHandler {
     @Override
     public void uncaughtException(Thread t, Throwable e) {
         t.interrupt();
-        if(e.getCause()!=null) uncaughtException(t, e.getCause());
+        if(e.getCause()!=null)
+            uncaughtException(t, e.getCause());
         System.out.println(e.toString());
     }
 

@@ -9,7 +9,6 @@ public class LoggingStateThread extends Thread {
 
     @Override
     public void run() {
-
         State s=target.getState();
         System.out.println(s);
         while(true){
@@ -18,7 +17,8 @@ public class LoggingStateThread extends Thread {
                 System.out.println(s);
             }
             if(s==State.TERMINATED){
-            break;}
+                break;
+            }
         }
     }
 }

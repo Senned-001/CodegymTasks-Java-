@@ -27,19 +27,15 @@ public class Solution {
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException ex) {
-
                 }
-
                 System.out.println(String.format("%s, %s, %s",secretKey,t.getName(),e.getMessage()));
             }
         }
-
 
         @Override
         public void run() {
             throw new NullPointerException("This is an example");
         }
     }
-
 }
 

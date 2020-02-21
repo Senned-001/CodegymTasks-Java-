@@ -12,6 +12,7 @@ public abstract class SocketTask<T> implements CancellableTask<T> {
         this.socket = socket;
     }
 
+    @Override
     public synchronized void cancel() {
         // Close all resources here
         try {
@@ -21,8 +22,10 @@ public abstract class SocketTask<T> implements CancellableTask<T> {
         }
     }
 
+    @Override
     public RunnableFuture<T> newTask() {
         return new FutureTask<T>(this) {
+           @Override
             public boolean cancel(boolean mayInterruptIfRunning) {
                 // Close all resources here using the proper SocketTask method
                 // Call the superclass's method in a finally block

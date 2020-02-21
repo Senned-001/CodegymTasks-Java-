@@ -11,11 +11,6 @@ public class Solution extends TimerTask {
     protected final Thread.UncaughtExceptionHandler handler;
 
     public Solution(TimerTask original) {
-
-
-
-
-
         if (original == null) {
             throw new NullPointerException();
         }
@@ -30,6 +25,7 @@ public class Solution extends TimerTask {
         };
     }
 
+    @Override
     public void run() {
         try {
             original.run();
@@ -39,16 +35,16 @@ public class Solution extends TimerTask {
         }
     }
 
+    @Override
     public long scheduledExecutionTime() {
         return original.scheduledExecutionTime();
     }
 
+    @Override
     public boolean cancel() {
         return original.cancel();
     }
 
     public static void main(String[] args) {
-
     }
-
 }

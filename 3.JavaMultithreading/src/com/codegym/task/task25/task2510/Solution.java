@@ -7,7 +7,6 @@ Wait and see
 public class Solution extends Thread {
 
     public Solution() {
-
         this.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler(){
             @Override
             public void uncaughtException(Thread t, Throwable e) {
@@ -17,8 +16,6 @@ public class Solution extends Thread {
             }
         });
     }
-
-
 
     public static void main(String[] args) {
         //new Solution().uncaughtException(Thread.currentThread(),new Exception("ABC", new RuntimeException("DEF", new IllegalAccessException("GHI"))));
