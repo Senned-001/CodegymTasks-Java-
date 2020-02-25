@@ -13,36 +13,20 @@ public class Solution {
                           {1,1,1,1,0,0},
                           {1,1,1,1,0,1},
                           {1,1,1,1,0,0}};
+        System.out.println(maxSquare(matrix));
     }
 
+    //we start from the end with element matrix[length-2][length-2] and go to the start using fomula:if not null - matrix[j][i]=min(matrix[j+1][i],matrix[j+1][i+1],matrix[j][i+1])+1;
     public static int maxSquare(int[][] matrix) {
-        int counter=0;
-        int maxx=0;
-        int maxy=0;
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix[0].length;j++){
-                if(matrix[i][j]==1){
-                    counter++;
-                }
-                if(matrix[i][j]==0||j==matrix[0].length-1){
-                    if(maxx<counter) maxx=counter;
-                    counter=0;
-                }
-            }
-        }
-        counter=0;
-        for(int i=0;i<matrix[0].length;i++){
-            for(int j=0;j<matrix.length;j++){
-                if(matrix[j][i]==1){
-                    counter++;
-                }
-                if(matrix[j][i]==0||j==matrix.length-1){
-                    if(maxy<counter) maxy=counter;
-                    counter=0;
-                }
-            }
-        }
-        return maxx>maxy? maxy*maxy:maxx*maxx;
+        int max=0;
+        for(int j=matrix.length-2;j>=0;j--){
+           for(int i=matrix[j].length-2;i>=0;i--){
+               if(matrix[j][i]!=0){
+                   matrix[j][i]=Math.min(matrix[j+1][i],Math.min(matrix[j+1][i+1],matrix[j][i+1]))+1;
+                   if(max<matrix[j][i]) max = matrix[j][i];
+               }
+           }
+       }
+       return max*max;
     }
-
 }
