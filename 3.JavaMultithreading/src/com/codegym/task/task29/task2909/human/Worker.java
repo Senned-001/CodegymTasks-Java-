@@ -8,6 +8,7 @@ public class Worker extends Human{
         super(name,age);
     }
 
+    @Override
     public void live() {
 
     }

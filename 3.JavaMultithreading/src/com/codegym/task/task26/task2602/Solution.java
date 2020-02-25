@@ -13,7 +13,6 @@ public class Solution {
         soldiers.add(new Soldier("Johnson", 170));
         soldiers.add(new Soldier("Gates", 180));
         soldiers.add(new Soldier("Jones", 175));
-
         for (Soldier soldier : soldiers) {
             System.out.println(soldier.name);
         }

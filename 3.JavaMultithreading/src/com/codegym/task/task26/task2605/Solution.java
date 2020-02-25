@@ -22,7 +22,6 @@ public class Solution {
             }
         }, 1_000, TimeUnit.MILLISECONDS
         );
-
         interruptScheduledExecutor.shutdown();
     }
 
@@ -33,6 +32,7 @@ public class Solution {
 
         interruptScheduledExecutor = Executors.newScheduledThreadPool(1);
         interruptScheduledExecutor.schedule(new Runnable() {
+            @Override
             public void run() {
                 taskThread.interrupt();
             }
@@ -52,7 +52,7 @@ public class Solution {
         public RethrowableTask(Runnable runnable) {
             this.runnable = runnable;
         }
-
+@Override
         public void run() {
             try {
                 runnable.run();

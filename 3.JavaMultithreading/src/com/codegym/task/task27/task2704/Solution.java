@@ -29,12 +29,14 @@ public class Solution {
         final Solution solution = new Solution("first");
         final Solution solution2 = new Solution("second");
         new Thread(new Runnable() {
+            @Override
             public void run() {
                 solution.sout(solution2);
             }
         }).start();
 
         new Thread(new Runnable() {
+            @Override
             public void run() {
                 solution2.sout(solution);
             }

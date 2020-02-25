@@ -17,7 +17,6 @@ public class Solution {
         this.var4 = var4;
     }
 
-
     Object lock1=new Object();
     Object lock2=new Object();
 
@@ -35,6 +34,5 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
     }
 }

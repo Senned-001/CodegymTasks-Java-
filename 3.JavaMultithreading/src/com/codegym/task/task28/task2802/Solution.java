@@ -15,7 +15,6 @@ public class Solution {
 
             @Override
             public void run() {
-
                 emulateThreadFactory();
             }
         }
@@ -38,7 +37,6 @@ public class Solution {
             @Override
             public void run() {
                 System.out.println(Thread.currentThread().getName());
-
             }
         };
         factory.newThread(r).start();

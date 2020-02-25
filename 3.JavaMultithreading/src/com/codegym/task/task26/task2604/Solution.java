@@ -30,6 +30,7 @@ public class Solution extends Thread {
         super(name + "-" + createdThreadIndex.incrementAndGet());
 
         setUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+            @Override
             public void uncaughtException(Thread t, Throwable e) {
                 log.log(Level.SEVERE, "An error occurred in thread " + t.getName(), e);
             }

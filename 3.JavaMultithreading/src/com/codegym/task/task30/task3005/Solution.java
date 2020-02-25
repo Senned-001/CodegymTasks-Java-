@@ -32,7 +32,6 @@ public class Solution {
 
     static class B {
         List<A> as = new ArrayList<>();
-
         {
             as.add(new A());
         }
@@ -40,7 +39,6 @@ public class Solution {
 
     static class C {
         List<B> bs = new ArrayList<>();
-
         {
             bs.add(new B());
         }
@@ -48,7 +46,6 @@ public class Solution {
 
     static class D {
         List<C> cs = new ArrayList<>();
-
         {
             cs.add(new C());
         }

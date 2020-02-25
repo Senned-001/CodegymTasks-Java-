@@ -36,11 +36,13 @@ public class Solution {
         final Friend gaston =
                 new Friend("Gaston");
         new Thread(new Runnable() {
+            @Override
             public void run() {
                 alphonse.bow(gaston);
             }
         }).start();
         new Thread(new Runnable() {
+            @Override
             public void run() {
                 gaston.bow(alphonse);
             }

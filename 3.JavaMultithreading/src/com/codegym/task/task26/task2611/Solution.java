@@ -11,16 +11,12 @@ The world doesn't change, we change
 public class Solution {
     public static void main(String[] args) throws Exception {
         ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
-
         Producer producer = new Producer(map);
         Consumer consumer = new Consumer(map);
-
         ExecutorService executorService = Executors.newCachedThreadPool();
         executorService.submit(producer);
         executorService.submit(consumer);
-
         Thread.sleep(2000);
-
         executorService.shutdownNow();
         // Finally, 5 lines have to be printed
     }

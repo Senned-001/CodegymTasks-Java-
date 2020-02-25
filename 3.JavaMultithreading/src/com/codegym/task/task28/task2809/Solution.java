@@ -43,7 +43,6 @@ public class Solution {
                 }
             }.start();
         }
-
         phaser.arriveAndDeregister();
     }
 }

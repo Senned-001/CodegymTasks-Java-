@@ -12,7 +12,6 @@ Read online about the median of a sample
 public class Solution {
 
     public static void main(String[] args) {
-
         /*Integer[] array={13, 8, 15, 5, 17};
         sort(array);
         for (int i=0;i<array.length;i++)
@@ -41,17 +40,16 @@ public class Solution {
                         array[i + 1] = a;
                     }
                 }
-
             }
         }*/
 
         final Integer s=median;
         Comparator<Integer> compareByMed = new Comparator<Integer>() {
+            @Override
             public int compare(Integer i1, Integer i2) {
                 return Math.abs(i1 - s) - Math.abs(i2 - s);   }
         };
         Arrays.sort(array,compareByMed);
-
         return array;
     }
 }

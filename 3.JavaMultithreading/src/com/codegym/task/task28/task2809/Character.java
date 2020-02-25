@@ -5,6 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public abstract class Character implements Runnable {
     protected abstract int getId();
 
+    @Override
     public void run() {
         System.out.println(toString() + " entered the game");
         doSomething();

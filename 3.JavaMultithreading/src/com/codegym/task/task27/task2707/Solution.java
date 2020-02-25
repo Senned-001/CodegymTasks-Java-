@@ -38,8 +38,10 @@ public class Solution {
             };
             T2.start();
             Thread.sleep(100);
-            if(T2.getState()== Thread.State.BLOCKED) return true;
-            else return false;
+            if(T2.getState()== Thread.State.BLOCKED)
+                return true;
+            else
+                return false;
         }
 
     }
@@ -48,7 +50,6 @@ public class Solution {
         final Solution solution = new Solution();
         final Object o1 = new Object();
         final Object o2 = new Object();
-
         System.out.println(isLockOrderNormal(solution, o1, o2));
     }
 }

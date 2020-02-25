@@ -41,9 +41,10 @@ public class Solution {
             while ((length-- != 0)&&(string.charAt(j++) == substring.charAt(k++))) {
                 found = true;
             }
-            if(length==(-1)) return found;  //if all iterations while loop is done that all j==k and lenght=-1
-            else found=false;
-
+            if(length==(-1))
+                return found;  //if all iterations while loop is done that all j==k and lenght=-1
+            else
+                found=false;
         }
         return found;
     }

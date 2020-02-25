@@ -36,7 +36,6 @@ public class Solution {
         codegymFbGroupUrl1Child = new URL("https://plus.google.com/u/0/112826988801758485947/about");
         codegymFbGroupUrl2Child = new URL("https://www.facebook.com/pg/codegym.cc/notes");
         codegymFbGroupUrl3Child = new URL("https://twitter.com/codegym_cc");
-
         urlsForProcessing.add(codegymUrl);
         urlsForProcessing.add(codegymFbGroupUrl);
     }
@@ -99,6 +98,7 @@ public class Solution {
             this.url = url;
         }
 
+        @Override
         public void run() {
             for (URL link : processPage(url)) {
                 if (Thread.currentThread().isInterrupted()) return;

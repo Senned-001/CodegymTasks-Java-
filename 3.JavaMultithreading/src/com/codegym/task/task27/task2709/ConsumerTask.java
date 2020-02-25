@@ -9,6 +9,7 @@ public class ConsumerTask implements Runnable {
         new Thread(this, "ConsumerTask").start();
     }
 
+    @Override
     public void run() {
         synchronized (transferObject) {
             while (!stopped) {

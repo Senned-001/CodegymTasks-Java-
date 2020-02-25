@@ -14,7 +14,6 @@ public class Solution {
 
         @Override
         public int compare(T o1, T o2) {
-
             for (Comparator<T> x:comparators ) {
                 int temp=x.compare(o1, o2);
                 if(temp!=0) return temp;
@@ -22,15 +21,11 @@ public class Solution {
             return 0;
         }
 
-
-
         public CustomizedComparator(Comparator<T>...comp) {
             this.comparators = comp;
         }
     }
 
-
     public static void main(String[] args) {
-
     }
 }

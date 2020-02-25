@@ -128,16 +128,12 @@ public class Client {
                 break;
             }
             if (shouldSendTextFromConsole()) sendTextMessage(a);
-
         }
-
-
     }
 
     public static void main(String[] args){
         Client client=new Client();
         client.run();
     }
-
 }
 

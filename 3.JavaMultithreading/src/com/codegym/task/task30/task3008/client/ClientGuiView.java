@@ -31,6 +31,7 @@ public class ClientGuiView {
         frame.setVisible(true);
 
         textField.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 controller.sendTextMessage(textField.getText());
                 textField.setText("");

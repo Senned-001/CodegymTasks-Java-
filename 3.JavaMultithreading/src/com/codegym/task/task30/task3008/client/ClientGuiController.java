@@ -67,10 +67,5 @@ public class ClientGuiController extends Client {
         protected void notifyConnectionStatusChanged(boolean clientConnected) {
             view.notifyConnectionStatusChanged(clientConnected);
         }
-
-
     }
-
-
-
 }

@@ -28,5 +28,4 @@ public class Solution {
         String result2 = forkJoinPool.invoke(new BinaryRepresentationTask(6));
         System.out.println(result2);
     }
-
 }

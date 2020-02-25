@@ -15,6 +15,7 @@ public class Student extends UniversityPerson {
         this.averageGrade = averageGrade;
     }
 
+    @Override
     public void live() {
         learn();
     }
