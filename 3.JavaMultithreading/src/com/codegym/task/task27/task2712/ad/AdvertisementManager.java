@@ -2,6 +2,7 @@ package com.codegym.task.task27.task2712.ad;
 
 import com.codegym.task.task27.task2712.ConsoleHelper;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -53,5 +54,9 @@ public class AdvertisementManager {
                 getOptimalPlayList(newRemainingVideos, newSelectedVideos, remainingTime - video.getDuration());
             }
         }
+
+        playList.sort(Comparator.comparingLong(Advertisement::getAmountPerImpression)
+                .thenComparingInt(Advertisement::getDuration)
+                .reversed());
     }
 }
