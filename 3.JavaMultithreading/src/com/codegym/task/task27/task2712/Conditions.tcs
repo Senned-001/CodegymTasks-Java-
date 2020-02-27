@@ -1,187 +1,206 @@
-taskKey="com.codegym.task.task27.task2712.big10"\n\nRestaurant (part 10)
+taskKey="com.codegym.task.task27.task2712.big16"\n\nRestaurant (part 16)
 
 
-Recursion is used when the algorithm for solving the problem is the same as the algorithm for solving part of the problem.
-That's just what we have. We need to do a full search of all options and choose the best of them.
+Let's implement the first statistics item: advertising revenues, grouped by day.
 
-Let me remind you of the pattern used to write recursive code:
-a) condition for terminating the recursion
-b) condition for continuing the recursion (recursive call with a set of parameters from the previous step).
-You can always find detailed information online about how to write recursion.
+1. In the VideosSelectedEventDataRow class, create a getter for the amount field.
+In the OrderReadyEventDataRow class, create a getter for the cookName field.
 
-Our current task is to provide a recursive implementation of item 2.2 of the previous task:
-(choose a list of available videos that maximizes revenues)
-The recursive method must chose the set of commercials that will be displayed to the customer.
+2. In StatisticsManager, create a method (come up with its name on your own) that will get all repository data
+related to displaying advertising, and will calculate the total revenues for each day.
+Additionally, add a get helper method to the repository class to access the data.
 
-This set must meet the following requirements:
-1) the amount of money received from impressions should be the maximum of all possible options
-2) the total commercial playback time must NOT exceed the cooking time for the current order;
-3) a video is shown no more than once for any given order;
-4) if several different sets of videos will produce the same amount of money from impressions, then:
-4.1) choose the option that maximizes the total time;
-4.2) if the total time is the same for multiple such options, then select the option with the smallest number of videos;
-5) the number of remaining impressions of any commercial in the set must be positive.
+3. Let's start with the logic of the printAdRevenue method in the ManagerTablet class.
+Using the method from the previous item, display the dates and amounts in decreasing order.
+For each date with displayed ads in the event repository, the revenue per impression for that date should be displayed.
+At the end, display "Total" and the total amount.
+Example:
+14-May-2013 - 2.50
+13-May-2013 - 1.02
+12-May-2013 - 543.98
+Total - 547.50
 
-And don't forget to implement item 2.4 of the previous task (display all the relevant videos).
+4. Let's implement the second statistics item: cook utilization (time spent working), grouped by day.
 
-The revalidate() method must be called for each video shown.
+In StatisticsManager, create a method (come up with its name on your own) that will get all repository data
+related to a cook's work, and will calculate the total time spent working for each cook separately.
+
+5. Implement the logic of the ManagerTablet class's printCookUtilization method.
+Using the method from the previous item to display dates, names of cooks, and hours worked (round up), in decreasing order.
+For each date in the event repository with a record about work performed by a cook, the time worked on that date in minutes should be displayed.
+If a cook did not work on a day, then DO NOT display empty data for him or her (see 13-May-2013)
+Sort the cooks by name
+Example:
+14-May-2013
+Puck - 60 min
+Ramsay - 35 min
+
+13-May-2013
+Puck - 129 min
+
+12-May-2013
+Puck - 6 min
+Ramsay - 5 min
 
 
 Requirements:
-1.	The amount of money received from impressions should be the maximum of all possible options.
-2.	The total commercial playback time must NOT exceed the cooking time for the current order.
-3.	A video should be shown no more than once for any given order.
-4.	If there are several different sets of videos that will produce the same amount of money from impressions, then the option with the maximum total time should be selected.
-5.	If there are several different sets of videos that will produce the same amount of money and have the same total time, then the option with the minimum number of videos should be chosen.
-6.	The set should include only videos with a positive number of remaining impressions.
-7.	The revalidate() method must be called for each video shown.
+1.	A getter for the amount field must be created in the VideosSelectedEventDataRow class.
+2.	A getter for the cookName field must be created in the OrderReadyEventDataRow class.
+3.	The ManagerTablet class&#39;s printAdRevenue method must be implemented in accordance with the task conditions.
+4.	The ManagerTablet class&#39;s printCookUtilization method must be implemented in accordance with the task conditions.
 
 
-Restaurant (part 9)
+Restaurant (part 15)
 
 
-We need an exception that will help us handle the situation where we are unable to choose commercials.
+Let's think about what needs to be done so that the manager can view the following:
+1) advertising revenues, grouped by day;
+2) cook utilization (time spent working), grouped by day;
+3) list of active videos and the number of remaining impressions for each;
+4) list of inactive videos (with zero remaining impressions).
 
-1. Create an unchecked NoVideoAvailableException in the ad package.
+For each item, we'll add a corresponding method to StatisticsManager.
+The manager will call the method, and StatisticsManager will perform the various calculations.
+But the manager has to call these methods from somewhere. We'll give him or her a tablet, but with different software.
+To do this, we'll create a ManagerTablet class that has a nice interface and the ability to access statistics.
 
-2. Let's take a closer look at the void processVideos() method in AdvertisementManager.
-2.1. Remove the code that displays "calling the processVideos method"
-The method should:
-2.2. Choose a list of available videos that maximizes revenues. (Don't do this yet—we'll do it later).
-2.3. If there are no advertising videos that can be shown to the customer, then throw a NoVideoAvailableException,
-which you will need to catch (think about where the best place to do this would be), and log the following phrase with logging level Level.INFO
-"No video is available for the following order: " + order
-2.4. Display all the chosen commercials in order of decreasing cost per impression
-in cents. The secondary sort order is by increasing the cost per impression per second of commercial in thousandths of a cent
-Use the Collections.sort method
-(Again, don't do this yet—we'll do it later).
-Example for [Water]:
-Displaying First Video... 50, 277
-where "First Video" is the name of the commercial
-where 50 is the cost per impression in cents
-where 277 is the cost per impression per second of commercial in thousandths of a cent (equal to 0.277 cents)
-Use the methods of the Advertisement class.
-2.5. In the Advertisement class, create a void revalidate() method. This method should:
-2.5.1. Throw an UnsupportedOperationException if the number of impressions is not positive.
-2.5.2. Decrement the number of remaining impressions.
+1. Create the ManagerTablet class at the root of the project.
 
+2. In the ManagerTablet class, create four void methods:
+printAdRevenue(), printCookUtilization(), printActiveVideoSet(), printArchivedVideoSet()
+They correspond to the four items listed above.
 
+3. To make it possible to check the result, in the main method, create a manager's tablet and display statistics
+using the methods listed above.
 
-Restaurant (part 8)
+We're going to need some more methods.
+4. In EventDataRow, create the following methods:
+Date getDate(), which returns the row's creation date
+int getTime(), which returns the duration
 
+5. In StatisticsManager, create a void register(Cook cook) method, which will register the cook.
+In the StatisticsManager class, create a Set cooks field and add the cook.
 
-It's time to describe the functionality of the AdvertisementManager class.
-But first we're going to need some methods in the Advertisement class.
-
-1. Create a long amountPerImpression field in the Advertisement class.
-It should equal the cost of one ad impression in cents (amountPaid / impressionsRemaining).
-Assign a value to the field in the constructor.
-
-2. In the Advertisement class, create getters for the name, duration, and amountPerImpression fields.
-
-3. Determine what data the AdvertisementManager object needs, i.e. the time required for the cook to prepare an order.
-Because we're storing the duration of the videos in seconds, we'll also take the cooking time in seconds.
-In the AdvertisementManager class, create a constructor that has one parameter: int timeSeconds.
-Create a corresponding field and save this value in it.
-
-4. AdvertisementManager performs just one action—it processes ad videos.
-Therefore, create the only public method: void processVideos(). Its functionality will be described in the next task.
-But for now, display "calling the processVideos method"
-
-5. To test this functionality, you need to add a call to the processVideos method to the AdvertisementManager.
-Obviously, this method should be called during creation of an order, or more precisely—in parallel with the creation of an order.
-The order is prepared while the video is watched.
-Add a call to the processVideos() method in the right place.
-
-P.S. Don't forget that an order's preparation time is recorded in minutes, but the time of an ad impression in measured in seconds!
+6. Implement the necessary getters in the OrderReadyEventDataRow, NoVideosAvailableEventDataRow, and VideosSelectedEventDataRow classes.
 
 
 
-Restaurant (part 7)
+Restaurant (part 14)
 
 
-When choosing which class to start from, try to find one that is used by others, and which does not use anything.
-In our case, this is the repository of advertising videos (AdvertisementStorage).
-We decided that it would be the only one in the restaurant and made it a singleton.
-Let's describe it.
+1. Create a void put(EventDataRow data) method in StatisticsStorage.
 
-1. The videos need to be stored somewhere. Let's make it a list.
-Create a videos field and initialize it with an empty list.
-Think about whether the videos field should be able to change its value?
+2. To allow the put(EventDataRow data) method to add the data object to the map, we need the event type (EventType).
+It would make sense for the event to store its type. Therefore,
+2.1. Add an EventType getType() method to the EventDataRow interface
+2.2. Implement this method in each event class: OrderReadyEventDataRow, NoVideosAvailableEventDataRow, VideosSelectedEventDataRow
 
-2. To make it possible to work with the videos, create the following public methods:
-2.1. list() - returns a list of all available videos.
-2.2. add(Advertisement advertisement) - adds a new video to the videos list.
+3. Make it so that the void put(EventDataRow data) method cannot be accessed outside the StatisticsManager class.
+Take advantage of the features of nested classes.
 
-3. In the class constructor, let's add some data to the videos list. This is what I have:
-Object someContent = new Object();
-new Advertisement(someContent, "First Video", 5000, 100, 3 * 60) // 3 min
-new Advertisement(someContent, "Second Video", 100, 10, 15 * 60) // 15 min
-new Advertisement(someContent, "Third Video", 400, 2, 10 * 60)   // 10 min
+Now it remains to arrange StatisticsManager calls in places that generate events.
 
-4. In the AdvertisementManager class, we'll create a final field that references an instance of AdvertisementStorage and call it storage.
-Don't forget to initialize this field!
+4. Record an event for the cook when the food is prepared.
+Add a getter for the dishes field to the Order class, and use it when creating the event.
+
+5. Record a "videos selected" event before displaying ads to the customer.
+
+6. The record method with one EventDataRow parameter should record the event in statisticsStorage.
 
 
 
-Restaurant (part 6)
+Restaurant (part 13)
 
 
-An order is created, prepared by the cook, and then carried out to the guest. We also calculate the time required to fill the order.
-We'll consider the first part of the task complete.
-Let's move on to the second: while the order is being prepared, ads should be shown on the tablet.
-Let's define what we mean by ads.
+Let's return to the StatisticsManager class's record method. It should record events in a repository.
+Let's create the repository :)
+The repository has a 1-to-1 relationship with the manager, i.e. there is one manager and one repository per application.
+Only the StatisticsManager can access the repository. Therefore...
+From the above, it follows that the repository must be a private inner class.
+Let's call it StatisticsStorage.
 
-For us, an ad is a video of a certain duration. We also know that someone has paid for a number of impressions.
-We'll assume that we know the number of paid impressions, the total cost of all impressions, and the ad itself.
+1. Inside the StatisticsManager class, create a private inner StatisticsStorage class.
 
-1. Create an ad package for ad-related functionality.
+2. To allow the manager to access the repository, you need to create a StatisticsStorage statisticsStorage field in the StatisticsManager class.
+Initialize it with an instance of the class.
 
-2. In the ad package, create an Advertisement class that has the following fields:
-Object content - the video
-String name - the name or title
-long amountPaid - the amount paid for ads in cents. Use a long to avoid rounding problems
-int impressionsRemaining - the number of impressions that have been paid for but not shown
-int duration - the duration in seconds
-Set the access modifiers on your own.
+3. StatisticsStorage will store data internally in a Map storage field.
+The StatisticsStorage and Map must have a has-a relationship
+The maps type arguments are <EventType, List<EventDataRow>>
 
-3. In the Advertisement class, create a constructor with parameters ordered according to the sequence of fields listed above
-
-4. We'll create another two classes in the same package:
-AdvertisementStorage - a repository of commercials.
-AdvertisementManager - each tablet will have its own manager object
-that will select and sequence the optimal set of videos for each order.
-It will also interact with the player and display the videos.
-
-5. Since there is only one AdvertisementStorage for the entire restaurant, we'll make it a singleton.
+4. In the StatisticsStorage constructor, initialize the repository with default data:
+for example, use a loop to add a new ArrayList <EventDataRow>() for each EventType.
 
 
 
-Restaurant (part 5)
+Restaurant (part 12)
 
 
-The cook currently prepares dishes instantaneously. In reality, cooking takes some time.
-We need to calculate the time required to prepare the entire order, so we can then select commercials to fill the time.
+We have several events:
+*The cook prepared an order
+*The set of videos for an order has been chosen
+*There are no videos that can be shown while an order is prepared
 
-1. Suppose we know the cooking time for each dish in minutes. We'll hardcode it in the Dish class.
-1.1. Change the creation of the enum fields: Fish(25), Steak(30), Soup(15), Juice(5), Water(3);
-1.2. Create a private int duration field with a getter.
-To create a getter, press Alt+Insert and select Getter. Next, select the field name and click OK (Enter).
+These are constants, so an enum is suitable for representing them.
 
-2. Add the ability to calculate the time required to prepare the whole order.
-Where should you add it???
-2.1. If you add it to the Cook class, then the cook will be able to calculate how long it will take to prepare the order.
-For other classes to get this information, they will need access the Cook object.
-2.2. If you add it to the Order class, then access to the order will always let you find out how long the order will take.
-2.3. Choose the right place from either item 2.1 or item 2.2, and add a public int getTotalCookingTime() method,
-which will calculate the total time required to prepare all the dishes in the order.
-2.4. Let's add this information to what our cook outputs to the console. Now let's display a message like this:
-Start cooking - Your order: [Soup, Juice, Water] from Tablet{number=5}, cooking time 23 min
+1. In the event package, create the following: enum EventType {ORDER_READY, VIDEOS_SELECTED, NO_VIDEOS_AVAILABLE}
 
-Let's make it pretty:
-3. Start the application and immediately enter 'exit'. The output isn't very beautiful.
-Make it so that if there are no dishes in the order, then it doesn't get sent to the cook. Find this relevant place and implement the logic.
-In the Order class, create a public boolean isEmpty() helper method that determines whether there are any dishes in the order.
+2. In the event package, create three classes corresponding to the enum fields. They will (should) represent events.
+We will record them in the repository.
+Here are the class names and constructor parameters:
+2.1. OrderReadyEventDataRow(String tabletName, String cookName, int cookingTimeSeconds, List<Dish> dishesInOrder)
+where tabletName is the name of the tablet
+cookName is the name of the cook
+cookingTimeSeconds is the time required to prepare the order in seconds
+dishesInOrder is the list of dishes to prepare
+2.2. NoVideosAvailableEventDataRow(int totalDuration)
+totalDuration is the time required to prepare the order in seconds
+2.3. VideosSelectedEventDataRow(List<Advertisement> optimalVideoSet, long amount, int totalDuration)
+optimalVideoSet is the list of videos chosen for playback
+amount is the amount of money in cents
+totalDuration is the total duration of the chosen commercials
+3. In the classes created in item 2, add a Date currentDate field, which you will initialize in the constructor with the current date.
+
+
+
+Restaurant (part 11)
+
+
+We've implemented the first two of the three features. You will recall that the first was automated order preparation,
+the second was commercial selection, and the third is statistics for the manager. And that's our next step.
+
+We need to implement the following functionality:
+1) calculate the statistics
+2) display the statistics to the manager
+
+Let's try to determine the sequence of actions. To display data, you must first get it from somewhere.
+
+There are two approaches:
+The FIRST approach is applied when it is difficult to obtain real data, or when someone else does the work to get the data:
+1. hardcode the data in the application
+2. display the hardcoded statistics
+3. get the real data/statistics (integrate with someone else's code)
+
+SECOND:
+1. get the real data/statistics
+2. display the statistics
+
+Because we're implementing this functionality ourselves, and the statistics aren't complicated, we'll adopt the second approach.
+Let's start by getting the real data and real statistics.
+
+Here's the idea:
+There's an event repository.
+When an event occurs, we'll record it in the repository.
+Upon a request from the manager, we'll filter the events in the repository, and then calculate and display the necessary data.
+
+First, we need several classes.
+1. Create a statistics package, where we'll create a StatisticsManager class. We'll use it to record events in the repository.
+2. We should have one repository with one entry point. Therefore, we'll make StatisticsManager a singleton.
+3. Inside the statistics package, create a nested event package to store event-related classes.
+4. Create an EventDataRow interface in the event package. At the moment, it's a marker interface,
+since it doesn't have methods and we use it to determine whether the passed object is an event.
+5. In StatisticsManager, create a public void record(EventDataRow data) method that records the event in the repository.
+We'll return to the implementation later.
 
 
 

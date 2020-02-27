@@ -1,6 +1,9 @@
 package com.codegym.task.task27.task2712.ad;
 
 import com.codegym.task.task27.task2712.ConsoleHelper;
+import com.codegym.task.task27.task2712.statistics.StatisticsManager;
+import com.codegym.task.task27.task2712.statistics.event.NoVideosAvailableEventDataRow;
+import com.codegym.task.task27.task2712.statistics.event.VideosSelectedEventDataRow;
 
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -11,18 +14,24 @@ public class AdvertisementManager {
     private final AdvertisementStorage storage = AdvertisementStorage.getInstance();
     private List<Advertisement> playList = new LinkedList<>();
     private int timeSeconds;
+    private StatisticsManager statisticsManager = StatisticsManager.getInstance();
 
     public AdvertisementManager(int timeSeconds) {
         this.timeSeconds = timeSeconds;
     }
 
     public void processVideos() {
-        if (storage.list().isEmpty())
+        if (storage.list().isEmpty()){
+            statisticsManager.record(new NoVideosAvailableEventDataRow(timeSeconds));
             throw new NoVideoAvailableException();
+        }
         LinkedList<Advertisement> remainingVideos = new LinkedList<>(storage.list().stream().filter(video -> video.getImpressionsRemaining() > 0).collect(Collectors.toList()));
         getOptimalPlayList(remainingVideos, new LinkedList<>(), timeSeconds);
-        if (playList.isEmpty())
+        if (playList.isEmpty()){
+            statisticsManager.record(new NoVideosAvailableEventDataRow(timeSeconds));
             throw new NoVideoAvailableException();
+        }
+        statisticsManager.record(new VideosSelectedEventDataRow(playList, playList.stream().mapToLong(Advertisement::getAmountPerImpression).reduce(0L, (a1,a2)->a1+a2),playList.stream().mapToInt(Advertisement::getDuration).reduce(0,(d1,d2)->d1+d2)));
         playList.forEach(video -> ConsoleHelper.writeMessage("Displaying " + video.getName() + "... " + video.getAmountPerImpression() + ", " + 1000L * video.getAmountPerImpression() / video.getDuration()));
         playList.forEach(Advertisement::revalidate);
     }
@@ -54,7 +63,7 @@ public class AdvertisementManager {
                 getOptimalPlayList(newRemainingVideos, newSelectedVideos, remainingTime - video.getDuration());
             }
         }
-
+        
         playList.sort(Comparator.comparingLong(Advertisement::getAmountPerImpression)
                 .thenComparingInt(Advertisement::getDuration)
                 .reversed());

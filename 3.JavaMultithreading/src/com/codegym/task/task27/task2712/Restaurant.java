@@ -15,5 +15,10 @@ public class Restaurant {
         tablet.addObserver(cook);
         cook.addObserver(waiter);
         tablet.createOrder();
+        ManagerTablet managerTablet = new ManagerTablet();
+        managerTablet.printActiveVideoSet();
+        managerTablet.printAdRevenue();
+        managerTablet.printArchivedVideoSet();
+        managerTablet.printCookUtilization();
     }
 }
