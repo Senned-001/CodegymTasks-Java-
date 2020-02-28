@@ -32,6 +32,10 @@ public class OrderReadyEventDataRow implements EventDataRow{
 
     @Override
     public int getTime() {
-        return (int)(new Date().getTime()-currentDate.getTime());
+        return cookingTimeSeconds;
+    }
+
+    public String getCookName() {
+        return cookName;
     }
 }

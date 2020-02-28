@@ -30,4 +30,12 @@ public class VideosSelectedEventDataRow implements EventDataRow{
     public int getTime() {
         return (int)(new Date().getTime()-currentDate.getTime());
     }
+
+    public long getAmount() {
+        return amount;
+    }
+
+    public int getTotalDuration() {
+        return totalDuration;
+    }
 }

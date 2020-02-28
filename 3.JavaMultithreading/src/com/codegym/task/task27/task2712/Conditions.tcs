@@ -1,4 +1,74 @@
-taskKey="com.codegym.task.task27.task2712.big16"\n\nRestaurant (part 16)
+taskKey="com.codegym.task.task27.task2712.big18"\n\nRestaurant (part 18)
+
+
+Currently, we have one tablet and 1 cook.
+Let's create several tablets that will randomly generate orders, and we'll make two cooks.
+
+1. In the Restaurant class, create a constant PRIVATE static int ORDER_CREATION_INTERVAL = 100.
+
+2. In a separate file, create a (Runnable) RandomOrderGeneratorTask class. This task should:
+2.1. Maintain a list of all the tablets
+2.2. Use Math.random to select a random tablet.
+2.3. RandomOrderGeneratorTask should have only one method.
+2.4. Generate a random order every ORDER_CREATION_INTERVAL milliseconds for the tablet in item 2.2 (don't display a stack trace)
+Now an order is created in the Tablet class's createOrder method.
+In the Tablet class, create a void createTestOrder() method with similar functionality
+that will randomly generate an order with random dishes without communicating with a real person.
+Pass all the necessary data to in the constructor.
+Hint:
+a) create a TestOrder class (descendant of Order) in the parent's package.
+b) in the Order class, create a protected initDishes() method that initializes the dishes. Call this method in the constructor
+c) in the Order class, make the dishes field protected
+d) override initDishes in the TestOrder class. Initialize the order with a random set of dishes.
+e) instead of creating an Order object in the Tablet class's createTestOrder() method, create a TestOrder object.
+All of the createTestOrder method's other functionality remains the same
+
+3. Refactor the createTestOrder() and createOrder() methods: in one of the methods, select the code that is repeated in both methods,
+press Ctrl+Alt+M, enter any name for the method, and click OK. IDEA will offer to replace the code in the second method. Confirm the action.
+
+
+Requirements:
+1.	A constant private static int ORDER_CREATION_INTERVAL with the value 100 must be created in the Restaurant class.
+2.	The RandomOrderGeneratorTask must be implemented in accordance with the task conditions.
+3.	The TestOrder class must be implemented in accordance with the task conditions.
+4.	The Order class must have an initDishes method that initializes dishes.
+5.	The Order class constructor must call the initDishes method.
+
+
+Restaurant (part 17)
+
+
+Let's implement the third and fourth statistics items: the lists of active and inactive videos
+It will be easier to do this with access to the video repository (AdvertisementStorage class).
+1. In the ad package, create a StatisticsAdvertisementManager that will provide information from AdvertisementStorage in the required form.
+Make it a singleton.
+
+2. In the StatisticsAdvertisementManager class, create and initialize a AdvertisementStorage field.
+
+3. In the StatisticsAdvertisementManager, create one (or two) methods (you decide) that fetch all the necessary data from the
+AdvertisementStorage: the list of active commercials and the list of inactive commercials.
+An active video is one that has at least one remaining impression.
+An inactive video is one with 0 remaining impressions.
+
+4. Implement the logic of the ManagerTablet class's printActiveVideoSet and printArchivedVideoSet methods.
+Use the method(s) created in the previous item.
+Sort alphabetically by the name of the video
+
+
+Example output for printActiveVideoSet:
+First Video - 100
+Second Video - 10
+Third Video - 2
+Fourth Video - 4
+
+In this example, printArchivedVideoSet would display the following after 50 impressions:
+Second Video
+Third Video
+Fourth Video
+
+
+
+Restaurant (part 16)
 
 
 Let's implement the first statistics item: advertising revenues, grouped by day.
@@ -42,12 +112,6 @@ Puck - 129 min
 Puck - 6 min
 Ramsay - 5 min
 
-
-Requirements:
-1.	A getter for the amount field must be created in the VideosSelectedEventDataRow class.
-2.	A getter for the cookName field must be created in the OrderReadyEventDataRow class.
-3.	The ManagerTablet class&#39;s printAdRevenue method must be implemented in accordance with the task conditions.
-4.	The ManagerTablet class&#39;s printCookUtilization method must be implemented in accordance with the task conditions.
 
 
 Restaurant (part 15)
@@ -130,77 +194,6 @@ The maps type arguments are <EventType, List<EventDataRow>>
 
 4. In the StatisticsStorage constructor, initialize the repository with default data:
 for example, use a loop to add a new ArrayList <EventDataRow>() for each EventType.
-
-
-
-Restaurant (part 12)
-
-
-We have several events:
-*The cook prepared an order
-*The set of videos for an order has been chosen
-*There are no videos that can be shown while an order is prepared
-
-These are constants, so an enum is suitable for representing them.
-
-1. In the event package, create the following: enum EventType {ORDER_READY, VIDEOS_SELECTED, NO_VIDEOS_AVAILABLE}
-
-2. In the event package, create three classes corresponding to the enum fields. They will (should) represent events.
-We will record them in the repository.
-Here are the class names and constructor parameters:
-2.1. OrderReadyEventDataRow(String tabletName, String cookName, int cookingTimeSeconds, List<Dish> dishesInOrder)
-where tabletName is the name of the tablet
-cookName is the name of the cook
-cookingTimeSeconds is the time required to prepare the order in seconds
-dishesInOrder is the list of dishes to prepare
-2.2. NoVideosAvailableEventDataRow(int totalDuration)
-totalDuration is the time required to prepare the order in seconds
-2.3. VideosSelectedEventDataRow(List<Advertisement> optimalVideoSet, long amount, int totalDuration)
-optimalVideoSet is the list of videos chosen for playback
-amount is the amount of money in cents
-totalDuration is the total duration of the chosen commercials
-3. In the classes created in item 2, add a Date currentDate field, which you will initialize in the constructor with the current date.
-
-
-
-Restaurant (part 11)
-
-
-We've implemented the first two of the three features. You will recall that the first was automated order preparation,
-the second was commercial selection, and the third is statistics for the manager. And that's our next step.
-
-We need to implement the following functionality:
-1) calculate the statistics
-2) display the statistics to the manager
-
-Let's try to determine the sequence of actions. To display data, you must first get it from somewhere.
-
-There are two approaches:
-The FIRST approach is applied when it is difficult to obtain real data, or when someone else does the work to get the data:
-1. hardcode the data in the application
-2. display the hardcoded statistics
-3. get the real data/statistics (integrate with someone else's code)
-
-SECOND:
-1. get the real data/statistics
-2. display the statistics
-
-Because we're implementing this functionality ourselves, and the statistics aren't complicated, we'll adopt the second approach.
-Let's start by getting the real data and real statistics.
-
-Here's the idea:
-There's an event repository.
-When an event occurs, we'll record it in the repository.
-Upon a request from the manager, we'll filter the events in the repository, and then calculate and display the necessary data.
-
-First, we need several classes.
-1. Create a statistics package, where we'll create a StatisticsManager class. We'll use it to record events in the repository.
-2. We should have one repository with one entry point. Therefore, we'll make StatisticsManager a singleton.
-3. Inside the statistics package, create a nested event package to store event-related classes.
-4. Create an EventDataRow interface in the event package. At the moment, it's a marker interface,
-since it doesn't have methods and we use it to determine whether the passed object is an event.
-5. In StatisticsManager, create a public void record(EventDataRow data) method that records the event in the repository.
-We'll return to the implementation later.
 
 
 
