@@ -1,4 +1,124 @@
-taskKey="com.codegym.task.task27.task2712.big18"\n\nRestaurant (part 18)
+taskKey="com.codegym.task.task27.task2712.big23"\n\nRestaurant (part 23)
+
+
+That's it! You can make it beautiful on your own.
+
+For example:
+1. Threads usually use the ThreadLocalRandom class instead of Random. Refactor the code: replace Random with ThreadLocalRandom.
+2. Make Waiter a task so that it works like a thread (remove Observer). Make a queue of prepared orders. Have the waiter take orders from it and carry them out to the tables.
+3. Write a NoVideosAvailableEventDataRow event in the event log when it is not possible to select a video. Pass this event to the manager.
+4. Write a UI, for example, using Swing.
+
+Here's what you have achieved:
+1. You figured out the Observer pattern.
+2. You beefed up your ability to use recursion.
+3. You got acquainted with a way to implement statistics.
+4. You know more and can do more.
+5. You saw how to break a task into subtasks.
+6. You moved one step closer to working as a Java programmer.
+
+Congratulations!
+
+
+Requirements:
+1.	You did a great job. You finished a big task!
+
+
+Restaurant (part 22)
+
+
+Unfortunately, the orders are still not being prepared in parallel. Here's how our thread from the previous task works.
+It finds a cook, finds an order, gives the order to the cook using the startCookingOrder method, waits for the order to be prepared,
+and only then moves on to the next order. This is because all the actions are performed consecutively on a single thread.
+We can't perform actions in parallel on the same thread.
+We need a standard Producer-Consumer implementation.
+RandomOrderGeneratorTask is our Producer, because it makes orders.
+Cook is the Consumer, because it processes orders.
+
+1. Move the queue from OrderManager to Restaurant, and make it a private constant.
+2. Add a queue field and setter to the Cook class. Immediately after creating a cook, use the created setter to set
+the created field equal to the constant from item 1.
+3. Tablet should not be an Observable. Remove all the dependencies.
+4. In Tablet, create a setter and set a reference to the queue (item 1) a tablet is created.
+5. In Tablet, replace the logic that notifies the Observer with logic that adds the order to the queue.
+
+6. In the method main, create and run threads based on Cook tasks.
+7. Remove the cooks set, its getter, and the register(Cook cook) method from the StatisticsManager class.
+8. Make the Cook class a task (Runnable). Move the logic from the thread in the OrderManager constructor to the Cook class's run method.
+9. Remove the OrderManager class and fix the Observer-Observable relationship in the main method.
+
+
+
+Restaurant (part 21)
+
+
+We continue to fix the bug.
+
+Now all the orders arrive in the queue, but they don't reach the cooks.
+We'll make OrderManager find any available cook and give it an order. To implement this logic,
+we need a deamon thread. It will check for orders in the queue, and then grab available cooks and give them orders.
+
+We're going to need a method that determines whether a cook is busy.
+1. In the Cook class, create a boolean busy field with a getter.
+2. At the beginning of the startCookingOrder method, set busy to true; and at the end of the method, set it to false.
+3. In the startCookingOrder method, simulate the delay resulting from preparing a dish: sleep for 10 times the order's required preparation time.
+In other words, if an order takes 30 minutes to prepare, then the delay will be 30 * 10 milliseconds.
+4. To get a list of all the cooks, in the StatisticsManager class, add a getter for the field that is populated in the register(Cook cook) method.
+
+5. In the OrderManager constructor, create and run a daemon thread. Here's the logic of the run method:
+check the queue every 10 milliseconds. If the queue has orders, then look for available cooks and pass
+them the orders (startCookingOrder method). If there are no available cooks or there are no orders in the queue, then keep waiting.
+
+
+
+Restaurant (part 20)
+
+
+Fix a bug: a tablet sends its orders to all known chefs.
+Expected behavior: a tablet sends its orders to a queue, and an available cook takes orders from the queue.
+
+There are two ways to implement this functionality:
+1) Each tablet stores a reference to the queue and pushes new orders to it.
+2) A tablet pushes its orders to the Observer, which stores a reference to the queue. The Observer puts the order into the queue.
+
+We'll take the second option.
+1. In the root of the project, create an OrderManager class that will be an Observer for the tablets.
+2. In the OrderManager class, create a LinkedBlockingQueue<Order> orderQueue field. Add to it all orders passed to the update method.
+3. The Cook class is now NOT an Observer.
+4. In the Cook class, create a void startCookingOrder(Order order) method. Move the update method's logic into this method.
+5. Remove the update method from the Cook class.
+6. In the main method, arrange an Observer-Observable relationship in view of the changes above.
+
+
+
+Restaurant (part 19)
+
+
+We need to rework the main method.
+
+First, let's make the parameters of our RandomOrderGeneratorTask constructors consistent.
+Please make your method signature the same as mine:
+public RandomOrderGeneratorTask(List<Tablet> tablets, int interval)
+
+In the main method:
+1. Remove the creation of the hardcoded tablet and call the createOrder() method.
+2. Create a second cook.
+3. Register the cooks using the StatisticsManager class.
+4. Arrange Observer/Observable classes for the second cook and all the tablets.
+5. Create a list of 5 tablet objects. Initialize it in a loop.
+6. Create and run a thread based on a RandomOrderGeneratorTask object.
+7. After a second, interrupt it and look at the console output.
+
+Oops, two cooks are preparing the same order! 8-O
+
+We got this output because the Observable is informing all of its Observers, i.e. a tablet sends its order to all known cooks.
+This isn't the behavior we want, so we will correct it in the next task.
+
+P.S. Don't forget to stop the thread!
+
+
+
+Restaurant (part 18)
 
 
 Currently, we have one tablet and 1 cook.
@@ -25,175 +145,6 @@ All of the createTestOrder method's other functionality remains the same
 
 3. Refactor the createTestOrder() and createOrder() methods: in one of the methods, select the code that is repeated in both methods,
 press Ctrl+Alt+M, enter any name for the method, and click OK. IDEA will offer to replace the code in the second method. Confirm the action.
-
-
-Requirements:
-1.	A constant private static int ORDER_CREATION_INTERVAL with the value 100 must be created in the Restaurant class.
-2.	The RandomOrderGeneratorTask must be implemented in accordance with the task conditions.
-3.	The TestOrder class must be implemented in accordance with the task conditions.
-4.	The Order class must have an initDishes method that initializes dishes.
-5.	The Order class constructor must call the initDishes method.
-
-
-Restaurant (part 17)
-
-
-Let's implement the third and fourth statistics items: the lists of active and inactive videos
-It will be easier to do this with access to the video repository (AdvertisementStorage class).
-1. In the ad package, create a StatisticsAdvertisementManager that will provide information from AdvertisementStorage in the required form.
-Make it a singleton.
-
-2. In the StatisticsAdvertisementManager class, create and initialize a AdvertisementStorage field.
-
-3. In the StatisticsAdvertisementManager, create one (or two) methods (you decide) that fetch all the necessary data from the
-AdvertisementStorage: the list of active commercials and the list of inactive commercials.
-An active video is one that has at least one remaining impression.
-An inactive video is one with 0 remaining impressions.
-
-4. Implement the logic of the ManagerTablet class's printActiveVideoSet and printArchivedVideoSet methods.
-Use the method(s) created in the previous item.
-Sort alphabetically by the name of the video
-
-
-Example output for printActiveVideoSet:
-First Video - 100
-Second Video - 10
-Third Video - 2
-Fourth Video - 4
-
-In this example, printArchivedVideoSet would display the following after 50 impressions:
-Second Video
-Third Video
-Fourth Video
-
-
-
-Restaurant (part 16)
-
-
-Let's implement the first statistics item: advertising revenues, grouped by day.
-
-1. In the VideosSelectedEventDataRow class, create a getter for the amount field.
-In the OrderReadyEventDataRow class, create a getter for the cookName field.
-
-2. In StatisticsManager, create a method (come up with its name on your own) that will get all repository data
-related to displaying advertising, and will calculate the total revenues for each day.
-Additionally, add a get helper method to the repository class to access the data.
-
-3. Let's start with the logic of the printAdRevenue method in the ManagerTablet class.
-Using the method from the previous item, display the dates and amounts in decreasing order.
-For each date with displayed ads in the event repository, the revenue per impression for that date should be displayed.
-At the end, display "Total" and the total amount.
-Example:
-14-May-2013 - 2.50
-13-May-2013 - 1.02
-12-May-2013 - 543.98
-Total - 547.50
-
-4. Let's implement the second statistics item: cook utilization (time spent working), grouped by day.
-
-In StatisticsManager, create a method (come up with its name on your own) that will get all repository data
-related to a cook's work, and will calculate the total time spent working for each cook separately.
-
-5. Implement the logic of the ManagerTablet class's printCookUtilization method.
-Using the method from the previous item to display dates, names of cooks, and hours worked (round up), in decreasing order.
-For each date in the event repository with a record about work performed by a cook, the time worked on that date in minutes should be displayed.
-If a cook did not work on a day, then DO NOT display empty data for him or her (see 13-May-2013)
-Sort the cooks by name
-Example:
-14-May-2013
-Puck - 60 min
-Ramsay - 35 min
-
-13-May-2013
-Puck - 129 min
-
-12-May-2013
-Puck - 6 min
-Ramsay - 5 min
-
-
-
-Restaurant (part 15)
-
-
-Let's think about what needs to be done so that the manager can view the following:
-1) advertising revenues, grouped by day;
-2) cook utilization (time spent working), grouped by day;
-3) list of active videos and the number of remaining impressions for each;
-4) list of inactive videos (with zero remaining impressions).
-
-For each item, we'll add a corresponding method to StatisticsManager.
-The manager will call the method, and StatisticsManager will perform the various calculations.
-But the manager has to call these methods from somewhere. We'll give him or her a tablet, but with different software.
-To do this, we'll create a ManagerTablet class that has a nice interface and the ability to access statistics.
-
-1. Create the ManagerTablet class at the root of the project.
-
-2. In the ManagerTablet class, create four void methods:
-printAdRevenue(), printCookUtilization(), printActiveVideoSet(), printArchivedVideoSet()
-They correspond to the four items listed above.
-
-3. To make it possible to check the result, in the main method, create a manager's tablet and display statistics
-using the methods listed above.
-
-We're going to need some more methods.
-4. In EventDataRow, create the following methods:
-Date getDate(), which returns the row's creation date
-int getTime(), which returns the duration
-
-5. In StatisticsManager, create a void register(Cook cook) method, which will register the cook.
-In the StatisticsManager class, create a Set cooks field and add the cook.
-
-6. Implement the necessary getters in the OrderReadyEventDataRow, NoVideosAvailableEventDataRow, and VideosSelectedEventDataRow classes.
-
-
-
-Restaurant (part 14)
-
-
-1. Create a void put(EventDataRow data) method in StatisticsStorage.
-
-2. To allow the put(EventDataRow data) method to add the data object to the map, we need the event type (EventType).
-It would make sense for the event to store its type. Therefore,
-2.1. Add an EventType getType() method to the EventDataRow interface
-2.2. Implement this method in each event class: OrderReadyEventDataRow, NoVideosAvailableEventDataRow, VideosSelectedEventDataRow
-
-3. Make it so that the void put(EventDataRow data) method cannot be accessed outside the StatisticsManager class.
-Take advantage of the features of nested classes.
-
-Now it remains to arrange StatisticsManager calls in places that generate events.
-
-4. Record an event for the cook when the food is prepared.
-Add a getter for the dishes field to the Order class, and use it when creating the event.
-
-5. Record a "videos selected" event before displaying ads to the customer.
-
-6. The record method with one EventDataRow parameter should record the event in statisticsStorage.
-
-
-
-Restaurant (part 13)
-
-
-Let's return to the StatisticsManager class's record method. It should record events in a repository.
-Let's create the repository :)
-The repository has a 1-to-1 relationship with the manager, i.e. there is one manager and one repository per application.
-Only the StatisticsManager can access the repository. Therefore...
-From the above, it follows that the repository must be a private inner class.
-Let's call it StatisticsStorage.
-
-1. Inside the StatisticsManager class, create a private inner StatisticsStorage class.
-
-2. To allow the manager to access the repository, you need to create a StatisticsStorage statisticsStorage field in the StatisticsManager class.
-Initialize it with an instance of the class.
-
-3. StatisticsStorage will store data internally in a Map storage field.
-The StatisticsStorage and Map must have a has-a relationship
-The maps type arguments are <EventType, List<EventDataRow>>
-
-4. In the StatisticsStorage constructor, initialize the repository with default data:
-for example, use a loop to add a new ArrayList <EventDataRow>() for each EventType.
 
 
 

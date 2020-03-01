@@ -3,14 +3,11 @@ package com.codegym.task.task27.task2712.statistics;
 import com.codegym.task.task27.task2712.kitchen.Cook;
 import com.codegym.task.task27.task2712.statistics.event.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class StatisticsManager {
     private static StatisticsManager statisticsManager = new StatisticsManager();
     private StatisticsStorage statisticsStorage = new StatisticsStorage();
-    private Set cooks = new HashSet();
     private StatisticsManager(){}
 
     public static StatisticsManager getInstance(){
@@ -19,10 +16,6 @@ public class StatisticsManager {
 
     public void record(EventDataRow data){
         statisticsStorage.put(data);
-    }
-
-    public void register(Cook cook){
-        this.cooks.add(cook);
     }
 
     public TreeMap<Date, Double> getDataofAdvertising(){
