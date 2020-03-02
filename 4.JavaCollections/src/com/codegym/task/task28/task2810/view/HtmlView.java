@@ -31,12 +31,10 @@ public class HtmlView implements View{
         Document doc = null;
         try {
             doc = getDocument();
-
             Element template = doc.getElementsByClass("template").first();
             Element copytemplate = template.clone();
             copytemplate.removeAttr("style");
             copytemplate.removeClass("template");
-
             doc.getElementsByAttributeValueEnding("class", "vacancy").remove();
             //doc.select("tr[class=vacancy]").remove().not("tr[class=vacancy template");
             for(JobPosting jp:jobPostings){
@@ -44,12 +42,10 @@ public class HtmlView implements View{
                 Element title = newelement.getElementsByTag("a").first();
                 Element city = newelement.getElementsByClass("city").first();
                 Element companyName = newelement.getElementsByClass("companyName").first();
-
                 title.attr("href",jp.getUrl());
                 title.text(jp.getTitle());
                 city.text(jp.getCity());
                 companyName.text(jp.getCompanyName());
-
                 template.before(newelement.outerHtml());
             }
         } catch (Exception e) {

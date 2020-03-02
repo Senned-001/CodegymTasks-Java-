@@ -75,7 +75,6 @@ public class Space {
             // Pause 300 milliseconds
             Space.sleep(300);
         }
-
         // Display "Game Over"
         System.out.println("Game Over!");
     }

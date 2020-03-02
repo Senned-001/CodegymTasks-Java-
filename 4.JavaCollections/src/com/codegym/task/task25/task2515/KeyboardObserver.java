@@ -41,7 +41,6 @@ public class KeyboardObserver extends Thread {
             }
         });
 
-
         frame.addKeyListener(new KeyListener() {
 
             public void keyTyped(KeyEvent e) {

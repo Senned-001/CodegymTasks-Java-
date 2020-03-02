@@ -14,7 +14,6 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
     Entry<String>root;
     LinkedList<Entry>tree=new LinkedList<>();
 
-
     public CustomTree() {
         this.root=new Entry<String>("elementName");
         tree.add(root);
@@ -60,7 +59,6 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
         return this.tree.size()-1;
     }
 
-
     public boolean add(String s){
         /*if((tree.size()==3)&&(!tree.get(1).isAvailableToAddChildren()&&(!tree.get(2).isAvailableToAddChildren()))){
             tree.get(1).availableToAddLeftChildren=true;
@@ -69,7 +67,6 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
             tree.get(2).availableToAddRightChildren=true;
         }
 */      boolean avalibleToDe=false;     //field for control oportunity of element have a child
-
 
         for(int i=0;i<tree.size();i++){
             if(tree.get(i).isAvailableToAddChildren()){
@@ -129,7 +126,6 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
             throw new UnsupportedOperationException();
         }
 
-
         for(int i=0;i<tree.size();i++) {
 
             if (tree.get(i).elementName.equals(s)){     //finding element in list
@@ -184,7 +180,5 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
         public boolean isAvailableToAddChildren(){
             return this.availableToAddLeftChildren||this.availableToAddRightChildren;
         }
-
     }
-
 }

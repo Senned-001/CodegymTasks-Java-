@@ -76,8 +76,6 @@ public class Field {
                     canvas[top + i][left + j] = 2;
             }
         }
-
-
         // Display what we've "drawn", but start from the edge of the frame.
         System.out.println("---------------------------------------------------------------------------\n");
 
@@ -95,8 +93,6 @@ public class Field {
             }
             System.out.println();
         }
-
-
         System.out.println();
         System.out.println();
     }
@@ -115,7 +111,6 @@ public class Field {
             for (int j = 0; j < width; j++) {
                 count += matrix[i][j];
             }
-
             // If the line's sum is not equal to its width, then add it to the list
             if (count != width)
                 lines.add(matrix[i]);

@@ -49,7 +49,6 @@ public class Spaceship extends BaseObject {
     @Override
     public void move() {
         x = x + dx;
-
         checkBorders(radius, Space.game.getWidth() - radius + 1, 1, Space.game.getHeight() + 1);
     }
 

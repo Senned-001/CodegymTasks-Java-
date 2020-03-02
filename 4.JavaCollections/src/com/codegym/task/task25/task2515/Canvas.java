@@ -43,10 +43,8 @@ public class Canvas {
                 System.out.print(matrix[i][j]);
                 System.out.print(" ");
             }
-
             System.out.println();
         }
-
         System.out.println();
         System.out.println();
         System.out.println();

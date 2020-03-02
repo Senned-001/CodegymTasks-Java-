@@ -17,5 +17,4 @@ public enum Operation {
         }
         throw new IllegalArgumentException();
     }
-
 }

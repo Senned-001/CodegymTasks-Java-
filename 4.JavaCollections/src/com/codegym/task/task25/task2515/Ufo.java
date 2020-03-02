@@ -32,12 +32,9 @@ public class Ufo extends BaseObject {
     public void move() {
         double dx = Math.random() * 2 - 1;
         double dy = Math.random() * 2 - 1;
-
         x += dx;
         y += dy;
-
         checkBorders(radius, Space.game.getWidth() - radius + 1, radius - 1, Space.game.getHeight() / 2 - 1);
-
         int random10 = (int) (Math.random() * 10);
         if (random10 == 0)
             fire();

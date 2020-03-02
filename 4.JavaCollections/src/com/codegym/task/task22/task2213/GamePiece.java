@@ -41,7 +41,6 @@ public class GamePiece {
                 matrix2[i][j] = matrix[j][i];
             }
         }
-
         matrix = matrix2;
     }
 
@@ -87,7 +86,6 @@ public class GamePiece {
         while (isCurrentPositionAvailable()) {
             y++;
         }
-
         y--;
     }
 
@@ -98,7 +96,6 @@ public class GamePiece {
      */
     public boolean isCurrentPositionAvailable() {
         Field field = Tetris.game.getField();
-
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (matrix[i][j] == 1) {
@@ -111,7 +108,6 @@ public class GamePiece {
                 }
             }
         }
-
         return true;
     }
 
@@ -120,7 +116,6 @@ public class GamePiece {
      */
     public void land() {
         Field field = Tetris.game.getField();
-
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (matrix[i][j] == 1)

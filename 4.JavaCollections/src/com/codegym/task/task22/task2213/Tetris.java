@@ -66,12 +66,10 @@ public class Tetris {
                 else if (event.getKeyCode() == KeyEvent.VK_SPACE)
                     gamePiece.downMaximum();
             }
-
             step();             // Take a step
             field.print();      // Display the field
             Thread.sleep(300);  // Pause 300 milliseconds (about 1/3 of a second)
         }
-
         // Display "Game Over"
         System.out.println("Game Over");
     }
@@ -84,11 +82,8 @@ public class Tetris {
         if (!gamePiece.isCurrentPositionAvailable()) {
             gamePiece.up();                    // Put it back
             gamePiece.land();                // Land it
-
             isGameOver = gamePiece.getY () <= 1; // If the game piece lands at the very top, then the game is over
-
             field.removeFullLines();        // Remove the completed lines
-
             gamePiece = GamePieceFactory.createRandomGamePiece(field.getWidth()/2, 0); // Create a new game piece
         }
     }
