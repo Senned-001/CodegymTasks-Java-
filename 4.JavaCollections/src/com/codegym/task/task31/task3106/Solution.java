@@ -35,7 +35,6 @@ public class Solution {
         }
         out.write(builder.toByteArray());
         out.flush();
-
         zipFileStream.close();
         sequenceInputStream.close();
         out.close();

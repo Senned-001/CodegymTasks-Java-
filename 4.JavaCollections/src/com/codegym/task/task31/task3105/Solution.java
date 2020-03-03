@@ -50,13 +50,10 @@ public class Solution {
             zipFilenewStream.write(x.getValue());
             zipFilenewStream.closeEntry();
         }
-
         zipFilenewStream.putNextEntry(new ZipEntry("new/" + file.getFileName()));
         Files.copy(file, zipFilenewStream);
         zipFilenewStream.closeEntry();
-
         fileOutputStream.close();
         zipFilenewStream.close();
-
     }
 }

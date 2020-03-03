@@ -42,6 +42,5 @@ public class Solution {
             }
         }
         return prop;
-
     }
 }

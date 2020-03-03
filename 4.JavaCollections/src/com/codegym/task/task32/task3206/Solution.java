@@ -31,6 +31,5 @@ public class Solution {
         interfaces[0] = cl;
         System.arraycopy(classes, 0, interfaces, 1, classes.length);
         return (T) Proxy.newProxyInstance (this.getClass().getClassLoader(), interfaces, new ItemInvocationHandler ());
-
     }
 }

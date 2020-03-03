@@ -47,7 +47,6 @@ public class Solution {
         } catch (AlreadyBoundException e) {
             e.printStackTrace();
         }
-
         // Start the client
         CLIENT_THREAD.start();
     }

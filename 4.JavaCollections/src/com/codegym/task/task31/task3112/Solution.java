@@ -15,7 +15,6 @@ public class Solution {
 
     public static void main(String[] args) throws IOException {
         Path passwords = downloadFile("https://codegym.cc/testdata/secretPasswords.txt", Paths.get("D:/MyDownloads"));
-
         for (String line : Files.readAllLines(passwords)) {
             System.out.println(line);
         }
@@ -30,6 +29,5 @@ public class Solution {
         Path tempFile = Files.createTempFile(filename,suffix);
         Files.copy(url.openStream(), tempFile, StandardCopyOption.REPLACE_EXISTING);
         return Files.move(tempFile,downloadDirectory.resolve(name), StandardCopyOption.REPLACE_EXISTING);
-
     }
 }

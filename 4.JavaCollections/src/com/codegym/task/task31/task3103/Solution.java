@@ -25,7 +25,5 @@ public class Solution {
 
     public static void copy(String resourceFilename, String destinationFilename) throws IOException {
         Files.copy(Paths.get(resourceFilename),Paths.get(destinationFilename));
-
     }
-
 }

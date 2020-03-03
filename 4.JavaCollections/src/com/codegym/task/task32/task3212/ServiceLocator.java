@@ -27,7 +27,6 @@ public class ServiceLocator {
             cache.addService(newservice);
             return newservice;              //need only for validator
         }
-
         return cache.getService(jndiName);
     }
 }

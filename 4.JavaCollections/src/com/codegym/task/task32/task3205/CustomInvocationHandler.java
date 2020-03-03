@@ -15,7 +15,6 @@ public class CustomInvocationHandler implements InvocationHandler {
         System.out.println(method.getName()+" in");
         Object result=method.invoke(someInterfaceWithMethods,args);
         System.out.println(method.getName()+" out");
-
         return result;
     }
 }

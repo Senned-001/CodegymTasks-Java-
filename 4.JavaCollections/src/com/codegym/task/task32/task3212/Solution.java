@@ -20,7 +20,5 @@ public class Solution {
         System.out.println();
         service = ServiceLocator.getService("JMSService");
         service.execute();
-
     }
-
 }

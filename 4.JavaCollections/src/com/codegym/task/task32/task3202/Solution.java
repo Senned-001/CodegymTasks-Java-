@@ -19,13 +19,11 @@ public class Solution {
         StringWriter result=new StringWriter();
 
         if(is!=null) {
-
             while (is.available() > 0) {
                 result.write(is.read());
             }
             result.close();
         }
-
         return result;
     }
 }

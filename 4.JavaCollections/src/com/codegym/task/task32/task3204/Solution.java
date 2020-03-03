@@ -56,9 +56,7 @@ public class Solution {
                         //upLetCount++;
                         break;
                     }
-
             }
-
         }
         byteArrayOutputStream.write(result);
         return byteArrayOutputStream;
