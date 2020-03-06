@@ -28,10 +28,8 @@ public class Solution {
                         "</shop>";
 
         StringReader reader = new StringReader(xmlData);
-
         JAXBContext context = JAXBContext.newInstance(getClassName());
         Unmarshaller unmarshaller = context.createUnmarshaller();
-
         Object o = unmarshaller.unmarshal(reader);
 
         System.out.println(o.toString());

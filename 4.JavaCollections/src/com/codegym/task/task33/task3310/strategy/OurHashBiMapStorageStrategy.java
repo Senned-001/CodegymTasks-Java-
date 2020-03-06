@@ -7,7 +7,6 @@ public class OurHashBiMapStorageStrategy implements StorageStrategy{
     private HashMap<Long, String> k2v=new HashMap<>();
     private HashMap<String, Long> v2k=new HashMap<>();
 
-
     @Override
     public boolean containsKey(Long key) {
         return this.k2v.containsKey(key);

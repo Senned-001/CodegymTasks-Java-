@@ -43,7 +43,6 @@ public class FileStorageStrategy implements StorageStrategy {
             if (e.hash == hash && ((k = e.key) == key || (key != null && key.equals(k))))
                 return e;
         }
-
         return null;
     }
 
@@ -51,7 +50,6 @@ public class FileStorageStrategy implements StorageStrategy {
         FileBucket[] newTable = new FileBucket[newCapacity];
         for (FileBucket fileBucket : newTable)
             fileBucket = new FileBucket();
-
         transfer(newTable);
         table = newTable;
     }
@@ -145,5 +143,4 @@ public class FileStorageStrategy implements StorageStrategy {
     public String getValue(Long key) {
         return getEntry(key).getValue();
     }
-
 }

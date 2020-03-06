@@ -37,10 +37,8 @@ public class OurHashMapStorageStrategy implements StorageStrategy {
 
             }
         }
-
         size++;
         addEntry(hash, key, value, i);
-
     }
 
     @Override
@@ -60,7 +58,6 @@ public class OurHashMapStorageStrategy implements StorageStrategy {
             return getEntry(key).getValue();
         }
         return null;
-
     }
 
     public int hash(Long k){
@@ -118,7 +115,6 @@ public class OurHashMapStorageStrategy implements StorageStrategy {
     }
 
     public void addEntry(int hash, Long key, String value, int bucketIndex){
-
         Entry e = table[bucketIndex];
         table[bucketIndex] = new Entry(hash, key, value, e);
         if (size++ >= threshold)

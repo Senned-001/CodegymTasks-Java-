@@ -34,9 +34,7 @@ public class Solution {
         marshaller.marshal(obj, document);
 
         document.getDocumentElement().normalize();
-
         NodeList list = document.getElementsByTagName(tagName);
-
         if (list.getLength()==0) {
         } else {
             for (int i = 0; i < list.getLength(); i++) {
@@ -52,11 +50,9 @@ public class Solution {
         transformer.setOutputProperty(OutputKeys.STANDALONE, "no");
         transformer.transform(source, result);
 
-
         return writer.toString();
     }
 
     public static void main(String[] args) {
-
     }
 }

@@ -49,7 +49,6 @@ public class Solution {
         public int age;
         public int weight;
         Cat(){
-
         }
     }
     @JsonAutoDetect
@@ -57,7 +56,6 @@ public class Solution {
         public int age;
         public String owner;
         Dog(){
-
         }
     }
 }

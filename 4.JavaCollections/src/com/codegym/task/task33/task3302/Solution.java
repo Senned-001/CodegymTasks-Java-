@@ -18,7 +18,6 @@ public class Solution {
         cat.name = "Missy";
         cat.age = 5;
         cat.weight = 3;
-
         StringWriter writer = new StringWriter();
         convertToJSON(writer, cat);
         System.out.println(writer.toString());

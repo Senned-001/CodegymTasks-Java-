@@ -35,12 +35,10 @@ public class Solution {
         }
         Shortener shortener=new Shortener(strategy);
 
-
         Date dateStart=new Date();
         Set<Long> ids=getIds(shortener,test);
         Long timeToGetId = new Date().getTime()-dateStart.getTime();
         Helper.printMessage("Time to getIds: "+timeToGetId);
-
 
         dateStart=new Date();
         Set<String> strings=getStrings(shortener,ids);
