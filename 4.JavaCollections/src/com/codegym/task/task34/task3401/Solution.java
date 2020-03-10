@@ -7,7 +7,6 @@ Fibonacci numbers using recursion
 public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
-
         System.out.println(solution.fibonacci(9));     // 34
         System.out.println(solution.fibonacci(5));     // 5
         System.out.println(solution.fibonacci(2));     // 1
@@ -20,7 +19,6 @@ public class Solution {
         else {
             for (int i = 2; i <= n; i++) {
                 result = fibonacci(i - 2) + fibonacci(i - 1);
-
             }
         }
         return result;

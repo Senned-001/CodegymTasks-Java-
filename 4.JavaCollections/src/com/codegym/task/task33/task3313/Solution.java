@@ -10,9 +10,7 @@ Serializing a date into JSON
 public class Solution {
     public static void main(String[] args) throws JsonProcessingException {
         Event event = new Event("Event #1");
-
         String result = new ObjectMapper().writeValueAsString(event);
-
         System.out.println(result);
     }
 }
