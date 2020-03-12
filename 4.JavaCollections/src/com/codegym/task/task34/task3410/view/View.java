@@ -17,7 +17,6 @@ public class View extends JFrame {
     public void init() {
         board = new Board(this);
         add(board);
-
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(500, 500);
         setLocationRelativeTo(null);

@@ -36,6 +36,5 @@ public class SoftCache {
         }
         return result;
         //write your code here
-
     }
 }

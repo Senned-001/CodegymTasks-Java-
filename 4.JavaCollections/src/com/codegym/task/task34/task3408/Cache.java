@@ -34,7 +34,6 @@ public class Cache<K, V> {
         } catch (IllegalAccessException|InvocationTargetException|NoSuchMethodException e) {
             return false;
         }
-
     }
 
     public int size() {

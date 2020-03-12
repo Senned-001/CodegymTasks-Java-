@@ -21,13 +21,11 @@ public class Solution {
 
         // Before GC
         helper.checkListWithReferences(list, "before");
-
         helper.callGC();
         helper.consumeHeap();
 
         // After GC
         helper.checkListWithReferences(list, "after");
-
         helper.finish();
     }
 
@@ -71,7 +69,6 @@ public class Solution {
                     count++;
                 }
             }
-
             System.out.println(String.format("The count of enqueued references is %d (%s GC was called)", count, string));
         }
 

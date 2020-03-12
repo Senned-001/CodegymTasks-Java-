@@ -13,7 +13,6 @@ public class Solution {
         someKeyNew.name = "testNew";
 
         SomeValue value = new SomeValue(someKey);
-
         Cache<SomeKey, SomeValue> cache = new Cache<>();
         cache.put(value);
 

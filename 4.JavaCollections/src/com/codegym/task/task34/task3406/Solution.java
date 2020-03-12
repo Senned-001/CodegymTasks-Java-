@@ -26,21 +26,16 @@ public class Solution {
 
     public static void main(String args[]) throws InterruptedException {
         helper.startTime();
-
         Monkey monkey = new Monkey("George");
 
         // Add a reference here
         WeakReference<Monkey> reference=new WeakReference<>(monkey);
         helper.callGC();
-
         monkey = null;
-
         helper.callGC();
         helper.consumeHeap();
-
         if (reference.get() == null)
             System.out.println("Finalized");
-
         helper.finish();
     }
 
