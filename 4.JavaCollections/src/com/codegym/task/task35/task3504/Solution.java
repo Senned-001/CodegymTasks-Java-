@@ -25,7 +25,6 @@ public class Solution <T extends HashMap>{
         HashMap mapFromSolution = solution.getMap();
         System.out.println(mapFromSolution.getClass());
 
-
         LinkedHashMap<Solution, Solution> hashMap2 = new LinkedHashMap<>();
         hashMap2.put(solution, solution);
         Solution solution2 = new Solution(hashMap2);

@@ -14,7 +14,6 @@ public class Solution {
         users.add(new ConvertibleUser(234, "First User"));
         users.add(new ConvertibleUser(235, "Second User"));
         users.add(new ConvertibleUser(236, "Third User"));
-
         Map<Integer, ConvertibleUser> newMap = ConvertibleUtil.convert(users);
         System.out.println(newMap);
         // {236=ConvertibleUser{id=236, name='Third User'},
