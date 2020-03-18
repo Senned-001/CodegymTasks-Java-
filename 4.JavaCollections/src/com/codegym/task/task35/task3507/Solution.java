@@ -25,12 +25,10 @@ public class Solution {
         for(File f:files) {
             if (f.getName().endsWith(".class")) {
                 try {
-
                     Class s = ((MyClassLoader) classLoader).findClass(f.getAbsolutePath());
                     result.add((Animal) s.getDeclaredConstructor().newInstance());
                 } catch (Exception e) {
                     continue;
-
                 }
             }
         }
@@ -49,5 +47,4 @@ public class Solution {
             return cl;
         }
     }
-
 }

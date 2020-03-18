@@ -12,10 +12,7 @@ public class House<T> {
     private List<T> residents = new ArrayList<>();
 
     public void admit(T resident) {
-
-
         residents.add(resident);
-
         //checkConflicts();
     }
 

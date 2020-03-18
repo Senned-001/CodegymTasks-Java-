@@ -18,7 +18,6 @@ public class Solution {
         for(T x:elements){
             result.add(x);
         }
-
         return result;
     }
 
@@ -28,7 +27,6 @@ public class Solution {
         for(T x:elements){
             result.add(x);
         }
-
         return result;
     }
 
@@ -42,6 +40,5 @@ public class Solution {
             }
             return result;
         }
-
     }
 }
