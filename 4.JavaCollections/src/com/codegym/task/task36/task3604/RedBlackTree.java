@@ -53,7 +53,6 @@ public class RedBlackTree {
         } else {
             parent.right = current;
         }
-
         reorient(item);
     }
 
@@ -70,7 +69,6 @@ public class RedBlackTree {
             current = rotate(item, great);
             current.color = Color.BLACK;
         }
-
         header.right.color = Color.BLACK;
     }
 

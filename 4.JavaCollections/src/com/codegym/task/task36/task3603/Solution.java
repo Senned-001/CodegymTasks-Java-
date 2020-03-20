@@ -16,9 +16,7 @@ public class Solution {
         list.add("C");
         list.remove("B");
         List<String> collection = Arrays.asList(new String[]{"B", "C", "D", "B"});
-
         list.addAllAbsent(collection);
-
         for (String string : list) {
             System.out.println(string);
         }

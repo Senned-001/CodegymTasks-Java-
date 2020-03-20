@@ -47,8 +47,6 @@ public class Solution {
                         } catch (InstantiationException e) {
                             e.printStackTrace();
                         }
-
-
             }
 
         }

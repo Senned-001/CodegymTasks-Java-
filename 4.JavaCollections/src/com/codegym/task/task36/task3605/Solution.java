@@ -19,10 +19,7 @@ public class Solution {
                 result.add(c);
         }
         isr.close();
-
-
         int s=0;
-
         for(Character r:result){
                if(s==5) break;
                System.out.print(r);

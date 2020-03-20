@@ -8,5 +8,4 @@ public class Controller {
     public List<String> onShowDataList() {
         return model.getStringDataList();
     }
-
 }

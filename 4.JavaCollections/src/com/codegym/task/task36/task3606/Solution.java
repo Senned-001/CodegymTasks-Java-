@@ -36,9 +36,7 @@ public class Solution {
         for(File f:files){
             if(f.getName().endsWith(".class"))
                 hiddenClasses.add(((MyClassLoader) classLoader).findClass(f.getAbsolutePath()));
-
         }
-
     }
 
     public HiddenClass getHiddenClassObjectByKey(String key) {
