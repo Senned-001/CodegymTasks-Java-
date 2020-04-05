@@ -9,6 +9,7 @@ public class Game2048 extends Game {
     private boolean isGameStopped = false;
     private int score;
 
+
     @Override
     public void initialize() {
         setScreenSize(SIDE,SIDE);
