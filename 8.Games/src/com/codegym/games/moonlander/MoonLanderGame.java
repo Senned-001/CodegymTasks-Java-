@@ -2,6 +2,7 @@ package com.codegym.games.moonlander;
 
 import com.codegym.engine.cell.*;
 
+import static com.codegym.engine.cell.Key.SPACE;
 import static com.codegym.engine.cell.Key.UP;
 
 public class MoonLanderGame extends Game {
@@ -12,7 +13,8 @@ public class MoonLanderGame extends Game {
     private boolean isUpPressed;
     private boolean isLeftPressed;
     private boolean isRightPressed;
-
+    private GameObject platform;
+    private boolean isGameStopped;
 
     @Override
     public void initialize() {
@@ -28,6 +30,7 @@ public class MoonLanderGame extends Game {
         createGameObjects();
         drawScene();
         setTurnTimer(50);
+        isGameStopped=false;
     }
 
     private void drawScene(){
@@ -43,11 +46,13 @@ public class MoonLanderGame extends Game {
     private void createGameObjects(){
         rocket = new Rocket(WIDTH/2,0);
         landscape = new GameObject(0, 25, ShapeMatrix.LANDSCAPE);
+        platform= new GameObject(23, MoonLanderGame.HEIGHT - 1, ShapeMatrix.PLATFORM);
     }
 
     @Override
     public void onTurn(int step) {
         rocket.move(isUpPressed,isLeftPressed,isRightPressed);
+        check();
         drawScene();
     }
 
@@ -59,6 +64,10 @@ public class MoonLanderGame extends Game {
 
     @Override
     public void onKeyPress(Key key) {
+        if(isGameStopped&&key.equals(SPACE)){
+            createGame();
+            return;
+        }
         switch (key){
             case UP : {
                 isUpPressed = true;
@@ -93,5 +102,26 @@ public class MoonLanderGame extends Game {
                 break;
             }
         }
+    }
+
+    private void check(){
+        if (rocket.isCollision(landscape))
+            gameOver();
+        if (rocket.isCollision(platform)&&rocket.isStopped())
+            win();
+    }
+
+    private void win(){
+        rocket.land();
+        isGameStopped = true;
+        stopTurnTimer();
+        showMessageDialog(Color.GREEN, "You Are Win!",Color.WHITE, 18);
+    }
+
+    private void gameOver(){
+        isGameStopped = true;
+        stopTurnTimer();
+        rocket.crash();
+        showMessageDialog(Color.RED, "Game Over!",Color.WHITE, 18);
     }
 }
