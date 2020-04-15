@@ -1,0 +1,84 @@
+taskKey="com.codegym.games.game2048.part18"\n\n2048 (Part 18/18)
+
+Congratulations! The game is done! Run it and see what happens.
+If you have time and motivation, you can improve the game by adding some features of your own. For example:
+•   change the size of the game board;
+•   continue the game even if a tile with the value 2048 is found;
+•   instead of the numbers 2 and 4 (powers of two), use Fibonacci numbers;
+•   add a "super-tile" that can merge with any existing tile on the game board;
+•   add visual effects (animation).
+You can publish the finished game on CodeGym. But first, you need to check your solution
+in order to make the publish button available. The game will be available to all users in the "Games" section.
+You can also share it with your friends on social networks. Wouldn't it be great if they played your version of 2048?
+After you publish your game, write brief instructions (the possible actions,
+the keys/buttons required for the game) and describe the features of your implementation in the comments.
+
+
+Requirements:
+1.	Run the game.
+
+
+2048 (Part 17/18)
+
+I think you long ago noticed the line at the bottom of the game board: "Score: 0". Judging by the name, this is the score :)
+According to the rules of the game, each time tiles are merged, the score increases by the value of the merged tile.
+To implement this, we'll introduce a private int score variable to the Game2048 class.
+Its value increases in the mergeRow(int[]) method if a merger occurs.
+To display the resulting score, you need to call the Game2048 class's setScore(int score) method,
+passing in our score variable. Don't forget to reset the score when the game restarts.
+
+
+
+2048 (Part 16/18)
+
+It's time to find out why we need the isGameStopped flag. We need it to implement the ability to restart the game.
+If the flag is true, the game is stopped due to a win or loss. When you press the space bar (Key.SPACE), you can restart the game.
+Restarting the game is the same as starting a new game: call the createGame() method, which creates a new game board.
+
+Note:
+It's better to check whether the game should be restarted before checking whether a move is possible.
+
+
+
+2048 (Part 15/18)
+
+Just as we need to report wins, we must also report loses. Let's do it in a separate method: void
+gameOver(), by analogy with the win() method. If the game is lost, you also need to set the isGameStopped
+flag equal to true.
+
+At the beginning of the onKeyPress(Key) method, check whether a move is possible. If no move is possible,
+call the gameOver() method and don't do anything else.
+
+
+
+2048 (Part 14/18)
+
+Great! In the last part, we identified the win conditions and implemented them.
+But there's another side of the coin: loss. If the game board has no tile whose
+value is 2048 and no move can be made, then the player has lost.
+
+A move can be made if there is at least one empty tile or there are no empty tiles but they can be merged.
+
+Put these checks in the canUserMove() method.
+
+
+
+2048 (Part 13/18)
+
+The basic game logic is in place, but it's not entirely complete. Based on the rules and the name of the game, the game ends
+when the value of one of the tiles becomes 2048.
+
+You need to search for the maximum value on the game board in a separate int getMaxTileValue() method that returns
+the maximum value. You can perform the check for the winning condition anywhere. For example, at the beginning
+of the createNewNumber() method, or before adding a new value to the matrix.
+
+When a tile whose value is 2048 is found, you need to inform the player that he or she has won. To make it beautiful, call
+the Game class's showMessageDialog(Color cellColor, String message, Color textColor, int textSize) method.
+I don't think I need to explain what to pass to this method: the parameter names speak for themselves.
+
+After a win, the current game ends. In the future, we'll need a certain isGameStopped flag.
+If the game is won, the flag will be equal to true.
+Let's put everything described above (displaying a message about winning, the flag about the game being stopped) in a separate method, which we'll call win().
+
+
+

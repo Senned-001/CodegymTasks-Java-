@@ -1,0 +1,66 @@
+taskKey="com.codegym.games.moonlander.part23"\n\nMoon Lander (Part 23/23)
+
+Congratulations! The game is done! Now you can play it!
+If you have time and motivation, you can improve the game by adding some features of your own.
+For example:
+- make the game harder or easier by changing the landscape (for example, by adding a tunnel);
+- make several landscapes/levels;
+- add visual effects (animation).
+
+You can publish the finished game on CodeGym. But first, you need to check your solution to make the Publish button active.
+The game will be available to all users in the "Games" section.
+You can also share it with your friends on social networks. Wouldn't it be great if they played your version of "Moon Lander"?
+After you publish your game, write brief instructions (the possible actions, the keys/buttons required for the game) and describe the features of your implementation in the comments.
+
+
+Requirements:
+1.	Run the game and enjoy!
+
+
+Moon Lander (Part 22/23)
+
+The game for entertainment, but it would still be great to add a score counter. The user's score depends on how long it takes to land: the faster the landing,
+the higher the score. Accordingly, we'll reduce the user's score (at each step in the game) until it reaches 0. To keep track of the score, we'll add a score variable,
+which will store the number of points. To display the score on the playing field, we need to use the Game class's setScore() method, to which we'll pass the total score.
+Don't forget to zero out the score if the game is lost. To display the correct score after a loss, the call to the setScore method must happen after the call to the check method.
+
+
+
+Moon Lander (Part 21/23)
+
+To fully implement the animation, the switchFire method must account for whether the side thusters are engaged.
+Accordingly, we'll give the existing switchFire method additional parameters responsible for the state of keys for lateral motion,
+i.e. the method's first parameter will be isUpPressed, the second — isLeftPressed, and the third — isRightPressed.
+And we'll process isLeftPressed and isRightPressed by analogy with how we process the isUpPressed parameter.
+
+Note: The x coordinates of the various thrusters are different, but the y coordinates are the same. Don't forget to correct the call to the switchFire method.
+
+
+
+Moon Lander (Part 20/23)
+
+At this stage, we'll draw our first animation. We will need show and hide methods, which will be responsible for displaying and hiding the exhaust blast,
+as well as a switchFire method, which will set the coordinates of the exhaust and call the show and hide methods, depending on the passed argument.
+To display the exhaust blast below the center of the rocket, its x and y coordinates must be set as follows:
+- we set the blast's x coordinate to the rocket's x (position of the left edge) + the rocket's width divided by 2. This will put the blast's x coordinate in the middle of the rocket;
+- we set the blast's y coordinate to the rocket's y (position of the top edge) + the rocket's height. This will put the blast's y coordinate at the bottom of the rocket;
+Don't forget to call the switchFire method in the move method — this will makes it possible to change the animation at each step of the game.
+We also need to override the rocket's draw method in order to have the ability to draw the exhaust blast together with the rocket.
+
+
+
+Moon Lander (Part 19/23)
+
+At this stage, we'll finish our work to display the animation of the jet thrusters. We'll add and implement a nextFrame() method
+that will switch frames in order to create an animation (set the matrix variable to the current matrix from frames).
+We'll also override the draw method, which will change the animation frame (by calling the nextFrame method) and call the superclass's draw method if isVisible == true.
+
+
+
+Moon Lander (Part 18/23)
+
+Let's continue implementing the jet thrusters. At this stage, we'll add variables responsible for left, right, and bottom thrust to the Rocket class.
+In the constructor, we'll set these fields to the appropriate matricies in the ShapeMatrix class, which we've already prepared.
+
+
+

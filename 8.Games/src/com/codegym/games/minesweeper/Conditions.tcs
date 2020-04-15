@@ -1,0 +1,77 @@
+taskKey="com.codegym.games.minesweeper.part16"\n\nMinesweeper (Part 16/16)
+
+Congratulations! The game is done! Run it and see what happens.
+If you have time and motivation, you can improve the game by adding some features of your own. For example:
+•   limit the number of moves;
+•   make it so the first move never hits a mine;
+•   make the game easier or harder by changing the number of mines on the field;
+•   add visual effects (animation).
+You can publish the finished game on CodeGym. But first, you need to check your solution
+in order to make the publish button available. The game will be available to all users in the "Games" section.
+You can also share it with your friends on social networks. Wouldn't it be great if they played your version of Minesweeper?
+After you publish your game, write brief instructions (the possible actions,
+the keys/buttons required for the game) and describe the features of your implementation in the comments.
+
+
+Requirements:
+1.	Run the game and play.
+
+
+Minesweeper (Part 15/16)
+
+As you know, a real minesweeper is mistaken only once. But, fortunately, we can make lots of mistakes in our game.
+Let's implement a way to restart the game. To do this, we'll create a restart() method, where we will start
+the game, and reset the number of hidden cells, mines, and
+points. Don't forget to update the score on the playing field and call the method responsible for creating a game.
+In the restart method(), you also need to clear the flags, mines, numbers, etc. from the playing field. We'll restart the game
+by clicking the left mouse button.
+
+
+
+Minesweeper (Part 14/16)
+
+Admit it — It's not very interesting to play without a score. Let's add this functionality to our game. We will need a variable
+to track points. When an unmined cell is revealed, the score increases by 5 points.
+To display the score on the playing field, we need to use the Game class's setScore() method,
+to which we will pass the total number of points. Note that you need to call this method after increasing the score —
+otherwise the wrong result will be shown.
+Run the game and try to get the maximum number of points.
+
+
+
+Minesweeper (Part 13/16)
+
+The game is won when the number of remaining hidden cells is equal to the number of mines. To count the number
+of hidden cells, we'll introduce another variable whose initial value is equal to the total number of cells on the
+playing field. The value of this variable will decrease as the cells are revealed. When it becomes equal to the
+number of mines, the game is won.
+In the event of a win, our game currently does nothing, but it should. It's time to fix that.
+Let's write a win() method that stops the game and displays a beautiful congratulatory message to the winner.
+
+Run the game and check that the win() method is run when the player wins.
+Note that the win() method is called if the number of hidden cells is equal to the number of mines on the field.
+However, if the last revealed cell is a mine, then the method must not be called.
+
+
+
+Minesweeper (Part 12/16)
+
+A cell can be revealed only once. If a cell is flagged, it must not be revealed.
+And, of course, cells shouldn't be revealed after the game has stopped. Account for all of these points
+in the openTile(int, int) method. Now you need to be sure that everything works correctly — start the game and check.
+
+
+
+Minesweeper (Part 11/16)
+
+In almost any game, the player either wins or loses. Let's first implement the logic for losing.
+To do this, we need a gameOver() method that will stop the game and inform the player about the loss.
+To display a message to the player, the engine has a showMessageDialog() method.
+To track whether the game has stopped, we introduce a special isGameStopped flag. When
+does the player lose? That's right: when a mined cell is revealed. If this
+happens, you need to repaint the cell red (Color.RED) and call the gameOver() method.
+Don't forget to check whether the game has stopped in the markTile(int, int) method. Run the game and check that everything you've
+implemented works.
+
+
+

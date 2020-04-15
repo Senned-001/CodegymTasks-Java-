@@ -1,0 +1,69 @@
+taskKey="com.codegym.games.snake.part20"\n\nSnake (Part 20/20)
+
+Congratulations! The game is done! Run it and see what happens.
+If you have time and motivation, you can improve the game by adding some features of your own. For example:
+•   make the game easier or harder by changing the formula for accelerating turns;
+•   change the scoring system so that it depends on the game speed;
+•   give the snake the ability to pass through walls;
+•   besides apples, generate other fruit that give bonuses (for example, protection against the next collision);
+•   in the player wins, proceed to higher levels;
+•   and whatever else you can dream up :)
+You can publish the finished game on CodeGym. But first, you need to check your solution
+in order to make the publish button available. The game will be available to all users in the "Games" section.
+You can also share it with your friends on social networks. Wouldn't it be great if they played your version of Snake?
+After you publish your game, write brief instructions (the possible actions,
+the keys/buttons required for the game) and describe the features of your implementation in the comments.
+
+
+Requirements:
+1.	Run the game and play.
+
+
+Snake (Part 19/20)
+
+Just some final touches remain — keeping score and displaying points earned. To keep score, create a score variable and set it to 0 when a
+new game is created. Use the setScore(int) method to display the score on the screen. Call it after every change to the score variable.
+The score should increase by 5 after each apple is eaten.
+
+After each apple is eaten, the game speed must increase, i.e. decrease the value of turnDelay (the duration of a turn) by 10.
+After each change to turnDelay, the setTurnTimer(int) method must be called.
+
+
+
+Snake (Part 18/20)
+
+Let's fix our snake control. The direction field can only be changed to currently valid values: LEFT, RIGHT, UP, and DOWN.
+
+
+
+Snake (Part 17/20)
+
+At this stage, we have a bug — an apple can appear on top of the snake. To fix the bug, use our
+checkCollision(GameObject) method. The createNewApple() method must create a new apple (with new coordinates) in a loop until
+the call to the checkCollision(GameObject) method returns false.
+
+Let's also implement logic to restart the game by pressing the SPACE key. The game restarts only if it is stopped.
+
+
+
+Snake (Part 16/20)
+
+The game must also stop in the event of a win. The player wins if the snake grows to a certain size. To store this size,
+in the SnakeGame class, create a GOAL constant and initialize it to 28. To determine the snake's current size, create and implement
+a getLength() method in the Snake class. By analogy with the gameOver() method, create and implement a win() method. But instead of "GAME OVER", it must
+display "YOU WIN". You must also check whether the win condition is satisfied at the end of each turn.
+
+
+
+Snake (Part 15/20)
+
+To store the game state, we'll need the isGameStopped variable in the SnakeGame class. Initialize
+it in the createGame() method. When a game is lost, stop the game and display a message about the loss to the player.
+To do this, create a gameOver() method and add the statements that should be executed when the game is stopped (lost):
+- call the stopTurnTimer() method;
+- set the isGameStopped flag equal to true;
+- display "GAME OVER".
+You need to check the isGameStopped flag at the end of each turn and, if the game is stopped, call the gameOver() method.
+
+
+
