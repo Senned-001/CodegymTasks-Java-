@@ -2,6 +2,7 @@ package com.codegym.games.racer;
 
 import com.codegym.engine.cell.*;
 import com.codegym.engine.cell.Color;
+import com.codegym.games.racer.road.RoadManager;
 
 import java.awt.*;
 
@@ -10,6 +11,9 @@ public class RacerGame extends Game {
     public static final int HEIGHT = 64;
     public static final int CENTER_X = WIDTH/2;
     public static final int ROADSIDE_WIDTH = 14;
+    private RoadMarking roadMarking;
+    private PlayerCar player;
+    private RoadManager roadManager;
 
     @Override
     public void initialize() {
@@ -19,11 +23,18 @@ public class RacerGame extends Game {
     }
 
     private void createGame(){
+        roadMarking = new RoadMarking();
+        player = new PlayerCar();
+        roadManager = new RoadManager();
         drawScene();
+        setTurnTimer(40);
     }
 
     private void drawScene(){
         drawField();
+        roadMarking.draw(this);
+        player.draw(this);
+        roadManager.draw(this);
     }
 
     private void drawField(){
@@ -43,5 +54,33 @@ public class RacerGame extends Game {
     public void setCellColor(int x, int y, Color color) {
         if(x<WIDTH&&x>=0&&y<HEIGHT&&y>=0)
             super.setCellColor(x, y, color);
+    }
+
+    private void moveAll(){
+        roadMarking.move(player.speed);
+        player.move();
+        roadManager.move(player.speed);
+    }
+
+    @Override
+    public void onTurn(int step) {
+        moveAll();
+        roadManager.generateNewRoadObjects(this);
+        drawScene();
+    }
+
+    @Override
+    public void onKeyPress(Key key) {
+        if(key.equals(Key.RIGHT))
+            player.setDirection(Direction.RIGHT);
+        if(key.equals(Key.LEFT))
+            player.setDirection(Direction.LEFT);
+    }
+
+    @Override
+    public void onKeyReleased(Key key) {
+        if((key.equals(Key.RIGHT)&&player.getDirection().equals(Direction.RIGHT))||
+                (key.equals(Key.LEFT)&&player.getDirection().equals(Direction.LEFT)))
+            player.setDirection(Direction.NONE);
     }
 }
