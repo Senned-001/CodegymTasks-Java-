@@ -1,88 +1,76 @@
-taskKey="com.codegym.games.racer.part16"\n\nRacer (Part 16/28)
+taskKey="com.codegym.games.racer.part28"\n\nRacer (Part 28/28)
 
-Currently, the player's car continues to move after colliding with an obstacle. In this part of the project,
-we'll implement a method that will check whether the car has hit an obstacle.
-When implementing this method, use the GameObject class's isCollision(GameObject) method, which we have implemented for you.
-Figure out how it works.
+Congratulations! The game is done! Run it and see what happens.
+If you have time and motivation, you can improve the game by adding some features of your own.
+For example:
+- make it possible to move onto the shoulder;
+- add turns to the race track;
+- add the ability to switch to different speeds;
+- replace the scoring system: for example, add points only for accelerating;
+- give the player the ability to shoot at other cars;
+- add a wider variety of cars and obstacles;
+- in the event of a win, move to higher levels;
+- and whatever else you can dream up! :)
 
-Collisions should be visibly noticeable, i.e. we need to change the image used to display the player's car.
-To do this, give the PlayerCar class a stop() method that sets the matrix field to ShapeMatrix.PLAYER_DEAD.
+You can publish the finished game on CodeGym. But first, you need to check your solution to make the Publish button active.
+The game will be available to all users in the "Games" section.
+You can also share it with your friends on social networks. Wouldn't it be great if they played your version of Racer?
+After you publish your game, write brief instructions (the possible actions, the keys/buttons required for the game) and
+describe the features of your implementation in the comments.
 
 
 Requirements:
-1.	The RoadManager class must have a public boolean checkCrash(PlayerCar) method.
-2.	The checkCrash(PlayerCar) must call the GameObject class&#39;s isCollision(GameObject) method on the elements of the items list in order to check for collisions.
-3.	The checkCrash(PlayerCar) must return true if the player collides with any of the objects in the items list.
-4.	The checkCrash(PlayerCar) must return false if the player has not collided with any of the objects in the items list.
-5.	The PlayerCar class must have a public void stop() method.
-6.	In the stop() method, the player&#39;s matrix must be replaced by ShapeMatrix.PLAYER_DEAD.
+1.	Run the game and play.
 
 
-Racer (Part 15/28)
+Racer (Part 27/28)
 
-Currently, spikes appear only once (at the beginning of the game). To generate a new spike, the old spike must be removed
-from the items list after its leaves the screen. To remove the spike, you can either use an iterator, or
-create a copy of the items list and run through it in a loop. If an object needs to be removed, call items.remove(item).
+To allow the player to share his or her achievements, we'll add a scoring system to the game.
+The player starts with 3500 points. At each step of the game (40 ms), the number of points decreases by 5 until the player finishes.
+This motivates the player to finish the game faster.
 
 
 
-Racer (Part 14/28)
+Racer (Part 26/28)
 
-The time has come to draw the spike on the screen.
+The player win's when he or she crosses the finish line.
 
-There must not be more than one Spike object on the screen at the same time.
-To check this condition, create a spikeExists() method in the RoadManager class.
-To check whether the RoadObject is a spike, you can use its type field.
-
-The void generateSpike(Game) method will be responsible for generating spikes.
-It will check whether there is a spike on the road. If not, then a new spike is generated with a 10% probability.
-In the future, things other than spikes may be obstacles. We'll need the generateNewRoadObjects(Game) method to generate all different kinds of obstacles, but for now it will only generate spikes. It must be called in the RacerGame class's onTurn(int) method.
-
-Additionally, the spike must move together with the race track in the moveAll() method.
+To check whether the player has crossed the finish line, you need to compare his or her y coordinate with the y of the finish line. If the player's y coordinate is less than the finish line's y coordinate, then the line has been crossed.
+In the FinishLine class, create a separate isCrossed(PlayerCar) method to compare the y coordinates.
+You need to call the isCrossed(PlayerCar) method at each step of the game. When the finish line is crossed, the game must be stopped and the player must be informed of the win.
+Implement this in the win() method.
 
 
 
-Racer (Part 13/28)
+Racer (Part 25/28)
 
-The RoadManager class's name isn't arbitrary: it manages all the obstacles on the road.
-It must know how to draw and move all the stored objects.
+In this part of the project, we'll add a progress bar to indicate the player's progress through the game.
 
-In the RacerGame class, create a RoadManager roadManager field so you can access it.
-Initialize the roadManager field in createGame(), and call draw(Game) on it in drawScene().
+Note that you have a new class: ProgressBar. Figure out how it works and what it does?
+To store an instance of the ProgressBar class, we'll need a corresponding field in the game's main class. This field will be initialized at the start of a new game.
+The size of the progress bar will depend on the number of cars that the player must pass. This value is passed to the constructor.
 
-
-
-Racer (Part 12/28)
-
-Obstacles must appear at random locations on the road.
-
-Add two constants to the RoadManager class: FIRST_LANE_POSITION and FOURTH_LANE_POSITION — the far left and far right road positions
-of the x coordinates of the obstacles' matrices. Assign them the values 16 and 44 respectively.
-
-Additionally, the RoadManager class must have a list of all current obstacle objects.
-
-In the same class, create a addRoadObject(RoadObjectType, Game) method that generates a position for a new obstacle and adds it
-to the list of all obstacle objects. The obstacle's coordinates must be generated as follows:
-
-x = game.getRandomNumber(FIRST_LANE_POSITION, FOURTH_LANE_POSITION) — a random lane number;
-y = -1 * RoadObject.getHeight(type) — initially, the object is placed beyond the playing field so that it makes a smooth appearance.
+Our progress bar will be redrawn with each tick of the game, and the displayed progress will change with the number of passed car obstacles.
 
 
 
-Racer (Part 11/28)
+Racer (Part 24/28)
 
-The player will face various obstacles on the road: other cars driving the wrong way, and spikes that don't move relative
-to the race track. These obstacles will inherit the RoadObject class. The types of all possible obstacles are listed in the
-RoadObjectType enum. You now have access to these classes in the road package. And new matrices for displaying obstacles
-have been added to the ShapeMatrix class. Take a look at the RoadObject class and its methods.
+To check the win condition, we'll need to know the actual number of cars that the player has passed.
+To do this, create a passedCarsCount field and corresponding getter in the RoadManager class.
+The value of this field must increase by one after the player passes each car obstacle (removal of a car from the items list).
 
-At this stage, we'll implement the spikes. Create a Spike class and make it inherit RoadObject. To create instances of obstacles,
-in the RoadManager class, create a private RoadObject createRoadObject(RoadObjectType type, int x, int y) method that will
-create and return a new obstacle based on the passed arguments.
-We currently only have one type of obstacle: Spike, so if the createRoadObject method receives any other type as an argument,
-it should return null. Since we know the game object's type, there is no need to pass an image matrix to its constructor.
-Accordingly, the GameObject class will need one more constructor with two int parameters (int x, int y), which are used to
-initialize the x and y fields.
+We'll compare passedCarsCount and RACE_GOAL_CARS_COUNT in the onTurn(int) method.
+If the value of passedCarsCount is greater or equal to RACE_GOAL_CARS_COUNT, then the player has reached the goal and we need to show the finish line.
+
+
+
+Racer (Part 23/28)
+
+In this part of the project, we'll draw and move the finish line. To do this, an instance must be stored in the game's main class and recreated when a new game starts.
+Like the methods of our other objects, the FinishLine class's draw(Game) and move(int) methods will be called every 40 ms, but the results of these method calls will be ignored until the show() method is called.
+Let's also determine the conditions necessary for a win. To make the game challenging and interesting, a win should happen after the player clears 40 car obstacles.
+We'll store this value in the RACE_GOAL_CARS_COUNT constant.
 
 
 
