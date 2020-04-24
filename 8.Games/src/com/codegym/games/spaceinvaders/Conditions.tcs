@@ -1,0 +1,34 @@
+taskKey="com.codegym.games.spaceinvaders.part01"\n\nSpace Invaders (Part 1/34)
+
+Today we invite you to write an exciting game — Space Invaders. As always, we'll start with the rules.
+
+The object of the game is for the player to destroy every alien spaceship.
+The player controls a laser cannon and can move it left and right at the bottom of the screen.
+The player has an unlimited supply of "laser projectiles". When the player hits an alien ship, he or she kills it and receives some points.
+When the game begins, the alien ships are located at the top of the screen. They move horizontally and, upon reaching the edge of the playing field,
+descend to the next row, gradually getting closer to the player.
+As the number of alien ships decreases, the remaining ships begin to move faster.
+After all the aliens are destroyed, the player wins.
+The aliens try to destroy the player's cannon by shooting at it. If an alien hits the cannon, the player loses.
+If even one alien reaches the bottom of the screen, the alien invasion succeeds and the game ends.
+A "boss" is located above the rows of alien ships. If the player destroys the boss, he or she receives bonus points.
+Let's begin. To start, we'll need a SpaceInvadersGame class that inherits the Game class. It has methods that will help us write the game.
+
+Now we'll set up the playing field. To start the game, we need to override the initialize() method, which in turn must call the setScreenSize(int, int) method.
+
+This method sets the playing field's width and height, which it takes as arguments. We'll store them in variables.
+
+To complete the Space Invaders task successfully, we recommend that you read this article about the "Games" section.
+It contains information that you'll find helpful when writing games.
+
+
+Requirements:
+1.	There must be a public SpaceInvadersGame class.
+2.	The SpaceInvadersGame class must inherit the Game class.
+3.	The SpaceInvadersGame class must have a public static final int WIDTH field, initialized to 64 when it is declared.
+4.	The SpaceInvadersGame class must have a public static final int HEIGHT field, initialized to 64 when it is declared.
+5.	In the SpaceInvadersGame class, the initialize() method of the Game parent class must be overridden.
+6.	The Game class&#39;s setScreenSize(int, int) method must be called with arguments (WIDTH, HEIGHT) in the initialize() method.
+7.	The SpaceInvadersGame class must have a statement that imports the entire contents of the com.codegym.engine.cell package.
+
+
