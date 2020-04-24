@@ -1,4 +1,80 @@
-taskKey="com.codegym.games.spaceinvaders.part01"\n\nSpace Invaders (Part 1/34)
+taskKey="com.codegym.games.spaceinvaders.part05"\n\nSpace Invaders (Part 5/34)
+
+Stars aren't the only objects in this game. We will also need spaceships, of course! A game object's appearance is determined by a matrix,
+so we'll add a matrix field to the GameObject class. In addition to the object's outline, the matrix contains the ordinals of colors
+in the com.codegym.engine.cell.Color enum. We'll put the object's dimensions into separate width and height fields. To draw a game object on the screen,
+we'll create a draw(Game game) method. For each cell in the matrix, we'll have this method call the setCellValueEx(int x, int y, Color color, String text)
+method on the Game object passed to it as an argument. To draw the matrix on the playing field, we need to consider the x and y coordinates of the GameObject object.
+These coordinates are the coordinates of the upper left cell of the matrix on the playing field.
+
+For example:
+
+
+As you can see from the example, the upper left corner of the game object's matrix has coordinates x = 2 and y = 4 on the playing field.
+However, relative to its own matrix, these coordinates are x = 0 and y = 0. Accordingly, the setCellValueEx method will be passed the coordinates
+of the upper left corner of the game object's matrix on the playing field + the coordinates of the cell within the game object's matrix (x = 2 + 0, y = 4 + 0).
+
+For example:
+game.setCellValueEx(x of the object on the playing field + x in the matrix, y of the object on the playing field + y in the matrix, color, empty string);
+Note that color is the color of the cell in the object's matrix. You can get it like this: Color.values()[matrix[i][j]],
+where i is the y coordinate in matrix and j is the x coordinate in matrix.
+
+
+Requirements:
+1.	The GameObject class must have a public int[][] matrix field.
+2.	The GameObject class must have a public int width field.
+3.	The GameObject class must have a public int height field.
+4.	The GameObject class must have a public void setMatrix(int[][]) method.
+5.	The setMatrix(int[][]) method must set the matrix field equal to the method parameter.
+6.	The setMatrix(int[][]) method must initialize the width field to the value matrix[0].length.
+7.	The setMatrix(int[][]) method must initialize the height field to the value matrix.length.
+8.	The GameObject class must have a public void draw(Game) method.
+9.	The draw(Game) method must call the setCellValueEx(int, int, Color, String) method on the Game object for each cell of the matrix. As arguments, pass the following: the object&#39;s x coordinate on the playing field + x in the matrix, the object&#39;s y coordinate on the playing field + y in the matrix, color, and an empty string.
+10.	The GameObject class must have a statement that imports the entire contents of the com.codegym.engine.cell package.
+
+
+Space Invaders (Part 4/34)
+
+We can use any Unicode symbol to represent stars. We'll store it in the Star class's STAR_SIGN field.
+To draw stars on the playing field, we'll create a draw(Game) method. We'll have it call the setCellValueEx method on the Game object passed to it as an argument.
+We'll pass the star's coordinates, background color, symbol, color, and size to the setCellValueEx method. Note that the star's x and y coordinates are doubles,
+so you need to convert them to int when calling the setCellValueEx method. To add stars to the game, we'll create a list of stars and a method that will fill
+the list with new stars. And to draw the stars on the playing field, you need to call the draw(Game) method on each star after drawing the playing field.
+
+
+
+Space Invaders (Part 3/34)
+
+Let's implement the drawField() method, which will paint the playing field a single color.
+To do this, we need to set a color and the empty string on each cell. The Game class's setCellValueEx(int, int, Color, String) method will help us.
+The first two parameters are the cell's x and y coordinates, the third is the background color, and the last is the cell's text,
+which is displayed on the playing field. You can find a list of available colors in the game engine's com.codegym.engine.cell.Color enum.
+We don't need any cell text, so we'll pass an empty string.
+For example, to make the cell with coordinates x = 0 and y = 2 black, you need to call setCellValueEx(0, 2, Color.BLACK, "").
+To paint all the cells rather than just one, we need to set the color and text of each cell in each row of the playing field. Loops will help us do this.
+
+For example:
+for (int y = 0; y < height of the playing field; y++) {
+for (int x = 0; x < width of the playing field; x++) {
+setCellValueEx(x, y, cell color, empty string);
+}
+}
+
+The game involves different game objects, so we'll put their common characteristics, such as the coordinates of their location on the playing field,
+into the GameObject parent class. We'll create a separate gameobjects package for all the classes representing game objects.
+Our first game objects will be stars. We'll create a Star class in the gameobjects package and make it inherit the GameObject class.
+
+
+
+Space Invaders (Part 2/34)
+
+Everything in the game happens in outer space. To draw this setting, let's declare a drawField() method.
+We'll create all the elements of the game in the createGame() method, and we'll draw them in the drawScene() method.
+All objects are created when the game starts, so the initialize() method will call setScreenSize(int, int) and then createGame().
+
+
+
+Space Invaders (Part 1/34)
 
 Today we invite you to write an exciting game — Space Invaders. As always, we'll start with the rules.
 
@@ -21,14 +97,5 @@ This method sets the playing field's width and height, which it takes as argumen
 To complete the Space Invaders task successfully, we recommend that you read this article about the "Games" section.
 It contains information that you'll find helpful when writing games.
 
-
-Requirements:
-1.	There must be a public SpaceInvadersGame class.
-2.	The SpaceInvadersGame class must inherit the Game class.
-3.	The SpaceInvadersGame class must have a public static final int WIDTH field, initialized to 64 when it is declared.
-4.	The SpaceInvadersGame class must have a public static final int HEIGHT field, initialized to 64 when it is declared.
-5.	In the SpaceInvadersGame class, the initialize() method of the Game parent class must be overridden.
-6.	The Game class&#39;s setScreenSize(int, int) method must be called with arguments (WIDTH, HEIGHT) in the initialize() method.
-7.	The SpaceInvadersGame class must have a statement that imports the entire contents of the com.codegym.engine.cell package.
 
 
