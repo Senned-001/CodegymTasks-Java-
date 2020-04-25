@@ -1,4 +1,22 @@
-taskKey="com.codegym.games.spaceinvaders.part05"\n\nSpace Invaders (Part 5/34)
+taskKey="com.codegym.games.spaceinvaders.part06"\n\nSpace Invaders (Part 6/34)
+
+Now we'll create a Ship class that will store properties that all spaceships share. It will have a setStaticView method that at present will set a matrix.
+Later, it will set an animation. First, we make a class for ships in the enemy's fleet: EnemyShip. We've provided its matrix for you in the ShapeMatrix class.
+
+
+Requirements:
+1.	There must be a public Ship class in a separate file in the gameobjects package.
+2.	The Ship class must be a descendant of the GameObject class.
+3.	The Ship class must have a public constructor with two double parameters that calls the base class&#39;s constructor using these parameters.
+4.	The Ship class must have a public void setStaticView(int[][] viewFrame) method.
+5.	The setStaticView(int[][] viewFrame) method must call the base class&#39;s setMatrix(int[][]) method. Pass viewFrame to the method.
+6.	There must be a public EnemyShip class in a separate file in the gameobjects package.
+7.	The EnemyShip class must be a descendant of the Ship class.
+8.	The EnemyShip class must have a public constructor with two double parameters that calls the base class&#39;s constructor using these parameters.
+9.	The EnemyShip class&#39;s constructor must call the setStaticView(int[][]) method. Pass ShapeMatrix.ENEMY as the argument.
+
+
+Space Invaders (Part 5/34)
 
 Stars aren't the only objects in this game. We will also need spaceships, of course! A game object's appearance is determined by a matrix,
 so we'll add a matrix field to the GameObject class. In addition to the object's outline, the matrix contains the ordinals of colors
@@ -19,18 +37,6 @@ game.setCellValueEx(x of the object on the playing field + x in the matrix, y of
 Note that color is the color of the cell in the object's matrix. You can get it like this: Color.values()[matrix[i][j]],
 where i is the y coordinate in matrix and j is the x coordinate in matrix.
 
-
-Requirements:
-1.	The GameObject class must have a public int[][] matrix field.
-2.	The GameObject class must have a public int width field.
-3.	The GameObject class must have a public int height field.
-4.	The GameObject class must have a public void setMatrix(int[][]) method.
-5.	The setMatrix(int[][]) method must set the matrix field equal to the method parameter.
-6.	The setMatrix(int[][]) method must initialize the width field to the value matrix[0].length.
-7.	The setMatrix(int[][]) method must initialize the height field to the value matrix.length.
-8.	The GameObject class must have a public void draw(Game) method.
-9.	The draw(Game) method must call the setCellValueEx(int, int, Color, String) method on the Game object for each cell of the matrix. As arguments, pass the following: the object&#39;s x coordinate on the playing field + x in the matrix, the object&#39;s y coordinate on the playing field + y in the matrix, color, and an empty string.
-10.	The GameObject class must have a statement that imports the entire contents of the com.codegym.engine.cell package.
 
 
 Space Invaders (Part 4/34)
