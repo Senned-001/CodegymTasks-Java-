@@ -1,107 +1,63 @@
-taskKey="com.codegym.games.spaceinvaders.part06"\n\nSpace Invaders (Part 6/34)
+taskKey="com.codegym.games.spaceinvaders.part11"\n\nSpace Invaders (Part 11/34)
 
-Now we'll create a Ship class that will store properties that all spaceships share. It will have a setStaticView method that at present will set a matrix.
-Later, it will set an animation. First, we make a class for ships in the enemy's fleet: EnemyShip. We've provided its matrix for you in the ShapeMatrix class.
+When the ships reach the edge of the screen, they begin to move in the opposite direction and drop lower.
+To achieve this, we need to implement the EnemyFleet class's move method.
 
 
 Requirements:
-1.	There must be a public Ship class in a separate file in the gameobjects package.
-2.	The Ship class must be a descendant of the GameObject class.
-3.	The Ship class must have a public constructor with two double parameters that calls the base class&#39;s constructor using these parameters.
-4.	The Ship class must have a public void setStaticView(int[][] viewFrame) method.
-5.	The setStaticView(int[][] viewFrame) method must call the base class&#39;s setMatrix(int[][]) method. Pass viewFrame to the method.
-6.	There must be a public EnemyShip class in a separate file in the gameobjects package.
-7.	The EnemyShip class must be a descendant of the Ship class.
-8.	The EnemyShip class must have a public constructor with two double parameters that calls the base class&#39;s constructor using these parameters.
-9.	The EnemyShip class&#39;s constructor must call the setStaticView(int[][]) method. Pass ShapeMatrix.ENEMY as the argument.
+1.	The EnemyFleet class&#39;s move() method does nothing if there are no ships in the ships list.
+2.	If the direction field is equal to Direction.LEFT and the getLeftBorder() method returns a negative value, you need to set the direction field equal to Direction.RIGHT.
+3.	If the direction field is equal to Direction.RIGHT and the getRightBorder() method returns a value greater than SpaceInvadersGame.WIDTH, you need to set the direction field equal to Direction.LEFT.
+4.	In the move() method, you need to call the getSpeed() method.
+5.	If the value of the direction field changes, you need to call the move(Direction, double) method with the following arguments on each object in the ships list: Direction.DOWN, value returned by the getSpeed() method.
+6.	If the value of the direction field does not change, you need to call the move(Direction, double) method with the following arguments on each object in the ships list: direction, value returned by the getSpeed() method.
 
 
-Space Invaders (Part 5/34)
+Space Invaders (Part 10/34)
 
-Stars aren't the only objects in this game. We will also need spaceships, of course! A game object's appearance is determined by a matrix,
-so we'll add a matrix field to the GameObject class. In addition to the object's outline, the matrix contains the ordinals of colors
-in the com.codegym.engine.cell.Color enum. We'll put the object's dimensions into separate width and height fields. To draw a game object on the screen,
-we'll create a draw(Game game) method. For each cell in the matrix, we'll have this method call the setCellValueEx(int x, int y, Color color, String text)
-method on the Game object passed to it as an argument. To draw the matrix on the playing field, we need to consider the x and y coordinates of the GameObject object.
-These coordinates are the coordinates of the upper left cell of the matrix on the playing field.
-
-For example:
-
-
-As you can see from the example, the upper left corner of the game object's matrix has coordinates x = 2 and y = 4 on the playing field.
-However, relative to its own matrix, these coordinates are x = 0 and y = 0. Accordingly, the setCellValueEx method will be passed the coordinates
-of the upper left corner of the game object's matrix on the playing field + the coordinates of the cell within the game object's matrix (x = 2 + 0, y = 4 + 0).
-
-For example:
-game.setCellValueEx(x of the object on the playing field + x in the matrix, y of the object on the playing field + y in the matrix, color, empty string);
-Note that color is the color of the cell in the object's matrix. You can get it like this: Color.values()[matrix[i][j]],
-where i is the y coordinate in matrix and j is the x coordinate in matrix.
+According to the rules of the game, the fewer ships there are, the faster they move from side to side.
+We'll implement this relationship in the getSpeed method. Note that the enemy ships' speed must not exceed 2.
+We'll also give the EnemyFleet class a direction field and a move method.
+We'll need to give the SpaceInvadersGame class a moveSpaceObjects method. That's where we'll move objects.
+The ships move at each step of the game, so the moveSpaceObjects method must be called in the onTurn method.
+To immediately see the movement on the screen, you need to call the moveSpaceObjects method before redrawing the screen.
 
 
 
-Space Invaders (Part 4/34)
+Space Invaders (Part 9/34)
 
-We can use any Unicode symbol to represent stars. We'll store it in the Star class's STAR_SIGN field.
-To draw stars on the playing field, we'll create a draw(Game) method. We'll have it call the setCellValueEx method on the Game object passed to it as an argument.
-We'll pass the star's coordinates, background color, symbol, color, and size to the setCellValueEx method. Note that the star's x and y coordinates are doubles,
-so you need to convert them to int when calling the setCellValueEx method. To add stars to the game, we'll create a list of stars and a method that will fill
-the list with new stars. And to draw the stars on the playing field, you need to call the draw(Game) method on each star after drawing the playing field.
+Everything will move in the game, which means that we need to specify the direction in which objects are moving. It is convenient to store directions in an enum.
+We'll describe the motion of an enemy ship in the move() method. The method will change the appropriate coordinate depending on direction and speed.
+The downward speed will be a constant 2. Because the enemy fleet moves back and forth between edges of the playing field, we need to watch for when the fleet reaches the edges.
 
 
 
-Space Invaders (Part 3/34)
+Space Invaders (Part 8/34)
 
-Let's implement the drawField() method, which will paint the playing field a single color.
-To do this, we need to set a color and the empty string on each cell. The Game class's setCellValueEx(int, int, Color, String) method will help us.
-The first two parameters are the cell's x and y coordinates, the third is the background color, and the last is the cell's text,
-which is displayed on the playing field. You can find a list of available colors in the game engine's com.codegym.engine.cell.Color enum.
-We don't need any cell text, so we'll pass an empty string.
-For example, to make the cell with coordinates x = 0 and y = 2 black, you need to call setCellValueEx(0, 2, Color.BLACK, "").
-To paint all the cells rather than just one, we need to set the color and text of each cell in each row of the playing field. Loops will help us do this.
-
-For example:
-for (int y = 0; y < height of the playing field; y++) {
-for (int x = 0; x < width of the playing field; x++) {
-setCellValueEx(x, y, cell color, empty string);
-}
-}
-
-The game involves different game objects, so we'll put their common characteristics, such as the coordinates of their location on the playing field,
-into the GameObject parent class. We'll create a separate gameobjects package for all the classes representing game objects.
-Our first game objects will be stars. We'll create a Star class in the gameobjects package and make it inherit the GameObject class.
+Let's continue working on the enemy fleet. To do this, we need to fill the ships list in the createShips() method.
+Keep in mind that the best distance from the top of the screen to the top row of ships is 12 cells.
+To add the enemy fleet to the game, we'll create an enemyFleet field in the SpaceInvadersGame class and initialize it to a new EnemyFleet object.
+The enemy ships are created when the createShips method is called in the EnemyFleet constructor.
+The game is dynamic, so we'll need to regularly redraw the screen and perform other actions. Everything that happens at each step is performed in the onTurn(int) method.
+We'll use the setTurnTimer method to set how often this method is called. It takes an argument that determines how long each step is in milliseconds.
+In other words, given a step of 40 ms (0.04 second), the onTurn method will be called 25 times per second (1 / 0.04 second).
+If you've done everything correctly, you'll see the enemy fleet when you run the program.
 
 
 
-Space Invaders (Part 2/34)
+Space Invaders (Part 7/34)
 
-Everything in the game happens in outer space. To draw this setting, let's declare a drawField() method.
-We'll create all the elements of the game in the createGame() method, and we'll draw them in the drawScene() method.
-All objects are created when the game starts, so the initialize() method will call setScreenSize(int, int) and then createGame().
+In this part of the project, we'll prepare the foundation for the enemy fleet. To do this, we'll create an EnemyFleet class.
+It will store the list of ships, number of rows of ships (ROWS_COUNT), number of ships per row (COLUMNS_COUNT),
+and distance between left corners of adjacent ships (STEP). We'll create the ships and add them to the ships list in the createShips method,
+which we will implement later.
 
 
 
-Space Invaders (Part 1/34)
+Space Invaders (Part 6/34)
 
-Today we invite you to write an exciting game — Space Invaders. As always, we'll start with the rules.
-
-The object of the game is for the player to destroy every alien spaceship.
-The player controls a laser cannon and can move it left and right at the bottom of the screen.
-The player has an unlimited supply of "laser projectiles". When the player hits an alien ship, he or she kills it and receives some points.
-When the game begins, the alien ships are located at the top of the screen. They move horizontally and, upon reaching the edge of the playing field,
-descend to the next row, gradually getting closer to the player.
-As the number of alien ships decreases, the remaining ships begin to move faster.
-After all the aliens are destroyed, the player wins.
-The aliens try to destroy the player's cannon by shooting at it. If an alien hits the cannon, the player loses.
-If even one alien reaches the bottom of the screen, the alien invasion succeeds and the game ends.
-A "boss" is located above the rows of alien ships. If the player destroys the boss, he or she receives bonus points.
-Let's begin. To start, we'll need a SpaceInvadersGame class that inherits the Game class. It has methods that will help us write the game.
-
-Now we'll set up the playing field. To start the game, we need to override the initialize() method, which in turn must call the setScreenSize(int, int) method.
-
-This method sets the playing field's width and height, which it takes as arguments. We'll store them in variables.
-
-To complete the Space Invaders task successfully, we recommend that you read this article about the "Games" section.
-It contains information that you'll find helpful when writing games.
+Now we'll create a Ship class that will store properties that all spaceships share. It will have a setStaticView method that at present will set a matrix.
+Later, it will set an animation. First, we make a class for ships in the enemy's fleet: EnemyShip. We've provided its matrix for you in the ShapeMatrix class.
 
 
 
