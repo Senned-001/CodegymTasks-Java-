@@ -6,7 +6,6 @@ import com.codegym.games.spaceinvaders.ShapeMatrix;
 import com.codegym.games.spaceinvaders.SpaceInvadersGame;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class EnemyFleet {
@@ -73,5 +72,11 @@ public class EnemyFleet {
                 ship.move(Direction.DOWN, getSpeed());
             }
         }
+    }
+
+    public Bullet fire(Game game){
+        if(ships.isEmpty()||game.getRandomNumber(100 / SpaceInvadersGame.DIFFICULTY)>0)
+            return null;
+        return ships.get(game.getRandomNumber(ships.size())).fire();
     }
 }

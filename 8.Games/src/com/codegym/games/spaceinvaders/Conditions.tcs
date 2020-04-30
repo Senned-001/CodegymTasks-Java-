@@ -1,63 +1,68 @@
-taskKey="com.codegym.games.spaceinvaders.part11"\n\nSpace Invaders (Part 11/34)
+taskKey="com.codegym.games.spaceinvaders.part21"\n\nSpace Invaders (Part 21/34)
 
-When the ships reach the edge of the screen, they begin to move in the opposite direction and drop lower.
-To achieve this, we need to implement the EnemyFleet class's move method.
+The game ends when the player wins or loses. Let's implement the stopGame method, which will stop the game and display an appropriate message on the screen.
+You decide on the exact wording of the messages about winning and losing. If a projectile hits a player, the explosion animation must be displayed before the game
+is stopped. To do this, in the stopGameWithDelay method, we'll call the stopGame method with a delay.
+In the check method, if the player is "dead", you need to call stopGameWithDelay to start a countdown to when the game will stop.
 
 
 Requirements:
-1.	The EnemyFleet class&#39;s move() method does nothing if there are no ships in the ships list.
-2.	If the direction field is equal to Direction.LEFT and the getLeftBorder() method returns a negative value, you need to set the direction field equal to Direction.RIGHT.
-3.	If the direction field is equal to Direction.RIGHT and the getRightBorder() method returns a value greater than SpaceInvadersGame.WIDTH, you need to set the direction field equal to Direction.LEFT.
-4.	In the move() method, you need to call the getSpeed() method.
-5.	If the value of the direction field changes, you need to call the move(Direction, double) method with the following arguments on each object in the ships list: Direction.DOWN, value returned by the getSpeed() method.
-6.	If the value of the direction field does not change, you need to call the move(Direction, double) method with the following arguments on each object in the ships list: direction, value returned by the getSpeed() method.
+1.	The SpaceInvadersGame class must have a private boolean isGameStopped field.
+2.	The isGameStopped field must be initialized to false in the createGame() method before the call to the drawScene() method.
+3.	The SpaceInvadersGame class must have a private int animationsCount field.
+4.	The animationsCount field must be initialized to 0 in the createGame() method before the call to the drawScene() method.
+5.	The SpaceInvadersGame class must have a private void stopGame(boolean isWin) method.
+6.	The stopGame(boolean isWin) method must set the isGameStopped field to true.
+7.	In the stopGame(boolean isWin) method, you need to call the stopTurnTimer() method.
+8.	In the stopGame(boolean isWin) method, you need to call the showMessageDialog(Color, String, Color, int) method if isWin is true. Pass Color.GREEN as the text color.
+9.	In the stopGame(boolean isWin) method, you need to call the showMessageDialog(Color, String, Color, int) method if isWin is false. Pass Color.RED as the text color.
+10.	The SpaceInvadersGame class must have a private void stopGameWithDelay() method.
+11.	The stopGameWithDelay() method must increase the animationsCount field by one.
+12.	In the stopGameWithDelay() method, you need to call the stopGame(boolean) method with playerShip.isAlive as the argument if the animationsCount field is greater than or equal to 10.
+13.	In the SpaceInvadersGame class&#39;s check() method, you need to call the stopGameWithDelay() method if the player&#39;s ship is NOT alive.
 
 
-Space Invaders (Part 10/34)
+Space Invaders (Part 20/34)
 
-According to the rules of the game, the fewer ships there are, the faster they move from side to side.
-We'll implement this relationship in the getSpeed method. Note that the enemy ships' speed must not exceed 2.
-We'll also give the EnemyFleet class a direction field and a move method.
-We'll need to give the SpaceInvadersGame class a moveSpaceObjects method. That's where we'll move objects.
-The ships move at each step of the game, so the moveSpaceObjects method must be called in the onTurn method.
-To immediately see the movement on the screen, you need to call the moveSpaceObjects method before redrawing the screen.
-
-
-
-Space Invaders (Part 9/34)
-
-Everything will move in the game, which means that we need to specify the direction in which objects are moving. It is convenient to store directions in an enum.
-We'll describe the motion of an enemy ship in the move() method. The method will change the appropriate coordinate depending on direction and speed.
-The downward speed will be a constant 2. Because the enemy fleet moves back and forth between edges of the playing field, we need to watch for when the fleet reaches the edges.
+We'll create the nextFrame method in the Ship class to switch to the next animation frame.
+It sets the matrix field to the next animation frame, if possible.
+We'll extend the functionality of the draw method by overriding it so that it calls the superclass's method
+for drawing and the nextFrame method for changing animation frames.
 
 
 
-Space Invaders (Part 8/34)
+Space Invaders (Part 19/34)
 
-Let's continue working on the enemy fleet. To do this, we need to fill the ships list in the createShips() method.
-Keep in mind that the best distance from the top of the screen to the top row of ships is 12 cells.
-To add the enemy fleet to the game, we'll create an enemyFleet field in the SpaceInvadersGame class and initialize it to a new EnemyFleet object.
-The enemy ships are created when the createShips method is called in the EnemyFleet constructor.
-The game is dynamic, so we'll need to regularly redraw the screen and perform other actions. Everything that happens at each step is performed in the onTurn(int) method.
-We'll use the setTurnTimer method to set how often this method is called. It takes an argument that determines how long each step is in milliseconds.
-In other words, given a step of 40 ms (0.04 second), the onTurn method will be called 25 times per second (1 / 0.04 second).
-If you've done everything correctly, you'll see the enemy fleet when you run the program.
+We'll implement logic to "kill" the player by overriding the kill() method. In addition to setting the isAlive flag to false,
+it will add an animation of the ship's destruction.
 
 
 
-Space Invaders (Part 7/34)
+Space Invaders (Part 18/34)
 
-In this part of the project, we'll prepare the foundation for the enemy fleet. To do this, we'll create an EnemyFleet class.
-It will store the list of ships, number of rows of ships (ROWS_COUNT), number of ships per row (COLUMNS_COUNT),
-and distance between left corners of adjacent ships (STEP). We'll create the ships and add them to the ships list in the createShips method,
-which we will implement later.
+At this stage, we'll prepare an animation for when a ship explodes. To do this, we need a List<int[][]> frames field,
+which will store a list of matrices representing the animation frames.
+We'll also need a frameIndex field that stores the index of the current animation frame.
+We'll set the animation frames in the setAnimatedView method. It takes an array of frames (matrices) and puts them in the frames list.
+Finally, we'll implement the setStaticView method, which sets the ship's initial matrix.
 
 
 
-Space Invaders (Part 6/34)
+Space Invaders (Part 17/34)
 
-Now we'll create a Ship class that will store properties that all spaceships share. It will have a setStaticView method that at present will set a matrix.
-Later, it will set an animation. First, we make a class for ships in the enemy's fleet: EnemyShip. We've provided its matrix for you in the ShapeMatrix class.
+We'll give the PlayerShip class a method that checks whether enemy projectiles have hit the player's ship (the isCollision() method in the GameObject class).
+If there is a hit, it will "kill" the ship and the projectile. We'll also add the player's ship to the class.
+We'll draw it and add the collision check in the appropriate method.
+
+
+
+Space Invaders (Part 16/34)
+
+Now we'll create the player's ship. We need the PlayerShip class for this. Its constructor will set the ship's coordinates so that
+the ship is displayed centered at the bottom of the screen. The constructor sets the ship's appearance by setting the PLAYER matrix,
+which we've provided for you in the ShapeMatrix class. A ship can have two states: "alive" or "dead". To represent these states,
+we'll add an isAlive field to the Ship parent class. When a projectile hits a ship, they (the projectile and the ship) are destroyed,
+so we'll add a kill method. When it is called, we'll "kill" the ship and the projectile.
 
 
 
