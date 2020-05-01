@@ -19,6 +19,7 @@ public class SpaceInvadersGame extends Game {
     private PlayerShip playerShip;
     private boolean isGameStopped;
     private int animationsCount;
+    private List<Bullet> playerBullets;
 
     @Override
     public void initialize() {
@@ -30,10 +31,11 @@ public class SpaceInvadersGame extends Game {
         createStars();
         enemyFleet =  new EnemyFleet();
         setTurnTimer(40);
-        enemyBullets =  new ArrayList<Bullet>();
+        enemyBullets =  new ArrayList<>();
         playerShip = new PlayerShip();
         isGameStopped = false;
         animationsCount = 0;
+        playerBullets = new ArrayList<>();
         drawScene();
     }
 
@@ -55,6 +57,9 @@ public class SpaceInvadersGame extends Game {
             b.draw(this);
         }
         playerShip.draw(this);
+        for(Bullet b:playerBullets){
+            b.draw(this);
+        }
     }
 
     private void createStars(){
@@ -76,6 +81,10 @@ public class SpaceInvadersGame extends Game {
     private void moveSpaceObjects(){
         enemyFleet.move();
         for(Bullet b:enemyBullets){
+            b.move();
+        }
+        playerShip.move();
+        for(Bullet b:playerBullets){
             b.move();
         }
     }
@@ -104,5 +113,23 @@ public class SpaceInvadersGame extends Game {
         animationsCount++;
         if(animationsCount>=10)
             stopGame(playerShip.isAlive);
+    }
+
+    @Override
+    public void onKeyPress(Key key) {
+        if(isGameStopped == true&&key.equals(Key.SPACE))
+            createGame();
+        if(key.equals(Key.LEFT))
+            playerShip.setDirection(Direction.LEFT);
+        if(key.equals(Key.RIGHT))
+            playerShip.setDirection(Direction.RIGHT);
+    }
+
+    @Override
+    public void onKeyReleased(Key key) {
+        if((key.equals(Key.LEFT)&&playerShip.getDirection().equals(Direction.LEFT))||
+                (key.equals(Key.RIGHT)&&playerShip.getDirection().equals(Direction.RIGHT)))
+            playerShip.setDirection(Direction.UP);
+
     }
 }
