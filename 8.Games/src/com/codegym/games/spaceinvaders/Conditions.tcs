@@ -1,60 +1,68 @@
-taskKey="com.codegym.games.spaceinvaders.part25"\n\nSpace Invaders (Part 25/34)
+taskKey="com.codegym.games.spaceinvaders.part34"\n\nSpace Invaders (Part 34/34)
 
-Now we'll prepare to give the player the ability to shoot. For this, we need a fire() method that will create projectiles.
-We will store them in the playerBullets list. Add logic to draw projectiles in the drawScene method, and to move them — in the moveSpaceObjects method.
-Now all that remains is to implement the ability to shoot using key presses. We'll work on this in the next part of the project.
+Congratulations! The game is done! Run it and see what happens.
+If you have time and motivation, you can improve the game by adding some features of your own.
+For example:
+- add other types of ships;
+- change the number of cannons on the ships;
+- add new types of projectiles;
+- change the scoring system: for example, the more quickly a ship is destroyed, the more points it gives;
+- add bunkers for the player;
+- give bonuses for hitting a certain ship: for example, temporary invincibility, super weapons, etc.;
+- in the event of a win, advance to a harder level;
+- and whatever else you can dream up! :)
+You can publish the finished game on CodeGym. But first, you need to check your solution to make the Publish button active.
+The game will be available to all users in the "Games" section.
+You can also share it with your friends on social networks. Wouldn't it be great if they played your version of Space Invaders?
+After you publish your game, write brief instructions (the possible actions, the keys/buttons required for the game)
+and describe the features of your implementation in the comments.
 
 
 Requirements:
-1.	In the PlayerShip class, the fire() method of the Ship parent class must be overridden.
-2.	The fire() method must return null if the player&#39;s ship is &quot;dead&quot;.
-3.	The fire() method must return a new Bullet object. You need to call the Bullet class&#39;s constructor with the following arguments: x + 2, y - ShapeMatrix.BULLET.length, Direction.UP.
-4.	The SpaceInvadersGame class must have a private List&lt;Bullet&gt; playerBullets field.
-5.	In the createGame() method, the playerBullets field must be initialized with a new ArrayList&lt;Bullet&gt; object before the call to the drawScene() method.
-6.	In the drawScene() method, the draw(Game) method must be called on each object in the playerBullets list after the call to the drawField() method. Pass &quot;this&quot; to the method.
-7.	The moveSpaceObjects() method must call the move() method on each object in the playerBullets list.
+1.	Run the game and play.
 
 
-Space Invaders (Part 24/34)
+Space Invaders (Part 33/34)
 
-When you release the left key or the right key, the ship does not stop moving until it hits the edge of the playing field. Let's fix that.
-We'll override the Game class's onKeyReleased() method. This method is called when keys are released.
-If the player's ship is moving, the onKeyReleased(Key) method changes the player's direction to Direction.UP and, as a result, the ship stops moving.
+At this stage, we'll add scorekeeping to the game. The player gets 15 points for each ordinary ship and 100 points for the boss.
+It will be most convenient to keep score in the checkHit() method, after reworking it a little.
+To store the total score, we'll add a score variable in the SpaceInvadersGame class. We'll display it on the screen using the Game class's setScore method.
 
 
 
-Space Invaders (Part 23/34)
+Space Invaders (Part 32/34)
 
-In this part of the project, we'll move the player's ship. Keep in mind that the ship must not leave the playing field.
-To move the ship with the other objects, you need to call the move() method in the moveSpaceObjects() method of the game's main class.
-
-
-
-Space Invaders (Part 22/34)
-
-Let's add a new property to the player's ship: direction. We'll set it through a setter method. The ship can move in two directions: left or right.
-But it can also hold still, so we'll use "up" to represent this state. The ship isn't moving when the game starts,
-so we'll set the ship's default direction to "up". To read the player's commands (key presses), we'll override the Game parent class's
-onKeyPress(Key) method. When the player presses left or right, this method will set the corresponding direction on the ship.
-We'll also implement the ability to restart a stopped game by pressing the SPACE key.
+The game is lost not only if the player's ship is destroyed, but also if the enemy fleet reaches the player's ship.
+To determine the coordinates of the lower edge of the enemy fleet, we'll add a getBottomBorder() method.
+If all the enemies are destroyed, the player wins. For convenience, we'll add a getShipCount(), method that will return the number of ships remaining in the enemy fleet.
+If the number is 0, you need to call the stopGameWithDelay() method and call the win() method on the playerShip object.
+This method replaces the player's ship matrix with ShapeMatrix.WIN_PLAYER.
+We'll check the number of ships remaining in the enemy fleet and whether they have reached the player's ship in the check() method.
 
 
 
-Space Invaders (Part 21/34)
+Space Invaders (Part 31/34)
 
-The game ends when the player wins or loses. Let's implement the stopGame method, which will stop the game and display an appropriate message on the screen.
-You decide on the exact wording of the messages about winning and losing. If a projectile hits a player, the explosion animation must be displayed before the game
-is stopped. To do this, in the stopGameWithDelay method, we'll call the stopGame method with a delay.
-In the check method, if the player is "dead", you need to call stopGameWithDelay to start a countdown to when the game will stop.
+Let's make the boss animate continuously. To do this, we need to give the setAnimatedView method an isLoopAnimation parameter responsible
+for indicating whether the animation should loop. This parameter is used to properly set the loopAnimation field.
+If the loopAnimation field is true, the nextFrame method repeats the frames by resetting frameIndex.
+As a result, you need to refactor the parameters in places where the setAnimatedView method is called.
 
 
 
-Space Invaders (Part 20/34)
+Space Invaders (Part 30/34)
 
-We'll create the nextFrame method in the Ship class to switch to the next animation frame.
-It sets the matrix field to the next animation frame, if possible.
-We'll extend the functionality of the draw method by overriding it so that it calls the superclass's method
-for drawing and the nextFrame method for changing animation frames.
+Now we'll teach the boss to shoot. Depending on the animation frame, the boss will shoot from different cannons.
+We'll also override the kill() method, where we'll set the value of the isAlive field and set the frames of the explosion animation.
+
+
+
+Space Invaders (Part 29/34)
+
+It's time to create the enemy boss. To make him look tougher, we'll add an animation when he moves.
+If the animation changes with every step, it will move too quickly.
+To create the desired effect, you need to change the frame once every 10 steps.
+That's why we need to override the nextFrame method and add a frameCount variable that will count steps.
 
 
 

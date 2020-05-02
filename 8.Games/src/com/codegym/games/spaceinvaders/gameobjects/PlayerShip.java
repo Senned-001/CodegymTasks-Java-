@@ -41,7 +41,7 @@ public class PlayerShip extends Ship {
     public void kill() {
         if(isAlive){
             isAlive = false;
-            setAnimatedView(ShapeMatrix.KILL_PLAYER_ANIMATION_FIRST,
+            setAnimatedView( false, ShapeMatrix.KILL_PLAYER_ANIMATION_FIRST,
                     ShapeMatrix.KILL_PLAYER_ANIMATION_SECOND,
                     ShapeMatrix.KILL_PLAYER_ANIMATION_THIRD,
                     ShapeMatrix.DEAD_PLAYER);
@@ -66,5 +66,9 @@ public class PlayerShip extends Ship {
         if(!isAlive)
             return null;
         return new Bullet(x + 2, y - ShapeMatrix.BULLET.length, Direction.UP);
+    }
+
+    public void win(){
+        setStaticView(ShapeMatrix.WIN_PLAYER);
     }
 }
